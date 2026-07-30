@@ -1,0 +1,67 @@
+[package]
+name = "avx512_butterfly"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha2 = "0.10"
+serde_json = "1"
+p3-baby-bear = "0.1"
+p3-field = "0.1"
+rand = "0.8"
+
+[dev-dependencies]
+proptest = "1"
+criterion = "0.8.2"
+
+[[bench]]
+name = "butterfly_bench"
+harness = false
+
+[features]
+default = ["std"]
+std = []
+
+[[test]]
+name = "babybear_montgomery"
+path = "tests/babybear_montgomery.rs"
+
+[[test]]
+name = "legacy_montgomery_regression"
+path = "tests/archive/legacy_montgomery_regression.rs"
+
+[[test]]
+name = "babybear_domain"
+path = "tests/babybear_domain.rs"
+
+[[test]]
+name = "ntt_equivalence"
+path = "tests/ntt_equivalence.rs"
+
+[[test]]
+name = "representation_audit"
+path = "tests/representation_audit.rs"
+
+[[test]]
+name = "raw_u32_audit"
+path = "tests/raw_u32_audit.rs"
+
+[[bin]]
+name = "iep_runner"
+path = "instrument/runner/main.rs"
+
+[[test]]
+name = "iep_enforcement"
+path = "tests/iep_enforcement.rs"
+
+[[test]]
+name = "core_domain_blindness"
+path = "tests/core_domain_blindness.rs"
+
+[[test]]
+name = "backend_parity"
+path = "tests/backend_parity.rs"
+
+[[test]]
+name = "gate_enforcement"
+path = "tests/gate_enforcement.rs"

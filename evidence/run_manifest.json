@@ -1,0 +1,48 @@
+{
+  "vep_version": "0.1.2",
+  "timestamp": "2026-07-17T16:23:24Z",
+  "steps": [
+    {
+      "name": "verify_repo",
+      "status": "pass",
+      "duration_ms": 0
+    },
+    {
+      "name": "capture_commit",
+      "status": "pass",
+      "duration_ms": 21
+    },
+    {
+      "name": "capture_toolchain",
+      "status": "pass",
+      "duration_ms": 42
+    },
+    {
+      "name": "build_scalar",
+      "status": "pass",
+      "duration_ms": 4
+    },
+    {
+      "name": "execute_corpus",
+      "status": "pass",
+      "duration_ms": 13
+    },
+    {
+      "name": "generate_hash",
+      "status": "pass",
+      "duration_ms": 37
+    },
+    {
+      "name": "emit_receipt",
+      "status": "pass",
+      "duration_ms": 15
+    },
+    {
+      "name": "invoke_verifier",
+      "status": "pass",
+      "duration_ms": 36
+    }
+  ],
+  "total_duration_ms": 439,
+  "exit_code": 0
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TSCP Validation Evidence Receipt v0.1",
+  "description": "The handoff object between a TSCP evidence producer and a TSCP verifier. This is the minimal interoperability object for VEP-0.1.1.",
+  "type": "object",
+  "required": [
+    "protocol",
+    "version",
+    "commit",
+    "backend",
+    "corpus",
+    "verification",
+    "artifact_hash"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "enum": ["TSCP"],
+      "description": "Protocol identifier"
+    },
+    "version": {
+      "type": "string",
+      "description": "Release version tag (e.g. v1.0-rc1)"
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$",
+      "description": "Git commit hash at execution time"
+    },
+    "backend": {
+      "type": "string",
+      "enum": ["scalar"],
+      "description": "Backend used for computation (VEP-0.1.1: scalar only)"
+    },
+    "corpus": {
+      "type": "string",
+      "enum": ["firebird_reference"],
+      "description": "Canonical corpus identifier"
+    },
+    "verification": {
+      "type": "string",
+      "enum": ["PASS", "REJECT"],
+      "description": "Verifier decision"
+    },
+    "artifact_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "SHA-256 hash of the evidence artifact output"
+    }
+  },
+  "additionalProperties": false
+}

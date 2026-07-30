@@ -1,0 +1,66 @@
+{
+  "authority": {
+    "corpus": "babybear_vectors_001",
+    "corpus_hash": "sha256:48da63b99e1c7e0ce2490dd503e1d536850d286136b4b6e7d779a814f152e319",
+    "expected_hash": "sha256:d2a418be1dec267776a7f7392f521dee0d58651e37295656a4c9e82f4b35bddc",
+    "reference": "scalar_butterfly",
+    "spec": "ntt-contract-v1"
+  },
+  "environment": {
+    "compiler": "<rustc not found>",
+    "target": "x86_64-linux"
+  },
+  "evidence": {
+    "corpus_hash": "sha256:48da63b99e1c7e0ce2490dd503e1d536850d286136b4b6e7d779a814f152e319",
+    "correct": true,
+    "output_hash": "sha256:d2a418be1dec267776a7f7392f521dee0d58651e37295656a4c9e82f4b35bddc",
+    "output_pairs": [
+      {
+        "x": 0,
+        "y": 0
+      },
+      {
+        "x": 943718400,
+        "y": 1069547521
+      },
+      {
+        "x": 1,
+        "y": 1
+      },
+      {
+        "x": 943718401,
+        "y": 1069547522
+      },
+      {
+        "x": 692059855,
+        "y": 1321206150
+      },
+      {
+        "x": 943718399,
+        "y": 1069547520
+      },
+      {
+        "x": 1069547520,
+        "y": 943718399
+      },
+      {
+        "x": 943718399,
+        "y": 1069547520
+      },
+      {
+        "x": 1069547520,
+        "y": 943718400
+      },
+      {
+        "x": 739890310,
+        "y": 1848594445
+      }
+    ]
+  },
+  "iep_version": "0.1",
+  "implementation": {
+    "backend": "reference",
+    "commit": "396ebfb78fd6ce0bb6bfbc956005cd28b9c0b359"
+  },
+  "instrument": "babybear_ntt"
+}

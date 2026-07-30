@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "algorithm_id": "machin_pi",
+  "implementation_id": "machin_python_v1",
+  "parameters": {
+    "digits": 1349,
+    "formula": "pi = 16*arctan(1/5) - 4*arctan(1/239)",
+    "verifier_formula": "gauss: pi = 48*arctan(1/18) + 32*arctan(1/57) - 20*arctan(1/239)",
+    "output_encoding": "decimal digit string (str(pi_integer))"
+  },
+  "output_digest": "sha256:dd03f7b27f1395ad73de57121595f3ba9d69aae91e63e1db580afc00418fa8ae",
+  "reference_checks": [
+    {
+      "verifier_id": "gauss_formula",
+      "method": "Independent computation via Gauss formula: \u03c0 = 48\u00b7arctan(1/18) + 32\u00b7arctan(1/57) \u2212 20\u00b7arctan(1/239). Full string equality check.",
+      "result": true,
+      "detail": "Machin and Gauss produce identical output strings."
+    },
+    {
+      "verifier_id": "gauss_suffix",
+      "method": "Last 50 digits of Gauss output compared to Machin output.",
+      "result": true,
+      "detail": "Suffix match: True. Machin: ...96602405803815019351, Gauss: ...96602405803815019351"
+    },
+    {
+      "verifier_id": "known_prefix",
+      "method": "First 15 digits compared against known \u03c0 value (3.14159265358979...).",
+      "result": true,
+      "detail": "Prefix match: True. Got: 314159265358979"
+    }
+  ],
+  "measurements": {
+    "machin_runtime_ns": 1096042,
+    "gauss_runtime_ns": 1039528,
+    "total_runtime_ns": 2135570
+  },
+  "environment": {
+    "hostname": "modal",
+    "os": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+    "python_version": "3.11.15",
+    "timestamp": "2026-07-15T03:10:59.101776+00:00"
+  },
+  "provenance_hash": "sha256:327b1af8ed0b975aeaa21fde31b7c748679641cb7f234570c7459f5c283042cf"
+}

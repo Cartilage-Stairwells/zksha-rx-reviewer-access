@@ -1,0 +1,52 @@
+{
+  "schema": "tscp-evidence-manifest-v1",
+  "protocol": "TSCP-PL",
+  "artifact": "ntt_equivalence_evidence_bundle",
+  "version": "v1",
+  "sealed_commit": "0205722cbee5f7043459afddbdeaab0d6732c044",
+  "sealed_at": "2026-07-24T07:48:00Z",
+  "contents": [
+    {
+      "file": "tscp_ntt_equivalence_receipt.v1.json",
+      "description": "Machine-readable verification receipt with 8 claims",
+      "type": "application/json",
+      "role": "primary_receipt"
+    },
+    {
+      "file": "environment.json",
+      "description": "Toolchain fingerprint and platform info",
+      "type": "application/json",
+      "role": "environment"
+    },
+    {
+      "file": "test_output.txt",
+      "description": "Expected test output (structure documentation — run cargo test locally for actual output)",
+      "type": "text/plain",
+      "role": "test_record"
+    },
+    {
+      "file": "checksums.sha256",
+      "description": "SHA-256 checksums of all bundle files",
+      "type": "application/octet-stream",
+      "role": "integrity"
+    },
+    {
+      "file": "manifest.json",
+      "description": "This file — bundle manifest",
+      "type": "application/json",
+      "role": "manifest"
+    }
+  ],
+  "claims_verified": [
+    "butterfly.oracle_equivalence",
+    "ntt.correctness_vs_dft",
+    "ntt.stage_equivalence",
+    "ntt.round_trip",
+    "ntt.twiddle_sanity",
+    "representation.invariants",
+    "raw_u32.boundary",
+    "safety.documentation"
+  ],
+  "admission_gate": "No SIMD optimization may enter unless it preserves this sealed receipt.",
+  "result": "ACCEPT"
+}

@@ -1,0 +1,23 @@
+{
+  "toolchain": {
+    "rustc_version": "",
+    "rustc_host": "",
+    "rustc_commit_hash": "",
+    "rustc_release_date": ""
+  },
+  "platform": {
+    "os": "Linux",
+    "arch": "x86_64",
+    "kernel": "4.19.0-gvisor"
+  },
+  "features": {
+    "avx512f": "true",
+    "avx512dq": "true"
+  },
+  "git": {
+    "commit_sha": "0205722cbee5f7043459afddbdeaab0d6732c044",
+    "branch": "master",
+    "tree_hash": "18b5ffdcc6b48abb3f70bb923329a9ea44c3939b"
+  },
+  "generated_at": "2026-07-24T07:48:00Z"
+}

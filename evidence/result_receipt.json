@@ -1,0 +1,9 @@
+{
+  "protocol": "TSCP",
+  "version": "v1.0-rc1",
+  "commit": "396ebfb78fd6ce0bb6bfbc956005cd28b9c0b359",
+  "backend": "scalar",
+  "corpus": "firebird_reference",
+  "verification": "PASS",
+  "artifact_hash": "sha256:d2a418be1dec267776a7f7392f521dee0d58651e37295656a4c9e82f4b35bddc"
+}
