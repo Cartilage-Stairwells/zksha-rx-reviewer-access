@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.5` |
+| Tag | `review-v0.1.6` |
 | Commit | This tag's target |
 | Date | 2026-07-30 |
-| Status | Frozen — claims language normalization |
+| Status | Frozen — validated clean snapshot (supersedes local v0.1.5 tag drift) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.5` | `0ea4eff` | 2026-07-30 | Claims language normalization + CLAIM_LANGUAGE_POLICY.md |
 | `review-v0.1.4` | `bda165b` | 2026-07-30 | Stale checkout command fixed |
 | `review-v0.1.3` | `4e2d404` | 2026-07-30 | Identity alignment + validation gate |
 | `review-v0.1.2` | `6f7cfd8` | 2026-07-30 | Evidence closure: SHA256SUMS, dead paths, Criterion version |
