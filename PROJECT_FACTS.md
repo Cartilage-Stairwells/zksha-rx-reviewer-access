@@ -12,32 +12,32 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-v0.1.0-zksha-rx
+review-v0.1.2
 
 Frozen commit:
-eb5533d (historical reference — pre-review-v0.1.1)
+review-v0.1.2 / 6f7cfd8 (current snapshot)
 
 ## Access Model
 
 Repository status:
-Private development repository with invited reviewer access.
+This repository is the frozen public reviewer snapshot. Historical development artifacts may exist outside this tree.
 
 Approved access language:
 > Source code and benchmark artifacts are available for technical review by qualified reviewers.
 
 Reviewer access:
-> Reviewer access to the validation repository will be provided upon request or with an invitation.
+> This repository is publicly accessible. No access request needed.
 
 Review target:
-> Reviewers should evaluate tag v0.1.0-zksha-rx.
+> Reviewers should evaluate tag review-v0.1.2.
 
 Do not use:
-- "Open source (MIT/Apache 2.0)" — the repository is not publicly open
-- git clone commands with public URLs — use the reviewer access language instead
-- "public" or "publicly available" when referring to the repository
+- "Open source project" — this is a frozen review snapshot, not a maintained open-source project
+- References to unavailable historical tooling or artifacts
+- "production-ready" or "drop-in" — no integration claims are made
 
 License note:
-The repository contains a license file, but the source is not publicly distributed at this stage. Reviewer access does not constitute public release.
+This repository is public for technical review. It contains a license file. The snapshot is frozen — no ongoing development occurs here. Historical development artifacts may exist outside this tree.
 
 ## Measured Performance
 
@@ -88,7 +88,8 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Commit: eb5533d (historical — development repo, pre-review-v0.1.1)
+- Current snapshot: review-v0.1.2 / 6f7cfd8
+- Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:
 - vep-0.1.4-sealed
@@ -114,7 +115,7 @@ Provenance statement:
 > The repository contains reproducible provenance records documenting implementation history, verification artifacts, benchmark methodology, and release state.
 
 Access statement:
-> Source code and benchmark artifacts are available for technical review by qualified reviewers. Reviewer access to the validation repository will be provided upon request or with an invitation.
+> Source code and benchmark artifacts are available for technical review by qualified reviewers. This repository is publicly accessible. No access request needed.
 
 ## Prohibited in External Materials
 
@@ -129,6 +130,6 @@ Access statement:
 - 3.94× without explicit benchmark context (historical — archive, do not use in external materials)
 - "Formally verified AVX-512 engine" (the SIMD path is not formally verified — only the arithmetic foundation)
 - "drop-in acceleration" (not yet integration-validated)
-- "Open source (MIT/Apache 2.0)" (repository is private with reviewer access)
-- git clone commands with public URLs (use reviewer access language instead)
+- "Open source" (this is a frozen review snapshot, not an open-source project)
+- References to unavailable historical tooling or artifacts
 - "public" or "publicly available" when referring to repository access
