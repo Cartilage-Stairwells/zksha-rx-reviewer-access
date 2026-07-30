@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.3` |
+| Tag | `review-v0.1.4` |
 | Commit | This tag's target |
 | Date | 2026-07-30 |
-| Status | Frozen — final release identity + validation gate |
+| Status | Frozen — stale checkout command fixed |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.3` | `4e2d404` | 2026-07-30 | Identity alignment + validation gate |
 | `review-v0.1.2` | `6f7cfd8` | 2026-07-30 | Evidence closure: SHA256SUMS, dead paths, Criterion version |
 | `review-v0.1.1` | `9edec5f` | 2026-07-30 | Evidence symbol fix (stale `avx512_radix2_butterfly` → `avx512_radix2_butterfly_32`) |
 | `review-v0.1.0` | `e3d49fc` | 2026-07-29 | Initial frozen reviewer snapshot |
