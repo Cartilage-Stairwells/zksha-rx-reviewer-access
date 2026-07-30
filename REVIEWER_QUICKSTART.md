@@ -40,7 +40,7 @@ Pick the scope that matches your expertise:
 
 ```bash
 # This repository is self-contained — clone THIS repo, not any other.
-# Review tag: review-v0.1.1 (commit 9edec5f)
+# Review tag: review-v0.1.3
 
 # Build
 cargo build --release

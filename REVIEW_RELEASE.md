@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.2` |
-| Source commit | `6f7cfd8` |
-| Previous snapshot | `review-v0.1.1` / `9edec5f` (historical) |
+| Release tag | `review-v0.1.3` |
+| Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
+| Previous snapshot | `review-v0.1.2` / `6f7cfd8` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Artifact Inventory
