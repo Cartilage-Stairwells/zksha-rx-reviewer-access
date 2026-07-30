@@ -15,7 +15,7 @@ Frozen release:
 v0.1.0-zksha-rx
 
 Frozen commit:
-eb5533d
+eb5533d (historical reference — pre-review-v0.1.1)
 
 ## Access Model
 
@@ -42,7 +42,7 @@ The repository contains a license file, but the source is not publicly distribut
 ## Measured Performance
 
 Benchmark framework:
-Criterion 0.5.1
+Criterion (historical 0.5.1; snapshot 0.8.2)
 
 Method:
 - 100 samples
@@ -88,7 +88,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Commit: eb5533d
+- Commit: eb5533d (historical — development repo, pre-review-v0.1.1)
 
 Do not use:
 - vep-0.1.4-sealed

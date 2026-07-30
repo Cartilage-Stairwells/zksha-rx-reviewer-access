@@ -98,7 +98,7 @@ This means the benchmark cannot produce speedup numbers without also proving the
 | 2^20 (1M) | 41,178,005 | 9,770,167 | 4.21x |
 | **Geometric mean** | — | — | **3.94x** |
 
-**Source:** `docs/AVX512_REFINEMENT_RECEIPT.md` (commit 9473af6)
+**Source:** `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` (commit 9473af6)
 
 **Methodology:** 1000 iterations per size, 10 untimed warm-up iterations, deterministic LCG seed, release mode, full NTT (all stages). Measured after DIF butterfly correctness closure (commit 78c040f).
 
@@ -107,7 +107,7 @@ This means the benchmark cannot produce speedup numbers without also proving the
 **Reproduction:** Run on any AVX-512 host (avx512f + avx512dq required):
 ```bash
 export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
-cargo run --release --example perf_measure
+# perf_measure: not in this snapshot (historical)
 ```
 
 ### Backend Parity
@@ -172,7 +172,7 @@ Benchmark command:
 
 ### Prior Measurement Environment
 
-The 3.3x–4.4x speedup (commit 9473af6) was captured on AVX-512 hardware. Full environment disclosure was captured in the sealed benchmark bundle. When reproducing, include the above block with your local environment.
+The 3.3x–4.4x speedup (historical, commit 9473af6 in development repo) was captured on AVX-512 hardware. Full environment disclosure was captured in the sealed benchmark bundle. When reproducing, include the above block with your local environment.
 
 ### Why This Matters
 
@@ -196,7 +196,7 @@ cd zksha-rx-reviewer-access
 
 # Run the performance measurement (scalar vs AVX-512)
 export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
-cargo run --release --example perf_measure
+# perf_measure: not in this snapshot (historical)
 
 # Run the Criterion benchmarks (detailed statistical analysis)
 cargo bench --bench butterfly_bench
@@ -218,13 +218,13 @@ The repository includes a provenance-sealed benchmark system:
 
 ```bash
 # Capture provenance + run benchmark
-./tools/run_benchmark.sh
+# Benchmark runner: not in this snapshot (historical)
 
 # Seal the results (verifies AVX-512 execution, generates SHA256SUMS)
-./tools/run_benchmark.sh --seal benchmark_reports/firebird_74c6e5f
+# Benchmark runner: not in this snapshot (historical) --seal benchmark_reports/firebird_74c6e5f
 
 # Verify the sealed bundle
-cd benchmark_reports/firebird_74c6e5f
+# benchmark_reports/ not in this snapshot (historical)
 sha256sum -c SHA256SUMS
 ```
 

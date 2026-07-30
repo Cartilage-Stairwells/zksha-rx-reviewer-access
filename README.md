@@ -7,7 +7,7 @@
 
 ## What This Is
 
-zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, delivering 9.15× speedup on the BabyBear DIT butterfly kernel and 4.58× on the raw i32 XOR butterfly kernel, measured via Criterion (0.5.1).
+zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, delivering 9.15× speedup on the BabyBear DIT butterfly kernel and 4.58× on the raw i32 XOR butterfly kernel, measured via Criterion (historical 0.5.1; this snapshot uses 0.8.2).
 
 No GPU. No ASIC. No FPGA. Standard CPU architecture with AVX-512.
 
@@ -39,7 +39,7 @@ TSCP provides the custody and provenance guarantees — every artifact is hashed
 
 ## Verified Components
 
-Per the benchmark-of-record (criterion 0.5.1, 100 samples, 3s warmup, outlier rejection):
+Per the benchmark-of-record (criterion (historical 0.5.1; snapshot 0.8.2), 100 samples, 3s warmup, outlier rejection):
 
 | Kernel | Scalar | AVX-512 | Speedup | CI width |
 |---|---|---|---|---|
@@ -100,7 +100,6 @@ tests/
 benches/
   butterfly_bench.rs          ← Criterion bench: scalar and avx512 groups
 examples/
-  perf_measure.rs             ← standalone speedup measurement (scalar vs AVX-512)
   ntt_driver.rs               ← NTT forward/inverse driver
 tools/
   capture_benchmark_provenance.sh   ← standalone host/toolchain snapshot
@@ -121,15 +120,15 @@ cargo test --release
 
 # Performance measurement (AVX-512 host required)
 export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
-cargo run --release --example perf_measure
+# perf_measure harness: not included in this snapshot (historical measurement)
 
 # Full Criterion benchmarks
 cargo bench --bench butterfly_bench
 
 # Sealed benchmark bundle
-./tools/run_benchmark.sh firebird_74c6e5f benchmark_reports/firebird_74c6e5f
-cp -r target/criterion/firebird_74c6e5f benchmark_reports/firebird_74c6e5f/criterion/
-./tools/run_benchmark.sh --seal benchmark_reports/firebird_74c6e5f
+# Benchmark tooling: not included in this snapshot (historical measurement)
+# Criterion data: not in this snapshot (historical)
+# Seal tooling: not included in this snapshot
 ```
 
 ---

@@ -25,9 +25,9 @@ Pick the scope that matches your expertise:
 
 | Measurement | Scope | Result | Harness |
 |-------------|-------|--------|---------|
-| DIT butterfly kernel | isolated kernel | 9.15× | Criterion 0.5.1 |
-| XOR butterfly kernel | isolated kernel | 4.58× | Criterion 0.5.1 |
-| Full NTT sweep | sizes 2⁸–2²⁰ | 3.94× geo mean | perf_measure |
+| DIT butterfly kernel | isolated kernel | 9.15× (historical) | Criterion (0.5.1 → 0.8.2) |
+| XOR butterfly kernel | isolated kernel | 4.58× (historical) | Criterion (0.5.1 → 0.8.2) |
+| Full NTT sweep | sizes 2⁸–2²⁰ | 3.94× geo mean (historical) | perf_measure (not in snapshot) |
 
 ## What is NOT Claimed
 
@@ -40,6 +40,7 @@ Pick the scope that matches your expertise:
 
 ```bash
 # This repository is self-contained — clone THIS repo, not any other.
+# Review tag: review-v0.1.1 (commit 9edec5f)
 
 # Build
 cargo build --release

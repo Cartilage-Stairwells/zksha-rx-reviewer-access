@@ -16,7 +16,7 @@ Build configuration (RUSTFLAGS=-C target-feature=+avx512f,+avx512dq, --release)
     ↓
 Hardware identity (x86_64, kernel 4.19.0-gvisor, avx512f+dq+cd+bw+vl+vbmi+vnni)
     ↓
-Benchmark command (cargo run --release --example perf_measure)
+Benchmark command (# perf_measure: not in this snapshot (historical))
     ↓
 Raw measurements (7 sizes, 1000 iterations each, 10 warmup)
     ↓
@@ -33,7 +33,7 @@ Each link is independently verifiable.
 
 ```
 Commit: 427c34a (current tip, tag v0.1.0-zksha-rx)
-Measurement commit: 9473af6 (docs: AVX-512 refinement receipt)
+Measurement commit: 9473af6 (historical — development repo) (docs: AVX-512 refinement receipt)
 Correctness fix commit: 78c040f (DIF butterfly — Semantic Drift resolved)
 Evidence seal commit: 49eac025 (tag: vep-0.1.4-sealed, avx512-v1-evidence-sealed)
 
@@ -77,10 +77,10 @@ Benchmark measurements on SIMD-capable host (full AVX-512 feature set above).
 
 ```bash
 export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
-cargo run --release --example perf_measure
+# perf_measure: not in this snapshot (historical)
 ```
 
-Methodology (from `docs/AVX512_REFINEMENT_RECEIPT.md` §5.1):
+Methodology (from `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.1):
 - Measured AFTER correctness closure (DIF fix applied first)
 - 1000 iterations per size, averaged
 - 10 untimed warm-up iterations
@@ -93,7 +93,7 @@ Methodology (from `docs/AVX512_REFINEMENT_RECEIPT.md` §5.1):
 
 ## 5. Raw Measurements
 
-From `docs/AVX512_REFINEMENT_RECEIPT.md` §5.2:
+From `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.2:
 
 | n | Scalar (ns) | AVX-512 (ns) | Speedup |
 |---|-------------|-------------|---------|

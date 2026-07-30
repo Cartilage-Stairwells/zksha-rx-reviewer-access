@@ -7,8 +7,8 @@
 
 | # | Claim | Scope | Result | Evidence | Non-Claim |
 |---|-------|-------|--------|----------|-----------|
-| 1 | AVX-512 DIT butterfly kernel speedup | Isolated kernel, Criterion 0.5.1 | 9.15× | `BENCHMARKS.md` | End-to-end proving speedup |
-| 2 | AVX-512 XOR butterfly kernel speedup | Isolated kernel, Criterion 0.5.1 | 4.58× | `BENCHMARKS.md` | End-to-end proving speedup |
+| 1 | AVX-512 DIT butterfly kernel speedup | Isolated kernel, Criterion (historical 0.5.1; snapshot 0.8.2) | 9.15× | `BENCHMARKS.md` | End-to-end proving speedup |
+| 2 | AVX-512 XOR butterfly kernel speedup | Isolated kernel, Criterion (historical 0.5.1; snapshot 0.8.2) | 4.58× | `BENCHMARKS.md` | End-to-end proving speedup |
 | 3 | Full NTT sweep speedup | Sizes 2⁸–2²⁰, perf_measure | 3.94× geo mean | `MEASUREMENT.md`, `evidence/` | Kernel speedup ≠ prover speedup |
 
 ## Correctness Claims
@@ -20,15 +20,23 @@
 | 6 | Formal verification of Montgomery arithmetic | Lean 4: Montgomery multiplication, residue closure, Bézout identity | `formal/README.md`, external Lean repo | Formal verification of SIMD implementation |
 | 7 | Reproducible benchmark artifacts | SHA256SUMS, evidence manifest, environment config | `evidence/`, `SHA256SUMS` | Results generalize to all AVX-512 CPUs |
 
+## Reproducibility Status
+
+| Claim | Reproducible from this snapshot? | Notes |
+|-------|----------------------------------|-------|
+| 9.15× DIT butterfly | Partially — bench harness exists (`cargo bench`) | Historical numbers measured with Criterion 0.5.1 on real AVX-512 hardware. This snapshot uses Criterion 0.8.2. Results may differ. |
+| 4.58× XOR butterfly | Partially — bench harness exists (`cargo bench`) | Same as above. |
+| 3.94× full NTT sweep | No — perf_measure harness not in this snapshot | Historical result. Not reproducible from this checkout. |
+
 ## Methodology
 
 | Aspect | Value |
 |--------|-------|
-| Benchmark framework | Criterion 0.5.1 |
+| Benchmark framework | Criterion (historical 0.5.1; snapshot 0.8.2) |
 | Samples | 100 per measurement |
 | Warmup | 3 seconds |
 | Outlier rejection | Enabled |
-| Full NTT framework | perf_measure, 1000 iterations/size |
+| Full NTT framework | perf_measure (historical), 1000 iterations/size |
 | Test count | 140 total (all passing) |
 
 ## Important Distinctions

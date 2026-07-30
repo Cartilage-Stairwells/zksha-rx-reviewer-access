@@ -35,7 +35,7 @@ A benchmark missing any anchor is a claim, not evidence.
 The first sealed performance specimen for this project is `firebird_74c6e5f`.
 
 **Source commit:** `74c6e5f841d1c509b4b7166258ee3bb712535aae`
-**Artifact directory:** `benchmark_reports/firebird_74c6e5f/`
+**Artifact directory:** `benchmark_reports/` (not in this snapshot)
 **Capture tooling frozen at:** `f44d309`
 
 The infrastructure history and measurement history are kept separate
@@ -46,7 +46,7 @@ only generated files. The commit ordering is itself part of the evidence:
 Infrastructure history          Measurement history
 ──────────────────────          ───────────────────
 4fa41f1  CI provenance          <future commit>
-3e901bf  capture tooling            benchmark_reports/firebird_74c6e5f/
+3e901bf  capture tooling            benchmark_reports/ (not in this snapshot)/
 acd08d6  bundle sealing                 ├── criterion/
 f44d309  pre-seal validation            ├── provenance/
 38e65a2  this document                  ├── manifest.json
@@ -71,13 +71,13 @@ git rev-parse HEAD    # must be 74c6e5f841d1c509b4b7166258ee3bb712535aae
 git status --short    # must be empty (clean tree)
 
 # Phase 1: provenance + benchmark
-./tools/run_benchmark.sh firebird_74c6e5f benchmark_reports/firebird_74c6e5f
+# Benchmark runner: not in this snapshot firebird_74c6e5f benchmark_reports/ (not in this snapshot)
 
 # Phase 2: fold in Criterion data
-cp -r target/criterion/firebird_74c6e5f benchmark_reports/firebird_74c6e5f/criterion/
+cp -r target/criterion/firebird_74c6e5f benchmark_reports/ (not in this snapshot)/criterion/
 
 # Phase 3: verify + seal
-./tools/run_benchmark.sh --seal benchmark_reports/firebird_74c6e5f
+# Benchmark runner: not in this snapshot --seal benchmark_reports/ (not in this snapshot)
 ```
 
 The measurement event should be intentionally boring:
@@ -136,7 +136,7 @@ name changes; the protocol does not.
 ## Verification (at any time)
 
 ```bash
-cd benchmark_reports/firebird_74c6e5f
+cd benchmark_reports/ (not in this snapshot)
 sha256sum -c SHA256SUMS
 ```
 
