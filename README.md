@@ -7,7 +7,7 @@
 
 ## What This Is
 
-zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, delivering 9.15× speedup on the BabyBear DIT butterfly kernel and 4.58× on the raw i32 XOR butterfly kernel, measured via Criterion (historical 0.5.1; this snapshot uses 0.8.2).
+zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, measured benchmark results report up to 9.15× speedup for the BabyBear DIT butterfly kernel and 4.58× for the raw i32 XOR butterfly kernel under the documented benchmark configuration, measured via Criterion (historical 0.5.1; this snapshot uses 0.8.2).
 
 No GPU. No ASIC. No FPGA. Standard CPU architecture with AVX-512.
 
@@ -33,18 +33,18 @@ TSCP (protocol / custody layer)
       └── Formal Verification Layer (Lean 4)
 ```
 
-TSCP provides the custody and provenance guarantees — every artifact is hashed, signed, and chain-of-custody verified. zkSHA-Rx is the performance layer underneath: hardware-accelerated kernels with a formally specified correctness boundary.
+TSCP is designed to provide custody and provenance guarantees — every artifact is hashed, signed, and chain-of-custody recorded. zkSHA-Rx is the performance layer underneath: hardware-accelerated kernels with a formally specified correctness boundary.
 
 ---
 
-## Verified Components
+## Evidence Status
 
 Per the benchmark-of-record (criterion (historical 0.5.1; snapshot 0.8.2), 100 samples, 3s warmup, outlier rejection):
 
 | Kernel | Scalar | AVX-512 | Speedup | CI width |
 |---|---|---|---|---|
-| BabyBear DIT (R=2⁶⁴), n=2²⁰ | 504.7 Melem/s | 4,619.4 Melem/s | **9.15×** | <0.1% |
-| Raw i32 XOR butterfly, n=2²⁰ | 2,423.8 Melem/s | 11,105 Melem/s | **4.58×** | <0.2% |
+| BabyBear DIT (R=2⁶⁴), n=2²⁰ | 504.7 Melem/s | 4,619.4 Melem/s | **9.15×** (measured) | <0.1% |
+| Raw i32 XOR butterfly, n=2²⁰ | 2,423.8 Melem/s | 11,105 Melem/s | **4.58×** (measured) | <0.2% |
 
 Formal side: `Montgomery.lean` compiles clean under Lean 4 core (no Mathlib) with 33 theorems (12 in Montgomery.lean, 21 in supporting modules) proved and 0 `sorry` in Montgomery.lean tactic calls, covering REDC cancellation, Montgomery multiply bounds, and butterfly invariants. The Montgomery arithmetic formalization was strengthened by deriving both modular inverse properties from a single Bézout identity (`R·R_inv = P·NEG_INV + 1`), reducing proof duplication and making the duality between constants explicit.
 
@@ -140,9 +140,9 @@ Lean Formal Proof (Montgomery arithmetic)
     ↓
 Scalar Backend (Montgomery bridge, PR #28)
     ↓
-Reference Backend (independent oracle, DFT verified)
+Reference Backend (independent oracle, DFT-checked)
     ↓
-AVX-512 Backend (vectorized, backend parity verified)
+AVX-512 Backend (vectorized, parity-tested)
     ↓
 Benchmark Receipt (speedup measured, correctness embedded)
     ↓

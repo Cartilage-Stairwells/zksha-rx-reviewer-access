@@ -20,7 +20,7 @@ all copies.
 
 **Result:** One function owns the arithmetic. Future backends
 (AVX-512 vectorized, NEON, GPU) implement `MontgomeryBackend` and are
-verified against the same reference oracle. The oracle itself
+checked against the same reference oracle. The oracle itself
 (`field/babybear/reference.rs`) is never modified — it is the ground truth.
 
 **Intentional non-change:** `mont_reduce_r64` (the R=2⁶⁴ two-step reduction

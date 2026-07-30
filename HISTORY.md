@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.4` |
+| Tag | `review-v0.1.5` |
 | Commit | This tag's target |
 | Date | 2026-07-30 |
-| Status | Frozen — stale checkout command fixed |
+| Status | Frozen — claims language normalization |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.4` | `bda165b` | 2026-07-30 | Stale checkout command fixed |
 | `review-v0.1.3` | `4e2d404` | 2026-07-30 | Identity alignment + validation gate |
 | `review-v0.1.2` | `6f7cfd8` | 2026-07-30 | Evidence closure: SHA256SUMS, dead paths, Criterion version |
 | `review-v0.1.1` | `9edec5f` | 2026-07-30 | Evidence symbol fix (stale `avx512_radix2_butterfly` → `avx512_radix2_butterfly_32`) |

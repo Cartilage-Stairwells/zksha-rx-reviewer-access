@@ -79,7 +79,7 @@ The measurement harness includes correctness spot-checks at sizes 2^8, 2^12, and
 - Reference NTT output == naive DFT (semantic correctness against O(n²) oracle)
 - The DFT oracle uses pure u64 arithmetic — no p3 dependency, no Montgomery form
 
-This means the benchmark cannot produce speedup numbers without also proving the fast path produces mathematically correct results.
+This means the benchmark cannot produce speedup numbers without also confirming the fast path produces mathematically correct results.
 
 ---
 
@@ -102,7 +102,7 @@ This means the benchmark cannot produce speedup numbers without also proving the
 
 **Methodology:** 1000 iterations per size, 10 untimed warm-up iterations, deterministic LCG seed, release mode, full NTT (all stages). Measured after DIF butterfly correctness closure (commit 78c040f).
 
-**Analysis:** Speedup is consistent across sizes. The dip at n=262,144 (3.78x) is consistent with L2 cache pressure at 1MB working set. Recovery at n=1,048,576 (4.21x) suggests AVX-512 handles large sequential accesses more efficiently. Theoretical maximum is 16x; observed ~4x is explained by Montgomery multiplication overhead (even/odd split), modular reduction (multi-instruction), and memory access patterns.
+**Analysis:** Measured speedup is consistent across sizes. The dip at n=262,144 (3.78x) is consistent with L2 cache pressure at 1MB working set. Recovery at n=1,048,576 (4.21x) suggests AVX-512 handles large sequential accesses more efficiently. Theoretical maximum is 16x; observed ~4x is explained by Montgomery multiplication overhead (even/odd split), modular reduction (multi-instruction), and memory access patterns.
 
 **Reproduction:** Run on any AVX-512 host (avx512f + avx512dq required):
 ```bash
@@ -146,7 +146,7 @@ This closes the semantic drift loophole: the implementation doesn't just agree w
 
 Most Rust cryptographic libraries implement field arithmetic in scalar mode — one element at a time. The AVX-512 backend in zkSHA-Rx Fly processes 16 field elements per instruction using 512-bit vector lanes, with Montgomery multiplication implemented entirely in SIMD.
 
-The speedup comes from:
+The measured speedup comes from:
 1. **16x parallelism** in the butterfly operation (16 elements per AVX-512 register)
 2. **Montgomery reduction in SIMD** (no scalar fallback for field arithmetic)
 3. **Cache-aware twiddle access** (sequential, not random)
@@ -269,7 +269,7 @@ No scalar fallback. No element-by-element processing.
 | Scalar | Montgomery form, single element | Bridge between reference and SIMD |
 | AVX-512 | 512-bit vectorized Montgomery | Performance target |
 
-The reference backend is the semantic oracle — it computes the mathematically correct result using independent arithmetic (no p3 dependency, no Montgomery form). The scalar backend bridges to Montgomery form. The AVX-512 backend provides the speedup.
+The reference backend is the semantic oracle — it computes the mathematically correct result using independent arithmetic (no p3 dependency, no Montgomery form). The scalar backend bridges to Montgomery form. The AVX-512 backend delivers the measured speedup.
 
 All three must agree. If any backend disagrees, the test suite fails.
 
@@ -284,16 +284,16 @@ Lean Formal Proof (Montgomery arithmetic)
     ↓
 Scalar Backend (Montgomery bridge, PR #28)
     ↓
-Reference Backend (independent oracle, DFT verified)
+Reference Backend (independent oracle, DFT-checked)
     ↓
-AVX-512 Backend (vectorized, backend parity verified)
+AVX-512 Backend (vectorized, parity-tested)
     ↓
 Benchmark Receipt (speedup measured, correctness embedded)
     ↓
 Sealed Bundle (SHA256SUMS, provenance captured)
 ```
 
-Each layer provides evidence for the next. No layer makes claims it cannot support. The AVX-512 speedup is not trusted on its own — it is verified against the reference, which is verified against the DFT.
+Each layer provides evidence for the next. No layer makes claims it cannot support. The AVX-512 speedup is not trusted on its own — it is checked against the reference, which is checked against the DFT.
 
 ---
 

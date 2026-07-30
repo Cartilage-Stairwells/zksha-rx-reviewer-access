@@ -12,10 +12,10 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-review-v0.1.4
+review-v0.1.5
 
 Frozen commit:
-review-v0.1.4 (current snapshot)
+review-v0.1.5 (current snapshot)
 
 ## Access Model
 
@@ -29,7 +29,7 @@ Reviewer access:
 > This repository is publicly accessible. No access request needed.
 
 Review target:
-> Reviewers should evaluate tag review-v0.1.4.
+> Reviewers should evaluate tag review-v0.1.5.
 
 Do not use:
 - "Open source project" — this is a frozen review snapshot, not a maintained open-source project
@@ -50,8 +50,8 @@ Method:
 - outlier rejection
 
 Measured kernel results:
-- BabyBear DIT butterfly: 9.15× speedup
-- Raw i32 XOR butterfly: 4.58× speedup
+- BabyBear DIT butterfly: measured 9.15× kernel speedup (historical, Criterion 0.5.1)
+- Raw i32 XOR butterfly: measured 4.58× kernel speedup (historical, Criterion 0.5.1)
 
 ## Verification Boundary
 
@@ -88,7 +88,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Current snapshot: review-v0.1.4 (this tag)
+- Current snapshot: review-v0.1.5 (this tag)
 - Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:

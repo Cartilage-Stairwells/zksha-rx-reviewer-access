@@ -20,7 +20,7 @@ Benchmark command (# perf_measure: not in this snapshot (historical))
     ↓
 Raw measurements (7 sizes, 1000 iterations each, 10 warmup)
     ↓
-Summary claims (3.29x–4.38x, geometric mean 3.94x)
+Reported measurements (3.29x–4.38x, geometric mean 3.94x, historical)
     ↓
 SHA256 evidence seal (tscp-evidence-396ebfb.tar.gz, hashes.sha256)
 ```
@@ -113,7 +113,7 @@ From `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.2:
 - BabyBear NTT correctness (140/140 tests, NTT == DFT oracle)
 - Scalar/vector equivalence (135 staged pairwise comparisons, all pass)
 - AVX-512 implementation correctness (execution canary, spot-checks at 3 sizes)
-- Measured AVX-512 performance: 3.29x–4.38x (geometric mean 3.94x)
+- Reported AVX-512 performance: 3.29x–4.38x (geometric mean 3.94x, historical measurement)
 - Formal invariants (33 Lean 4 theorems (12 in Montgomery.lean, 21 supporting), 0 sorry in Montgomery.lean (3 documented sorry in Examples), Bézout identity)
 
 **Claim scope:** AVX-512 acceleration of BabyBear-field NTT kernels under this

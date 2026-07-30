@@ -1,6 +1,6 @@
 # Formal Verification — Lean 4 Montgomery Arithmetic
 
-> The Lean 4 source is in a separate public repository. This file tells you where to find it and what it proves.
+> The Lean 4 source is in a separate public repository. This file tells you where to find it and what it demonstrates.
 
 ## Repository
 
