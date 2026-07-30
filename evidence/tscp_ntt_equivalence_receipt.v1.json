@@ -2,14 +2,12 @@
   "schema": "tscp-ntt-equivalence-receipt-v1",
   "protocol": "TSCP-PL",
   "artifact_type": "verification_evidence",
-
   "commit": {
     "sha": "0205722cbee5f7043459afddbdeaab0d6732c044",
     "branch": "master",
     "timestamp": "2026-07-24T07:41:47Z",
     "tree_hash": "18b5ffdcc6b48abb3f70bb923329a9ea44c3939b"
   },
-
   "claims": [
     {
       "id": "butterfly.oracle_equivalence",
@@ -28,7 +26,13 @@
       "status": "PASS",
       "reference": "naive O(n^2) DFT (pure u64, no p3 dependency)",
       "test": "tests/ntt_equivalence.rs::ntt_reference_correctness",
-      "sizes_tested": [16, 32, 64, 128, 256],
+      "sizes_tested": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
       "commit": "3c10e4a"
     },
     {
@@ -39,8 +43,22 @@
         "scalar",
         "avx512"
       ],
-      "levels_tested": [5, 6, 7, 8, 9, 10],
-      "sizes_tested": [32, 64, 128, 256, 512, 1024],
+      "levels_tested": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "sizes_tested": [
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024
+      ],
       "test": "tests/ntt_equivalence.rs::staged_cross_backend_equivalence",
       "granularity": "per-stage element-wise assert_eq",
       "commit": "3c10e4a"
@@ -49,15 +67,37 @@
       "id": "ntt.round_trip",
       "status": "PASS",
       "test": "tests/ntt_equivalence.rs::ntt_round_trip",
-      "sizes_tested": [16, 32, 64, 128, 256],
+      "sizes_tested": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
       "commit": "3c10e4a"
     },
     {
       "id": "ntt.twiddle_sanity",
       "status": "PASS",
       "test": "tests/ntt_equivalence.rs::twiddle_sanity",
-      "levels_tested": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      "checks": ["omega^n=1", "omega^(n/2)!=1", "twiddles_distinct"],
+      "levels_tested": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "checks": [
+        "omega^n=1",
+        "omega^(n/2)!=1",
+        "twiddles_distinct"
+      ],
       "commit": "3c10e4a"
     },
     {
@@ -93,14 +133,12 @@
         "avx512_butterfly_pass_32",
         "ntt_avx512_stage",
         "ntt_avx512",
-        "mont_reduce_epu64",
-        "avx512_radix2_butterfly"
+        "mont_reduce_epu64"
       ],
       "transmute_verification": "__m512i == [u32; 16] == 64 bytes",
       "commit": "0205722"
     }
   ],
-
   "trusted_base": [
     "Rust compiler (stable)",
     "BabyBear field specification (p = 2^31 - 2^25 + 1)",
@@ -108,14 +146,12 @@
     "Naive DFT (pure u64 arithmetic, no field type system)",
     "AVX-512 hardware execution (avx512f + avx512dq)"
   ],
-
   "oracle_independence": {
     "twiddle_computation": "from-scratch primitive root finder (p-1 = 2^27 * 3 * 5)",
     "naive_dft": "pure u64 arithmetic, no p3 BabyBear dependency",
     "reference_butterfly": "composed from babybear_mul_reference + babybear_add/sub_reference",
     "shared_code_with_implementation": false
   },
-
   "evidence_chain": [
     "reference oracle (Commit 4)",
     "butterfly equivalence (Commit 4)",
@@ -124,6 +160,5 @@
     "unsafe boundary audit (Issue #3)",
     "signed evidence receipt (this seal)"
   ],
-
   "result": "ACCEPT"
 }
