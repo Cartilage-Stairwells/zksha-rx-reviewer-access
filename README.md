@@ -164,4 +164,4 @@ License file included; repository is private with reviewer access at this stage
 
 - **Sean Christopher Southwick** — `schlagetorren@gmail.com`
 - GitHub: [Cartilage-Stairwells/tscp-anchor](https://github.com/Cartilage-Stairwells/tscp-anchor) (formal verification)
-- GitHub: [Cartilage-Stairwells/avx512-butterfly](https://github.com/Cartilage-Stairwells/avx512-butterfly) (SIMD acceleration)
+- Reviewer snapshot: [Cartilage-Stairwells/zksha-rx-reviewer-access](https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access) (this repository)

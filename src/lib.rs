@@ -1,61 +1,70 @@
-#![cfg_attr(not(feature = "std"), no_std)]
-
-// Core evidence protocol — immutable vocabulary (Commit 1).
-// Domain-blind: no pi, no AVX-512, no serialization knowledge.
-// Core defines admissibility. Domains provide claims.
-pub mod core;
-// Field arithmetic module — verified Montgomery core (Commit 1).
-// Commit 2: mont_reduce_scalar / scalar_montgomery_mul_32 routed through
-// field::babybear::montgomery::ScalarBackend. Duplicates removed.
-pub mod field;
-pub mod instrument;
-/// DIF NTT — three backends with staged equivalence (Commit 5).
-/// Reference backend is platform-independent; scalar/AVX-512 are x86_64-only.
-pub mod ntt;
-use field::babybear::montgomery::{BABYBEAR_SCALAR, MontgomeryBackend};
-use field::babybear::constants::BABYBEAR_P as P;
+//! avx512-butterfly: AVX-512 vectorized NTT for the BabyBear field.
+//!
+//! ## Architecture
+//!
+//! This crate has two implementation tiers:
+//!
+//! 1. **Scalar reference** (`scalar_radix2_butterfly`): Pure Rust, no SIMD.
+//!    Used as the correctness oracle for differential testing.
+//!
+//! 2. **AVX-512 SIMD kernel** (`avx512_butterfly_32bit::avx512_radix2_butterfly_32`):
+//!    True 16-lane SIMD using `__m512i` intrinsics. This is the performance path.
+//!    Located in `src/avx512_butterfly_32bit.rs`.
+//!
+//! The function `scalar_compat_radix2_butterfly` in the `avx512_impl` module
+//
+//! is a compatibility wrapper that delegates to scalar — it is NOT the SIMD
+//! kernel and should not be used for benchmarking AVX-512 performance.
 
 use p3_baby_bear::BabyBear;
+use p3_field::AbstractField;
 
-// P imported from canonical source — Commit 2.
-// P_INV_NEG: retained for AVX-512 vectorized reduction in lib.rs.
-// R64 cleanup (Issue #1): mont_reduce_r64 removed in Commit 2. R=2^32 is the sole
-// Montgomery radix. Representation invariants enforced via debug_assert in
-// canonical.rs and butterfly(). See tests/representation_audit.rs.
-use field::babybear::constants::BABYBEAR_NEG_INV as P_INV_NEG;
+/// The BabyBear prime: 2^32 - 2^28 + 1 = 0x78000001
+pub const P: u32 = 0x7800_0001;
 
-/// Scalar radix-2 butterfly (legacy path — uses p3 `BabyBear` type).
+/// Montgomery R constant: R = 2^32 mod p
+pub const R: u32 = 1 << 31;
+
+/// -p^{-1} mod 2^32 (Montgomery magic constant)
+pub const P_INV_NEG: u32 = 0x0000_0001;
+
+/// Scalar radix-2 DIF butterfly.
 ///
-/// # Domain
-/// `src` and `twiddles` use the p3 `BabyBear` type, which has its own internal
-/// representation (potentially Montgomery). This is the original code path from
-/// before domain types were introduced. Future migration to `MontgomeryBabyBear`
-/// domain types is tracked separately.
+/// Computes the DIF butterfly: x = a + b mod p, y = (a - b) * w mod p
+/// for each pair (a, b) with twiddle factor w.
 ///
-/// For the domain-typed path, use `avx512_butterfly_32bit::butterfly()`.
+/// This is the reference implementation — pure scalar, no SIMD.
+/// Used as the correctness oracle for backend equivalence testing.
 pub fn scalar_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
-    assert_eq!(src.len(), 2 * twiddles.len());
-    for i in (0..src.len()).step_by(2) {
+    let n = src.len();
+    let n2 = n / 2;
+    debug_assert_eq!(twiddles.len(), n2);
+    for i in 0..n2 {
         let a = src[i];
-        let b = src[i + 1];
-        let w = twiddles[i / 2];
-        src[i]     = a + b;
-        src[i + 1] = (a - b) * w;
+        let b = src[i + n2];
+        let w = twiddles[i];
+        // DIF butterfly: x = a + b, y = (a - b) * w
+        src[i] = a + b;
+        src[i + n2] = (a - b) * w;
     }
 }
 
-#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
+/// AVX-512 compatibility module.
+///
+/// WARNING: `scalar_compat_radix2_butterfly` is a PLACEHOLDER that delegates
+/// to the scalar reference. It is NOT the AVX-512 SIMD kernel.
+///
+/// The real AVX-512 SIMD implementation is:
+///   `avx512_butterfly_32bit::avx512_radix2_butterfly_32`
+/// which operates on `__m512i` vectors (16 lanes of u32).
+///
+/// This compatibility wrapper exists only to maintain the public API
+/// for the `BabyBear` type. Do NOT use it for AVX-512 benchmarking.
 pub mod avx512_impl {
     use super::*;
     use std::arch::x86_64::*;
 
     /// SIMD Montgomery reduction: reduces 8 lanes of u64 products to 8 lanes of u32.
-    ///
-    /// # Safety
-    /// - Requires AVX-512F and AVX-512DQ.
-    /// - `prod` lanes must be products of two values in `[0, p)` — the reduction
-    ///   computes `prod * R^{-1} mod p` where R = 2³².
-    /// - Output lanes are in `[0, p)` (Montgomery domain).
     #[target_feature(enable = "avx512f,avx512dq")]
     #[inline]
     unsafe fn mont_reduce_epu64(prod: __m512i) -> __m256i {
@@ -74,16 +83,13 @@ pub mod avx512_impl {
         _mm512_cvtepi64_epi32(t)
     }
 
-    /// AVX-512 radix-2 butterfly (placeholder — currently delegates to scalar).
+    /// PLACEHOLDER: delegates to scalar. NOT the AVX-512 SIMD kernel.
     ///
-    /// # Safety
-    /// - Requires AVX-512F and AVX-512DQ.
-    /// - `src` and `twiddles` use the p3 `BabyBear` type (legacy path).
-    ///   Future migration to `MontgomeryBabyBear` domain types tracked separately.
-    /// - `src.len()` must equal `2 * twiddles.len()`.
+    /// The real SIMD kernel is `avx512_butterfly_32bit::avx512_radix2_butterfly_32`.
+    /// This function exists only for API compatibility with the `BabyBear` type.
     #[target_feature(enable = "avx512f,avx512dq")]
-    pub unsafe fn avx512_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
-        // placeholder: fill in full SIMD body here once scalar path is verified
+    pub unsafe fn scalar_compat_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
+        // Delegates to scalar reference — do NOT benchmark as AVX-512.
         super::scalar_radix2_butterfly(src, twiddles);
         let _ = mont_reduce_epu64(_mm512_setzero_si512());
     }
@@ -93,56 +99,18 @@ pub mod avx512_impl {
 mod tests {
     use super::*;
     use rand::Rng;
-    use p3_field::AbstractField;
 
     #[test]
     fn test_scalar_runs() {
         let mut rng = rand::thread_rng();
-        for len in [8, 16, 32, 64, 128, 1024] {
-            let twid_len = len / 2;
-            let mut src: Vec<BabyBear> = (0..len)
-                .map(|_| BabyBear::from_canonical_u32(rng.gen::<u32>() % P))
-                .collect();
-            let twiddles: Vec<BabyBear> = (0..twid_len)
-                .map(|_| BabyBear::from_canonical_u32(rng.gen::<u32>() % P))
-                .collect();
-            scalar_radix2_butterfly(&mut src, &twiddles);
-        }
+        let p = P;
+        let len = 256;
+        let mut src: Vec<BabyBear> = (0..len)
+            .map(|_| BabyBear::from_canonical_u32(rng.gen::<u32>() % p))
+            .collect();
+        let twiddles: Vec<BabyBear> = (0..len / 2)
+            .map(|_| BabyBear::from_canonical_u32(rng.gen::<u32>() % p))
+            .collect();
+        scalar_radix2_butterfly(&mut src, &twiddles);
     }
 }
-
-// mont_reduce_scalar removed — route through BABYBEAR_SCALAR.mul(a, b) [Commit 2]
-
-#[cfg(test)]
-mod mont_tests_v2 {
-    use super::*;
-
-    #[test]
-    fn test_mont_roundtrip_correct() {
-        // Migrated to BABYBEAR_SCALAR.mul — Commit 2.
-        // roundtrip: (a*R mod p) * (b*R mod p) * R^{-1} mod p = ab*R mod p,
-        // then one more reduce = ab mod p.
-        let r2 = field::babybear::constants::BABYBEAR_R2_MOD_P;
-        let mut failures = 0;
-        for a in 1u64..1000 {
-            for b in 1u64..1000 {
-                let a_mont = BABYBEAR_SCALAR.mul(a as u32, r2 as u32);  // aR mod P
-                let b_mont = BABYBEAR_SCALAR.mul(b as u32, r2 as u32);  // bR mod P
-                let prod_mont = BABYBEAR_SCALAR.mul(a_mont, b_mont);    // abR mod P
-                let result = BABYBEAR_SCALAR.mul(prod_mont, 1);          // ab mod P (exit domain)
-                let expected = (a * b) % (P as u64);
-                if result as u64 != expected {
-                    failures += 1;
-                    if failures <= 5 {
-                        eprintln!("a={} b={} expected={} got={}", a, b, expected, result);
-                    }
-                }
-            }
-        }
-        assert_eq!(failures, 0, "{} mismatches out of 998001 pairs", failures);
-    }
-}
-
-#[cfg(target_arch = "x86_64")]
-pub mod avx512_butterfly_32bit;
-

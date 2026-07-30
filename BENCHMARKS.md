@@ -2,7 +2,7 @@
 
 ## AVX-512 Vectorized Radix-2 NTT for the BabyBear Field
 
-**Repository:** [Cartilage-Stairwells/avx512-butterfly](https://github.com/Cartilage-Stairwells/avx512-butterfly)
+**Repository:** [Cartilage-Stairwells/zksha-rx-reviewer-access](https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access)
 **Field:** BabyBear (P = 0x78000001) — Plonky3 / SP1 / Polygon Zero
 **Target:** AVX-512F + AVX-512DQ (commodity cloud CPUs, no GPU required)
 
@@ -191,8 +191,8 @@ A 4x speedup on one CPU does not imply 4x on all AVX-512 CPUs. Clock speed, cach
 ### Quick Start
 
 ```bash
-git clone https://github.com/Cartilage-Stairwells/avx512-butterfly.git
-cd avx512-butterfly
+git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
+cd zksha-rx-reviewer-access
 
 # Run the performance measurement (scalar vs AVX-512)
 export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
@@ -306,7 +306,7 @@ MIT/Apache 2.0 (dual-licensed for ecosystem compatibility)
 ## Contact
 
 For technical questions, benchmark reproduction, or integration discussion:
-- GitHub: [Cartilage-Stairwells/avx512-butterfly](https://github.com/Cartilage-Stairwells/avx512-butterfly)
+- GitHub: [Cartilage-Stairwells/zksha-rx-reviewer-access](https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access)
 - Email: adamantinespine@gmail.com
 
 ---
@@ -318,6 +318,6 @@ For technical questions, benchmark reproduction, or integration discussion:
   title  = {zkSHA-Rx Fly: AVX-512 Vectorized NTT for the BabyBear Field},
   author = {Southwick, Sean},
   year   = {2026},
-  url    = {https://github.com/Cartilage-Stairwells/avx512-butterfly}
+  url    = {https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access}
 }
 ```

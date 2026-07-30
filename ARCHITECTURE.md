@@ -1,4 +1,4 @@
-# Architecture wins — avx512-butterfly
+# Architecture — zkSHA-Rx Fly
 
 This document records the reasoning behind each structural decision made
 during the verification sequence. It is a historical record, not a spec.

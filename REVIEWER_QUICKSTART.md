@@ -1,25 +1,33 @@
 # Reviewer Quickstart — zkSHA-Rx Fly v0.1.0
 
+> **This repository is the frozen review entry point.**
+> All artifacts referenced below are contained here.
+> No private repository access is required.
+
 ## What This Is
 
 An AVX-512 vectorized Number Theoretic Transform (NTT) for the BabyBear field (P = 0x78000001), the native field of Plonky3-style proving systems.
 
-This is a **research artifact**, not a production library. You're looking at it because we asked you to review whether the claims and evidence boundaries are honest.
+This is a **research artifact**, not a production library. You're reviewing whether the claims and evidence boundaries are honest.
 
 ## What to Review
 
 Pick the scope that matches your expertise:
 
-- **Benchmark methodology:** Is the Criterion config sound? Are the speedup numbers measured correctly? See `BENCHMARKS.md`, `MEASUREMENT.md`, `EVIDENCE_CHAIN.md`
-- **NTT/SIMD implementation:** Is the three-backend approach valid? Is the backend equivalence methodology adequate? See `src/`, `ARCHITECTURE.md`
-- **Formal verification boundary:** Does "formally verified arithmetic foundations" accurately describe the Lean 4 proof scope without overstating? See the Lean 4 source at [tscp-anchor](https://github.com/Cartilage-Stairwells/tscp-anchor) (tag v0.1.0-zksha-rx), `PROJECT_FACTS.md`
-- **Claim/evidence alignment:** Do the external claims exceed the evidence? See `PROJECT_FACTS.md` (canonical source of truth)
+| Expertise | What to read | Key question |
+|-----------|-------------|--------------|
+| Benchmark methodology | `CLAIM_MATRIX.md`, `BENCHMARKS.md`, `MEASUREMENT.md`, `EVIDENCE_CHAIN.md` | Are the numbers measured correctly? |
+| NTT/SIMD implementation | `src/avx512_butterfly_32bit.rs`, `src/lib.rs`, `tests/` | Is the three-backend approach valid? |
+| Formal verification | `formal/README.md`, `PROJECT_FACTS.md` | Is the proof/claim boundary honest? |
+| Claim/evidence alignment | `CLAIM_MATRIX.md`, `PROJECT_FACTS.md` | Do claims exceed evidence? |
 
 ## What IS Claimed
 
-- Kernel-level speedup: 9.15× (DIT butterfly), 4.58× (XOR butterfly) — measured via Criterion 0.5.1, 100 samples, 3s warmup, outlier rejection
-- Backend equivalence: staged pairwise comparisons across reference oracle, scalar Montgomery bridge, and AVX-512 SIMD
-- Formal verification: Montgomery arithmetic for BabyBear field in Lean 4, proven by `decide`, 0 sorry in core module
+| Measurement | Scope | Result | Harness |
+|-------------|-------|--------|---------|
+| DIT butterfly kernel | isolated kernel | 9.15× | Criterion 0.5.1 |
+| XOR butterfly kernel | isolated kernel | 4.58× | Criterion 0.5.1 |
+| Full NTT sweep | sizes 2⁸–2²⁰ | 3.94× geo mean | perf_measure |
 
 ## What is NOT Claimed
 
@@ -31,9 +39,7 @@ Pick the scope that matches your expertise:
 ## How to Reproduce
 
 ```bash
-git clone https://github.com/Cartilage-Stairwells/avx512-butterfly.git
-cd avx512-butterfly
-git checkout v0.1.0-zksha-rx
+# This repository is self-contained — clone THIS repo, not any other.
 
 # Build
 cargo build --release
@@ -41,28 +47,26 @@ cargo build --release
 # Run tests (140 total)
 cargo test --release
 
-# Run benchmarks
+# Run benchmarks (requires AVX-512 CPU)
 cargo bench --bench butterfly_bench
 ```
 
-Requires: Rust 1.97.1+, AVX-512 capable CPU.
+Requires: Rust 1.97.1+, AVX-512 capable CPU (for benchmarks only).
 
 ## Key Files
 
 | File | Purpose |
 |------|---------|
-| `PROJECT_FACTS.md` | Canonical source of truth for all claims |
+| `CLAIM_MATRIX.md` | Every claim, its measurement, evidence, and non-claim |
+| `REVIEW_RELEASE.md` | Release tag, commit SHA, artifact hashes, reproduction |
+| `PROJECT_FACTS.md` | Canonical source of truth for all external claims |
 | `BENCHMARKS.md` | Benchmark methodology and results |
+| `MEASUREMENT.md` | Raw measurement documentation |
 | `EVIDENCE_CHAIN.md` | Evidence provenance chain |
 | `ARCHITECTURE.md` | System architecture and backend design |
-| `README.md` | Project overview |
-| `GRANT_PITCH.md` | Grant application (not asking you to fund — context for scope) |
-
-## Commit Reference
-
-- **Tag:** `v0.1.0-zksha-rx`
-- **Commit:** `eb5533d` (frozen, GPG signed)
-- **Branch tip:** `3dd6583` (identity metadata fix, GPG signed)
+| `formal/README.md` | Lean 4 formal verification artifact info |
+| `src/avx512_butterfly_32bit.rs` | AVX-512 SIMD implementation (real kernel) |
+| `src/lib.rs` | Scalar reference + public API |
 
 ## Reviewer Guidelines
 

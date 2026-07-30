@@ -1,4 +1,4 @@
-# Measurement Protocol — avx512-butterfly
+# Measurement Protocol — zkSHA-Rx Fly
 
 This document defines the epistemological structure of performance claims
 in this project. It exists so the difference between a trustworthy benchmark

@@ -37,7 +37,7 @@ Measurement commit: 9473af6 (docs: AVX-512 refinement receipt)
 Correctness fix commit: 78c040f (DIF butterfly — Semantic Drift resolved)
 Evidence seal commit: 49eac025 (tag: vep-0.1.4-sealed, avx512-v1-evidence-sealed)
 
-Repo: https://github.com/Cartilage-Stairwells/avx512-butterfly
+Repo: https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 Branch: issue-3-4-5-verification-pipeline
 ```
 

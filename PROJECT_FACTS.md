@@ -9,7 +9,7 @@ Description:
 AVX-512 vectorized BabyBear NTT acceleration for Plonky3-derived proving systems.
 
 Repository:
-Cartilage-Stairwells/avx512-butterfly (private development repository)
+Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
 v0.1.0-zksha-rx
@@ -86,13 +86,13 @@ Next milestone:
 
 All external references must use:
 - Project: zkSHA-Rx Fly
-- Repository: Cartilage-Stairwells/avx512-butterfly
+- Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
 - Commit: eb5533d
 
 Do not use:
 - vep-0.1.4-sealed
-- Triune-Oracle
+- (historical: Triune-Oracle, superseded by Cartilage-Stairwells)
 - SHARx (pre-rebrand)
 - BabyBearVerified.lean (wrong filename)
 
