@@ -39,3 +39,23 @@ These artifacts exist in the development repository and are referenced for prove
 |---------|---------|
 | Criterion 0.5.1 | Historical measurements (9.15×, 4.58×, 3.94×) |
 | Criterion 0.8.2 | This snapshot's Cargo.toml — bench harness available for re-measurement on AVX-512 hardware |
+
+## review-v0.1.7 (2026-08-04) — DIF verification snapshot
+
+**Tag:** review-v0.1.7
+**Supersedes:** review-v0.1.6 (kept immutable as historical provenance)
+
+### Changes from v0.1.6
+
+1. **Documentation corrected:** All "DIT" references updated to "DIF" across README, CLAIM_MATRIX, PROJECT_FACTS, REVIEWER_QUICKSTART, BENCHMARKS.
+2. **Benchmark evidence updated:** Historical 9.15× DIT numbers replaced with measured 2.65× DIF three-lane benchmark results (AVX-512 vs scalar, Intel AVX-512, geometric mean).
+3. **New evidence artifacts:** Correctness receipt, three-lane benchmark output, CPU info.
+4. **Three-lane benchmark added:** `benches/three_lane_bench.rs` with correctness gate.
+5. **Verification story:** The DIT→DIF mismatch was a development-repo regression (not present in the v0.1.6 implementation code, but present in v0.1.6 documentation). The implementation code in v0.1.6 already used DIF semantics. The development repo (avx512-butterfly) had a regression to DIT that was discovered via NTT correctness testing, corrected, and merged via PR #14 (commit 71bcfe7, GitHub-verified).
+
+### What didn't change
+
+- Core implementation code (src/) — already DIF in v0.1.6
+- Formal verification (formal/) — unchanged
+- Evidence chain structure — same model, updated numbers
+

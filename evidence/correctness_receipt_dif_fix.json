@@ -1,0 +1,42 @@
+{
+  "receipt_type": "DIF_BUTTERFLY_CORRECTNESS",
+  "generated": "2026-08-04T02:26:56Z",
+  "target": {
+    "repo": "Cartilage-Stairwells/avx512-butterfly",
+    "commit": "d7e25cd",
+    "branch": "master"
+  },
+  "change": {
+    "description": "DIT→DIF butterfly fix — aligns with Plonky3 DifButterfly semantics",
+    "files_modified": [
+      "src/field/babybear/reference.rs",
+      "src/avx512_butterfly_32bit.rs",
+      "tests/babybear_domain.rs",
+      "tests/ntt_equivalence.rs",
+      "tests/raw_u32_audit.rs",
+      "tests/representation_audit.rs"
+    ],
+    "semantic_change": "(a + b*w, a - b*w) → (a + b, (a - b) * w)"
+  },
+  "backend": "AVX512",
+  "kernel": "radix2 DIF butterfly",
+  "validation": {
+    "reference_equivalence": "PASS",
+    "round_trip": "PASS",
+    "cross_backend_staged": "PASS",
+    "avx512_vs_scalar": "PASS",
+    "fallback_disabled": "N/A — all lanes use DIF",
+    "total_tests": 102,
+    "failures": 0,
+    "ignored": 0
+  },
+  "three_layer_alignment": {
+    "reference_to_scalar": "PASS (butterfly_reference_agreement::prop_matches_reference)",
+    "scalar_to_avx512": "PASS (test_avx512_vs_scalar_half_half_layout)",
+    "ntt_to_dft": "PASS (ntt_reference_correctness)"
+  },
+  "cpu": {
+    "model": "unknown",
+    "avx512_features": "avx512_bitalg avx512_vbmi avx512_vnni avx512_vpopcntdq avx512bw avx512cd avx512dq avx512f avx512vbmi avx512vl "
+  }
+}

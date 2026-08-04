@@ -7,7 +7,7 @@
 
 ## What This Is
 
-zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, measured benchmark results report up to 9.15× speedup for the BabyBear DIT butterfly kernel and 4.58× for the raw i32 XOR butterfly kernel under the documented benchmark configuration, measured via Criterion (historical 0.5.1; this snapshot uses 0.8.2).
+zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, measured benchmark results report 2.65× geometric mean speedup for the BabyBear DIF butterfly kernel (AVX-512 vs scalar, range 1.97× to 3.97×) under the documented benchmark configuration, measured via Criterion on Intel AVX-512 hardware. The butterfly uses DIF (Decimation in Frequency) semantics, matching Plonky3's DifButterfly.
 
 No GPU. No ASIC. No FPGA. Standard CPU architecture with AVX-512.
 
@@ -26,7 +26,7 @@ zkSHA-Rx Fly processes 16 elements per instruction using 512-bit vector lanes, w
 ```
 TSCP (protocol / custody layer)
  └── zkSHA-Rx (acceleration layer)
-      ├── AVX-512 Butterfly Engine (BabyBear DIT, raw i32 XOR)
+      ├── AVX-512 Butterfly Engine (BabyBear DIF, raw i32 XOR)
       ├── BabyBear Field Accelerator (Montgomery R=2^64 domain)
       ├── Receipt Composition Algebra (custody/provenance binding)
       ├── Semantic Reference Protocol
@@ -43,7 +43,7 @@ Per the benchmark-of-record (criterion (historical 0.5.1; snapshot 0.8.2), 100 s
 
 | Kernel | Scalar | AVX-512 | Speedup | CI width |
 |---|---|---|---|---|
-| BabyBear DIT (R=2⁶⁴), n=2²⁰ | 504.7 Melem/s | 4,619.4 Melem/s | **9.15×** (measured) | <0.1% |
+| BabyBear DIF (R=2³²), n=2²⁰ | 475.9 µs | 1.89 ms | **2.65×** (measured, geometric mean) | — |
 | Raw i32 XOR butterfly, n=2²⁰ | 2,423.8 Melem/s | 11,105 Melem/s | **4.58×** (measured) | <0.2% |
 
 Formal side: `Montgomery.lean` compiles clean under Lean 4 core (no Mathlib) with 33 theorems (12 in Montgomery.lean, 21 in supporting modules) proved and 0 `sorry` in Montgomery.lean tactic calls, covering REDC cancellation, Montgomery multiply bounds, and butterfly invariants. The Montgomery arithmetic formalization was strengthened by deriving both modular inverse properties from a single Bézout identity (`R·R_inv = P·NEG_INV + 1`), reducing proof duplication and making the duality between constants explicit.

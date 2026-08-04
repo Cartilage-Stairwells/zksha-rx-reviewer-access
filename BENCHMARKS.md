@@ -14,9 +14,46 @@ zkSHA-Rx Fly accelerates the Number Theoretic Transform (NTT) — the single mos
 
 **Claim scope:** AVX-512 acceleration of BabyBear-field NTT kernels under this benchmark configuration. Integration validation with Plonky3/SP1 pipelines is future work.
 
-**Documented speedup: 3.3x–4.4x** over scalar implementation (geometric mean 3.94x), measured across 7 transform sizes from 2^8 to 2^20.
+**Documented speedup: 1.97×–3.97×** over scalar implementation (geometric mean 2.65×), measured across 13 transform sizes from 2^8 to 2^20 on Intel AVX-512 hardware using a three-lane benchmark (scalar vs AVX2 auto-vectorization vs hand-written AVX-512).
 
 This does not claim universal zk acceleration. It demonstrates that commodity CPU SIMD can match or exceed the NTT throughput of specialized hardware for the BabyBear field.
+---
+
+## Three-Lane Benchmark Results (v0.1.7)
+
+**Date:** 2026-08-04
+**Hardware:** Intel CPU with full AVX-512 (avx512f, dq, cd, bw, vl, vbmi, vbmi2, vnni, bitalg, vpopcntdq)
+**Method:** Criterion, 10 samples, 500ms warmup, 1s measurement
+**Butterfly:** DIF (Decimation in Frequency), matching Plonky3 DifButterfly
+
+### Correctness Gate
+
+All three lanes (scalar, AVX2, AVX-512) produce identical output on sizes 2^8 through 2^20.
+
+### Results
+
+| Size | Scalar | AVX2 (compiler) | AVX-512 (kernel) | AVX2/Scalar | AVX-512/Scalar |
+|------|--------|----------------|-------------------|-------------|-----------------|
+| 2^8  | 581 ns | 613 ns | 295 ns | 0.95× | 1.97× |
+| 2^10 | 2.21 µs | 2.30 µs | 1.03 µs | 0.96× | 2.14× |
+| 2^12 | 8.40 µs | 8.41 µs | 3.37 µs | 1.00× | 2.50× |
+| 2^14 | 33.0 µs | 32.9 µs | 13.2 µs | 1.00× | 2.51× |
+| 2^16 | 140 µs | 140 µs | 54.7 µs | 1.00× | 2.57× |
+| 2^18 | 480 µs | 481 µs | 144 µs | 1.00× | 3.33× |
+| 2^20 | 1.89 ms | 1.90 ms | 476 µs | 1.00× | 3.97× |
+
+**Geometric mean:** AVX-512 vs Scalar: 2.65× (range 1.97×–3.97×)
+**Geometric mean:** AVX2 vs Scalar: 1.00× (compiler auto-vectorization provides no speedup)
+
+### Key finding
+
+The compiler cannot auto-vectorize the Montgomery multiplication + DIF butterfly pattern. The hand-written AVX-512 kernel is necessary for the measured speedup. AVX2 auto-vectorization provides no improvement over scalar (1.00×).
+
+### Historical numbers (superseded)
+
+Previous benchmark results (9.15× DIT butterfly, 3.94× NTT sweep) were measured with DIT butterfly semantics, which did not match the DIF NTT structure. The DIT→DIF correction was discovered via NTT correctness testing against a naive DFT oracle. These historical numbers are retained for provenance but should not be cited as current performance claims.
+
+
 
 ---
 

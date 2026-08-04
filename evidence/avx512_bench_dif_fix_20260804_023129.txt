@@ -1,0 +1,265 @@
+warning: unused imports: `BABYBEAR_SCALAR` and `MontgomeryBackend`
+  --> src/lib.rs:15:35
+   |
+15 | use field::babybear::montgomery::{BABYBEAR_SCALAR, MontgomeryBackend};
+   |                                   ^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `avx512_butterfly` (lib) generated 1 warning (run `cargo fix --lib -p avx512_butterfly` to apply 1 suggestion)
+    Finished `bench` profile [optimized] target(s) in 0.14s
+     Running benches/three_lane_bench.rs (target/release/deps/three_lane_bench-41ede5bf4f4240d4)
+Gnuplot not found, using plotters backend
+Correctness gate: PASS (all three lanes agree on sizes 2^8 through 2^20)
+Benchmarking dif_butterfly_three_lane/scalar/2^8
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Collecting 10 samples in estimated 1.0000 s (795k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Analyzing
+dif_butterfly_three_lane/scalar/2^8
+                        time:   [536.30 ns 581.04 ns 600.39 ns]
+Benchmarking dif_butterfly_three_lane/avx2/2^8
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Collecting 10 samples in estimated 1.0000 s (785k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Analyzing
+dif_butterfly_three_lane/avx2/2^8
+                        time:   [541.76 ns 613.33 ns 648.85 ns]
+Benchmarking dif_butterfly_three_lane/avx512/2^8
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Collecting 10 samples in estimated 1.0000 s (925k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Analyzing
+dif_butterfly_three_lane/avx512/2^8
+                        time:   [225.97 ns 294.56 ns 322.26 ns]
+Benchmarking dif_butterfly_three_lane/scalar/2^9
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Collecting 10 samples in estimated 1.0000 s (410k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Analyzing
+dif_butterfly_three_lane/scalar/2^9
+                        time:   [1.0315 µs 1.1259 µs 1.1649 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^9
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Collecting 10 samples in estimated 1.0001 s (417k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Analyzing
+dif_butterfly_three_lane/avx2/2^9
+                        time:   [1.0096 µs 1.1193 µs 1.1644 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^9
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Collecting 10 samples in estimated 1.0001 s (492k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Analyzing
+dif_butterfly_three_lane/avx512/2^9
+                        time:   [451.96 ns 521.65 ns 548.71 ns]
+Benchmarking dif_butterfly_three_lane/scalar/2^10
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Collecting 10 samples in estimated 1.0001 s (214k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Analyzing
+dif_butterfly_three_lane/scalar/2^10
+                        time:   [1.9983 µs 2.2140 µs 2.3083 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^10
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Collecting 10 samples in estimated 1.0001 s (210k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Analyzing
+dif_butterfly_three_lane/avx2/2^10
+                        time:   [2.0757 µs 2.2975 µs 2.3871 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^10
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Collecting 10 samples in estimated 1.0001 s (246k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Analyzing
+dif_butterfly_three_lane/avx512/2^10
+                        time:   [874.17 ns 1.0338 µs 1.1039 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^11
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Collecting 10 samples in estimated 1.0001 s (107k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Analyzing
+dif_butterfly_three_lane/scalar/2^11
+                        time:   [3.9862 µs 4.3668 µs 4.5201 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^11
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Collecting 10 samples in estimated 1.0001 s (109k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Analyzing
+dif_butterfly_three_lane/avx2/2^11
+                        time:   [3.9255 µs 4.2670 µs 4.4041 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^11
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Collecting 10 samples in estimated 1.0003 s (128k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Analyzing
+dif_butterfly_three_lane/avx512/2^11
+                        time:   [1.5248 µs 1.8005 µs 1.9023 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^12
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Collecting 10 samples in estimated 1.0008 s (57k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Analyzing
+dif_butterfly_three_lane/scalar/2^12
+                        time:   [7.7067 µs 8.4022 µs 8.6988 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^12
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Collecting 10 samples in estimated 1.0009 s (55k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Analyzing
+dif_butterfly_three_lane/avx2/2^12
+                        time:   [7.7044 µs 8.4068 µs 8.6966 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^12
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Collecting 10 samples in estimated 1.0005 s (66k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Analyzing
+dif_butterfly_three_lane/avx512/2^12
+                        time:   [2.8134 µs 3.3656 µs 3.5726 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^13
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Collecting 10 samples in estimated 1.0005 s (28k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Analyzing
+dif_butterfly_three_lane/scalar/2^13
+                        time:   [15.468 µs 16.856 µs 17.416 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^13
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Collecting 10 samples in estimated 1.0018 s (27k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Analyzing
+dif_butterfly_three_lane/avx2/2^13
+                        time:   [15.579 µs 17.016 µs 17.605 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^13
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Collecting 10 samples in estimated 1.0004 s (35k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Analyzing
+dif_butterfly_three_lane/avx512/2^13
+                        time:   [5.2355 µs 6.3258 µs 6.7874 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^14
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Collecting 10 samples in estimated 1.0028 s (14k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Analyzing
+dif_butterfly_three_lane/scalar/2^14
+                        time:   [30.422 µs 32.988 µs 34.034 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^14
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Collecting 10 samples in estimated 1.0007 s (14k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Analyzing
+dif_butterfly_three_lane/avx2/2^14
+                        time:   [30.299 µs 32.852 µs 33.920 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^14
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Collecting 10 samples in estimated 1.0018 s (17k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Analyzing
+dif_butterfly_three_lane/avx512/2^14
+                        time:   [11.022 µs 13.160 µs 13.959 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^15
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Collecting 10 samples in estimated 1.0039 s (7205 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Analyzing
+dif_butterfly_three_lane/scalar/2^15
+                        time:   [64.458 µs 70.207 µs 72.530 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^15
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Collecting 10 samples in estimated 1.0029 s (7095 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Analyzing
+dif_butterfly_three_lane/avx2/2^15
+                        time:   [63.402 µs 68.753 µs 71.212 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^15
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Collecting 10 samples in estimated 1.0013 s (9185 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Analyzing
+dif_butterfly_three_lane/avx512/2^15
+                        time:   [22.568 µs 26.386 µs 27.880 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^16
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Collecting 10 samples in estimated 1.0140 s (3520 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Analyzing
+dif_butterfly_three_lane/scalar/2^16
+                        time:   [128.06 µs 140.26 µs 145.34 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^16
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Collecting 10 samples in estimated 1.0148 s (3630 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Analyzing
+dif_butterfly_three_lane/avx2/2^16
+                        time:   [132.62 µs 139.63 µs 142.27 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^16
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Collecting 10 samples in estimated 1.0107 s (4730 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Analyzing
+dif_butterfly_three_lane/avx512/2^16
+                        time:   [49.706 µs 54.660 µs 57.040 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^17
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Collecting 10 samples in estimated 1.0128 s (1870 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Analyzing
+dif_butterfly_three_lane/scalar/2^17
+                        time:   [268.49 µs 282.44 µs 288.23 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^17
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Collecting 10 samples in estimated 1.0282 s (1925 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Analyzing
+dif_butterfly_three_lane/avx2/2^17
+                        time:   [264.80 µs 279.96 µs 286.32 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^17
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Collecting 10 samples in estimated 1.0069 s (2420 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Analyzing
+dif_butterfly_three_lane/avx512/2^17
+                        time:   [98.743 µs 109.07 µs 112.94 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^18
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Collecting 10 samples in estimated 1.0247 s (1045 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Analyzing
+dif_butterfly_three_lane/scalar/2^18
+                        time:   [473.16 µs 479.51 µs 483.60 µs]
+Found 2 outliers among 10 measurements (20.00%)
+  2 (20.00%) low severe
+Benchmarking dif_butterfly_three_lane/avx2/2^18
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Collecting 10 samples in estimated 1.0257 s (1045 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Analyzing
+dif_butterfly_three_lane/avx2/2^18
+                        time:   [473.47 µs 481.29 µs 485.23 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^18
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Collecting 10 samples in estimated 1.0339 s (1430 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Analyzing
+dif_butterfly_three_lane/avx512/2^18
+                        time:   [137.42 µs 144.03 µs 147.00 µs]
+Found 2 outliers among 10 measurements (20.00%)
+  2 (20.00%) low severe
+Benchmarking dif_butterfly_three_lane/scalar/2^19
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Collecting 10 samples in estimated 1.0423 s (495 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Analyzing
+dif_butterfly_three_lane/scalar/2^19
+                        time:   [948.80 µs 961.65 µs 970.09 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^19
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Collecting 10 samples in estimated 1.0256 s (495 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Analyzing
+dif_butterfly_three_lane/avx2/2^19
+                        time:   [949.49 µs 960.34 µs 970.33 µs]
+Found 2 outliers among 10 measurements (20.00%)
+  1 (10.00%) low severe
+  1 (10.00%) low mild
+Benchmarking dif_butterfly_three_lane/avx512/2^19
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Collecting 10 samples in estimated 1.0515 s (715 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Analyzing
+dif_butterfly_three_lane/avx512/2^19
+                        time:   [251.86 µs 259.37 µs 270.18 µs]
+Found 2 outliers among 10 measurements (20.00%)
+  2 (20.00%) low severe
+Benchmarking dif_butterfly_three_lane/scalar/2^20
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Collecting 10 samples in estimated 1.1088 s (275 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Analyzing
+dif_butterfly_three_lane/scalar/2^20
+                        time:   [1.8706 ms 1.8886 ms 1.9150 ms]
+Found 2 outliers among 10 measurements (20.00%)
+  2 (20.00%) low severe
+Benchmarking dif_butterfly_three_lane/avx2/2^20
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Collecting 10 samples in estimated 1.1094 s (275 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Analyzing
+dif_butterfly_three_lane/avx2/2^20
+                        time:   [1.8854 ms 1.8968 ms 1.9080 ms]
+Found 3 outliers among 10 measurements (30.00%)
+  2 (20.00%) low severe
+  1 (10.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx512/2^20
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Collecting 10 samples in estimated 1.0149 s (440 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Analyzing
+dif_butterfly_three_lane/avx512/2^20
+                        time:   [458.91 µs 475.93 µs 494.89 µs]
+Found 2 outliers among 10 measurements (20.00%)
+  1 (10.00%) low severe
+  1 (10.00%) high mild
+
