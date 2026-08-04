@@ -78,3 +78,30 @@ These artifacts exist in the development repository and are referenced for prove
 
 A researcher should understand the project in 10 minutes without needing the author present.
 
+
+## review-v0.1.9 (2026-08-04) — Evidence compounding layer
+
+**Tag:** review-v0.1.9
+**Supersedes:** review-v0.1.8 (kept immutable)
+
+### What v0.1.8 says
+
+> "Here is the artifact."
+
+### What v0.1.9 says
+
+> "Here is how the artifact will be evaluated, challenged, and maintained."
+
+### New documents
+
+- `docs/SECURITY_MODEL.md` — precise verification boundary: what formal verification eliminates, what remains outside the proof, assumptions, verified vs tested vs benchmarked
+- `docs/REVIEW_RESPONSES.md` — response tracking protocol with prepared answers to likely questions
+- `docs/EXTERNAL_EVALUATION_LOG.md` — structured evaluation timeline
+- `docs/INTEGRATION_QUESTIONS.md` — open + anticipated integration questions
+- `docs/METRICS.md` — external/technical/integration/performance tracking
+- `docs/TECHNICAL_OBJECTIONS.md` — 7 prepared responses to likely technical objections
+
+### Narrative
+
+v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they constitute the minimum surface a serious cryptography project presents to external reviewers.
+
