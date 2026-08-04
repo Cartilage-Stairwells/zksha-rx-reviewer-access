@@ -59,3 +59,22 @@ These artifacts exist in the development repository and are referenced for prove
 - Formal verification (formal/) — unchanged
 - Evidence chain structure — same model, updated numbers
 
+
+## review-v0.1.8 (2026-08-04) — Researcher-consumable release
+
+**Tag:** review-v0.1.8
+**Supersedes:** review-v0.1.7 (kept immutable)
+
+### Changes from v0.1.7
+
+1. **Plonky3 integration proposal** (`docs/plonky3/VERIFIED_NTT_INTEGRATION_PROPOSAL.md`) — integration path, compatibility matrix, benchmark plan, proof-to-code map
+2. **External reviewer guide** (`docs/EXTERNAL_REVIEWER_GUIDE.md`) — build/test/bench instructions, claims vs non-claims, repository structure
+3. **Proof-to-code correspondence map** (`docs/plonky3/proof-to-code-map.md`) — 83 Lean theorems mapped to Rust implementations across 4 layers
+4. **README rewritten** as researcher landing page
+5. **Makefile** added: `make reproduce` (validate + verify), `make test`, `make bench`
+6. **Repository structure** reorganized for external consumption
+
+### Goal
+
+A researcher should understand the project in 10 minutes without needing the author present.
+

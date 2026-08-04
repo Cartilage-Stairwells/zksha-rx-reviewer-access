@@ -1,166 +1,106 @@
-# zkSHA-Rx Fly
+# zkSHA-Rx
 
-**Zero-Knowledge Security Hash Acceleration and Repair**
-*AVX-512 vectorized NTT for the BabyBear field — Plonky3 / SP1 / Polygon Zero*
-
----
-
-## What This Is
-
-zkSHA-Rx Fly is an AVX-512 vectorized BabyBear NTT acceleration engine for Plonky3-derived proving systems. It uses AVX-512 512-bit SIMD instructions to process 16 field elements per butterfly operation, measured benchmark results report 2.65× geometric mean speedup for the BabyBear DIF butterfly kernel (AVX-512 vs scalar, range 1.97× to 3.97×) under the documented benchmark configuration, measured via Criterion on Intel AVX-512 hardware. The butterfly uses DIF (Decimation in Frequency) semantics, matching Plonky3's DifButterfly.
-
-No GPU. No ASIC. No FPGA. Standard CPU architecture with AVX-512.
-
----
+**A formally verified high-performance NTT implementation targeting BabyBear-class fields with scalar, AVX2, and AVX-512 execution paths.**
 
 ## Why It Matters
 
-The NTT consumes 30–60% of total proving time in modern STARK systems. Every team building on Plonky3, SP1, or RISC Zero hits this wall. Existing libraries (arkworks, Winterfell, Plonky3 native) implement field arithmetic in scalar mode — one element at a time.
+NTT (Number Theoretic Transform) correctness and performance are critical components of modern STARK provers — NTT accounts for 30–60% of proving time in systems like Plonky3, SP1, and RISC Zero.
 
-zkSHA-Rx Fly processes 16 elements per instruction using 512-bit vector lanes, with Montgomery multiplication entirely in SIMD.
+zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implementations that are both fast and backed by formal proofs of correctness.
 
----
+## Evidence
 
-## Architecture
+| Layer | Evidence |
+|-------|----------|
+| Formal verification | 83 Lean theorems, 0 axioms, 0 sorries |
+| Rust tests | 102 tests, 0 failures |
+| SIMD | AVX2 + AVX-512 backends with correctness gate |
+| Benchmark | 2.65× AVX-512 vs scalar (measured, three-lane) |
+| Provenance | TSCP custody framework with auditable evidence chain |
 
-```
-TSCP (protocol / custody layer)
- └── zkSHA-Rx (acceleration layer)
-      ├── AVX-512 Butterfly Engine (BabyBear DIF, raw i32 XOR)
-      ├── BabyBear Field Accelerator (Montgomery R=2^64 domain)
-      ├── Receipt Composition Algebra (custody/provenance binding)
-      ├── Semantic Reference Protocol
-      └── Formal Verification Layer (Lean 4)
-```
-
-TSCP is designed to provide custody and provenance guarantees — every artifact is hashed, signed, and chain-of-custody recorded. zkSHA-Rx is the performance layer underneath: hardware-accelerated kernels with a formally specified correctness boundary.
-
----
-
-## Evidence Status
-
-Per the benchmark-of-record (criterion (historical 0.5.1; snapshot 0.8.2), 100 samples, 3s warmup, outlier rejection):
-
-| Kernel | Scalar | AVX-512 | Speedup | CI width |
-|---|---|---|---|---|
-| BabyBear DIF (R=2³²), n=2²⁰ | 475.9 µs | 1.89 ms | **2.65×** (measured, geometric mean) | — |
-| Raw i32 XOR butterfly, n=2²⁰ | 2,423.8 Melem/s | 11,105 Melem/s | **4.58×** (measured) | <0.2% |
-
-Formal side: `Montgomery.lean` compiles clean under Lean 4 core (no Mathlib) with 33 theorems (12 in Montgomery.lean, 21 in supporting modules) proved and 0 `sorry` in Montgomery.lean tactic calls, covering REDC cancellation, Montgomery multiply bounds, and butterfly invariants. The Montgomery arithmetic formalization was strengthened by deriving both modular inverse properties from a single Bézout identity (`R·R_inv = P·NEG_INV + 1`), reducing proof duplication and making the duality between constants explicit.
-
----
-
-## Claim Discipline
-
-- **Verified**: measured, reproducible, cited with exact command and hardware context.
-- **Projected**: explicitly labeled, never presented as fact in funding or grant materials.
-- Every number traces to a committed artifact with a SHA-256 hash and a reproduction command.
-
----
-
-## Implementation Contract
-
-| Property | Mechanism |
-|---|---|
-| Field arithmetic correctness | BabyBear Montgomery ops, unit-tested |
-| Butterfly equivalence | Independent reference oracle; proptest over [0,p)³ |
-| NTT composition | Cross-backend equivalence tests, shared input, deterministic seed |
-| Backend parity | Scalar and AVX-512 paths produce identical outputs |
-
-The oracle in `src/field/babybear/reference.rs` shares no code with any production path. Independence is the point. Any backend that disagrees with the oracle fails the contract regardless of its output's plausibility.
-
----
-
-## Measurement Contract
-
-| Property | Mechanism |
-|---|---|
-| Known environment | `provenance/provenance.json` — CPU, kernel, toolchain, ISA flags |
-| Reproducible execution | Pinned commit, explicit RUSTFLAGS, Criterion `--save-baseline` |
-| Validated inputs/outputs | Seal gates verify AVX-512 path was active before committing |
-| Sealed artifacts | SHA256SUMS over every file in the bundle |
-
----
-
-## Repository Layout
-
-```
-src/
-  avx512_butterfly_32bit.rs   ← butterfly contract + AVX-512 implementation
-  field/babybear/
-    montgomery.rs             ← Montgomery arithmetic backend
-    canonical.rs              ← canonical BabyBear type
-    reference.rs              ← independent oracle (shares no code with production)
-    constants.rs
-tests/
-  babybear_domain.rs          ← oracle agreement + cross-backend equivalence
-  babybear_montgomery.rs      ← Montgomery arithmetic tests
-  ntt_equivalence.rs          ← NTT = DFT verification (staged cross-backend)
-  backend_parity/             ← 135 staged pairwise comparisons
-benches/
-  butterfly_bench.rs          ← Criterion bench: scalar and avx512 groups
-examples/
-  ntt_driver.rs               ← NTT forward/inverse driver
-tools/
-  capture_benchmark_provenance.sh   ← standalone host/toolchain snapshot
-  run_benchmark.sh                  ← full capture + benchmark + seal sequence
-  generate_benchmark_report.py      ← auto-generates JSON + markdown from results
-benchmark_reports/
-  firebird_74c6e5f/           ← first performance specimen
-BENCHMARKS.md                 ← investor-facing benchmark document
-```
-
----
-
-## Running
+## Quick Start
 
 ```bash
-# Correctness (any host)
-cargo test --release
-
-# Performance measurement (AVX-512 host required)
-export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
-# perf_measure harness: not included in this snapshot (historical measurement)
-
-# Full Criterion benchmarks
-cargo bench --bench butterfly_bench
-
-# Sealed benchmark bundle
-# Benchmark tooling: not included in this snapshot (historical measurement)
-# Criterion data: not in this snapshot (historical)
-# Seal tooling: not included in this snapshot
+git clone --branch review-v0.1.8 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+cd zksha-rx-reviewer-access
+make reproduce
 ```
 
----
+For full review: see `docs/EXTERNAL_REVIEWER_GUIDE.md`
 
-## Evidence Chain
+## Performance
+
+**Measured (Intel AVX-512, three-lane benchmark):**
+- AVX-512 vs Scalar: **2.65× geometric mean** (range 1.97×–3.97×)
+- AVX2 auto-vectorization vs Scalar: **1.00×** (compiler provides no speedup)
+- Correctness gate: **PASS** (all three lanes agree, 2^8 through 2^20)
+
+**Key finding:** The compiler cannot auto-vectorize the Montgomery multiplication + DIF butterfly pattern. The hand-written AVX-512 kernel is necessary for the measured speedup.
+
+## Formal Verification
+
+83 theorems across 4 layers:
 
 ```
-Lean Formal Proof (Montgomery arithmetic)
+Layer 0: TCP Semantics (15 theorems) — custody/authority plane separation
     ↓
-Scalar Backend (Montgomery bridge, PR #28)
+Layer 1: Montgomery Arithmetic (12 theorems) — Bézout, REDC, modular bounds
     ↓
-Reference Backend (independent oracle, DFT-checked)
+Layer 2: Butterfly Algebra (25 theorems) — DIF closure, encoding, invertibility
     ↓
-AVX-512 Backend (vectorized, parity-tested)
-    ↓
-Benchmark Receipt (speedup measured, correctness embedded)
-    ↓
-Sealed Bundle (SHA256SUMS, provenance captured)
+Layer 3: NTT Stage Composition (8 theorems) — validity, determinism, composition
 ```
 
-Each layer provides evidence for the next. No layer makes claims it cannot support.
+Proof-to-code map: `docs/plonky3/proof-to-code-map.md`
 
----
+## The DIT→DIF Verification Story
 
-## License
+The project's strongest evidence is not the speedup — it's a bug the verification system caught.
 
-License file included; repository is private with reviewer access at this stage
+During NTT correctness testing against a naive DFT oracle, the butterfly was discovered to use DIT semantics (a+b*w, a-b*w) when the NTT structure requires DIF (a+b, (a-b)*w). This was corrected across all three backends.
 
----
+This is the verification system working as designed: a real implementation bug, caught by testing, corrected with evidence, and documented for review.
+
+## Plonky3 Integration
+
+zkSHA-Rx's adapter (`ZkshaDifButterfly`) implements Plonky3's `Butterfly<BabyBear>` trait. The adapter:
+- Compiles against real Plonky3
+- Produces bit-identical output at sizes 17, 64, 256
+- Has comparable scalar performance (1.015× within noise)
+
+Full proposal: `docs/plonky3/VERIFIED_NTT_INTEGRATION_PROPOSAL.md`
+
+## Repository Structure
+
+```
+├── README.md                              ← You are here
+├── docs/
+│   ├── plonky3/                           ← Integration proposal + proof map
+│   └── EXTERNAL_REVIEWER_GUIDE.md         ← Build/test/bench instructions
+├── src/                                   ← NTT implementation (3 backends)
+├── formal/                                ← Lean proof descriptions
+├── tests/                                  ← 102 tests
+├── benches/                               ← Three-lane benchmark
+├── evidence/                              ← Benchmark + correctness receipts
+├── BENCHMARKS.md                          ← Performance details
+├── CLAIM_MATRIX.md                        ← Every claim + evidence + non-claim
+├── PROJECT_FACTS.md                       ← Canonical source-of-truth
+├── EVIDENCE_CHAIN.md                      ← Five-stage custody chain
+└── validate_release.sh                    ← Release validation gate
+```
+
+## Claims Discipline
+
+This project maintains strict separation between **measured** and **projected** claims. See `CLAIM_LANGUAGE_POLICY.md` and `CLAIM_MATRIX.md` for the full epistemic framework.
+
+**What we claim:** AVX-512 implementation produces 2.65× geometric mean speedup on tested workloads.
+
+**What we don't claim:** Universal acceleration across all AVX-512 microarchitectures or end-to-end proving speedup.
 
 ## Contact
 
-- **Sean Christopher Southwick** — `schlagetorren@gmail.com`
-- GitHub: [Cartilage-Stairwells/tscp-anchor](https://github.com/Cartilage-Stairwells/tscp-anchor) (formal verification)
-- Reviewer snapshot: [Cartilage-Stairwells/zksha-rx-reviewer-access](https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access) (this repository)
+Sean Christopher Southwick — schlagetorren@gmail.com
+
+## License
+
+See `LICENSE` file.
