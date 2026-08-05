@@ -28,6 +28,25 @@ pub const R: u32 = 1 << 31;
 /// -p^{-1} mod 2^32 (Montgomery magic constant)
 pub const P_INV_NEG: u32 = 0x0000_0001;
 
+// ---------------------------------------------------------------------------
+// Module declarations — expose internal modules for tests and benchmarks
+// ---------------------------------------------------------------------------
+
+/// AVX-512 SIMD kernel (the performance path).
+pub mod avx512_butterfly_32bit;
+
+/// Core evidence protocol vocabulary.
+pub mod core;
+
+/// Field arithmetic backends (BabyBear Montgomery).
+pub mod field;
+
+/// Evidence instrumentation (gates, coverage, predicates).
+pub mod instrument;
+
+/// NTT stage composition and equivalence testing.
+pub mod ntt;
+
 /// Scalar radix-2 DIF butterfly.
 ///
 /// Computes the DIF butterfly: x = a + b mod p, y = (a - b) * w mod p

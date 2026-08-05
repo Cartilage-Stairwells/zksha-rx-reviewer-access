@@ -174,7 +174,7 @@ fn bench_three_lane(c: &mut Criterion) {
 
 criterion_group! {
     name = three_lane;
-    config = Criterion::default().sample_size(10).warm_up_time(std::time::Duration::from_millis(500)).measurement_time(std::time::Duration::from_secs(1));
+    config = Criterion::default().sample_size(50).warm_up_time(std::time::Duration::from_millis(500)).measurement_time(std::time::Duration::from_secs(2));
     targets = bench_three_lane
 }
 criterion_main!(three_lane);

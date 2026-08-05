@@ -18,6 +18,10 @@ criterion = "0.8.2"
 name = "butterfly_bench"
 harness = false
 
+
+[[bench]]
+name = "three_lane_bench"
+harness = false
 [features]
 default = ["std"]
 std = []
@@ -45,10 +49,6 @@ path = "tests/representation_audit.rs"
 [[test]]
 name = "raw_u32_audit"
 path = "tests/raw_u32_audit.rs"
-
-[[bin]]
-name = "iep_runner"
-path = "instrument/runner/main.rs"
 
 [[test]]
 name = "iep_enforcement"

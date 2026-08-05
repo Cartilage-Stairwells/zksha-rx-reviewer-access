@@ -5,7 +5,9 @@
 ## Repository
 
 - **URL:** https://github.com/Cartilage-Stairwells/tscp-anchor
-- **Tag:** `v0.1.0-zksha-rx`
+- **Tag:** see `tscp-anchor` repository for available tags
+> **Note:** Earlier documentation referenced tag `v0.1.0-zksha-rx`, which does not exist.
+> The `master` branch contains the current formal verification code.
 - **Key file:** `Montgomery.lean` (216 lines)
 
 ## What Is Proven
@@ -26,8 +28,8 @@ The Lean 4 formalization covers **Montgomery arithmetic foundations** for the Ba
 
 | Aspect | Value |
 |--------|-------|
-| Theorem count | 33 |
-| Module count | 7 |
+| Theorem count | 12 in Montgomery.lean (0 sorry, 0 axioms) |
+| Module count | 1 core (Montgomery.lean), additional supporting modules |
 | `sorry` in core module | 0 |
 | `sorry` in examples | 3 (isolated, documented) |
 | New axioms | 0 |
@@ -39,7 +41,7 @@ The Lean 4 formalization covers **Montgomery arithmetic foundations** for the Ba
 ```bash
 git clone https://github.com/Cartilage-Stairwells/tscp-anchor.git
 cd tscp-anchor
-git checkout v0.1.0-zksha-rx
+git checkout master
 lake build
 ```
 
