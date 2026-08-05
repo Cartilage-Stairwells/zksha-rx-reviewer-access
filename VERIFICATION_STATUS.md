@@ -1,6 +1,6 @@
 # Verification Status
 
-> This document is the canonical reference for what is verified, what is
+> This document is the reference for what is verified, what is
 > partially verified, and what remains pending. It is maintained alongside
 > the evidence artifacts and updated whenever the verification state changes.
 >
@@ -38,7 +38,7 @@ repository on AVX-512-capable hardware.
 
 ### Independently Reproduced from Public Repo (v0.1.11)
 
-The three-lane benchmark was run from the public repository using the canonical
+The three-lane benchmark was run from the public repository using the benchmark
 protocol (50 samples, 2s measurement, Criterion 0.8.2).
 
 | Metric | Value | Baseline |
@@ -48,11 +48,11 @@ protocol (50 samples, 2s measurement, Criterion 0.8.2).
 | Correctness gate | PASS | All three lanes agree, 2^8 through 2^20 |
 | Per-size AVX-512 speedup range | 7.21x to 10.13x | Against reference arithmetic |
 
-### Canonical Evidence (from private development repo, not reproducible from public repo)
+### Results — Optimized Scalar Baseline (from private development repo, not reproducible from public repo)
 
 The following results were produced from the private development repository
 (commit daf2a74, crate version 0.2.0) and are included as evidence artifacts
-in `evidence/canonical/`. They CANNOT be reproduced from the public repository
+in `evidence/`. They CANNOT be reproduced from the public repository
 because the scalar baseline differs (see Baseline Discrepancy below).
 
 | Metric | Value | Baseline |
@@ -89,10 +89,10 @@ optimized scalar implementation.
 | Item | Status | Notes |
 |------|--------|-------|
 | Public clean checkout | ✅ Repaired (v0.1.11) | Module declarations added to `lib.rs`; `[[bench]]` declaration added for `three_lane_bench` |
-| Benchmark reproduction | ✅ Repaired (v0.1.11) | Benchmark compiles and runs from public repo; config updated to canonical protocol (50 samples, 2s) |
+| Benchmark reproduction | ✅ Repaired (v0.1.11) | Benchmark compiles and runs from public repo; config updated to benchmark protocol (50 samples, 2s) |
 | SHA256SUMS manifest | ✅ Repaired (v0.1.11) | Regenerated to include all files at current commit |
 | Missing binary source | ✅ Repaired (v0.1.11) | `iep_runner` `[[bin]]` declaration removed from `Cargo.toml` |
-| Canonical 1.27x reproduction | ⚠️ Cannot reproduce from public repo | Scalar baseline differs between public and private repos |
+| 1.27x reproduction (optimized scalar baseline) | ⚠️ Cannot reproduce from public repo | Scalar baseline differs between public and private repos |
 | Phase 2.5 Plonky3 integration results | ⚠️ Internal | 39% DFT / 11% total proof speedup; evidence in private repo pending IP review |
 | tscp-anchor tag reference | ✅ Repaired (v0.1.11) | `formal/README.md` updated to remove non-existent tag reference |
 | Theorem count reference | ✅ Repaired (v0.1.11) | Updated from "33" to actual count (12 in Montgomery.lean) |
@@ -193,7 +193,7 @@ No claim is made regarding:
 ## Audit Trail
 
 1. **Independent cold-read verification** (August 5, 2026): Cloned public repo at `review-v0.1.10`, attempted to build and verify all claims
-2. **Identified weaknesses**: 5 missing module declarations, stale SHA256SUMS, missing `[[bench]]` declaration, incorrect benchmark configuration (10 samples/1s vs canonical 50/2s), missing binary source, broken tscp-anchor tag reference, baseline discrepancy between public and private repos
+2. **Identified weaknesses**: 5 missing module declarations, stale SHA256SUMS, missing `[[bench]]` declaration, incorrect benchmark configuration (10 samples/1s vs benchmark protocol 50/2s), missing binary source, broken tscp-anchor tag reference, baseline discrepancy between public and private repos
 3. **Corrected claims**: Updated scope language (see Scope Corrections table), documented baseline discrepancy
 4. **Regenerated evidence**: Added module declarations, fixed benchmark config, added `[[bench]]` declaration, fixed formal/README.md, independently reproduced benchmark from public repo (136 tests pass, 50-sample benchmark runs, correctness gate PASS)
 5. **This document**: Created as first-class verification status reference
