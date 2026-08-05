@@ -50,7 +50,7 @@ Method:
 - outlier rejection
 
 Measured kernel results:
-- BabyBear DIF butterfly: measured 2.65× kernel speedup (geometric mean, Criterion on Intel AVX-512, range 1.97×–3.97×)
+- BabyBear DIF butterfly: measured 1.27× kernel speedup (geometric mean, canonical dual-run, Criterion on AMD Zen 5 with AVX-512, 50 samples, 0.9% variance)
 - Raw i32 XOR butterfly: measured 4.58× kernel speedup (historical, Criterion 0.5.1)
 
 ## Verification Boundary

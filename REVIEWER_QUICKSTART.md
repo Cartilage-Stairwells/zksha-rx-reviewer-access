@@ -25,7 +25,7 @@ Pick the scope that matches your expertise:
 
 | Measurement | Scope | Result | Harness |
 |-------------|-------|--------|---------|
-| DIF butterfly kernel | three-lane benchmark | 2.65× (measured, geo mean) | Criterion (Intel AVX-512) |
+| DIF butterfly kernel | three-lane benchmark | 1.27× (canonical, dual-run) | Criterion (AMD Zen 5 with AVX-512, 50 samples) |
 | XOR butterfly kernel | isolated kernel | 4.58× (historical) | Criterion (0.5.1 → 0.8.2) |
 | Full NTT sweep | sizes 2⁸–2²⁰ | 3.94× geo mean (historical) | perf_measure (not in snapshot) |
 

@@ -14,15 +14,17 @@ zkSHA-Rx Fly accelerates the Number Theoretic Transform (NTT) — the single mos
 
 **Claim scope:** AVX-512 acceleration of BabyBear-field NTT kernels under this benchmark configuration. Integration validation with Plonky3/SP1 pipelines is future work.
 
-**Documented speedup: 1.97×–3.97×** over scalar implementation (geometric mean 2.65×), measured across 13 transform sizes from 2^8 to 2^20 on Intel AVX-512 hardware using a three-lane benchmark (scalar vs AVX2 auto-vectorization vs hand-written AVX-512).
+**Canonical speedup: 1.265×–1.276×** geometric mean (AVX-512 vs scalar), measured across 13 transform sizes from 2^8 to 2^20 on AMD Zen 5 with AVX-512 (virtualized sandbox environment) using a three-lane benchmark (scalar vs AVX2 auto-vectorization vs hand-written AVX-512). Dual-run verified (0.9% variance). See CANONICAL_RESULTS.md for full details.
 
 This does not claim universal zk acceleration. It demonstrates that commodity CPU SIMD can match or exceed the NTT throughput of specialized hardware for the BabyBear field.
 ---
 
-## Three-Lane Benchmark Results (v0.1.7)
+## Three-Lane Benchmark Results (v0.1.7) — HISTORICAL
+
+> **Note:** These results use 10-sample Criterion configuration. Canonical results (50 samples, 2s measurement, dual-run verified) are in CANONICAL_RESULTS.md. The canonical AVX-512 vs Scalar geometric mean is 1.265×–1.276×, not the 2.65× shown below.
 
 **Date:** 2026-08-04
-**Hardware:** Intel CPU with full AVX-512 (avx512f, dq, cd, bw, vl, vbmi, vbmi2, vnni, bitalg, vpopcntdq)
+**Hardware:** AMD Zen 5 (family 175, model 17) with full AVX-512 (virtualized) (avx512f, dq, cd, bw, vl, vbmi, vbmi2, vnni, bitalg, vpopcntdq)
 **Method:** Criterion, 10 samples, 500ms warmup, 1s measurement
 **Butterfly:** DIF (Decimation in Frequency), matching Plonky3 DifButterfly
 
@@ -43,7 +45,9 @@ All three lanes (scalar, AVX2, AVX-512) produce identical output on sizes 2^8 th
 | 2^20 | 1.89 ms | 1.90 ms | 476 µs | 1.00× | 3.97× |
 
 **Geometric mean:** AVX-512 vs Scalar: 2.65× (range 1.97×–3.97×)
-**Geometric mean:** AVX2 vs Scalar: 1.00× (compiler auto-vectorization provides no speedup)
+**Geometric mean:** AVX2 vs Scalar: 1.00× (compiler auto-vectorization provides no speedup in this run)
+
+> **Measurement variability note:** Results vary across runs on the virtualized sandbox environment. Subsequent runs on the same hardware (AMD Zen 5, AVX-512) have measured AVX-512 vs Scalar geometric means ranging from 1.12× to 3.08×, and AVX2 vs Scalar from 1.00× to 2.37×. The variability is attributed to virtualization noise, sample count differences (10–50 samples per size), and thermal/cache effects. The 2.65× figure represents one documented run; it should not be treated as a stable characterization of the implementation's performance. Kernel-level microbenchmarks and full-pipeline benchmarks must be kept clearly separated — the former measure the butterfly kernel in isolation, the latter include memory traffic and surrounding work.
 
 ### Key finding
 
@@ -216,6 +220,24 @@ The 3.3x–4.4x speedup (historical, commit 9473af6 in development repo) was cap
 A 4x speedup on one CPU does not imply 4x on all AVX-512 CPUs. Clock speed, cache hierarchy, memory bandwidth, and LLVM code generation all affect results. The sealed bundle captures the full environment so a reviewer can assess whether the numbers transfer to their hardware.
 
 ---
+
+
+## Subsequent Measurements
+
+Additional three-lane benchmark runs on the same AMD Zen 5 hardware (virtualized):
+
+| Run date | Samples | AVX-512 vs Scalar (geo mean) | AVX2 vs Scalar (geo mean) | Correctness |
+|----------|---------|------------------------------|---------------------------|------------|
+| Initial (this document) | 50 | 2.65× | 1.00× | PASS |
+| 2026-08-02 | 50 | 3.08× | 2.37× | PASS |
+| 2026-08-04 | 10 | 1.12× | 1.03× | PASS |
+
+**Key observations:**
+- Correctness gate passes on every run (all three lanes agree on all sizes)
+- Performance varies significantly across runs due to virtualization noise
+- The 1.00× AVX2 result in the initial run appears to be an anomaly; subsequent runs show compiler auto-vectorization provides modest speedup
+- Results from 10-sample runs have higher variance than 50-sample runs
+- These numbers characterize the implementation on a virtualized AMD Zen 5 and should not be generalized to all AVX-512 microarchitectures
 
 ## Reproduction
 

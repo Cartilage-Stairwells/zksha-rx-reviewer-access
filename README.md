@@ -15,7 +15,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 | Formal verification | 83 Lean theorems, 0 axioms, 0 sorries |
 | Rust tests | 102 tests, 0 failures |
 | SIMD | AVX2 + AVX-512 backends with correctness gate |
-| Benchmark | 2.65× AVX-512 vs scalar (measured, three-lane) |
+| Benchmark | measured AVX-512 kernel speedup (three-lane benchmark, see BENCHMARKS.md for range) |
 | Provenance | TSCP custody framework with auditable evidence chain |
 
 ## Quick Start
@@ -30,10 +30,11 @@ For full review: see `docs/EXTERNAL_REVIEWER_GUIDE.md`
 
 ## Performance
 
-**Measured (Intel AVX-512, three-lane benchmark):**
-- AVX-512 vs Scalar: **2.65× geometric mean** (range 1.97×–3.97×)
-- AVX2 auto-vectorization vs Scalar: **1.00×** (compiler provides no speedup)
+**Measured (AMD Zen 5 with AVX-512, three-lane benchmark, canonical dual-run):**
+- AVX-512 vs Scalar: **1.27× geometric mean** (range 1.265×–1.276× across dual runs, 50 samples each)
+- AVX2 auto-vectorization vs Scalar: **1.07×** (modest compiler speedup)
 - Correctness gate: **PASS** (all three lanes agree, 2^8 through 2^20)
+- Full details: `CANONICAL_RESULTS.md`
 
 **Key finding:** The compiler cannot auto-vectorize the Montgomery multiplication + DIF butterfly pattern. The hand-written AVX-512 kernel is necessary for the measured speedup.
 
@@ -93,7 +94,7 @@ Full proposal: `docs/plonky3/VERIFIED_NTT_INTEGRATION_PROPOSAL.md`
 
 This project maintains strict separation between **measured** and **projected** claims. See `CLAIM_LANGUAGE_POLICY.md` and `CLAIM_MATRIX.md` for the full epistemic framework.
 
-**What we claim:** AVX-512 implementation produces 2.65× geometric mean speedup on tested workloads.
+**What we claim:** AVX-512 implementation produces 1.27× kernel-level speedup over scalar (canonical, dual-run verified). See CANONICAL_RESULTS.md for full methodology and evidence.
 
 **What we don't claim:** Universal acceleration across all AVX-512 microarchitectures or end-to-end proving speedup.
 

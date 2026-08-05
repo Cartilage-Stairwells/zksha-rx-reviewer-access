@@ -10,7 +10,7 @@
 
 All three lanes must produce identical output on all test sizes before timing begins.
 
-## Current Results (Intel AVX-512)
+## Current Results (AMD Zen 5 with AVX-512, virtualized)
 
 | Metric | Value |
 |--------|-------|

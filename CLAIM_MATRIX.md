@@ -7,7 +7,7 @@
 
 | # | Claim | Scope | Result | Evidence | Non-Claim |
 |---|-------|-------|--------|----------|-----------|
-| 1 | AVX-512 DIF butterfly kernel speedup | Three-lane benchmark, Criterion (Intel AVX-512) | 2.65× (geo mean, range 1.97×–3.97×) | `BENCHMARKS.md`, `evidence/avx512_bench_dif_fix_*` | End-to-end proving speedup |
+| 1 | AVX-512 DIF butterfly kernel speedup | Three-lane benchmark, Criterion (AMD Zen 5 with AVX-512, 50 samples, dual-run) | 1.265×–1.276× (geo mean, range 1.089×–1.551× per size) | `CANONICAL_RESULTS.md`, `evidence/canonical/` | End-to-end proving speedup |
 | 2 | AVX-512 XOR butterfly kernel speedup | Isolated kernel, Criterion (historical 0.5.1; snapshot 0.8.2) | 4.58× | `BENCHMARKS.md` | End-to-end proving speedup |
 | 3 | Full NTT sweep speedup | Sizes 2⁸–2²⁰, perf_measure | 3.94× geo mean | `MEASUREMENT.md`, `evidence/` | Kernel speedup ≠ prover speedup |
 
@@ -24,7 +24,7 @@
 
 | Claim | Reproducible from this snapshot? | Notes |
 |-------|----------------------------------|-------|
-| 2.65× DIF butterfly | Yes — three-lane bench (`cargo bench --bench three_lane_bench`) | Measured with Criterion on Intel AVX-512. DIF butterfly, matching Plonky3 DifButterfly. Historical DIT numbers (9.15×) were measured with incorrect DIT semantics and are superseded. |
+| 1.27× DIF butterfly (canonical) | Yes — three-lane bench (`cargo bench --bench three_lane_bench`) | Canonical: 50 samples, 2s measurement, dual-run verified (0.9% variance). Measured with Criterion on AMD Zen 5 with AVX-512. DIF butterfly, matching Plonky3 DifButterfly. Historical 2.65× was a 10-sample run superseded by canonical protocol. |
 | 4.58× XOR butterfly | Partially — bench harness exists (`cargo bench`) | Same as above. |
 | 3.94× full NTT sweep | No — perf_measure harness not in this snapshot | Historical result. Not reproducible from this checkout. |
 

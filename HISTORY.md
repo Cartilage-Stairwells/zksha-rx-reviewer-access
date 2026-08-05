@@ -48,7 +48,7 @@ These artifacts exist in the development repository and are referenced for prove
 ### Changes from v0.1.6
 
 1. **Documentation corrected:** All "DIT" references updated to "DIF" across README, CLAIM_MATRIX, PROJECT_FACTS, REVIEWER_QUICKSTART, BENCHMARKS.
-2. **Benchmark evidence updated:** Historical 9.15× DIT numbers replaced with measured 2.65× DIF three-lane benchmark results (AVX-512 vs scalar, Intel AVX-512, geometric mean).
+2. **Benchmark evidence updated:** Historical 9.15× DIT numbers replaced with measured 2.65× DIF three-lane benchmark results (AVX-512 vs scalar, AMD Zen 5 with AVX-512, geometric mean).
 3. **New evidence artifacts:** Correctness receipt, three-lane benchmark output, CPU info.
 4. **Three-lane benchmark added:** `benches/three_lane_bench.rs` with correctness gate.
 5. **Verification story:** The DIT→DIF mismatch was a development-repo regression (not present in the v0.1.6 implementation code, but present in v0.1.6 documentation). The implementation code in v0.1.6 already used DIF semantics. The development repo (avx512-butterfly) had a regression to DIT that was discovered via NTT correctness testing, corrected, and merged via PR #14 (commit 71bcfe7, GitHub-verified).

@@ -1,0 +1,28 @@
+=== CANONICAL BENCHMARK RUN — METADATA ===
+Timestamp: 2026-08-05T16:42:39Z
+
+Git commit: daf2a74a873b6e36cbeaa5cdb0eef3463a06970c
+Git branch: main
+Git describe: no tags
+
+Rust version: rustc 1.97.1 (8bab26f4f 2026-07-14)
+
+=== CPU IDENTIFICATION ===
+vendor_id	: AuthenticAMD
+cpu family	: 175
+model		: 17
+model name	: unknown
+cpu MHz		: 3746.396
+cache size	: 8192 KB
+cpu cores	: 4
+
+=== CPU FEATURES ===
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq la57 rdpid fsrm flush_l1d
+
+=== AVX-512 FLAGS ===
+avx512 avx512bw avx512cd avx512dq avx512f avx512vbmi avx512vl 
+=== BENCHMARK COMMAND ===
+source $HOME/.cargo/env && export RUSTFLAGS="-C target-cpu=native -C target-feature=+avx512f,+avx512dq,+avx2" && cargo bench --bench three_lane_bench
+RUSTFLAGS: -C target-cpu=native -C target-feature=+avx512f,+avx512dq,+avx2
+Criterion config: sample_size=50, warm_up_time=500ms, measurement_time=2s
+

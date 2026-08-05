@@ -39,7 +39,9 @@
 
 | Metric | Value | Date |
 |--------|-------|------|
-| AVX-512 vs Scalar | 2.65× geometric mean | 2026-08-03 |
-| AVX2 vs Scalar | 1.00× (no speedup) | 2026-08-03 |
-| Correctness gate | PASS (all sizes) | 2026-08-03 |
-| Hardware tested | Intel AVX-512 | 2026-08-03 |
+| AVX-512 vs Scalar | 1.27× geometric mean (canonical, dual-run) | 2026-08-05 |
+| AVX2 vs Scalar | 1.07× geometric mean (canonical) | 2026-08-05 |
+| Correctness gate | PASS (all sizes, both runs) | 2026-08-05 |
+| Hardware tested | AMD Zen 5 with AVX-512 (virtualized) | 2026-08-05 |
+| Samples per size | 50 (canonical protocol) | 2026-08-05 |
+| Run variance | 0.9% (within 15% threshold) | 2026-08-05 |
