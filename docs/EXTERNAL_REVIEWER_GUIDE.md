@@ -36,7 +36,7 @@ This is a **reviewer snapshot** — a curated, immutable view of the zkSHA-Rx pr
 ### If you care about performance:
 - Read `BENCHMARKS.md` for the three-lane methodology
 - Read `evidence/avx512_bench_dif_fix_20260804_023129.txt` for raw output
-- Key finding: AVX-512 vs Scalar = 2.65× geometric mean (measured, not projected)
+- Key finding: AVX-512 vs Scalar = 1.265×–1.276× geometric mean (historical 2.65× measurement superseded) (measured, not projected)
 
 ### If you care about correctness:
 - Read `evidence/correctness_receipt_dif_fix.json` for the correctness gate
