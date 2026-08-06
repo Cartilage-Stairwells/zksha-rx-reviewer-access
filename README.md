@@ -1,6 +1,6 @@
 # zkSHA-Rx
 
-**A formally verified high-performance NTT implementation targeting BabyBear-class fields with scalar, AVX2, and AVX-512 execution paths.**
+**A high-performance NTT implementation targeting BabyBear-class fields with scalar, AVX2, and AVX-512 execution paths, built on formally verified algebraic foundations.**
 
 ## Why It Matters
 
