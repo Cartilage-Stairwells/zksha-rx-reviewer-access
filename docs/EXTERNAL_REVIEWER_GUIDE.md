@@ -75,7 +75,7 @@ This runs the three-lane benchmark with a correctness gate. All three lanes must
 ## Claims and Non-Claims
 
 ### What the evidence supports:
-- AVX-512 implementation produces 2.65× geometric mean speedup over scalar **on tested workloads**
+- AVX-512 implementation provides measured kernel-level acceleration (1.265×–1.276× canonical, 2.65× historical) on tested workloads
 - 102 tests pass with 0 failures
 - Three-layer backend equivalence (reference ↔ scalar ↔ AVX-512)
 - 83 Lean theorems with 0 axioms and 0 sorries
