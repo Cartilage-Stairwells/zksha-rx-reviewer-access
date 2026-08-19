@@ -1,0 +1,350 @@
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.46
+   Compiling unicode-ident v1.0.24
+   Compiling cfg-if v1.0.4
+   Compiling libc v0.2.186
+   Compiling zerocopy v0.8.52
+   Compiling serde_core v1.0.228
+   Compiling autocfg v1.5.1
+   Compiling num-traits v0.2.19
+   Compiling syn v2.0.118
+   Compiling serde v1.0.228
+   Compiling either v1.16.0
+   Compiling getrandom v0.2.17
+   Compiling once_cell v1.21.4
+   Compiling rand_core v0.6.4
+   Compiling num-integer v0.1.46
+   Compiling itertools v0.12.1
+   Compiling num-bigint v0.4.7
+   Compiling version_check v0.9.5
+   Compiling generic-array v0.14.7
+   Compiling tracing-core v0.1.36
+   Compiling pin-project-lite v0.2.17
+   Compiling crossbeam-utils v0.8.21
+   Compiling getrandom v0.3.4
+   Compiling typenum v1.20.1
+   Compiling zmij v1.0.21
+   Compiling zerocopy-derive v0.8.52
+   Compiling serde_derive v1.0.228
+   Compiling tracing-attributes v0.1.31
+   Compiling tracing v0.1.44
+   Compiling p3-maybe-rayon v0.1.0
+   Compiling find-msvc-tools v0.1.9
+   Compiling rustix v1.1.4
+   Compiling serde_json v1.0.150
+   Compiling getrandom v0.4.3
+   Compiling shlex v2.0.1
+   Compiling p3-util v0.1.0
+   Compiling cc v1.2.66
+   Compiling crossbeam-epoch v0.9.18
+   Compiling rand_core v0.9.5
+   Compiling itoa v1.0.18
+   Compiling rayon-core v1.13.0
+   Compiling regex-syntax v0.8.11
+   Compiling ppv-lite86 v0.2.21
+   Compiling linux-raw-sys v0.12.1
+   Compiling memchr v2.8.2
+   Compiling bitflags v2.13.0
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.6
+   Compiling p3-field v0.1.0
+   Compiling p3-matrix v0.1.0
+   Compiling p3-dft v0.1.0
+   Compiling p3-symmetric v0.1.0
+   Compiling p3-mds v0.1.0
+   Compiling alloca v0.4.0
+   Compiling half v2.7.1
+   Compiling crossbeam-deque v0.8.6
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling fastrand v2.4.1
+   Compiling anstyle v1.0.14
+   Compiling plotters-backend v0.3.7
+   Compiling ciborium-io v0.2.2
+   Compiling gcd v2.3.0
+   Compiling clap_lex v1.1.0
+   Compiling plotters-svg v0.3.7
+   Compiling p3-poseidon2 v0.1.0
+   Compiling clap_builder v4.6.0
+   Compiling ciborium-ll v0.2.2
+   Compiling tempfile v3.27.0
+   Compiling digest v0.10.7
+   Compiling regex-automata v0.4.14
+   Compiling itertools v0.13.0
+   Compiling wait-timeout v0.2.1
+   Compiling cpufeatures v0.2.17
+   Compiling bit-vec v0.8.0
+   Compiling cast v0.3.0
+   Compiling quick-error v1.2.3
+   Compiling fnv v1.0.7
+   Compiling same-file v1.0.6
+   Compiling walkdir v2.5.0
+   Compiling criterion-plot v0.8.2
+   Compiling rusty-fork v0.3.1
+   Compiling bit-set v0.8.0
+   Compiling regex v1.12.4
+   Compiling sha2 v0.10.9
+   Compiling clap v4.6.1
+   Compiling rayon v1.12.0
+   Compiling ciborium v0.2.2
+   Compiling p3-baby-bear v0.1.0
+   Compiling plotters v0.3.7
+   Compiling tinytemplate v1.2.1
+   Compiling rand_chacha v0.9.0
+   Compiling rand_xorshift v0.4.0
+   Compiling rand v0.9.5
+   Compiling page_size v0.6.0
+   Compiling unarray v0.1.4
+   Compiling oorandom v11.1.5
+   Compiling anes v0.1.6
+   Compiling avx512_butterfly v0.1.0 (/app/experiment_a)
+warning: unused import: `p3_field::AbstractField`
+  --> src/lib.rs:20:5
+   |
+20 | use p3_field::AbstractField;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling criterion v0.8.2
+   Compiling proptest v1.11.0
+warning: `avx512_butterfly` (lib) generated 1 warning (run `cargo fix --lib -p avx512_butterfly` to apply 1 suggestion)
+    Finished `bench` profile [optimized] target(s) in 22.78s
+     Running benches/three_lane_bench.rs (target/release/deps/three_lane_bench-307038434c6f3f90)
+Gnuplot not found, using plotters backend
+Correctness gate: PASS (all three lanes agree on sizes 2^8 through 2^20)
+Benchmarking dif_butterfly_three_lane/scalar/2^8
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Analyzing
+dif_butterfly_three_lane/scalar/2^8
+                        time:   [562.75 ns 573.78 ns 576.53 ns]
+                        change: [−6.5007% −3.6741% −0.7452%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^8
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Analyzing
+dif_butterfly_three_lane/avx2/2^8
+                        time:   [562.10 ns 573.75 ns 576.66 ns]
+                        change: [+3.0910% +5.5428% +8.0475%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^8
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Analyzing
+dif_butterfly_three_lane/avx512/2^8
+                        time:   [203.14 ns 207.15 ns 223.17 ns]
+                        change: [+9.0587% +14.554% +20.061%] (p = 0.12 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^9
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Analyzing
+dif_butterfly_three_lane/scalar/2^9
+                        time:   [1.0821 µs 1.1234 µs 1.1337 µs]
+                        change: [−9.7020% −6.3281% −2.8637%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^9
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Analyzing
+dif_butterfly_three_lane/avx2/2^9
+                        time:   [1.1935 µs 1.2143 µs 1.2195 µs]
+                        change: [+6.1098% +9.4506% +12.930%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^9
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Analyzing
+dif_butterfly_three_lane/avx512/2^9
+                        time:   [370.25 ns 378.71 ns 380.83 ns]
+                        change: [−18.424% −16.165% −13.846%] (p = 0.06 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^10
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Analyzing
+dif_butterfly_three_lane/scalar/2^10
+                        time:   [2.3911 µs 2.4786 µs 2.5004 µs]
+                        change: [−6.1822% −1.8359% +2.7146%] (p = 0.57 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^10
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Analyzing
+dif_butterfly_three_lane/avx2/2^10
+                        time:   [2.3158 µs 2.4135 µs 2.4380 µs]
+                        change: [+1.1999% +5.6531% +10.262%] (p = 0.13 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^10
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Analyzing
+dif_butterfly_three_lane/avx512/2^10
+                        time:   [723.97 ns 731.36 ns 760.91 ns]
+                        change: [−11.050% −7.0787% −2.9564%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^11
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Analyzing
+dif_butterfly_three_lane/scalar/2^11
+                        time:   [4.3281 µs 4.4089 µs 4.4291 µs]
+                        change: [−6.6282% −4.3558% −2.0257%] (p = 0.08 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^11
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Analyzing
+dif_butterfly_three_lane/avx2/2^11
+                        time:   [4.3405 µs 4.3731 µs 4.3813 µs]
+                        change: [+1.1231% +2.5195% +3.9413%] (p = 0.13 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^11
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Analyzing
+dif_butterfly_three_lane/avx512/2^11
+                        time:   [1.3217 µs 1.3271 µs 1.3487 µs]
+                        change: [−8.1363% −4.9520% −1.6097%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^12
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Analyzing
+dif_butterfly_three_lane/scalar/2^12
+                        time:   [8.5550 µs 8.6283 µs 8.6466 µs]
+                        change: [−4.1362% −2.0428% +0.1205%] (p = 0.22 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^12
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Analyzing
+dif_butterfly_three_lane/avx2/2^12
+                        time:   [8.7915 µs 8.8544 µs 8.8701 µs]
+                        change: [+3.8905% +4.5217% +5.1550%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^12
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Analyzing
+dif_butterfly_three_lane/avx512/2^12
+                        time:   [2.2673 µs 2.3263 µs 2.3411 µs]
+                        change: [−2.8298% +0.8557% +4.7017%] (p = 0.74 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^13
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Analyzing
+dif_butterfly_three_lane/scalar/2^13
+                        time:   [16.816 µs 16.859 µs 16.870 µs]
+                        change: [−8.3599% −7.7530% −7.1401%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^13
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Analyzing
+dif_butterfly_three_lane/avx2/2^13
+                        time:   [17.000 µs 17.376 µs 17.471 µs]
+                        change: [−1.4081% +0.6635% +2.7646%] (p = 0.80 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^13
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Analyzing
+dif_butterfly_three_lane/avx512/2^13
+                        time:   [4.1021 µs 4.1108 µs 4.1457 µs]
+                        change: [+10.367% +12.539% +14.774%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^14
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Analyzing
+dif_butterfly_three_lane/scalar/2^14
+                        time:   [33.205 µs 33.220 µs 33.280 µs]
+                        change: [−8.8203% −7.1566% −5.4350%] (p = 0.05 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^14
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Analyzing
+dif_butterfly_three_lane/avx2/2^14
+                        time:   [34.276 µs 35.010 µs 35.193 µs]
+                        change: [−6.3099% −3.0280% +0.3971%] (p = 0.22 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^14
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Analyzing
+dif_butterfly_three_lane/avx512/2^14
+                        time:   [7.7908 µs 7.8108 µs 7.8911 µs]
+                        change: [−22.067% −21.189% −20.303%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^15
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Analyzing
+dif_butterfly_three_lane/scalar/2^15
+                        time:   [65.651 µs 65.888 µs 66.835 µs]
+                        change: [−8.2647% −6.0297% −3.7258%] (p = 0.05 < 0.05)
+                        Performance has improved.
+Benchmarking dif_butterfly_three_lane/avx2/2^15
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Analyzing
+dif_butterfly_three_lane/avx2/2^15
+                        time:   [66.546 µs 66.858 µs 68.103 µs]
+                        change: [−2.2750% −0.8781% +0.5260%] (p = 0.70 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^15
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Analyzing
+dif_butterfly_three_lane/avx512/2^15
+                        time:   [14.002 µs 14.274 µs 14.342 µs]
+                        change: [−28.553% −27.545% −26.533%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^16
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Analyzing
+dif_butterfly_three_lane/scalar/2^16
+                        time:   [122.38 µs 126.73 µs 127.81 µs]
+                        change: [−13.013% −9.7759% −6.4425%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^16
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Analyzing
+dif_butterfly_three_lane/avx2/2^16
+                        time:   [136.68 µs 139.15 µs 139.77 µs]
+                        change: [−7.1198% −3.4954% +0.3335%] (p = 0.22 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^16
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Analyzing
+dif_butterfly_three_lane/avx512/2^16
+                        time:   [26.068 µs 29.622 µs 30.511 µs]
+                        change: [−14.084% −5.4864% +3.3496%] (p = 0.68 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^17
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Analyzing
+dif_butterfly_three_lane/scalar/2^17
+                        time:   [257.93 µs 258.64 µs 261.48 µs]
+                        change: [−9.6282% −7.8890% −6.1066%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^17
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Analyzing
+dif_butterfly_three_lane/avx2/2^17
+                        time:   [266.83 µs 268.27 µs 268.63 µs]
+                        change: [−5.3154% −4.3698% −3.4116%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^17
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Analyzing
+dif_butterfly_three_lane/avx512/2^17
+                        time:   [55.306 µs 55.477 µs 55.519 µs]
+                        change: [−25.075% −24.445% −23.807%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^18
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Analyzing
+dif_butterfly_three_lane/scalar/2^18
+                        time:   [537.20 µs 537.85 µs 540.45 µs]
+                        change: [−0.3697% +0.7623% +1.9134%] (p = 0.57 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^18
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Analyzing
+dif_butterfly_three_lane/avx2/2^18
+                        time:   [517.80 µs 519.51 µs 526.38 µs]
+                        change: [+3.2660% +4.6347% +6.0168%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^18
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Analyzing
+dif_butterfly_three_lane/avx512/2^18
+                        time:   [92.256 µs 92.748 µs 92.871 µs]
+                        change: [+14.171% +15.761% +17.386%] (p = 0.10 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^19
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Analyzing
+dif_butterfly_three_lane/scalar/2^19
+                        time:   [989.84 µs 996.38 µs 998.02 µs]
+                        change: [−8.0945% −7.4366% −6.7747%] (p = 0.07 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^19
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Analyzing
+dif_butterfly_three_lane/avx2/2^19
+                        time:   [998.24 µs 1.0041 ms 1.0275 ms]
+                        change: [−4.4577% −2.0126% +0.4857%] (p = 0.30 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^19
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Analyzing
+dif_butterfly_three_lane/avx512/2^19
+                        time:   [157.20 µs 158.51 µs 163.73 µs]
+                        change: [−23.923% −20.519% −16.951%] (p = 0.06 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/scalar/2^20
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Analyzing
+dif_butterfly_three_lane/scalar/2^20
+                        time:   [1.8357 ms 1.9121 ms 1.9312 ms]
+                        change: [−9.0053% −6.1717% −3.3097%] (p = 0.08 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx2/2^20
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Analyzing
+dif_butterfly_three_lane/avx2/2^20
+                        time:   [1.9478 ms 1.9491 ms 1.9541 ms]
+                        change: [−1.1749% +0.1469% +1.5002%] (p = 0.88 > 0.05)
+                        No change in performance detected.
+Benchmarking dif_butterfly_three_lane/avx512/2^20
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Analyzing
+dif_butterfly_three_lane/avx512/2^20
+                        time:   [239.40 µs 241.51 µs 249.98 µs]
+                        change: [−7.1196% −2.5344% +2.3021%] (p = 0.50 > 0.05)
+                        No change in performance detected.
+

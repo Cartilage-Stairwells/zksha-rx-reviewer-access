@@ -1,0 +1,53 @@
+# Experiment A Hardware Profile
+
+## CPU
+- Vendor: AuthenticAMD
+- Family: 191 (0xBF)
+- Model: 2
+- Stepping: unknown (reported as "unknown" by kernel)
+- Rustc identification: znver5
+- Core count: 4
+- Frequency: ~4130 MHz (reported)
+- Cache: 8192 KB L1
+
+## AVX-512 Feature Support
+- avx512f: YES
+- avx512dq: YES
+- avx512cd: YES
+- avx512bw: YES
+- avx512vl: YES
+- avx512vbmi: YES
+- avx512vbmi2: YES
+- avx512vnni: YES
+- avx512bitalg: YES
+- avx512vpopcntdq: YES
+- avx512vp2intersect: YES
+
+## Other SIMD
+- SSE, SSE2, SSE3, SSE4.1, SSE4.2, SSE4a: YES
+- AVX, AVX2, FMA, F16C: YES
+- BMI1, BMI2: YES
+
+## OS
+- Kernel: Linux modal 4.19.0-gvisor x86_64
+- Distribution: Debian GNU/Linux 12 (bookworm)
+- Architecture: x86_64
+
+## Toolchain
+- Rust: 1.97.1 (8bab26f4f 2026-07-14)
+- Cargo: 1.97.1 (c980f4866 2026-06-30)
+- LLVM: (bundled with Rust 1.97.1)
+
+## Build Configuration
+- Profile: release (optimized)
+- Target triples: x86_64-unknown-linux-gnu
+- Scalar build: RUSTFLAGS="-C target-cpu=x86-64 -O"
+- AVX2/AVX-512: #[target_feature] on specific functions (compiles regardless of target-cpu)
+- Primary benchmark build: target-cpu=x86-64 (for clean scalar baseline)
+- Secondary benchmark build: target-cpu=znver5 (for comparison)
+
+## Notes
+- This is an AMD Zen 5 class processor, different from firebird_74c6e5f's Ice Lake-SP
+- No CPU affinity or frequency pinning was applied
+- Sandbox environment (gvisor-based)
+- Turbo/frequency behavior may vary between runs

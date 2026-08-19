@@ -1,0 +1,57 @@
+# Energy Measurement Result — Experiment A Extension
+
+## Status: ABORTED — Energy measurement unavailable on host
+
+## Discovery Protocol Executed
+
+The following interfaces were probed per the telemetry auto-discovery protocol:
+
+| Interface | Path | Result |
+|-----------|------|--------|
+| Intel RAPL (sysfs) | /sys/class/powercap/intel-rapl | NOT FOUND |
+| AMD MSR energy | /dev/cpu/0/msr | NOT FOUND |
+| MSR module load | modprobe msr | modprobe not available |
+| turbostat | which turbostat | NOT FOUND |
+| perf (power/energy) | which perf | NOT FOUND |
+| cpufreq governor | /sys/devices/system/cpu/cpufreq | NOT FOUND |
+| hwmon (AMD) | /sys/class/hwmon/ | NOT FOUND |
+| debug powercap | /sys/kernel/debug/powercap | NOT FOUND |
+
+## Environment Classification
+
+- Kernel: Linux 4.19.0-gvisor (container sandbox runtime)
+- Hostname: modal
+- Virtualization: gvisor-based container (confirmed by kernel string and cgroup structure)
+- CPU: AMD AuthenticAMD family 191 model 2 (znver5 class, 4 cores)
+
+## Conclusion
+
+Per protocol directive: "If the environment is virtualized or sandboxed such that RAPL/MSR
+telemetry returns zero, static mock values, or permission errors, immediately abort execution
+and record: 'Energy measurement unavailable on host'. Do not substitute CPU utilization, TDP,
+or software power models."
+
+RECORD: Energy measurement unavailable on host.
+
+No software power models, TDP estimates, or CPU utilization proxies were substituted.
+
+## What Would Be Required
+
+To complete the energy axis measurement, the experiment would need to run on:
+
+1. Bare metal (not virtualized) with:
+   - Intel: /sys/class/powercap/intel-rapl accessible (package energy in microjoules)
+   - AMD: /dev/cpu/*/msr accessible for MSR 0xC001029A (ENERGY_STATUS)
+2. Root or appropriate capabilities for MSR access
+3. turbostat or perf with power/energy counters
+4. Ability to set scaling_governor to 'performance' for frequency stability
+5. Core pinning via taskset for isolation
+
+## Three-Axis Status
+
+- Correctness: ESTABLISHED (Experiment A, 139 tests pass + correctness gate PASS)
+- Performance: ESTABLISHED (Experiment A, Criterion 0.8.2, 7.23x AVX-512 vs scalar at 2^20)
+- Energy: NOT ESTABLISHED (host does not support package-energy telemetry)
+
+The three-axis characterization identity is incomplete on the energy axis. The performance
+and correctness axes remain valid as independently established in Experiment A.
