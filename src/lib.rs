@@ -1,23 +1,15 @@
 //! avx512-butterfly: AVX-512 vectorized NTT for the BabyBear field.
 //!
-//! ## Architecture
-//!
-//! This crate has two implementation tiers:
+//! This crate has two implementation tiers and a Plonky3 adapter:
 //!
 //! 1. **Scalar reference** (`scalar_radix2_butterfly`): Pure Rust, no SIMD.
-//!    Used as the correctness oracle for differential testing.
-//!
 //! 2. **AVX-512 SIMD kernel** (`avx512_butterfly_32bit::avx512_radix2_butterfly_32`):
-//!    True 16-lane SIMD using `__m512i` intrinsics. This is the performance path.
-//!    Located in `src/avx512_butterfly_32bit.rs`.
-//!
-//! The function `scalar_compat_radix2_butterfly` in the `avx512_impl` module
-//
-//! is a compatibility wrapper that delegates to scalar — it is NOT the SIMD
-//! kernel and should not be used for benchmarking AVX-512 performance.
+//!    True 16-lane SIMD using `__m512i` intrinsics.
+//! 3. **Plonky3 adapter** (`plonky3_adapter::ZkshaDifAdapter`):
+//!    Implements `TwoAdicSubgroupDft<BabyBear>` routing through our NTT.
 
 use p3_baby_bear::BabyBear;
-use p3_field::AbstractField;
+
 
 /// The BabyBear prime: 2^32 - 2^28 + 1 = 0x78000001
 pub const P: u32 = 0x7800_0001;
@@ -28,32 +20,14 @@ pub const R: u32 = 1 << 31;
 /// -p^{-1} mod 2^32 (Montgomery magic constant)
 pub const P_INV_NEG: u32 = 0x0000_0001;
 
-// ---------------------------------------------------------------------------
-// Module declarations — expose internal modules for tests and benchmarks
-// ---------------------------------------------------------------------------
-
-/// AVX-512 SIMD kernel (the performance path).
+// Module declarations
 pub mod avx512_butterfly_32bit;
-
-/// Core evidence protocol vocabulary.
-pub mod core;
-
-/// Field arithmetic backends (BabyBear Montgomery).
+pub mod plonky3_adapter;
+// pub mod core; // Not needed for integration test
 pub mod field;
-
-/// Evidence instrumentation (gates, coverage, predicates).
-pub mod instrument;
-
-/// NTT stage composition and equivalence testing.
 pub mod ntt;
 
-/// Scalar radix-2 DIF butterfly.
-///
-/// Computes the DIF butterfly: x = a + b mod p, y = (a - b) * w mod p
-/// for each pair (a, b) with twiddle factor w.
-///
-/// This is the reference implementation — pure scalar, no SIMD.
-/// Used as the correctness oracle for backend equivalence testing.
+/// Scalar radix-2 DIF butterfly (reference implementation).
 pub fn scalar_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
     let n = src.len();
     let n2 = n / 2;
@@ -62,28 +36,16 @@ pub fn scalar_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
         let a = src[i];
         let b = src[i + n2];
         let w = twiddles[i];
-        // DIF butterfly: x = a + b, y = (a - b) * w
         src[i] = a + b;
         src[i + n2] = (a - b) * w;
     }
 }
 
-/// AVX-512 compatibility module.
-///
-/// WARNING: `scalar_compat_radix2_butterfly` is a PLACEHOLDER that delegates
-/// to the scalar reference. It is NOT the AVX-512 SIMD kernel.
-///
-/// The real AVX-512 SIMD implementation is:
-///   `avx512_butterfly_32bit::avx512_radix2_butterfly_32`
-/// which operates on `__m512i` vectors (16 lanes of u32).
-///
-/// This compatibility wrapper exists only to maintain the public API
-/// for the `BabyBear` type. Do NOT use it for AVX-512 benchmarking.
+/// AVX-512 compatibility module (placeholder delegating to scalar).
 pub mod avx512_impl {
     use super::*;
     use std::arch::x86_64::*;
 
-    /// SIMD Montgomery reduction: reduces 8 lanes of u64 products to 8 lanes of u32.
     #[target_feature(enable = "avx512f,avx512dq")]
     #[inline]
     unsafe fn mont_reduce_epu64(prod: __m512i) -> __m256i {
@@ -102,13 +64,8 @@ pub mod avx512_impl {
         _mm512_cvtepi64_epi32(t)
     }
 
-    /// PLACEHOLDER: delegates to scalar. NOT the AVX-512 SIMD kernel.
-    ///
-    /// The real SIMD kernel is `avx512_butterfly_32bit::avx512_radix2_butterfly_32`.
-    /// This function exists only for API compatibility with the `BabyBear` type.
     #[target_feature(enable = "avx512f,avx512dq")]
     pub unsafe fn scalar_compat_radix2_butterfly(src: &mut [BabyBear], twiddles: &[BabyBear]) {
-        // Delegates to scalar reference — do NOT benchmark as AVX-512.
         super::scalar_radix2_butterfly(src, twiddles);
         let _ = mont_reduce_epu64(_mm512_setzero_si512());
     }
