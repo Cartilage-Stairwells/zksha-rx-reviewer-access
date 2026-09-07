@@ -22,6 +22,14 @@ harness = false
 [[bench]]
 name = "three_lane_bench"
 harness = false
+
+[[bench]]
+name = "fair_lane_bench"
+harness = false
+
+[[bench]]
+name = "kernel_ab_bench"
+harness = false
 [features]
 default = ["std"]
 std = []
