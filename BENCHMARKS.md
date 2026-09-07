@@ -16,6 +16,8 @@ zkSHA-Rx Fly accelerates the Number Theoretic Transform (NTT) — the single mos
 
 **Canonical speedup: 1.265×–1.276×** geometric mean (AVX-512 vs scalar), measured across 13 transform sizes from 2^8 to 2^20 on AMD Zen 5 with AVX-512 (virtualized sandbox environment) using a three-lane benchmark (scalar vs AVX2 auto-vectorization vs hand-written AVX-512). Dual-run verified (0.9% variance). See CANONICAL_RESULTS.md for full details.
 
+**Fair benchmark (2026-09-07):** a controlled scalar-vs-SIMD measurement against the project's optimized scalar CIOS baseline (not the u128 oracle) establishes **~3x** for the AVX-512 kernel (2.92-2.98x across three runs, 1.9% spread) and 1.12x over the compiler's own AVX-512 auto-vectorization. Oracle-relative ratios are decomposed and retired as performance claims. See FAIR_BENCHMARK.md.
+
 This does not claim universal zk acceleration. It demonstrates that commodity CPU SIMD can match or exceed the NTT throughput of specialized hardware for the BabyBear field.
 ---
 

@@ -34,6 +34,7 @@ pub const P_INV_NEG: u32 = 0x0000_0001;
 
 /// AVX-512 SIMD kernel (the performance path).
 pub mod avx512_butterfly_32bit;
+pub mod avx512_butterfly_opt;
 
 /// Core evidence protocol vocabulary.
 pub mod core;
