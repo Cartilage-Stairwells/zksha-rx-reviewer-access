@@ -66,6 +66,14 @@ Implementation validation:
 - Backend equivalence testing
 - Reproducible benchmark artifacts
 
+Benchmark evidence location (deterministic pointer, EXC-017 remediation 2026-09-07):
+- Branch: evidence/experiment-a (head 8df0c247cc503b751ee91245bb952b6994aaf2e6)
+- Path: evidence/experiment_a/ — SHA256SUMS-pinned artifacts
+- Independent resolution (any clone):
+  git fetch origin evidence/experiment-a
+  git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
+  sha256sum -c evidence/experiment_a/SHA256SUMS
+
 ## Claim Boundary
 
 Measured:
