@@ -380,3 +380,18 @@ For technical questions, benchmark reproduction, or integration discussion:
   url    = {https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access}
 }
 ```
+
+---
+
+## Evidence artifacts — deterministic location pointer (A-9(2) / B-6, 2026-09-07)
+
+Benchmark evidence for this repository is branch-resident, not main-tree:
+
+- **Branch:** `evidence/experiment-a` (head `8df0c247cc503b751ee91245bb952b6994aaf2e6`)
+- **Path:** `evidence/experiment_a/` — SHA256SUMS-pinned artifacts
+- **Independent resolution (from any clone):**
+  ```
+  git fetch origin evidence/experiment-a
+  git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
+  sha256sum -c evidence/experiment_a/SHA256SUMS
+  ```

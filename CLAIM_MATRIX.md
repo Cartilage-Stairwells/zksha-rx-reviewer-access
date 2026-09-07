@@ -44,3 +44,18 @@
 - **Kernel acceleration ≠ end-to-end acceleration.** The 9.15× and 4.58× are isolated butterfly kernel measurements. The 3.94× is a full NTT sweep. None of these imply proportional speedup of a complete proving system.
 - **Formal verification covers arithmetic, not SIMD.** The Lean 4 proofs verify Montgomery multiplication properties. The SIMD implementation is validated by differential testing and backend equivalence, not by formal proof.
 - **Reproducibility is hardware-specific.** Benchmark numbers were measured on specific AVX-512 hardware. Results on different microarchitectures will differ.
+
+---
+
+## Evidence artifacts — deterministic location pointer (A-9(2) / B-6, 2026-09-07)
+
+Benchmark evidence for this repository is branch-resident, not main-tree:
+
+- **Branch:** `evidence/experiment-a` (head `8df0c247cc503b751ee91245bb952b6994aaf2e6`)
+- **Path:** `evidence/experiment_a/` — SHA256SUMS-pinned artifacts
+- **Independent resolution (from any clone):**
+  ```
+  git fetch origin evidence/experiment-a
+  git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
+  sha256sum -c evidence/experiment_a/SHA256SUMS
+  ```
