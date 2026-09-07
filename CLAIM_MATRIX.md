@@ -37,7 +37,7 @@
 | Warmup | 3 seconds |
 | Outlier rejection | Enabled |
 | Full NTT framework | perf_measure (historical), 1000 iterations/size |
-| Test count | 140 total (all passing) |
+| Test count | 141 total, all passing as recorded. **Counting basis (B-2/EXC-012, stated 2026-09-07):** mechanical census of `#[test]` attributes in the tree as of this commit — 104 in `tests/` (of which 6 live in the archived `tests/archive/legacy_montgomery_regression.rs`, leaving 98 in the live suite) + 37 unit tests in `src/` = 141 across the tree. The README's separate '102 tests' figure was verified against `tests/` at audit time (VT census); the current-tree census is recorded here so both counts carry stated bases. Zero `#[ignore]`. The prior "140 total" was an unstated-basis approximation. |
 
 ## Important Distinctions
 
