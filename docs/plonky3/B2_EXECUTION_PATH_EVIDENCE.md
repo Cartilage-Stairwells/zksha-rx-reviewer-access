@@ -35,10 +35,17 @@ scalar_calls    = 0
 avx512_calls    = 12
 ```
 
-Twelve AVX-512 NTT executions occurred *inside* the prove call
+Twelve AVX-512 backend invocations occurred *inside* the prove() call
 (trace commitment LDE and quotient commitment LDE, each via
 `TwoAdicFriPcs::commit → coset_lde_batch → idft_batch/dft_batch`).
 Reference lane idle; scalar fallback idle (AVX-512 present on host).
+
+Wording boundary: the tracker observes backend *entry counts* — the
+selected AVX-512 lane was entered 12 times during the proving path. It does
+not observe CPU instruction retirement; no claim is made about
+instruction-level execution counts. Correspondingly, "proof-output byte
+identity" is justified as stated: both deterministic proving paths
+serialized to exactly the same 124,410-byte output.
 
 ### 3. Proof verified — PASS
 `p3_uni_stark::verify()` accepted the adapter-backed proof.
