@@ -21,7 +21,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.8 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.14 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 make reproduce
 ```

@@ -105,3 +105,19 @@ A researcher should understand the project in 10 minutes without needing the aut
 
 v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they constitute the minimum surface a serious cryptography project presents to external reviewers.
 
+
+## review-v0.1.14 (2026-09-11) — Integrity re-seal
+
+**Tag:** review-v0.1.14
+**Purpose:** Mechanical release-gate alignment following the 2026-09-11 public boundary audit. The v0.1.10–v0.1.13 releases updated claim documents without regenerating the integrity manifest, leaving the newest claims outside a passing mechanical gate.
+
+**Changes (bookkeeping only — no claim content modified):**
+- `SHA256SUMS` regenerated over all tracked files
+- `REVIEW_RELEASE.md` release identity advanced to `review-v0.1.14` (previous: `review-v0.1.13` / `01db486`, historical)
+- Quick-start pointers in `README.md` and `docs/EXTERNAL_REVIEWER_GUIDE.md` updated from `review-v0.1.8` to `review-v0.1.14`
+- `VERIFICATION_STATUS.md` last-updated line advanced to `review-v0.1.14`
+- This release note added
+
+**Claims:** unchanged from `review-v0.1.13` (canonical 1.265×–1.276× AVX-512 DIF butterfly; 102 tests; formal verification per `CLAIM_MATRIX.md`).
+
+**Supersedes:** `review-v0.1.13` for reviewer entry (all prior tags remain immutable).

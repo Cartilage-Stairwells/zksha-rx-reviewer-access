@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.9` |
+| Release tag | `review-v0.1.14` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.5` / `0ea4eff` (historical) |
+| Previous snapshot | `review-v0.1.13` / `01db486` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Artifact Inventory
@@ -47,7 +47,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.9
+git checkout review-v0.1.14
 
 # Build
 cargo build --release
