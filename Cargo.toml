@@ -10,6 +10,15 @@ p3-baby-bear = "0.1"
 p3-field = "0.1"
 p3-dft = "0.1"
 p3-matrix = "0.1"
+p3-air = "0.1"
+p3-challenger = "0.1"
+p3-commit = "0.1"
+p3-fri = "0.1"
+p3-merkle-tree = "0.1"
+p3-poseidon2 = "0.1"
+p3-symmetric = "0.1"
+p3-uni-stark = "0.1"
+p3-util = "0.1"
 rand = "0.8"
 
 [dev-dependencies]
@@ -22,3 +31,7 @@ std = []
 [[test]]
 name = "prover_fixture"
 path = "tests/prover_fixture.rs"
+
+[[test]]
+name = "stark_prover_fixture"
+path = "tests/stark_prover_fixture.rs"
