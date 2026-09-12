@@ -1,0 +1,4202 @@
+{
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 21587.657030577087,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21576.93059319811,
+        "upper_bound": 21594.641895249453
+      },
+      "mean_ns": 21598.06278012982,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21581.01710715354,
+        "upper_bound": 21624.855056102806
+      },
+      "std_dev_ns": 66.10757491573032
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 21559.10692513369,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21551.45208257216,
+        "upper_bound": 21572.354656862743
+      },
+      "mean_ns": 21587.77175354979,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21557.786309000898,
+        "upper_bound": 21636.76622933859
+      },
+      "std_dev_ns": 121.3318562680939
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 22042.01949949187,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 22030.86335784314,
+        "upper_bound": 22054.117032520327
+      },
+      "mean_ns": 22088.36537668909,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 22044.495989484523,
+        "upper_bound": 22155.908119823096
+      },
+      "std_dev_ns": 164.45019762382603
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 46527.176807760145,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46485.26234567901,
+        "upper_bound": 46539.76430699994
+      },
+      "mean_ns": 46558.323910939645,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46497.443111552784,
+        "upper_bound": 46640.877056902784
+      },
+      "std_dev_ns": 208.69221539552638
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 46615.450810570735,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46572.66757546251,
+        "upper_bound": 46646.40115670013
+      },
+      "mean_ns": 46647.64375079573,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46588.02975595757,
+        "upper_bound": 46745.27155420993
+      },
+      "std_dev_ns": 241.23522206272557
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 47635.550494826806,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 47604.434448964494,
+        "upper_bound": 48989.44181459566
+      },
+      "mean_ns": 48471.84320791771,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 48068.7574719121,
+        "upper_bound": 48908.42679976212
+      },
+      "std_dev_ns": 1201.6792321750745
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 99834.65037593985,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 99787.41859649122,
+        "upper_bound": 99919.64638157895
+      },
+      "mean_ns": 99882.4352556189,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 99768.7335029814,
+        "upper_bound": 100030.41242394056
+      },
+      "std_dev_ns": 374.4580144017367
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 100710.10503685503,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 100591.96818693694,
+        "upper_bound": 100810.2477927928
+      },
+      "mean_ns": 100772.38811665177,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 100627.41609162596,
+        "upper_bound": 100955.07591091073
+      },
+      "std_dev_ns": 473.7347107010036
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 102577.05581490582,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102474.94420736526,
+        "upper_bound": 102664.00056306308
+      },
+      "mean_ns": 102753.62364998968,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102551.86033118737,
+        "upper_bound": 103012.47543371984
+      },
+      "std_dev_ns": 666.4531807732714
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 212546.18402777778,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 212375.6082621083,
+        "upper_bound": 212704.77679573512
+      },
+      "mean_ns": 212697.76814113313,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 212464.41356058256,
+        "upper_bound": 213036.2362436399
+      },
+      "std_dev_ns": 840.1818794569125
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 215293.32886904763,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 215202.3768939394,
+        "upper_bound": 215355.13419753086
+      },
+      "mean_ns": 215378.31798476088,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 215139.15289187938,
+        "upper_bound": 215767.98016632942
+      },
+      "std_dev_ns": 961.5353348502404
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 219237.80555555556,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 218955.77777777778,
+        "upper_bound": 219432.11240740743
+      },
+      "mean_ns": 219486.36744113514,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 219177.0751575885,
+        "upper_bound": 219899.07239623403
+      },
+      "std_dev_ns": 1033.5264642697211
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 452632.1316993464,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 452034.62915479584,
+        "upper_bound": 453352.48977873975
+      },
+      "mean_ns": 452666.46110324445,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 452305.7513010163,
+        "upper_bound": 453027.2344952972
+      },
+      "std_dev_ns": 1022.6017179731765
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 460378.23888888885,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 460095.69153439155,
+        "upper_bound": 460499.22089314193
+      },
+      "mean_ns": 460449.2937006106,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 460095.4198265769,
+        "upper_bound": 460847.09692917403
+      },
+      "std_dev_ns": 1069.8289912495013
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 467557.7816399287,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 467274.3803418803,
+        "upper_bound": 467981.68993352324
+      },
+      "mean_ns": 468065.96589043294,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 467455.8154033351,
+        "upper_bound": 468802.2188506917
+      },
+      "std_dev_ns": 1928.3061735068109
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 961708.2494318183,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 960638.2564102565,
+        "upper_bound": 962713.5320574162
+      },
+      "mean_ns": 961994.9432454375,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 961102.1673724866,
+        "upper_bound": 962910.3116817219
+      },
+      "std_dev_ns": 2566.630526976636
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 980047.5059210527,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 979319.4270833333,
+        "upper_bound": 981050.1618518519
+      },
+      "mean_ns": 980228.3205314343,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 979544.2312385503,
+        "upper_bound": 980954.5376115333
+      },
+      "std_dev_ns": 2002.6685139567699
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1003714.6958333333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 999945.2083333333,
+        "upper_bound": 1005249.7480842912
+      },
+      "mean_ns": 1003910.1686107536,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1001499.0909130758,
+        "upper_bound": 1006630.15451533
+      },
+      "std_dev_ns": 7289.02115642572
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 2032314.016283525,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2030521.5073529412,
+        "upper_bound": 2034278.235869565
+      },
+      "mean_ns": 2032354.468637892,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2029846.6645691772,
+        "upper_bound": 2034978.6275184243
+      },
+      "std_dev_ns": 7262.6717522241415
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 2075479.6996904025,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2073417.1634615385,
+        "upper_bound": 2077448.719047619
+      },
+      "mean_ns": 2075881.6980114174,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2074179.041680349,
+        "upper_bound": 2077732.6456891648
+      },
+      "std_dev_ns": 5035.613796511129
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 2120541.4875,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2111604.331818182,
+        "upper_bound": 2134289.34375
+      },
+      "mean_ns": 2126131.0584439603,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2119952.805635823,
+        "upper_bound": 2132582.0334083275
+      },
+      "std_dev_ns": 18086.082300922582
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 4288874.398190046,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4280438.5625,
+        "upper_bound": 4292495.489130435
+      },
+      "mean_ns": 4285705.9256313015,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4281043.137596184,
+        "upper_bound": 4290307.802736579
+      },
+      "std_dev_ns": 13223.059329837179
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 4387532.200980392,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4379672.621794872,
+        "upper_bound": 4392605.455555555
+      },
+      "mean_ns": 4384885.915876506,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4381231.728839418,
+        "upper_bound": 4388384.633314838
+      },
+      "std_dev_ns": 10166.30126163342
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 4459649.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4453165.90530303,
+        "upper_bound": 4466895.436521739
+      },
+      "mean_ns": 4464447.879198051,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4455427.371008683,
+        "upper_bound": 4474135.135874123
+      },
+      "std_dev_ns": 26633.29391754958
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 9051581.57142857,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9045380.785714285,
+        "upper_bound": 9054433.785714285
+      },
+      "mean_ns": 9050476.009523807,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9046583.79404762,
+        "upper_bound": 9054412.337261906
+      },
+      "std_dev_ns": 11122.875328694108
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 9237354.857142858,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9236034.142857142,
+        "upper_bound": 9240271.285714285
+      },
+      "mean_ns": 9243354.366666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9237370.977857145,
+        "upper_bound": 9253869.326904763
+      },
+      "std_dev_ns": 26763.68304105674
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9413821.714285715,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9410460.285714285,
+        "upper_bound": 9420493.92857143
+      },
+      "mean_ns": 9418272.961904762,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9410712.401547618,
+        "upper_bound": 9426589.095833331
+      },
+      "std_dev_ns": 22634.883211319084
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 19182686.125,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19175079.625,
+        "upper_bound": 19193327.25
+      },
+      "mean_ns": 19187814.416666668,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19177032.318125002,
+        "upper_bound": 19201259.765
+      },
+      "std_dev_ns": 34694.65549143759
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 19542063.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19539469.25,
+        "upper_bound": 19548484.25
+      },
+      "mean_ns": 19545096.141666666,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19539705.82208333,
+        "upper_bound": 19551131.977291666
+      },
+      "std_dev_ns": 16275.846058929776
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 19797281.375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19781790.25,
+        "upper_bound": 19803107.625
+      },
+      "mean_ns": 19806710.966666665,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19787458.696250003,
+        "upper_bound": 19833574.53729167
+      },
+      "std_dev_ns": 67295.1496531784
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 40415824.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40392924.5,
+        "upper_bound": 40440424.25
+      },
+      "mean_ns": 40427251.0,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40401749.625416666,
+        "upper_bound": 40453866.75666667
+      },
+      "std_dev_ns": 74449.91206995572
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 41374220.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 41357258.5,
+        "upper_bound": 41381073.0
+      },
+      "mean_ns": 41664335.15,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 41362312.824999996,
+        "upper_bound": 42059814.6075
+      },
+      "std_dev_ns": 999659.0068201114
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 41614900.25,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 41592890.5,
+        "upper_bound": 41639762.5
+      },
+      "mean_ns": 41687168.1,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 41609601.080416664,
+        "upper_bound": 41793566.33875
+      },
+      "std_dev_ns": 264165.3373744922
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 4596.836432729625,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4595.92318265499,
+        "upper_bound": 4598.659751517083
+      },
+      "mean_ns": 4602.7852343558,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4597.401308069818,
+        "upper_bound": 4609.450385617378
+      },
+      "std_dev_ns": 17.37979890562101
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 4509.254745058401,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4507.6370910136,
+        "upper_bound": 4512.71872231542
+      },
+      "mean_ns": 4520.008578814351,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4510.863964341963,
+        "upper_bound": 4531.694265128223
+      },
+      "std_dev_ns": 29.778542183231437
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 4633.066566940912,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4630.564071399805,
+        "upper_bound": 4660.933331775119
+      },
+      "mean_ns": 4647.159600745393,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4637.49764743189,
+        "upper_bound": 4659.812534400109
+      },
+      "std_dev_ns": 32.188650110359966
+    }
+  },
+  "b4k_dft_batch_w1/plonky3_radix2dit/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 9971.852879140788,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9969.493691770185,
+        "upper_bound": 9974.077903318077
+      },
+      "mean_ns": 9978.030112659744,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9969.872518019607,
+        "upper_bound": 9992.248489715446
+      },
+      "std_dev_ns": 36.28236907118849
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 9906.332926175935,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9902.006700494407,
+        "upper_bound": 9910.441952309986
+      },
+      "mean_ns": 9918.873209947147,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9904.549449304726,
+        "upper_bound": 9941.282533477806
+      },
+      "std_dev_ns": 54.80585211452748
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 10118.8280664794,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10117.232685705367,
+        "upper_bound": 10122.342509363296
+      },
+      "mean_ns": 10140.98630910142,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10120.5872413223,
+        "upper_bound": 10170.367979785706
+      },
+      "std_dev_ns": 72.22778016646198
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 26873.79497288277,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26789.277541371157,
+        "upper_bound": 27017.538744418176
+      },
+      "mean_ns": 26975.80620205843,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26874.097086431953,
+        "upper_bound": 27090.742378649746
+      },
+      "std_dev_ns": 309.7026843310203
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 26981.67546583851,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26913.221729595727,
+        "upper_bound": 27079.728727492315
+      },
+      "mean_ns": 27112.754486300742,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26994.7096471008,
+        "upper_bound": 27262.937897198626
+      },
+      "std_dev_ns": 384.61306189871755
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 38534.3619047619,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 38371.983095238094,
+        "upper_bound": 38610.27468253968
+      },
+      "mean_ns": 38814.76483413274,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 38538.66684827672,
+        "upper_bound": 39163.989209204556
+      },
+      "std_dev_ns": 895.8240965527291
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 40203.443376068375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40167.08964285714,
+        "upper_bound": 40320.6039408867
+      },
+      "mean_ns": 40317.082933024954,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40204.874313418884,
+        "upper_bound": 40460.96514604115
+      },
+      "std_dev_ns": 367.38959844624225
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 40439.933000000005,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40372.44484126984,
+        "upper_bound": 40565.245482603816
+      },
+      "mean_ns": 40683.53248299329,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40478.96910749764,
+        "upper_bound": 40938.82192554064
+      },
+      "std_dev_ns": 664.2187619853541
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 63264.96428571429,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 63134.08188608777,
+        "upper_bound": 63506.64462081129
+      },
+      "mean_ns": 63570.53935450631,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 63301.20340800403,
+        "upper_bound": 63898.22148920578
+      },
+      "std_dev_ns": 857.3029859901159
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 66175.39196310934,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 66105.51473063973,
+        "upper_bound": 66361.88246078158
+      },
+      "mean_ns": 66332.90396164908,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 66194.44614765182,
+        "upper_bound": 66497.42102266151
+      },
+      "std_dev_ns": 430.6924156612007
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 66353.74310776942,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 66248.39687627187,
+        "upper_bound": 66655.29420634921
+      },
+      "mean_ns": 66586.51487958855,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 66376.99901442867,
+        "upper_bound": 66839.35608113163
+      },
+      "std_dev_ns": 659.4977220232488
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 124210.04435483871,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 112531.1092518257,
+        "upper_bound": 126863.36389578163
+      },
+      "mean_ns": 121012.44765140976,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 118188.05097698676,
+        "upper_bound": 123854.46874624392
+      },
+      "std_dev_ns": 8113.974430428071
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 118876.49967948717,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 118675.10259103641,
+        "upper_bound": 118979.50037037037
+      },
+      "mean_ns": 119160.50424181305,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 118832.86541058379,
+        "upper_bound": 119608.3174487765
+      },
+      "std_dev_ns": 1120.0655726511982
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 119085.91747126437,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 118926.56787082649,
+        "upper_bound": 119285.23088455772
+      },
+      "mean_ns": 119240.4167236256,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 118980.88135709743,
+        "upper_bound": 119603.85942360568
+      },
+      "std_dev_ns": 904.7915425481111
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 210365.4199604743,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 210240.35576923075,
+        "upper_bound": 210589.6722222222
+      },
+      "mean_ns": 210746.40925770893,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 210365.05763004904,
+        "upper_bound": 211348.84440975412
+      },
+      "std_dev_ns": 1478.2278500959658
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 226253.4153645833,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 225911.5045617816,
+        "upper_bound": 226401.2457142857
+      },
+      "mean_ns": 226818.97793704213,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 226281.02811491847,
+        "upper_bound": 227447.84670041257
+      },
+      "std_dev_ns": 1668.0481185540114
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 226942.21655011654,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 226510.51851851854,
+        "upper_bound": 227124.62892416224
+      },
+      "mean_ns": 226937.3793400209,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 226512.12239794142,
+        "upper_bound": 227474.2945055033
+      },
+      "std_dev_ns": 1378.5295306299702
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 409600.5334943639,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 408951.87488328665,
+        "upper_bound": 410325.2461419753
+      },
+      "mean_ns": 410588.96877268504,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 409631.1044470595,
+        "upper_bound": 411722.7895754995
+      },
+      "std_dev_ns": 2989.8380999970723
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 445564.86614583334,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 444788.7270220588,
+        "upper_bound": 445685.0840517242
+      },
+      "mean_ns": 445707.82092683925,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 445135.0398996373,
+        "upper_bound": 446447.3852036673
+      },
+      "std_dev_ns": 1870.8671995921225
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 449749.2459770115,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 447657.2626201923,
+        "upper_bound": 451569.1936342593
+      },
+      "mean_ns": 449766.9499169538,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 448725.7752344747,
+        "upper_bound": 450801.626827355
+      },
+      "std_dev_ns": 2962.404728156188
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 811546.1525252525,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 810534.6366666667,
+        "upper_bound": 812800.2134545455
+      },
+      "mean_ns": 812920.481519426,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 811355.4994356112,
+        "upper_bound": 814835.1420823239
+      },
+      "std_dev_ns": 4988.858241123177
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 889082.6652777777,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 884696.7666666666,
+        "upper_bound": 890024.0791666666
+      },
+      "mean_ns": 887512.3526521601,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 886318.0739833538,
+        "upper_bound": 888708.9449974347
+      },
+      "std_dev_ns": 3417.9505719830304
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 900354.1151785714,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 888968.5965909092,
+        "upper_bound": 902625.0623342176
+      },
+      "mean_ns": 896874.8944951168,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 893734.8222024732,
+        "upper_bound": 899955.2691126959
+      },
+      "std_dev_ns": 8857.1674058826
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1635855.7216666667,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1633398.3694444443,
+        "upper_bound": 1639043.0638888888
+      },
+      "mean_ns": 1640662.4526644535,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1635783.3529616466,
+        "upper_bound": 1647177.3062510423
+      },
+      "std_dev_ns": 16480.040325811842
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 1862519.3157407409,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1819120.1116071427,
+        "upper_bound": 1871877.6168181817
+      },
+      "mean_ns": 1846528.2275999463,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1833047.3317212735,
+        "upper_bound": 1859754.1681730105
+      },
+      "std_dev_ns": 37779.38698468968
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 1832513.9253846155,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1825748.475,
+        "upper_bound": 1834616.2226386806
+      },
+      "mean_ns": 1832419.805581578,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1828492.261825606,
+        "upper_bound": 1836588.0773380552
+      },
+      "std_dev_ns": 11508.374639556529
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 3349227.380952381,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3339767.276223776,
+        "upper_bound": 3363532.9
+      },
+      "mean_ns": 3349999.827293312,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3337271.653129972,
+        "upper_bound": 3364778.531621987
+      },
+      "std_dev_ns": 39230.85525048072
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 3750124.077777778,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3742238.673076923,
+        "upper_bound": 3824592.4074074076
+      },
+      "mean_ns": 3786784.409934374,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3763805.230113575,
+        "upper_bound": 3811204.9827054907
+      },
+      "std_dev_ns": 67799.8000739643
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 3715420.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3712764.861111111,
+        "upper_bound": 3867146.855218855
+      },
+      "mean_ns": 3802921.0119637162,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3759538.583826178,
+        "upper_bound": 3847755.061977322
+      },
+      "std_dev_ns": 125535.61239438436
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 6716465.419642857,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6709864.3,
+        "upper_bound": 6862314.077922078
+      },
+      "mean_ns": 6804748.90812924,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6755958.498757082,
+        "upper_bound": 6856065.791661874
+      },
+      "std_dev_ns": 143154.91433198654
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 7494609.375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7492250.6875,
+        "upper_bound": 7495789.9375
+      },
+      "mean_ns": 7508059.458333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7492296.407395833,
+        "upper_bound": 7530846.867395834
+      },
+      "std_dev_ns": 56681.68396220517
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 7481069.375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7475455.6875,
+        "upper_bound": 7482671.75
+      },
+      "mean_ns": 7487025.354166667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7477639.628645833,
+        "upper_bound": 7503710.6970833335
+      },
+      "std_dev_ns": 43005.5695259733
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 13289287.2,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13277373.4,
+        "upper_bound": 13297712.4
+      },
+      "mean_ns": 13309509.419999996,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13285141.617666664,
+        "upper_bound": 13346213.215666663
+      },
+      "std_dev_ns": 89632.5716098762
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 15096971.25,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15094189.75,
+        "upper_bound": 15102789.875
+      },
+      "mean_ns": 15129939.108333332,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15090386.400416667,
+        "upper_bound": 15202784.979375
+      },
+      "std_dev_ns": 191141.85661059705
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 15222622.25,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15219099.75,
+        "upper_bound": 15236223.5
+      },
+      "mean_ns": 15403025.308333334,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15238601.721666666,
+        "upper_bound": 15606302.791250002
+      },
+      "std_dev_ns": 523860.4958309869
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 26893144.666666664,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26867939.333333336,
+        "upper_bound": 26981902.666666664
+      },
+      "mean_ns": 27025199.844444443,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26902808.566388883,
+        "upper_bound": 27194911.16944444
+      },
+      "std_dev_ns": 423146.07820345403
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 17246.541756262315,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 17102.602711323765,
+        "upper_bound": 17351.72753203734
+      },
+      "mean_ns": 17320.19943268659,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 17152.43269098589,
+        "upper_bound": 17541.35895428445
+      },
+      "std_dev_ns": 566.7687368429247
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 17206.599458874458,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 17152.146187146187,
+        "upper_bound": 17276.034117032395
+      },
+      "mean_ns": 17362.01913810311,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 17169.04006040527,
+        "upper_bound": 17676.000741754793
+      },
+      "std_dev_ns": 781.5159206292635
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 19998.144205209996,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19944.556261852238,
+        "upper_bound": 20098.14913378802
+      },
+      "mean_ns": 20016.613821670206,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19942.68339564352,
+        "upper_bound": 20094.10442553818
+      },
+      "std_dev_ns": 216.23161086320013
+    }
+  },
+  "b4k_dft_batch_w1/zksha_avx512/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 20326.13558922559,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20263.445412457913,
+        "upper_bound": 20417.293517182407
+      },
+      "mean_ns": 20475.227646874107,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20325.952701715818,
+        "upper_bound": 20684.66855794911
+      },
+      "std_dev_ns": 519.2572677227713
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 20549.796344271734,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20485.898192696768,
+        "upper_bound": 20603.372640636568
+      },
+      "mean_ns": 20597.366587972,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20526.022985099913,
+        "upper_bound": 20682.960635979405
+      },
+      "std_dev_ns": 224.7302653146933
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 26280.382735961768,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26219.42446236559,
+        "upper_bound": 26405.00978215333
+      },
+      "mean_ns": 26508.154234798643,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26321.110154892875,
+        "upper_bound": 26742.45906639035
+      },
+      "std_dev_ns": 608.0541762582651
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 19293.297660818713,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19287.782615426033,
+        "upper_bound": 19303.130376588022
+      },
+      "mean_ns": 19307.885956497874,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19292.545729924543,
+        "upper_bound": 19333.960262404184
+      },
+      "std_dev_ns": 65.8624222757385
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 18519.870146520145,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 18516.407758907757,
+        "upper_bound": 18537.379041248605
+      },
+      "mean_ns": 18549.90455406192,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 18521.42301748389,
+        "upper_bound": 18597.51136227947
+      },
+      "std_dev_ns": 118.13902623315619
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 18640.27641561806,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 18630.137839073454,
+        "upper_bound": 18679.301870169744
+      },
+      "mean_ns": 18690.628158904616,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 18646.125989929442,
+        "upper_bound": 18751.87324956326
+      },
+      "std_dev_ns": 153.3098936921417
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 39497.11178315412,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39486.112725983694,
+        "upper_bound": 39517.013632872506
+      },
+      "mean_ns": 39558.211481165745,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39496.55991027178,
+        "upper_bound": 39643.73122541405
+      },
+      "std_dev_ns": 215.43969220192713
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 37273.89750198255,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 37253.51832404858,
+        "upper_bound": 37280.05435112189
+      },
+      "mean_ns": 37302.289723525944,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 37258.70289830498,
+        "upper_bound": 37378.035716751365
+      },
+      "std_dev_ns": 191.75327441747703
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 37437.581062837504,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 37429.4969072165,
+        "upper_bound": 37463.90499696786
+      },
+      "mean_ns": 37491.44695995419,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 37441.47961252862,
+        "upper_bound": 37571.94783386731
+      },
+      "std_dev_ns": 198.8014556961197
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 80948.04314381271,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 80929.3510511228,
+        "upper_bound": 80980.94575719387
+      },
+      "mean_ns": 81101.88332894369,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 80960.03357534827,
+        "upper_bound": 81278.78101022319
+      },
+      "std_dev_ns": 454.01007674696626
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 75282.79489288124,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 75228.53725961539,
+        "upper_bound": 75328.59705687831
+      },
+      "mean_ns": 75369.91561139033,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 75253.70254044312,
+        "upper_bound": 75533.38139594547
+      },
+      "std_dev_ns": 405.3589394615594
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 75508.78918650793,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 75446.24672619047,
+        "upper_bound": 75617.32620614035
+      },
+      "mean_ns": 75610.3899695419,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 75486.22338367623,
+        "upper_bound": 75790.87052552094
+      },
+      "std_dev_ns": 444.9913274425353
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 165758.12885375496,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 165714.83205456095,
+        "upper_bound": 165796.7625603865
+      },
+      "mean_ns": 165856.88444184794,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 165742.42118130325,
+        "upper_bound": 166051.78256411807
+      },
+      "std_dev_ns": 493.66485107017735
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 152085.1590277778,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 151996.82731729056,
+        "upper_bound": 152137.71913819876
+      },
+      "mean_ns": 152157.23006342008,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 151981.7606253315,
+        "upper_bound": 152446.91220312123
+      },
+      "std_dev_ns": 724.39535074815
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 152279.01967592593,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 152118.54340277778,
+        "upper_bound": 152507.24417249416
+      },
+      "mean_ns": 153370.7931048819,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 152387.50723104115,
+        "upper_bound": 154886.65311658898
+      },
+      "std_dev_ns": 3701.5950626342083
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 340671.0002913753,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 340558.9181818182,
+        "upper_bound": 340806.375990676
+      },
+      "mean_ns": 340933.30573087937,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 340655.6224144712,
+        "upper_bound": 341372.8559230541
+      },
+      "std_dev_ns": 1073.4990765736188
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 307938.8208333333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 307836.61250000005,
+        "upper_bound": 308033.3302469136
+      },
+      "mean_ns": 308279.13027765893,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 307899.53878764686,
+        "upper_bound": 308937.78538420494
+      },
+      "std_dev_ns": 1679.57882667603
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 308802.9817708333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 307696.1666666667,
+        "upper_bound": 309429.46753323835
+      },
+      "mean_ns": 309361.9796474098,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 308506.8061645363,
+        "upper_bound": 310382.31223171507
+      },
+      "std_dev_ns": 2682.9605836504743
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 700510.973475355,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 700245.201388889,
+        "upper_bound": 700621.8617216117
+      },
+      "mean_ns": 700747.734131699,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 700326.1940539032,
+        "upper_bound": 701416.5570786283
+      },
+      "std_dev_ns": 1638.165069559998
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 626661.5616883116,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 625526.1994047619,
+        "upper_bound": 629600.3159171075
+      },
+      "mean_ns": 627715.849280865,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 626567.9149590036,
+        "upper_bound": 629008.2831805145
+      },
+      "std_dev_ns": 3474.907342775623
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 624252.1465277778,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 622373.75,
+        "upper_bound": 626308.0942684766
+      },
+      "mean_ns": 625387.355539878,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 623719.67355349,
+        "upper_bound": 627232.0597756375
+      },
+      "std_dev_ns": 4982.121605450257
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 1435878.1555555556,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1434465.8541666665,
+        "upper_bound": 1437210.4097222222
+      },
+      "mean_ns": 1436469.4518749423,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1435160.1073435808,
+        "upper_bound": 1438000.0038445161
+      },
+      "std_dev_ns": 4053.501127185501
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 1269928.8250000002,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1268243.6712962962,
+        "upper_bound": 1276907.1191358026
+      },
+      "mean_ns": 1272943.414436637,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1270416.0162264635,
+        "upper_bound": 1275552.751100224
+      },
+      "std_dev_ns": 7313.221817039024
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1285247.6853146853,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1279838.2189542484,
+        "upper_bound": 1288264.1708333334
+      },
+      "mean_ns": 1284878.3683145277,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1280730.7908885076,
+        "upper_bound": 1289327.979245575
+      },
+      "std_dev_ns": 12196.710212281405
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 3020847.779374202,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2975439.111111111,
+        "upper_bound": 3028199.25
+      },
+      "mean_ns": 3006188.5882538734,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2993161.483444911,
+        "upper_bound": 3019299.6105002835
+      },
+      "std_dev_ns": 37121.513169331614
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 2608181.0281609194,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2597471.5454545454,
+        "upper_bound": 2613206.8002645504
+      },
+      "mean_ns": 2605142.887647956,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2600011.9439294087,
+        "upper_bound": 2610165.212791789
+      },
+      "std_dev_ns": 14472.881347858118
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 2643667.2080721003,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2624763.1416666666,
+        "upper_bound": 2656538.5570652173
+      },
+      "mean_ns": 2641138.846626115,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2627015.473941165,
+        "upper_bound": 2657259.3967795046
+      },
+      "std_dev_ns": 43179.86530186552
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 6170042.988095238,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6164050.014705882,
+        "upper_bound": 6231483.520979021
+      },
+      "mean_ns": 6201830.694699266,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6182698.576346287,
+        "upper_bound": 6222149.725579016
+      },
+      "std_dev_ns": 56422.72570192113
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 5298476.2,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5295916.5625,
+        "upper_bound": 5450178.825757576
+      },
+      "mean_ns": 5387323.761088084,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5343611.392707909,
+        "upper_bound": 5433021.111201694
+      },
+      "std_dev_ns": 127632.93846047542
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 5347606.404761905,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5324038.816666666,
+        "upper_bound": 5520310.814814815
+      },
+      "mean_ns": 5430974.471788547,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5382155.496585073,
+        "upper_bound": 5482568.0446961615
+      },
+      "std_dev_ns": 143132.29728354985
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 12534291.3,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 12528954.3,
+        "upper_bound": 12544288.3
+      },
+      "mean_ns": 12548796.993333329,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 12533505.781833326,
+        "upper_bound": 12573847.356999995
+      },
+      "std_dev_ns": 61604.17566325304
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 10701978.166666668,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10696957.583333334,
+        "upper_bound": 10705432.416666666
+      },
+      "mean_ns": 10751457.805555554,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10699278.95569444,
+        "upper_bound": 10833703.320555557
+      },
+      "std_dev_ns": 200143.323359241
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 10608631.666666666,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10599859.083333332,
+        "upper_bound": 10643931.5
+      },
+      "mean_ns": 10653156.611111112,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10621790.948333336,
+        "upper_bound": 10692178.652222222
+      },
+      "std_dev_ns": 100776.22908492503
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 25661169.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 25646792.833333332,
+        "upper_bound": 25679973.0
+      },
+      "mean_ns": 25661799.999999996,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 25652246.68694445,
+        "upper_bound": 25671316.14388888
+      },
+      "std_dev_ns": 27167.786582374218
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 21724508.75,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21714934.0,
+        "upper_bound": 21733616.5
+      },
+      "mean_ns": 21877467.216666665,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21724126.791666668,
+        "upper_bound": 22103041.174791668
+      },
+      "std_dev_ns": 555023.5099535926
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 21410884.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21399613.125,
+        "upper_bound": 21425250.75
+      },
+      "mean_ns": 21606801.525,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21409751.632708333,
+        "upper_bound": 21958076.912499998
+      },
+      "std_dev_ns": 883668.7633497906
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 4615.953812681497,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4614.565200091918,
+        "upper_bound": 4617.015344257582
+      },
+      "mean_ns": 4621.3496854236,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4616.124622574988,
+        "upper_bound": 4627.726461889582
+      },
+      "std_dev_ns": 16.651925598320812
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 4568.5694750442,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4567.714929087386,
+        "upper_bound": 4575.464854804971
+      },
+      "mean_ns": 4581.085770839319,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4572.691178954547,
+        "upper_bound": 4591.615922437226
+      },
+      "std_dev_ns": 27.114686777954823
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 4620.993404595695,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4617.872709424084,
+        "upper_bound": 4652.0999360465985
+      },
+      "mean_ns": 4683.47240032319,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4629.483798958076,
+        "upper_bound": 4759.928152005112
+      },
+      "std_dev_ns": 189.95226734176063
+    }
+  },
+  "b4k_dft_batch_w1/zksha_scalar/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 9417.173050826548,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9412.626031471886,
+        "upper_bound": 9422.137275399207
+      },
+      "mean_ns": 9424.906982397919,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9415.622343911858,
+        "upper_bound": 9437.519124854638
+      },
+      "std_dev_ns": 31.570651391472765
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 9179.585422141365,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9174.575248527246,
+        "upper_bound": 9186.36420259294
+      },
+      "mean_ns": 9194.025739019944,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9178.82531998737,
+        "upper_bound": 9218.766358382
+      },
+      "std_dev_ns": 60.81066818429243
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9254.156578947368,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9249.890124653739,
+        "upper_bound": 9270.86090225564
+      },
+      "mean_ns": 9295.479114630481,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9259.103428543614,
+        "upper_bound": 9349.121535079503
+      },
+      "std_dev_ns": 132.14255438561895
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 36380.88156512605,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 36332.80376162299,
+        "upper_bound": 36451.98602825745
+      },
+      "mean_ns": 36390.34179953007,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 36330.52765656132,
+        "upper_bound": 36456.78465531741
+      },
+      "std_dev_ns": 179.06579245447827
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 47827.017676767675,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 47810.602704678364,
+        "upper_bound": 47838.28141534391
+      },
+      "mean_ns": 47871.444176309065,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 47808.191648468644,
+        "upper_bound": 47963.608762744225
+      },
+      "std_dev_ns": 227.2375494102589
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 46290.956666666665,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46097.749873737375,
+        "upper_bound": 46426.67777014652
+      },
+      "mean_ns": 46545.296257543145,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46260.503152540055,
+        "upper_bound": 46931.30533737598
+      },
+      "std_dev_ns": 973.9655709197676
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 78843.09914772728,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 78779.39109848485,
+        "upper_bound": 78973.04665977962
+      },
+      "mean_ns": 78900.44264515497,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 78819.08877217949,
+        "upper_bound": 78989.38346450048
+      },
+      "std_dev_ns": 239.96027713528008
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 104678.51089324619,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 104574.22977941176,
+        "upper_bound": 104797.79989495798
+      },
+      "mean_ns": 104972.04526818996,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 104636.68747170342,
+        "upper_bound": 105393.98177878397
+      },
+      "std_dev_ns": 1084.2037506937193
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 101119.11297619049,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 100891.18,
+        "upper_bound": 101514.9077878643
+      },
+      "mean_ns": 101252.15994441633,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 100974.86991891512,
+        "upper_bound": 101579.27036910846
+      },
+      "std_dev_ns": 860.0788165642217
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 170870.64048913046,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 170586.78777777776,
+        "upper_bound": 171017.70847953216
+      },
+      "mean_ns": 171782.73926234787,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 170958.45850426613,
+        "upper_bound": 172794.35720782273
+      },
+      "std_dev_ns": 2620.5395045302953
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 227979.75343406593,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 227723.2526041667,
+        "upper_bound": 228261.39743589744
+      },
+      "mean_ns": 228124.9568807886,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 227780.77672751775,
+        "upper_bound": 228611.61522762227
+      },
+      "std_dev_ns": 1202.3662376813695
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 218611.8963685771,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 218278.5653492647,
+        "upper_bound": 218803.50729166667
+      },
+      "mean_ns": 219126.20601874718,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 218522.87643696374,
+        "upper_bound": 219946.11988136923
+      },
+      "std_dev_ns": 2050.1912993009983
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 367799.2094427245,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 367152.03993506497,
+        "upper_bound": 368449.1378458498
+      },
+      "mean_ns": 367804.8103173115,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 367260.0438344654,
+        "upper_bound": 368357.17129041225
+      },
+      "std_dev_ns": 1560.108163269708
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 491416.87513227516,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 491000.3783670034,
+        "upper_bound": 491953.9926900584
+      },
+      "mean_ns": 491455.04500517715,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 490986.16267387767,
+        "upper_bound": 491947.55922629614
+      },
+      "std_dev_ns": 1368.558812097054
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 472772.19320652174,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 472092.6004464286,
+        "upper_bound": 474011.9685210623
+      },
+      "mean_ns": 474308.2546764578,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 472867.8216903997,
+        "upper_bound": 476237.97636826866
+      },
+      "std_dev_ns": 4879.4574714392475
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 787851.1323529412,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 786388.6683760684,
+        "upper_bound": 789646.7465201465
+      },
+      "mean_ns": 787649.168151227,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 786391.0420550178,
+        "upper_bound": 788886.0615228908
+      },
+      "std_dev_ns": 3566.963483565924
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 1060272.4534313725,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1057958.625,
+        "upper_bound": 1061988.3729166668
+      },
+      "mean_ns": 1060395.6752770366,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1059038.104189796,
+        "upper_bound": 1061768.8303738625
+      },
+      "std_dev_ns": 3905.1888023341935
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1019342.3573260073,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1016520.207826087,
+        "upper_bound": 1021219.1806100218
+      },
+      "mean_ns": 1018648.617108295,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1016764.0806037706,
+        "upper_bound": 1020521.807996691
+      },
+      "std_dev_ns": 5367.291612206472
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 1683151.3409090908,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1678419.896825397,
+        "upper_bound": 1686554.7698412698
+      },
+      "mean_ns": 1693082.1645902134,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1684262.3871344395,
+        "upper_bound": 1702851.6602455627
+      },
+      "std_dev_ns": 26580.247244848804
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 2270361.2280701753,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2266668.987179487,
+        "upper_bound": 2275728.6976284585
+      },
+      "mean_ns": 2270256.621265292,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2266874.4702940737,
+        "upper_bound": 2273692.2865868276
+      },
+      "std_dev_ns": 9710.961350908603
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 2172664.8863636362,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2168642.1095238095,
+        "upper_bound": 2179292.716503268
+      },
+      "mean_ns": 2175479.985007268,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2170151.668180131,
+        "upper_bound": 2181238.018696794
+      },
+      "std_dev_ns": 15752.563155082506
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 3565098.0487179486,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3563646.658496732,
+        "upper_bound": 3602194.9285714286
+      },
+      "mean_ns": 3600848.8880663607,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3580071.041741885,
+        "upper_bound": 3623177.760581108
+      },
+      "std_dev_ns": 61595.03066997012
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 4843776.388392857,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4835775.7,
+        "upper_bound": 4859055.745454546
+      },
+      "mean_ns": 4848304.0556194065,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4842788.5446641315,
+        "upper_bound": 4853979.040312999
+      },
+      "std_dev_ns": 15912.455409680077
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 4629169.375362319,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4621915.921428571,
+        "upper_bound": 4648798.975
+      },
+      "mean_ns": 4636752.550523966,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4626389.074948687,
+        "upper_bound": 4647592.615208028
+      },
+      "std_dev_ns": 30160.034482486873
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 7529284.9375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7527663.6875,
+        "upper_bound": 7530826.8125
+      },
+      "mean_ns": 7529831.704166667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7528193.34875,
+        "upper_bound": 7531575.067916666
+      },
+      "std_dev_ns": 4817.1251421588695
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 10274705.57142857,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10269976.285714287,
+        "upper_bound": 10278777.214285713
+      },
+      "mean_ns": 10277437.59047619,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10272491.72047619,
+        "upper_bound": 10283315.629047617
+      },
+      "std_dev_ns": 15451.1366497356
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9948075.357142856,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9928721.142857144,
+        "upper_bound": 10017245.357142858
+      },
+      "mean_ns": 9968738.46190476,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9926842.242142856,
+        "upper_bound": 10011725.891666668
+      },
+      "std_dev_ns": 120187.57368502658
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 15912332.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15906713.5,
+        "upper_bound": 15915621.2
+      },
+      "mean_ns": 15913713.993333334,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 15907425.455333332,
+        "upper_bound": 15922113.863166664
+      },
+      "std_dev_ns": 21134.045787094172
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 21854592.666666664,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21837739.333333336,
+        "upper_bound": 21903365.833333336
+      },
+      "mean_ns": 21896005.955555554,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21863724.192500003,
+        "upper_bound": 21934900.589722227
+      },
+      "std_dev_ns": 101897.95301516107
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 20862372.375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20779983.875,
+        "upper_bound": 20912787.25
+      },
+      "mean_ns": 20870406.358333334,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20813403.70625,
+        "upper_bound": 20929745.006458335
+      },
+      "std_dev_ns": 165084.44053615883
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 33610853.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33575548.0,
+        "upper_bound": 33636503.0
+      },
+      "mean_ns": 33654271.11666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33605005.92541666,
+        "upper_bound": 33716899.85875
+      },
+      "std_dev_ns": 161281.54476976627
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 46253282.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46233142.5,
+        "upper_bound": 46284254.5
+      },
+      "mean_ns": 46283406.15,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46256456.95583334,
+        "upper_bound": 46313450.43541667
+      },
+      "std_dev_ns": 81416.6145323937
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 44338141.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 44173954.25,
+        "upper_bound": 44456649.25
+      },
+      "mean_ns": 44464271.833333336,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 44290414.689166665,
+        "upper_bound": 44656896.25458334
+      },
+      "std_dev_ns": 522137.5181453858
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 73930422.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 73570667.5,
+        "upper_bound": 74139487.0
+      },
+      "mean_ns": 73953016.26666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 73743238.06583333,
+        "upper_bound": 74191986.755
+      },
+      "std_dev_ns": 637693.0272606813
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 98611635.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 98439377.5,
+        "upper_bound": 98986334.5
+      },
+      "mean_ns": 98878945.73333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 98613909.09666666,
+        "upper_bound": 99199214.40083334
+      },
+      "std_dev_ns": 837313.4906797281
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 95582128.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 94631692.0,
+        "upper_bound": 96659699.5
+      },
+      "mean_ns": 96084106.1,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 95325133.16166668,
+        "upper_bound": 96916568.10333334
+      },
+      "std_dev_ns": 2267467.9541965527
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 7627.560732686317,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7535.929468457944,
+        "upper_bound": 7633.2628367924235
+      },
+      "mean_ns": 7574.320885820052,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 7544.412091108174,
+        "upper_bound": 7602.8485439538945
+      },
+      "std_dev_ns": 83.27990334851411
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 9623.876882002802,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9620.96259469697,
+        "upper_bound": 9629.12975070683
+      },
+      "mean_ns": 9636.722912709665,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9621.601487376096,
+        "upper_bound": 9662.772324793676
+      },
+      "std_dev_ns": 65.44656336260707
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9353.344386153338,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9351.186333659014,
+        "upper_bound": 9357.291104868913
+      },
+      "mean_ns": 9367.98503592069,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9351.648953761875,
+        "upper_bound": 9396.048986211057
+      },
+      "std_dev_ns": 71.20932190743292
+    }
+  },
+  "b4k_dft_batch_w4/plonky3_radix2dit/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 16542.362852283768,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16530.724246841593,
+        "upper_bound": 16554.834330847723
+      },
+      "mean_ns": 16549.190267124348,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16529.07490306351,
+        "upper_bound": 16576.952627646282
+      },
+      "std_dev_ns": 69.40014819330868
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 21555.584905660377,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21546.848385744233,
+        "upper_bound": 21569.17113167231
+      },
+      "mean_ns": 21579.810128501253,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 21545.15469473246,
+        "upper_bound": 21635.205674800847
+      },
+      "std_dev_ns": 134.83008017565734
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 20825.53430451128,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20814.028385416666,
+        "upper_bound": 20846.633472222224
+      },
+      "mean_ns": 20853.56759323488,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 20815.021987456323,
+        "upper_bound": 20917.860214974502
+      },
+      "std_dev_ns": 160.46576567224386
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 102388.77682926829,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102030.40243902439,
+        "upper_bound": 102904.98398727467
+      },
+      "mean_ns": 102723.44065818211,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102336.0031769432,
+        "upper_bound": 103160.15755421005
+      },
+      "std_dev_ns": 1167.8599227278662
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 101842.5828320802,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 101721.49149659864,
+        "upper_bound": 102244.7506541078
+      },
+      "mean_ns": 101989.00147010831,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 101787.35253501787,
+        "upper_bound": 102198.82985210182
+      },
+      "std_dev_ns": 586.4612478974907
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 148234.96504702195,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 147925.64270989504,
+        "upper_bound": 148614.88017241377
+      },
+      "mean_ns": 148824.65259200754,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 148184.45005001134,
+        "upper_bound": 149756.60298213433
+      },
+      "std_dev_ns": 2282.541599581279
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 147744.06736295315,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 147543.80616509926,
+        "upper_bound": 148073.64287154668
+      },
+      "mean_ns": 148003.10820027642,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 147694.92654503667,
+        "upper_bound": 148365.9356356235
+      },
+      "std_dev_ns": 960.1738425250669
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 149490.20446507516,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 149231.25646551722,
+        "upper_bound": 149749.59721485412
+      },
+      "mean_ns": 149820.0879099665,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 149391.27718447882,
+        "upper_bound": 150395.070633306
+      },
+      "std_dev_ns": 1448.3999672420964
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 240126.9962962963,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 239905.85277777776,
+        "upper_bound": 240543.86922799423
+      },
+      "mean_ns": 240301.83170081308,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 240026.67199422652,
+        "upper_bound": 240586.87814941365
+      },
+      "std_dev_ns": 795.3267532239646
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 240953.06938405795,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 240419.37657828283,
+        "upper_bound": 241284.25292397663
+      },
+      "mean_ns": 241249.47493464852,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 240710.42606832678,
+        "upper_bound": 241980.31113111682
+      },
+      "std_dev_ns": 1838.6565539020644
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 240769.53835978836,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 240538.06018518517,
+        "upper_bound": 240997.89966977466
+      },
+      "mean_ns": 241018.19218541856,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 240744.15530279637,
+        "upper_bound": 241328.59134645917
+      },
+      "std_dev_ns": 830.4914855189746
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 428740.68434782606,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 424813.75238095236,
+        "upper_bound": 433260.728125
+      },
+      "mean_ns": 430309.4383190222,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 428120.7087851677,
+        "upper_bound": 432626.1294995678
+      },
+      "std_dev_ns": 6409.915455332562
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 428766.5333333333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 428439.02160493826,
+        "upper_bound": 429064.3416666667
+      },
+      "mean_ns": 429766.3566392722,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 428917.62993348646,
+        "upper_bound": 430809.7134361898
+      },
+      "std_dev_ns": 2705.847602270011
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 428023.5529003268,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 427871.65277777775,
+        "upper_bound": 428643.9193121693
+      },
+      "mean_ns": 429061.4386543438,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 428105.43930073903,
+        "upper_bound": 430628.6092928215
+      },
+      "std_dev_ns": 3926.3097045001737
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 793121.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 791628.965085639,
+        "upper_bound": 798576.9284722223
+      },
+      "mean_ns": 796893.9437630314,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 794300.6019975801,
+        "upper_bound": 799768.4271677121
+      },
+      "std_dev_ns": 7781.764450297593
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 809242.3166666667,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 808674.8732689212,
+        "upper_bound": 810606.7910714286
+      },
+      "mean_ns": 812299.414920872,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 810080.1814106393,
+        "upper_bound": 814990.760179543
+      },
+      "std_dev_ns": 7050.449505923349
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 811436.9844444445,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 810617.0812307692,
+        "upper_bound": 812575.9931818182
+      },
+      "mean_ns": 812801.8232934711,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 810735.7110889482,
+        "upper_bound": 816111.4398779523
+      },
+      "std_dev_ns": 8211.140963515816
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1542082.7944444446,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1540531.510989011,
+        "upper_bound": 1543441.8541666665
+      },
+      "mean_ns": 1543164.562660222,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1541044.66895672,
+        "upper_bound": 1545508.4055848417
+      },
+      "std_dev_ns": 6350.204697617115
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 1588294.3109161793,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1583836.8095238097,
+        "upper_bound": 1591451.8235294118
+      },
+      "mean_ns": 1592189.030717043,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1586814.0068412719,
+        "upper_bound": 1600268.8684300226
+      },
+      "std_dev_ns": 19833.98195484607
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 1592365.816468254,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1589041.4640269151,
+        "upper_bound": 1593537.5833333335
+      },
+      "mean_ns": 1596112.7379019002,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1591482.9837975989,
+        "upper_bound": 1603424.6182782634
+      },
+      "std_dev_ns": 17972.049674862337
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 3062800.2625,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3052125.198717949,
+        "upper_bound": 3071047.0914408867
+      },
+      "mean_ns": 3068634.4885466513,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3058328.0415136344,
+        "upper_bound": 3081579.613826332
+      },
+      "std_dev_ns": 33375.66768347881
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 3161704.7249999996,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3152850.947916667,
+        "upper_bound": 3170730.345833333
+      },
+      "mean_ns": 3180879.6595509695,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3165715.6118648313,
+        "upper_bound": 3199493.3920316612
+      },
+      "std_dev_ns": 48332.069786227585
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 3171440.313405797,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3166334.197368421,
+        "upper_bound": 3180126.950721154
+      },
+      "mean_ns": 3183249.7186576384,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 3170660.3213900807,
+        "upper_bound": 3203515.362444156
+      },
+      "std_dev_ns": 50025.52683664341
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 6113725.912337663,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6095102.685185185,
+        "upper_bound": 6145702.150501672
+      },
+      "mean_ns": 6119187.990915001,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6101486.4752529925,
+        "upper_bound": 6137321.709301866
+      },
+      "std_dev_ns": 50659.112738801756
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 6480064.160714285,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6463106.851851852,
+        "upper_bound": 6598128.551282051
+      },
+      "mean_ns": 6536546.165579868,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6500351.288844891,
+        "upper_bound": 6574666.397937443
+      },
+      "std_dev_ns": 106043.89937655334
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 6435133.8,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6427192.99602122,
+        "upper_bound": 6481314.345238095
+      },
+      "mean_ns": 6438733.144951311,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 6422330.116275349,
+        "upper_bound": 6454883.185296904
+      },
+      "std_dev_ns": 46188.76024867386
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 12308358.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 12293251.166666668,
+        "upper_bound": 12335567.916666668
+      },
+      "mean_ns": 12320581.294444446,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 12307539.83611111,
+        "upper_bound": 12334986.291944442
+      },
+      "std_dev_ns": 39307.03133015522
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 13362347.2,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13357759.3,
+        "upper_bound": 13374844.3
+      },
+      "mean_ns": 13383165.82,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13365132.788666662,
+        "upper_bound": 13408965.731833331
+      },
+      "std_dev_ns": 64083.872342172595
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 13338090.3,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13334464.5,
+        "upper_bound": 13343753.0
+      },
+      "mean_ns": 13354185.273333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 13337162.719999993,
+        "upper_bound": 13384101.131499996
+      },
+      "std_dev_ns": 75930.99624559283
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 25534687.833333336,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 25171875.0,
+        "upper_bound": 25759537.333333332
+      },
+      "mean_ns": 25564146.55555556,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 25394482.685,
+        "upper_bound": 25747735.398888893
+      },
+      "std_dev_ns": 501606.51172744407
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 26747093.333333336,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26724618.0,
+        "upper_bound": 26762958.166666668
+      },
+      "mean_ns": 26760011.033333328,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26741111.193888884,
+        "upper_bound": 26782198.15333334
+      },
+      "std_dev_ns": 59009.148668987524
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 26875101.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26866889.333333336,
+        "upper_bound": 26908994.5
+      },
+      "mean_ns": 26966554.377777778,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 26885490.916388884,
+        "upper_bound": 27102136.108611114
+      },
+      "std_dev_ns": 342599.5639982051
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 51205683.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 50846098.75,
+        "upper_bound": 51539940.25
+      },
+      "mean_ns": 51246074.81666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 51013074.78791667,
+        "upper_bound": 51488569.50791667
+      },
+      "std_dev_ns": 673594.8390009879
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 56852349.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 56739389.0,
+        "upper_bound": 56961056.25
+      },
+      "mean_ns": 56997936.78333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 56831934.235416666,
+        "upper_bound": 57210909.879999995
+      },
+      "std_dev_ns": 545840.8131992911
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 55198498.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 55136278.5,
+        "upper_bound": 55298593.25
+      },
+      "mean_ns": 55421397.21666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 55197084.79541666,
+        "upper_bound": 55744787.12958334
+      },
+      "std_dev_ns": 798628.3910414098
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 110023532.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 108359554.5,
+        "upper_bound": 110702185.5
+      },
+      "mean_ns": 109958584.8,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 109239880.65166667,
+        "upper_bound": 110713606.67500001
+      },
+      "std_dev_ns": 2094244.076499572
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 68067.96264130135,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 67848.14350806452,
+        "upper_bound": 68324.19650537634
+      },
+      "mean_ns": 68213.57741848988,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 67924.88305854851,
+        "upper_bound": 68568.00151493905
+      },
+      "std_dev_ns": 915.4138918664197
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 68816.81078449846,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 68493.99817698338,
+        "upper_bound": 69258.65841302367
+      },
+      "mean_ns": 71123.17252603061,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 69080.29595663934,
+        "upper_bound": 73750.3166331703
+      },
+      "std_dev_ns": 6677.449737777778
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 79280.57062368972,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 79046.8808625337,
+        "upper_bound": 79551.7066486972
+      },
+      "mean_ns": 79584.60836885772,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 79268.53084166239,
+        "upper_bound": 79946.86802600359
+      },
+      "std_dev_ns": 966.0267410582841
+    }
+  },
+  "b4k_dft_batch_w4/zksha_avx512/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 80372.83588376349,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 79891.69182389937,
+        "upper_bound": 80516.7718696398
+      },
+      "mean_ns": 80471.38023903998,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 80074.82865180731,
+        "upper_bound": 80942.53071727564
+      },
+      "std_dev_ns": 1235.4295522416717
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 80122.62083333333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 79851.42901234567,
+        "upper_bound": 80189.218324515
+      },
+      "mean_ns": 80163.31011727921,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 79950.4635488096,
+        "upper_bound": 80395.86808013717
+      },
+      "std_dev_ns": 633.1068343908346
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 102884.4209390014,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102750.43093759243,
+        "upper_bound": 103260.14564007422
+      },
+      "mean_ns": 103153.06316944024,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 102729.98351878228,
+        "upper_bound": 103673.7388257634
+      },
+      "std_dev_ns": 1349.5093225529847
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 71165.29125683059,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 71149.11574137851,
+        "upper_bound": 71179.20466432474
+      },
+      "mean_ns": 71165.17314670297,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 71152.95856340426,
+        "upper_bound": 71177.7595993762
+      },
+      "std_dev_ns": 35.37139597627658
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 68019.44702211369,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 67962.7265795207,
+        "upper_bound": 68107.11986161987
+      },
+      "mean_ns": 68364.29179270256,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 68133.547723315,
+        "upper_bound": 68627.55522873702
+      },
+      "std_dev_ns": 705.764392531983
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 68383.28742762614,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 68347.60528952113,
+        "upper_bound": 68407.76136363637
+      },
+      "mean_ns": 68399.82233203702,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 68371.17686350706,
+        "upper_bound": 68430.97645690174
+      },
+      "std_dev_ns": 85.25005832409207
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_11": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 146047.0462962963,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 145996.42612433864,
+        "upper_bound": 146073.54611111112
+      },
+      "mean_ns": 146065.9366393032,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 146009.87702174316,
+        "upper_bound": 146134.36706945352
+      },
+      "std_dev_ns": 178.05884112446762
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 137062.67481737013,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 137054.4817708333,
+        "upper_bound": 137089.9227764423
+      },
+      "mean_ns": 137164.30246912566,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 137058.37538510267,
+        "upper_bound": 137349.87078117236
+      },
+      "std_dev_ns": 473.9649839888849
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 138115.82203079178,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 137952.15668202765,
+        "upper_bound": 138236.45028463
+      },
+      "mean_ns": 138181.94821141943,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 138048.52112309722,
+        "upper_bound": 138338.53308530222
+      },
+      "std_dev_ns": 413.7633390947306
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 299781.291025641,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 299683.2797979798,
+        "upper_bound": 299866.287037037
+      },
+      "mean_ns": 299838.49970294605,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 299727.36052339204,
+        "upper_bound": 299964.3193055922
+      },
+      "std_dev_ns": 337.74853878912006
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 276504.2068452381,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 276403.74754901964,
+        "upper_bound": 276901.71562499995
+      },
+      "mean_ns": 278668.34081692185,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 277170.76126707834,
+        "upper_bound": 280506.6907211283
+      },
+      "std_dev_ns": 4767.144613656929
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 278379.25234375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 277601.88715277775,
+        "upper_bound": 279012.84449404763
+      },
+      "mean_ns": 279412.8614596452,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 278350.8174302695,
+        "upper_bound": 280875.3018071155
+      },
+      "std_dev_ns": 3652.1812055978053
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_13": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 615473.3391534392,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 615393.0068027211,
+        "upper_bound": 615613.3222943724
+      },
+      "mean_ns": 615551.7493747353,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 615448.2715759858,
+        "upper_bound": 615671.1371889092
+      },
+      "std_dev_ns": 316.93687208888775
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 559160.9678819445,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 559072.7934782609,
+        "upper_bound": 559288.3624794746
+      },
+      "mean_ns": 559208.2360561679,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 559056.6398410907,
+        "upper_bound": 559365.0483568069
+      },
+      "std_dev_ns": 436.80620640189323
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 560084.4815705128,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 559729.7933201059,
+        "upper_bound": 561258.2658730159
+      },
+      "mean_ns": 562177.10094475,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 560416.5806478185,
+        "upper_bound": 564552.1554449912
+      },
+      "std_dev_ns": 5945.456264251648
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 1266633.4330357143,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1266414.5306818183,
+        "upper_bound": 1266932.388888889
+      },
+      "mean_ns": 1266896.9940014305,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1266616.6925258392,
+        "upper_bound": 1267226.0291689916
+      },
+      "std_dev_ns": 875.9355018759816
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 1136484.0083333333,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1134748.5428240742,
+        "upper_bound": 1137473.9166666665
+      },
+      "mean_ns": 1136182.5314535745,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1135296.3499242857,
+        "upper_bound": 1137073.6422944136
+      },
+      "std_dev_ns": 2540.1495889251555
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 1132470.2842592592,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1131909.8333333335,
+        "upper_bound": 1133779.3007478632
+      },
+      "mean_ns": 1133818.107910495,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 1132578.2248635022,
+        "upper_bound": 1135320.6340838773
+      },
+      "std_dev_ns": 3920.5087576933734
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_15": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 2608128.2843567254,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2604991.6,
+        "upper_bound": 2609190.5803571427
+      },
+      "mean_ns": 2607575.3926109467,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2605622.2070903513,
+        "upper_bound": 2609779.2286447007
+      },
+      "std_dev_ns": 5903.179027101235
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 2309097.4857427054,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2307055.942307692,
+        "upper_bound": 2310336.888888889
+      },
+      "mean_ns": 2309148.5715178805,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2305669.0247007795,
+        "upper_bound": 2314283.1149678524
+      },
+      "std_dev_ns": 12734.709563546801
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 2308160.9261363633,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2306039.894005848,
+        "upper_bound": 2315257.8586309524
+      },
+      "mean_ns": 2315147.671475216,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 2307846.9303266588,
+        "upper_bound": 2324199.096442014
+      },
+      "std_dev_ns": 23488.318400413904
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_16": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 5355253.096153846,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5350134.25,
+        "upper_bound": 5357424.463636364
+      },
+      "mean_ns": 5358603.153194168,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 5352776.138665978,
+        "upper_bound": 5366574.565618124
+      },
+      "std_dev_ns": 20000.677216618096
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 4663304.083333334,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4657280.0,
+        "upper_bound": 4689780.381118881
+      },
+      "mean_ns": 4682819.28823468,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4665663.780581883,
+        "upper_bound": 4710969.971453214
+      },
+      "std_dev_ns": 69939.64893161388
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 4676940.131313131,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4667831.281954887,
+        "upper_bound": 4691319.876923077
+      },
+      "mean_ns": 4682988.937905323,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 4668881.461275011,
+        "upper_bound": 4697875.176066318
+      },
+      "std_dev_ns": 41437.56714273476
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_17": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 11077204.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 11064746.166666668,
+        "upper_bound": 11140558.583333334
+      },
+      "mean_ns": 11182108.933333332,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 11119816.64513889,
+        "upper_bound": 11255254.77652778
+      },
+      "std_dev_ns": 194243.66546613432
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 9622744.42857143,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9618854.357142856,
+        "upper_bound": 9626400.857142858
+      },
+      "mean_ns": 9623731.533333331,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9621521.843571428,
+        "upper_bound": 9626009.010357143
+      },
+      "std_dev_ns": 6383.062842928025
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9473687.92857143,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9461978.714285715,
+        "upper_bound": 9487939.42857143
+      },
+      "mean_ns": 9489544.066666666,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9473950.649761906,
+        "upper_bound": 9507662.820238097
+      },
+      "std_dev_ns": 48391.15843820952
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_18": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 23291004.166666664,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 23052843.5,
+        "upper_bound": 23388284.333333336
+      },
+      "mean_ns": 23475451.355555553,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 23232674.681111116,
+        "upper_bound": 23800679.713888887
+      },
+      "std_dev_ns": 820766.9486367598
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 19612310.625,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19610346.625,
+        "upper_bound": 19623400.5
+      },
+      "mean_ns": 19684171.558333334,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19631732.365000002,
+        "upper_bound": 19747109.273125
+      },
+      "std_dev_ns": 165915.4254957836
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 19614443.375,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19497220.5,
+        "upper_bound": 19657856.25
+      },
+      "mean_ns": 19643009.808333334,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 19573869.363333333,
+        "upper_bound": 19720498.806875
+      },
+      "std_dev_ns": 208664.60672912656
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_19": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 46983754.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46963588.75,
+        "upper_bound": 47017416.25
+      },
+      "mean_ns": 47036550.7,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 46985964.77458333,
+        "upper_bound": 47112770.389583334
+      },
+      "std_dev_ns": 188299.40260520176
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 39743110.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39722812.5,
+        "upper_bound": 39760735.5
+      },
+      "mean_ns": 39796383.65,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39741115.40708333,
+        "upper_bound": 39887814.95583333
+      },
+      "std_dev_ns": 223366.52075337543
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 39587758.25,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39485783.0,
+        "upper_bound": 39888849.75
+      },
+      "mean_ns": 39743141.766666666,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39588782.697500005,
+        "upper_bound": 39914067.14458334
+      },
+      "std_dev_ns": 462191.33892364305
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_20": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 98459697.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 98303097.5,
+        "upper_bound": 98611937.5
+      },
+      "mean_ns": 98598842.83333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 98435322.63250001,
+        "upper_bound": 98794270.04166666
+      },
+      "std_dev_ns": 511842.72827009205
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 80571054.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 80449619.0,
+        "upper_bound": 80748123.5
+      },
+      "mean_ns": 81297368.0,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 80695970.48166667,
+        "upper_bound": 82049809.33416666
+      },
+      "std_dev_ns": 1936951.8465734443
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 85548733.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 84528494.0,
+        "upper_bound": 86360052.0
+      },
+      "mean_ns": 85717799.33333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 85150641.65833333,
+        "upper_bound": 86320951.35416667
+      },
+      "std_dev_ns": 1666251.4659654326
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_8": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 16835.210375166003,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16833.639979763488,
+        "upper_bound": 16836.970237146652
+      },
+      "mean_ns": 16835.79162644551,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16833.942888408645,
+        "upper_bound": 16837.758396843576
+      },
+      "std_dev_ns": 5.421059741035413
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 16634.223601857462,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16632.49887904637,
+        "upper_bound": 16638.32593503937
+      },
+      "mean_ns": 16640.55809567968,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16634.258772294048,
+        "upper_bound": 16648.07661849687
+      },
+      "std_dev_ns": 19.688427653142593
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 16810.781723107568,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16805.729913678617,
+        "upper_bound": 16814.869506589028
+      },
+      "mean_ns": 16818.224475787596,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 16811.09652717634,
+        "upper_bound": 16826.73540638142
+      },
+      "std_dev_ns": 22.52471152816353
+    }
+  },
+  "b4k_dft_batch_w4/zksha_scalar/n2_9": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 34672.1165719176,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34663.364227642276,
+        "upper_bound": 34683.665040650405
+      },
+      "mean_ns": 34669.05843271063,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34658.622301029034,
+        "upper_bound": 34678.560620426426
+      },
+      "std_dev_ns": 28.282981178269814
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 33676.6316967732,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33656.751849200664,
+        "upper_bound": 33685.00873601326
+      },
+      "mean_ns": 33666.418770501965,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33653.477846048736,
+        "upper_bound": 33679.17853041483
+      },
+      "std_dev_ns": 36.657385000567835
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 33944.58648056924,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33918.120105820104,
+        "upper_bound": 33955.44440576751
+      },
+      "mean_ns": 33974.108904222034,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 33935.063568761296,
+        "upper_bound": 34019.99110370691
+      },
+      "std_dev_ns": 121.13541568945784
+    }
+  },
+  "b4p_prove/plonky3_radix2dit/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 34691524.34615385,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34688987.166666664,
+        "upper_bound": 34698816.5
+      },
+      "mean_ns": 34690908.73433113,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34683976.94925995,
+        "upper_bound": 34698430.71237854
+      },
+      "std_dev_ns": 14782.259631102366
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 14349426.444444444,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 14341325.5,
+        "upper_bound": 14357482.0
+      },
+      "mean_ns": 14348463.922941996,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 14343010.886823472,
+        "upper_bound": 14353531.191865355
+      },
+      "std_dev_ns": 10801.472279095784
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 9884262.285714285,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9876664.05,
+        "upper_bound": 9895445.384615384
+      },
+      "mean_ns": 9886894.265120585,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 9880510.790617362,
+        "upper_bound": 9893562.51464021
+      },
+      "std_dev_ns": 13485.444975668826
+    }
+  },
+  "b4p_prove/plonky3_radix2dit/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 138553210.33333334,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 138504187.0,
+        "upper_bound": 138604935.33333334
+      },
+      "mean_ns": 138537772.51111108,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 138495519.76777777,
+        "upper_bound": 138579271.40444443
+      },
+      "std_dev_ns": 86192.94426872833
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 57024337.45454545,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 57001451.76923077,
+        "upper_bound": 57055219.125
+      },
+      "mean_ns": 57022883.330606245,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 57000105.902423576,
+        "upper_bound": 57044071.38384861
+      },
+      "std_dev_ns": 44893.5347069176
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 39157210.875,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39103111.21428572,
+        "upper_bound": 39277271.916666664
+      },
+      "mean_ns": 39209791.53907259,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 39126677.47109785,
+        "upper_bound": 39301212.21197014
+      },
+      "std_dev_ns": 178641.70707864492
+    }
+  },
+  "b4p_prove/plonky3_radix2dit/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 554543337.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 553978588.0,
+        "upper_bound": 555354427.0
+      },
+      "mean_ns": 554565723.9333333,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 554210245.0633333,
+        "upper_bound": 554914489.8716667
+      },
+      "std_dev_ns": 717639.4169881324
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 228855109.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 228586068.0,
+        "upper_bound": 229117047.5
+      },
+      "mean_ns": 229014019.66666666,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 228724433.20000002,
+        "upper_bound": 229417678.22666666
+      },
+      "std_dev_ns": 724217.856653292
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 157717767.33333334,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 156795918.33333334,
+        "upper_bound": 158667156.33333334
+      },
+      "mean_ns": 157944405.06666666,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 157151820.60555553,
+        "upper_bound": 158826543.66777775
+      },
+      "std_dev_ns": 1719435.89390092
+    }
+  },
+  "b4p_prove/zksha_avx512/n2_10": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 34948051.115384616,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34905058.75,
+        "upper_bound": 35129280.5
+      },
+      "mean_ns": 35064081.71674594,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 34955057.60091872,
+        "upper_bound": 35198825.85592593
+      },
+      "std_dev_ns": 250519.01553240156
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 14454194.074074075,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 14433062.0,
+        "upper_bound": 14504468.5
+      },
+      "mean_ns": 14469198.237432627,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 14451272.52279345,
+        "upper_bound": 14487679.631060483
+      },
+      "std_dev_ns": 37302.091776431866
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 10426921.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10412332.066666666,
+        "upper_bound": 10467875.013333334
+      },
+      "mean_ns": 10435484.20517734,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 10418981.307251416,
+        "upper_bound": 10453770.035916971
+      },
+      "std_dev_ns": 35620.758051073324
+    }
+  },
+  "b4p_prove/zksha_avx512/n2_12": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 138463268.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 138319707.66666666,
+        "upper_bound": 138545016.66666666
+      },
+      "mean_ns": 138455545.7777778,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 138399465.74944445,
+        "upper_bound": 138508180.38444442
+      },
+      "std_dev_ns": 111562.91220635429
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 56597859.071428575,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 56580592.416666664,
+        "upper_bound": 56616729.5
+      },
+      "mean_ns": 56609561.39360603,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 56588012.47025795,
+        "upper_bound": 56636643.41447751
+      },
+      "std_dev_ns": 50436.23509570738
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 40532255.1,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40398753.78571428,
+        "upper_bound": 40678972.458333336
+      },
+      "mean_ns": 40595091.2117169,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 40472482.32204464,
+        "upper_bound": 40737865.21038979
+      },
+      "std_dev_ns": 271527.6776071038
+    }
+  },
+  "b4p_prove/zksha_avx512/n2_14": {
+    "config-scalar": {
+      "config": "config-scalar",
+      "median_ns": 553266250.0,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 552667598.0,
+        "upper_bound": 553580208.0
+      },
+      "mean_ns": 553222519.6,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 552932096.9766667,
+        "upper_bound": 553516407.6
+      },
+      "std_dev_ns": 600685.3947089822
+    },
+    "config-avx2": {
+      "config": "config-avx2",
+      "median_ns": 225349537.5,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 225203012.5,
+        "upper_bound": 228655493.0
+      },
+      "mean_ns": 226528226.86666667,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 225483346.69333333,
+        "upper_bound": 227753154.15083334
+      },
+      "std_dev_ns": 2334520.509883855
+    },
+    "config-avx512-nightly": {
+      "config": "config-avx512-nightly",
+      "median_ns": 161362116.33333334,
+      "median_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 160924063.66666666,
+        "upper_bound": 162103732.33333334
+      },
+      "mean_ns": 161564471.04444447,
+      "mean_ci": {
+        "confidence_level": 0.95,
+        "lower_bound": 161170199.26999998,
+        "upper_bound": 161972548.77333334
+      },
+      "std_dev_ns": 824175.0864204888
+    }
+  }
+}

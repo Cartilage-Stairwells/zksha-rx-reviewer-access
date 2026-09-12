@@ -1,0 +1,51 @@
+{
+  "date": "2026-09-12",
+  "host": "x86_64",
+  "kernel": "4.19.0-gvisor",
+  "avx512_host_support": true,
+  "sandbox": "gvisor; no RAPL/MSR (energy measurements impossible \u2014 established)",
+  "criterion_version": "0.5",
+  "configs": {
+    "config-scalar": {
+      "toolchain": "stable 1.97.1 (c980f4866 2026-06-30)",
+      "rustflags": "(none)",
+      "features": "default",
+      "plonky3_babybear_packing": "scalar (1-wide)"
+    },
+    "config-avx2": {
+      "toolchain": "stable 1.97.1",
+      "rustflags": "-C target-feature=+avx2",
+      "features": "default",
+      "plonky3_babybear_packing": "PackedBabyBearAVX2 (8-wide)"
+    },
+    "config-avx512-nightly": {
+      "toolchain": "nightly 1.100.0-nightly (0fc141305 2026-09-11)",
+      "rustflags": "-C target-feature=+avx512f,+avx512dq",
+      "features": "nightly-features (p3-baby-bear passthrough)",
+      "plonky3_babybear_packing": "PackedBabyBearAVX512 (16-wide)"
+    }
+  },
+  "bench_parameters": {
+    "b4k": {
+      "sample_size": 30,
+      "warmup": "500ms",
+      "measurement": "2s",
+      "sizes": "2^8..2^20",
+      "shapes": {
+        "w1": "single-column dft_batch",
+        "w4": "prover batch dft_batch"
+      }
+    },
+    "b4p": {
+      "sample_size": 15,
+      "warmup": "1s",
+      "measurement": "5s",
+      "sizes": "2^10/2^12/2^14 rows",
+      "profile": "bench (release); debug-only check_constraints compiled out"
+    }
+  },
+  "gates": {
+    "b4k": "every lane bit-identical to reference backend at every size before timing; any failure aborts",
+    "b4p": "per size per arm: proof verifies; AVX-512 tracker engaged (adapter arm); proof-output byte identity between arms; then timing"
+  }
+}
