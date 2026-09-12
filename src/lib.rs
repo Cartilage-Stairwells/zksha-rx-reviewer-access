@@ -74,6 +74,7 @@ pub mod avx512_impl {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use p3_field::AbstractField;
     use rand::Rng;
 
     #[test]

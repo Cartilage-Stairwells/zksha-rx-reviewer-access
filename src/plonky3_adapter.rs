@@ -9,6 +9,14 @@
 //! `BabyBear` is `#[repr(transparent)]` over a single `u32` field storing
 //! the Montgomery-encoded value (xR mod p, R = 2^32). Our NTT operates on
 //! raw `u32` Montgomery-domain values. Since the representations are
+//!
+//! ## B2: shared tracker
+//!
+//! The tracker is `Arc<RefCell<..>>` so that when the adapter is moved into
+//! a `TwoAdicFriPcs` (which owns its `Dft`) and cloned internally, every
+//! clone shares the same counters. A handle retained by the caller records
+//! calls made inside the proving pipeline.
+//! raw `u32` Montgomery-domain values. Since the representations are
 //! identical, we can safely reinterpret between `&mut [BabyBear]` and
 //! `&mut [u32]` without any conversion overhead.
 
@@ -44,21 +52,21 @@ pub struct BackendCallTracker {
 #[derive(Clone, Debug, Default)]
 pub struct ZkshaDifAdapter {
     pub backend: NttBackend,
-    pub tracker: std::cell::RefCell<BackendCallTracker>,
+    pub tracker: std::sync::Arc<std::cell::RefCell<BackendCallTracker>>,
 }
 
 impl ZkshaDifAdapter {
     pub fn reference() -> Self {
         Self {
             backend: NttBackend::Reference,
-            tracker: std::cell::RefCell::new(BackendCallTracker::default()),
+            tracker: std::sync::Arc::new(std::cell::RefCell::new(BackendCallTracker::default())),
         }
     }
 
     pub fn scalar() -> Self {
         Self {
             backend: NttBackend::Scalar,
-            tracker: std::cell::RefCell::new(BackendCallTracker::default()),
+            tracker: std::sync::Arc::new(std::cell::RefCell::new(BackendCallTracker::default())),
         }
     }
 
@@ -66,10 +74,10 @@ impl ZkshaDifAdapter {
         let avail = is_avx512_supported();
         Self {
             backend: NttBackend::Avx512,
-            tracker: std::cell::RefCell::new(BackendCallTracker {
+            tracker: std::sync::Arc::new(std::cell::RefCell::new(BackendCallTracker {
                 avx512_available: avail,
                 ..Default::default()
-            }),
+            })),
         }
     }
 
