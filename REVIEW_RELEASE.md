@@ -8,7 +8,7 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.14` |
+| Release tag | `review-v0.1.15` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
 | Previous snapshot | `review-v0.1.13` / `01db486` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
@@ -35,10 +35,10 @@
 
 The Lean 4 formalization is in a separate repository:
 - **Repository:** Cartilage-Stairwells/tscp-anchor (public)
-- **Tag:** `v0.1.0-zksha-rx`
+- **Tag:** `formal-corpus-v2026-09-11` (previous reference `v0.1.0-zksha-rx` does not exist in tscp-anchor; repaired 2026-09-11 — see HISTORY)
 - **Lean version:** 4.32.1
 - **Build command:** `lake build`
-- **Theorem count:** 33 theorems across 7 modules
+- **Theorem count:** 88 theorem declarations across 12 Lean files (census at tag `formal-corpus-v2026-09-11`, 2026-09-11; method: theorem-declaration grep)
 - **See:** `formal/README.md` in this repo for details
 
 ## Reproduction Commands
@@ -47,7 +47,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.14
+git checkout review-v0.1.15
 
 # Build
 cargo build --release

@@ -4,7 +4,7 @@
 > partially verified, and what remains pending. It is maintained alongside
 > the evidence artifacts and updated whenever the verification state changes.
 >
-> **Last updated:** September 11, 2026 (review-v0.1.14)
+> **Last updated:** September 12, 2026 (review-v0.1.15)
 > **Reviewer:** Independent cold-read verification completed August 5, 2026
 
 ---
@@ -162,9 +162,9 @@ The three-lane benchmark compares four execution paths:
 ### What Lean Does NOT Prove
 
 ❌ AVX-512 assembly/intrinsics correctness directly
-❌ Butterfly operations (validated by differential testing)
-❌ NTT correctness (validated by differential testing)
 ❌ End-to-end proof system correctness
+
+Butterfly and NTT (corrected 2026-09-11): Lean theorem declarations exist in the public tscp-anchor corpus (Butterfly.lean: 27, NTTStage.lean: 8; census at tag `formal-corpus-v2026-09-11`). This table asserts compile verification only for Montgomery.lean (12 theorems, 0 sorries, 0 axioms); butterfly/NTT compile status is not asserted here. Implementation-level butterfly/NTT correctness continues to be validated by differential testing (scalar ↔ AVX2 ↔ AVX-512).
 
 SIMD correctness comes from:
 1. Differential testing (correctness gate: scalar ↔ AVX2 ↔ AVX-512)

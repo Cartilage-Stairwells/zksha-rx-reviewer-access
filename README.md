@@ -12,7 +12,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 
 | Layer | Evidence |
 |-------|----------|
-| Formal verification | 83 Lean theorems, 0 axioms, 0 sorries |
+| Formal verification | 88 Lean theorem declarations in the public tscp-anchor corpus (tag `formal-corpus-v2026-09-11`); Montgomery.lean: 12 theorems, compile-verified, 0 axioms, 0 sorries |
 | Rust tests | 102 tests, 0 failures |
 | SIMD | AVX2 + AVX-512 backends with correctness gate |
 | Benchmark | measured AVX-512 kernel speedup (three-lane benchmark, see BENCHMARKS.md for range) |
@@ -21,7 +21,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.14 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.15 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 make reproduce
 ```
@@ -40,19 +40,19 @@ For full review: see `docs/EXTERNAL_REVIEWER_GUIDE.md`
 
 ## Formal Verification
 
-83 theorems across 4 layers:
+Theorem-declaration census at tscp-anchor tag `formal-corpus-v2026-09-11` (2026-09-11): 88 declarations across 12 Lean files. Core layers (62):
 
 ```
-Layer 0: TCP Semantics (15 theorems) — custody/authority plane separation
+Layer 0: TCP Semantics — ReviewerSemantics.lean (15 theorems) — custody/authority plane separation
     ↓
-Layer 1: Montgomery Arithmetic (12 theorems) — Bézout, REDC, modular bounds
+Layer 1: Montgomery Arithmetic — Montgomery.lean (12 theorems) — Bézout, REDC, modular bounds [compile-verified: 0 axioms, 0 sorries]
     ↓
-Layer 2: Butterfly Algebra (25 theorems) — DIF closure, encoding, invertibility
+Layer 2: Butterfly Algebra — Butterfly.lean (27 theorems) — DIF closure, encoding, invertibility
     ↓
-Layer 3: NTT Stage Composition (8 theorems) — validity, determinism, composition
+Layer 3: NTT Stage Composition — NTTStage.lean (8 theorems) — validity, determinism, composition
 ```
 
-Proof-to-code map: `docs/plonky3/proof-to-code-map.md`
+Compile status is asserted only where recorded in `VERIFICATION_STATUS.md` (Montgomery.lean). Proof-to-code map: `docs/plonky3/proof-to-code-map.md`
 
 ## The DIT→DIF Verification Story
 

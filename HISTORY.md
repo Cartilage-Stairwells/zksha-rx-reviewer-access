@@ -121,3 +121,20 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 **Claims:** unchanged from `review-v0.1.13` (canonical 1.265×–1.276× AVX-512 DIF butterfly; 102 tests; formal verification per `CLAIM_MATRIX.md`).
 
 **Supersedes:** `review-v0.1.13` for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.15 (2026-09-11) — Theorem-count alignment to stated census + phantom-tag repair
+
+**Tag:** review-v0.1.15
+**Purpose:** The release carried three mutually inconsistent theorem counts (README headline 83 vs its own layer table summing 60; PROJECT_FACTS "33 across 7 modules"; REVIEW_RELEASE "33") and referenced a non-existent tscp-anchor tag (`v0.1.0-zksha-rx`). Counts are now aligned to a stated, reproducible census.
+
+**Census (2026-09-11, by Solene, Base44 Superagent):** theorem-declaration grep at tscp-anchor commit `4a4d6064` (pinned as tag `formal-corpus-v2026-09-11`): **88 declarations across 12 Lean files**. Core layers: ReviewerSemantics.lean 15, Montgomery.lean 12 (compile-verified, 0 axioms, 0 sorries), Butterfly.lean 27, NTTStage.lean 8. The prior "83" figure matches no census and is superseded; "33 across 7 modules" matched no current corpus.
+
+**Changes:**
+- `README.md`, `PROJECT_FACTS.md`, `REVIEW_RELEASE.md`: theorem counts replaced with the census-backed statement (method + reference stated)
+- `REVIEW_RELEASE.md`: phantom tag `v0.1.0-zksha-rx` replaced with the real pinned tag `formal-corpus-v2026-09-11` (same repair class as the v0.1.11 non-existent-tag fix, recorded in VERIFICATION_STATUS)
+- `VERIFICATION_STATUS.md`: "What Lean Does NOT Prove" corrected — butterfly/NTT Lean declarations exist (27/8); compile verification is asserted only for Montgomery.lean
+- Release identity advanced to `review-v0.1.15`; SHA256SUMS regenerated over all tracked files
+
+**Claims otherwise unchanged from review-v0.1.14** (canonical 1.265×–1.276× AVX-512 DIF butterfly; 102 tests; formal verification per CLAIM_MATRIX.md). No new verification claims are made by this release — compile status beyond Montgomery.lean is deliberately not asserted.
+
+**Supersedes:** review-v0.1.14 for reviewer entry (all prior tags remain immutable).

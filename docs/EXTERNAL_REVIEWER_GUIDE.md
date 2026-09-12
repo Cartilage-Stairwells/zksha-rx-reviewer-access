@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.14 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.15 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 ./validate_release.sh
 ```
