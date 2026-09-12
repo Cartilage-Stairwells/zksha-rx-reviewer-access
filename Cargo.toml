@@ -23,10 +23,13 @@ rand = "0.8"
 
 [dev-dependencies]
 proptest = "1"
+criterion = "0.5"
 
 [features]
 default = ["std"]
 std = []
+# Passthrough: enables p3-baby-bear's 16-wide AVX-512 PackedBabyBear (nightly + avx512f required)
+nightly-features = ["p3-baby-bear/nightly-features"]
 
 [[test]]
 name = "prover_fixture"
@@ -35,3 +38,11 @@ path = "tests/prover_fixture.rs"
 [[test]]
 name = "stark_prover_fixture"
 path = "tests/stark_prover_fixture.rs"
+
+[[bench]]
+name = "b4k_lanes"
+harness = false
+
+[[bench]]
+name = "b4p_prover"
+harness = false
