@@ -8,7 +8,7 @@
 
 ## 0. Scope and Status
 
-This document defines the canonical protocol for three-lane butterfly benchmark measurements. **No canonical run has been conducted yet under this protocol.** All measurements in the Historical Measurements section (Section 9) predate this methodology and were conducted under varying configurations. They are included as historical evidence only.
+This document defines the canonical protocol for three-lane butterfly benchmark measurements. **A canonical run has been conducted under this protocol and is dual-run verified (`CANONICAL_RESULTS.md` @ daf2a74, 50 samples per lane).** Measurements other than that run, listed in the Historical Measurements section (Section 9), predate this methodology and were conducted under varying configurations. They are included as historical evidence only.
 
 A "canonical run" under this protocol requires:
 - Exact commit hash recorded
@@ -216,7 +216,7 @@ This benchmark measures the **butterfly kernel in isolation**. It does not inclu
 - Multi-stage NTT composition
 - Proof generation overhead (hashing, Merkle trees, FRI, etc.)
 
-The Phase 2.5 Plonky3 integration benchmark (39% recursive DFT speedup, 11% total proof speedup at 2^15, commit cdfccf035850a08ee91d236bf1234035a772f739) measures the **full proving pipeline** and is a separate measurement under a separate methodology. The Phase 2.5 benchmark is the stronger claim because it demonstrates real-world impact, not just kernel throughput.
+The Phase 2.5 Plonky3 integration benchmark (commit cdfccf035850a08ee91d236bf1234035a772f739) measures the **full proving pipeline of a specific workload: Poseidon2 permutation over BabyBear, degree-4 extension, trace size 2^15, fused recursive DFT lane**. Its figures are historical same-lane prose (commit-message witness; pre-fusion data uncommitted): 39% recursive DFT speedup = (155-95)/155 = 38.7%; 11% total proof speedup = 483->428 ms = 11.4% (same-lane prose, distinct from the committed cross-lane comparison: 428.794 ms vs 386.592 ms, ratio = 1.1097x, stock-parallel lane 9.84% lower in total wall time relative to the fused recursive lane). Phase 2.5 is a separate measurement under a separate methodology; it demonstrates real-world impact for the stated workload, and its conclusions do not extend beyond that workload.
 
 Kernel microbenchmarks and full-pipeline benchmarks must not be conflated. A reviewer who sees "2.65× kernel speedup" and "39% DFT speedup" in the same document must understand that these measure different things at different levels of the stack.
 
