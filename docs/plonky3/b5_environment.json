@@ -1,0 +1,22 @@
+{
+ "experiment": "B5",
+ "date": "2026-09-27",
+ "rustc": "",
+ "cargo": "",
+ "criterion": "0.5 (per Cargo.lock)",
+ "config_S": {
+  "RUSTFLAGS": "none",
+  "profile": "release bench"
+ },
+ "cpu": "model name\t: unknown\nflags\t\t: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext per",
+ "sandbox": "gvisor; no RAPL/MSR (energy not measurable)",
+ "run_environments_note": "before-run and after-run executed on a prior sandbox instance (2026-09-17); workspace (including raw Criterion estimates) restored to a recycled instance on 2026-09-27; adapter diff re-verified against B4 tip a9055a74 before use; test suite 31/31 re-run on restored instance",
+ "invocations": [
+  "CRITERION_HOME=/app/b5-results/before cargo bench --bench b4k_lanes   (B4 harness, unmodified)",
+  "CRITERION_HOME=/app/b5-results/after cargo bench --bench b4k_lanes    (B4 harness, unmodified)",
+  "cargo test --release  (31/31 PASS on restored instance, 2026-09-27)",
+  "cargo run --release --example measure_twiddles      (T_direct, non-Criterion)",
+  "cargo run --release --example measure_cold_vs_steady (cold vs steady, non-Criterion)",
+  "CRITERION_HOME=/app/b5-results/sanity_b4p cargo bench --bench b4p_prove -- 2^10 2^12 2^14 (single run, after state)"
+ ]
+}
