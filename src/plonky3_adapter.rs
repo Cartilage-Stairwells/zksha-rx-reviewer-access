@@ -9,17 +9,11 @@
 //! `BabyBear` is `#[repr(transparent)]` over a single `u32` field storing
 //! the Montgomery-encoded value (xR mod p, R = 2^32). Our NTT operates on
 //! raw `u32` Montgomery-domain values. Since the representations are
-//!
-//! ## B2: shared tracker
-//!
-//! The tracker is `Arc<RefCell<..>>` so that when the adapter is moved into
-//! a `TwoAdicFriPcs` (which owns its `Dft`) and cloned internally, every
-//! clone shares the same counters. A handle retained by the caller records
-//! calls made inside the proving pipeline.
-//! raw `u32` Montgomery-domain values. Since the representations are
 //! identical, we can safely reinterpret between `&mut [BabyBear]` and
 //! `&mut [u32]` without any conversion overhead.
 
+use std::cell::RefCell;
+use std::sync::Arc;
 use std::vec::Vec;
 use p3_baby_bear::BabyBear;
 use p3_dft::TwoAdicSubgroupDft;
@@ -28,6 +22,10 @@ use p3_matrix::dense::RowMajorMatrix;
 use p3_matrix::Matrix;
 
 use crate::ntt;
+
+thread_local! {
+    static TWIDDLE_CACHE: RefCell<Vec<Option<Arc<Vec<Vec<u32>>>>>> = RefCell::new(Vec::new());
+}
 
 /// Which NTT backend to use.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -91,15 +89,15 @@ impl ZkshaDifAdapter {
         false
     }
 
-    /// Compute twiddle factors for each stage of the DIF NTT.
-    ///
-    /// Uses Plonky3's `two_adic_generator` to get the root, ensuring
-    /// our output matches Plonky3's own DFT implementations.
-    ///
-    /// Twiddles are computed using BabyBear's native arithmetic (which
-    /// uses Plonky3's Montgomery convention) and then transmuted to raw
-    /// u32 values for our NTT (safe due to #[repr(transparent)]).
-    fn compute_twiddles(log_n: usize) -> Vec<Vec<u32>> {
+    /// Clear the thread-local twiddle cache.
+    pub fn clear_twiddle_cache() {
+        TWIDDLE_CACHE.with(|cache| {
+            cache.borrow_mut().clear();
+        });
+    }
+
+    /// Compute twiddle factors for each stage of the DIF NTT uncached.
+    pub fn compute_twiddles_uncached(log_n: usize) -> Vec<Vec<u32>> {
         let n = 1usize << log_n;
         let generator = BabyBear::two_adic_generator(log_n);
 
@@ -124,6 +122,22 @@ impl ZkshaDifAdapter {
             twiddles_per_stage.push(stage_twiddles);
         }
         twiddles_per_stage
+    }
+
+    /// Compute twiddle factors for each stage of the DIF NTT, using thread-local cache.
+    pub fn compute_twiddles(log_n: usize) -> Arc<Vec<Vec<u32>>> {
+        TWIDDLE_CACHE.with(|cache| {
+            let mut cache = cache.borrow_mut();
+            if cache.len() <= log_n {
+                cache.resize(log_n + 1, None);
+            }
+            if let Some(ref tw) = cache[log_n] {
+                return tw.clone();
+            }
+            let tw = Arc::new(Self::compute_twiddles_uncached(log_n));
+            cache[log_n] = Some(tw.clone());
+            tw
+        })
     }
 
     /// Run the NTT on a u32 slice using the selected backend.
@@ -182,7 +196,7 @@ impl TwoAdicSubgroupDft<BabyBear> for ZkshaDifAdapter {
         let w = mat.width();
         let log_h = h.trailing_zeros() as usize;
 
-        // Compute twiddles using Plonky3's generator
+        // Compute or fetch cached twiddles using Plonky3's generator
         let twiddles_per_stage = Self::compute_twiddles(log_h);
 
         // Single-column case (most common): transmute in place
