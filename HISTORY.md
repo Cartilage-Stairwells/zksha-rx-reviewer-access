@@ -138,3 +138,15 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 **Claims otherwise unchanged from review-v0.1.14** (canonical 1.265×–1.276× AVX-512 DIF butterfly; 102 tests; formal verification per CLAIM_MATRIX.md). No new verification claims are made by this release — compile status beyond Montgomery.lean is deliberately not asserted.
 
 **Supersedes:** review-v0.1.14 for reviewer entry (all prior tags remain immutable).
+
+## Integrity re-seal (2026-09-27) — CANONICAL_BENCHMARK_METHODOLOGY.md manifest repair
+
+**Not a release.** Post-release custody correction; no claim content modified.
+
+**What happened:** Commit `b17b4127` (owner-approved documentation adjudication, 2026-09-17) amended `CANONICAL_BENCHMARK_METHODOLOGY.md` (methodology status line and Phase 2.5 scope labeling) but omitted the corresponding `SHA256SUMS` update. The manifest consequently carried the pre-commit hash (`bbc0aff5`, the file at `b17b4127^`) for the post-commit file (`3835ccae`) from 2026-09-17 onward. No exception was documented; the mechanical release gate (`validate_release.sh`, `sha256sum -c SHA256SUMS`) never ran in that window because no release tag followed `b17b4127`.
+
+**Detection:** 2026-09-27, by a full manifest-vs-tree recomputation (98 entries; 97 matched) during the EXP-002 audit. The recomputation was performed independently of the release gate. Investigation record preserved; classification: ordinary missed re-seal, recurring the failure class documented at review-v0.1.14 (v0.1.10–v0.1.13 instance, discovered by external audit 2026-09-11). This is the first instance of the class detected mechanically.
+
+**Repair:** Commit `ae4e62bc` (2026-09-27) updated the single stale manifest entry to the current file hash. Bookkeeping only. No scientific or benchmark claim was changed by the repair. `b17b4127` is not altered; all prior tags remain immutable. Full manifest recomputation after repair: 98/98 entries match.
+
+**Adjudicated consequence (recorded, not yet implemented):** the same-commit re-seal invariant — a commit that modifies a manifest-covered file must update `SHA256SUMS` in the same commit set — is SUPPORTED by two observed instances of this failure class (v0.1.10–v0.1.13; b17b4127). Enforcement architecture is a separate design decision.
