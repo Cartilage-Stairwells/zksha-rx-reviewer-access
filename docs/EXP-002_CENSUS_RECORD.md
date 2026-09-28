@@ -89,9 +89,12 @@ friction is an observation about environment tooling, not about the census.
 
 - **Reproducibility of the mechanical census:** demonstrated (two methods,
   two acquisitions, identical result).
-- **Correctness of the declared counting predicate:** demonstrated for P1
-  as stated (literal-attribute counting); P1 does not capture doctests,
-  test-macro variants, or commented-out distinctions, per its frozen scope.
+- **Implementation agreement for P1:** demonstrated — two independent
+  implementations on independent acquisitions of the same pinned tree produced
+  identical results (478 = 478). This establishes reproducibility of the
+  computation. It does not independently establish that P1 is semantically the
+  right way to define "test"; P1 does not capture doctests, test-macro
+  variants, or commented-out distinctions, per its frozen scope.
 - **Agreement with an existing human-facing claim:** not applicable (no
   stated claim found).
 - **Evidence of market demand:** none. Nothing in this experiment bears on
