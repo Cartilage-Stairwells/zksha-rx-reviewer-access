@@ -46,7 +46,7 @@ externally exercised history but not yet validated on external material:
 | 10 | Public GitHub experiments | Demonstration corpus | Externally exposed / planned experiment | Experiment 2 pending. |
 | 11 | Discovery framework | Sales methodology | Unexercised | No action until a Track A/B conversation occurs. |
 | 12 | Case-study machinery | Consulting product | Unexercised | Fold into #1's template. |
-| 14 | **Machine-checkable rule library** | Validation/regression-test specification | **Internally demonstrated, externally unvalidated** | Six rules extracted from externally exercised correction history (AC-001..AC-006): count basis, repository identity, scope precision, measurement status, controlled vocabulary, symbol existence, cross-document consistency, provenance witnesses. Next experiment: implement 2–3 predicates against an unrelated repository. |
+| 14 | **Machine-checkable rule library** | Validation/regression-test specification | **Internally demonstrated, externally unvalidated** | Six rules extracted from externally exercised correction history (AC-001..AC-006): count basis, repository identity, scope precision, measurement status, controlled vocabulary, symbol existence, cross-document consistency, provenance witnesses. Count-basis predicate (P1) reproduced exactly on one unrelated public repository (EXP-002, rust-lang/regex @ 72d650cb): portability demonstrated; demand not tested. |
 
 (#13 is the store's measurable event — folded into #9 above.)
 
@@ -96,7 +96,7 @@ is a feature of the hypothesis, not a limitation.
 | # | Action | What it tests | Status |
 |---|--------|----------------|--------|
 | 1 | Extract adjudication corpus | Whether correction events become a reusable structured asset | **Done 2026-09-27. 6 events, 8 rule categories.** |
-| 2 | Census one deliberately boring unrelated public repo, full evidence recording (repo/commit, question, counting rule, raw output, independent check, result, discrepancy) | Whether the mechanical primitive survives outside the originating environment. Null result is still an evidence event. | Pending |
+| 2 | Census one deliberately boring unrelated public repo, full evidence recording (repo/commit, question, counting rule, raw output, independent check, result, discrepancy) | Whether the mechanical primitive survives outside the originating environment. Null result is still an evidence event. | **Done 2026-09-27 (EXP-002).** rust-lang/regex @ 72d650cb. Frozen predicate P1; two independent methods agreed exactly (478 = 478). Portability/reproducibility of the count-basis primitive demonstrated. No demand evidence; no human-facing claim found to compare. Record: docs/EXP-002_CENSUS_RECORD.md |
 | 3 | Ask the reviewer one question: what was missing or hardest to verify | External requirements interview. "Nothing" is useful negative evidence. | Pending |
 | 4 | Instrument TSCP store with a measurable inquiry event | Convert future attention into observable events: visit → request → contact → conversation → proposal. None interpreted as demand until they occur. | Pending |
 
