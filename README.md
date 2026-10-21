@@ -105,3 +105,10 @@ Sean Christopher Southwick — schlagetorren@gmail.com
 ## License
 
 See `LICENSE` file.
+
+## Provenance and licensing
+
+This is a curated reviewer surface with mixed source ancestry. Do not infer a
+repository-wide license from the presence of this package. See
+`PROVENANCE_AND_LICENSING.md`; upstream-derived material retains its applicable
+terms while file-level provenance is completed.
