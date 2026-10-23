@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.18` |
+| Release tag | `review-v0.1.19` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.17` / `df5eaac` (historical) |
+| Previous snapshot | `review-v0.1.18` / `9e7d3b1` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Artifact Inventory
@@ -19,7 +19,7 @@
 |----------|----------|----------|
 | AVX-512 SIMD kernel | `src/avx512_butterfly_32bit.rs` | in release commit |
 | Scalar reference | `src/lib.rs` | in release commit |
-| Benchmark harness | `benches/butterfly_bench.rs` | in release commit |
+| Benchmark harnesses | `benches/three_lane_bench.rs` (canonical three-lane), `benches/butterfly_bench.rs` (scalar reference) | in release commit |
 | Test suite | `tests/` (14 files) | in release commit |
 | Evidence bundle | `evidence/` | in release commit |
 | SHA256 sums | `SHA256SUMS` | in release commit |
@@ -47,7 +47,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.18
+git checkout review-v0.1.19
 
 # Build
 cargo build --release
@@ -55,8 +55,8 @@ cargo build --release
 # Run tests
 cargo test --release
 
-# Run benchmarks (requires AVX-512 CPU)
-cargo bench --bench butterfly_bench
+# Run the canonical three-lane benchmark (reproduces the 1.27x kernel claim; requires AVX-512 CPU)
+cargo bench --bench three_lane_bench
 
 # Verify evidence integrity
 sha256sum -c SHA256SUMS

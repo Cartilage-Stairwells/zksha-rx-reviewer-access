@@ -15,7 +15,7 @@
 
 | # | Claim | Scope | Evidence | Non-Claim |
 |---|-------|-------|----------|-----------|
-| 4 | Backend equivalence | 3 backends: reference oracle, scalar Montgomery bridge, AVX-512 SIMD | `tests/backend_parity/` (135 staged comparisons) | SIMD is tested (three-lane correctness gate), not formally verified |
+| 4 | Backend equivalence | 3 backends: reference oracle, scalar Montgomery bridge, AVX-512 SIMD | `tests/backend_parity/`, `tests/ntt_equivalence.rs` (135 staged comparisons: 3 backends × 45 butterfly stages (log_n 5–10, stages per size = log_n); 90 asserted directly in tests/ntt_equivalence.rs, 45 by transitivity; executed and passed on AVX-512 hardware in the independent run 2026-10-23) | SIMD is tested (three-lane correctness gate), not formally verified |
 | 5 | Independent oracle validation | Reference DFT compared against SIMD output | `tests/ntt_equivalence.rs` | Oracle checks correctness of all tested inputs |
 | 6 | Formal verification of Montgomery arithmetic | Lean 4: Montgomery multiplication, residue closure, Bézout identity | `formal/README.md`, external Lean repo | Formal verification of SIMD implementation |
 | 7 | Reproducible benchmark artifacts | SHA256SUMS, evidence manifest, environment config | `evidence/`, `SHA256SUMS` | Results generalize to all AVX-512 CPUs |

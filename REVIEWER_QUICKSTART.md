@@ -40,7 +40,7 @@ Pick the scope that matches your expertise:
 
 ```bash
 # Clone THIS repo as the review entry point, not any other.
-# Review tag: review-v0.1.18
+# Review tag: review-v0.1.19
 
 # Build
 cargo build --release
@@ -48,8 +48,11 @@ cargo build --release
 # Run tests (139 total: 102 integration + 37 unit)
 cargo test --release
 
-# Run benchmarks (requires AVX-512 CPU)
-cargo bench --bench butterfly_bench
+# Run the canonical three-lane benchmark (scalar vs AVX2 vs AVX-512;
+# reproduces the 1.27x kernel claim; requires AVX-512 CPU)
+cargo bench --bench three_lane_bench
+# Note: butterfly_bench measures the scalar reference butterfly only;
+# it does not reproduce the canonical three-lane result
 ```
 
 Requires: Rust 1.97.1+, AVX-512 capable CPU (for benchmarks only).

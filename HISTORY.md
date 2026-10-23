@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.18` |
+| Tag | `review-v0.1.19` |
 | Commit | This tag's target |
 | Date | 2026-10-23 |
-| Status | Frozen — measured count-alignment (test counts aligned to independent run; no other claims changed) |
+| Status | Frozen — reproducibility mapping (canonical benchmark command identified; staged-comparison count adjudicated) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.18` | `9e7d3b1` | 2026-10-23 | Measured count-alignment: test counts aligned to independent run (139/139) |
 | `review-v0.1.17` | `df5eaac` | 2026-10-23 | Documentation disposition close: license note, formal-verification census wording, evidence-branch command |
 | `review-v0.1.16` | `904423b` | 2026-10-23 | Integrity re-seal: release identity aligned across reviewer docs; out-of-tree evidence commands added |
 | `review-v0.1.15` | `ac90de5` | 2026-09-12 | docs(review-v0.1.15): theorem-count alignment to stated census + phant |
@@ -210,3 +211,16 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - SHA256SUMS regenerated over all tracked files except itself
 
 **Supersedes:** review-v0.1.17 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.19 (2026-10-23) — Reproducibility mapping: canonical benchmark command identified; staged-comparison count adjudicated
+
+**Tag:** review-v0.1.19
+**Purpose:** External audit of review-v0.1.18 (2026-10-23) found a reproducibility gap: the canonical 1.27× result is supported by `cargo bench --bench three_lane_bench` (per CLAIM_MATRIX and the canonical methodology), but REVIEWER_QUICKSTART.md, REVIEW_RELEASE.md, and BENCHMARKS.md instructed reviewers to run `cargo bench --bench butterfly_bench` — a benchmark that measures the scalar reference butterfly only and cannot reproduce the canonical three-lane result. The audit also left the "135 staged pairwise comparisons" claim UNADJUDICATED pending verification against underlying evidence.
+
+**Changes (reproducibility-mapping and count-basis wording only; no measured value, benchmark result, or proof content modified):**
+- Canonical benchmark command consistently identified across REVIEWER_QUICKSTART.md, REVIEW_RELEASE.md, BENCHMARKS.md (already present in CLAIM_MATRIX.md, CANONICAL_*.md, and the external guide); `butterfly_bench` explicitly labeled as scalar-reference-only; both bench targets compile-verified (`cargo bench --no-run`, 2026-10-23)
+- The 135 staged-comparison count adjudicated with a stated counting basis: 3 backends × 45 butterfly stages (log_n 5–10, stages per size = log_n); 90 comparisons asserted directly in `tests/ntt_equivalence.rs::staged_cross_backend_equivalence`, 45 by transitivity. Independently re-run 2026-10-23 on AVX-512 hardware: 45/45 stage logs captured (`ref==scalar==avx512 PASS`), test passed. CLAIM_MATRIX evidence path corrected to name `tests/ntt_equivalence.rs` alongside `tests/backend_parity/`
+- Release identity advanced to review-v0.1.19 across the entry documents
+- SHA256SUMS regenerated over all tracked files except itself
+
+**Supersedes:** review-v0.1.18 for reviewer entry (all prior tags remain immutable).

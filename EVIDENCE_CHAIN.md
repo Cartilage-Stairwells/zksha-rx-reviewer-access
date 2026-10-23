@@ -111,7 +111,7 @@ From `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.2:
 
 **Validated:**
 - BabyBear NTT correctness (NTT == DFT oracle; suite-verified 139/139 tests run and passed at this tag, 2026-10-23)
-- Scalar/vector equivalence (135 staged pairwise comparisons, all pass)
+- Scalar/vector equivalence (135 staged pairwise comparisons, all pass: 3 backends × 45 butterfly stages, log_n 5–10; independently re-run and passed 2026-10-23 on AVX-512 hardware — 45/45 stage logs captured)
 - AVX-512 implementation correctness (execution canary, spot-checks at 3 sizes)
 - Reported AVX-512 performance: 3.29x–4.38x (geometric mean 3.94x, historical measurement)
 - Formal invariants (corpus census: 88 theorem declarations across 12 Lean files at `formal-corpus-v2026-09-11`; Montgomery.lean: 12 theorems, 0 sorry (3 documented sorries in Examples), Bézout identity)
@@ -166,7 +166,7 @@ ScalarBackend
 ReferenceBackend (u128 oracle, no p3 dependency)
     ↓ ntt_reference == DFT (NTT contract audit, sealed)
 AVX-512Backend
-    ↓ ntt_avx512 == ntt_reference (staged parity, 135 checks)
+    ↓ ntt_avx512 == ntt_reference (staged parity, 135 checks: 3 backends × 45 butterfly stages, log_n 5–10)
 ```
 
 Each arrow is an equivalence proof. AVX-512 inherits correctness through

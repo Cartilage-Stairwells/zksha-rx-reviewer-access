@@ -4,7 +4,7 @@
 > partially verified, and what remains pending. It is maintained alongside
 > the evidence artifacts and updated whenever the verification state changes.
 >
-> **Last updated:** October 23, 2026 (review-v0.1.18)
+> **Last updated:** October 23, 2026 (review-v0.1.19)
 > **Reviewer:** Independent cold-read verification completed August 5, 2026
 
 ---

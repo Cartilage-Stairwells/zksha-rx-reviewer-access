@@ -158,7 +158,7 @@ All three backends produce identical output:
 - Scalar (Montgomery form, BabyBear field)
 - AVX-512 (vectorized Montgomery, 512-bit SIMD)
 
-135 staged pairwise comparisons confirm element-wise agreement after every butterfly stage — not just the final output.
+135 staged pairwise comparisons confirm element-wise agreement after every butterfly stage — not just the final output. Counting basis (independently verified 2026-10-23): 135 staged comparisons: 3 backends × 45 butterfly stages (log_n 5–10, stages per size = log_n); 90 asserted directly in tests/ntt_equivalence.rs, 45 by transitivity; executed and passed on AVX-512 hardware in the independent run 2026-10-23.
 
 ### Correctness: NTT = DFT
 
@@ -258,7 +258,9 @@ export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
 # perf_measure: not in this snapshot (historical)
 
 # Run the Criterion benchmarks (detailed statistical analysis)
-cargo bench --bench butterfly_bench
+# Canonical three-lane benchmark (reproduces the 1.27x claim; see CANONICAL_BENCHMARK_METHODOLOGY.md)
+cargo bench --bench three_lane_bench
+# (butterfly_bench measures the scalar reference butterfly only)
 
 # Run the full test suite (correctness verification)
 cargo test --release

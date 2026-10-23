@@ -56,5 +56,5 @@ The external claim is:
 This means: the arithmetic primitives used by the implementation have formal proofs in Lean 4. It does NOT mean the implementation itself is formally verified. The SIMD implementation is validated by:
 
 - Independent reference oracle comparison
-- Backend equivalence testing (135 staged comparisons)
+- Backend equivalence testing (135 staged comparisons: 3 backends × 45 butterfly stages, log_n 5–10; see CLAIM_MATRIX.md for basis)
 - Differential testing across three backends
