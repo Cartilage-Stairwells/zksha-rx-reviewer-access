@@ -20,13 +20,13 @@ review-v0.1.15 (current snapshot, released 2026-09-12; supersedes review-v0.1.6 
 ## Access Model
 
 Repository status:
-This repository is the frozen public reviewer snapshot. Historical development artifacts may exist outside this tree.
+This repository is the frozen reviewer snapshot. Historical development artifacts may exist outside this tree.
 
 Approved access language:
 > Source code and benchmark artifacts are available for technical review by qualified reviewers.
 
 Reviewer access:
-> This repository is publicly accessible. No access request needed.
+> This repository is accessible to anyone; no access request is needed.
 
 Review target:
 > Reviewers should evaluate tag review-v0.1.15. (Historical: review-v0.1.6 was the frozen snapshot until 2026-09-12; tags review-v0.1.7 through review-v0.1.15 are the intervening reviewer releases.)
@@ -37,7 +37,7 @@ Do not use:
 - "production-ready" or "drop-in" — no integration claims are made
 
 License note:
-This repository is public for technical review. It contains a license file. The snapshot is frozen — no ongoing development occurs here. Historical development artifacts may exist outside this tree.
+This repository is available for technical review. It contains a license file. The snapshot is frozen — no ongoing development occurs here. Historical development artifacts may exist outside this tree.
 
 ## Measured Performance
 
@@ -96,7 +96,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Current snapshot: review-v0.1.6 (this tag)
+- Current snapshot: review-v0.1.15 (this tag)
 - Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:
@@ -123,7 +123,7 @@ Provenance statement:
 > The repository contains reproducible provenance records documenting implementation history, verification artifacts, benchmark methodology, and release state.
 
 Access statement:
-> Source code and benchmark artifacts are available for technical review by qualified reviewers. This repository is publicly accessible. No access request needed.
+> Source code and benchmark artifacts are available for technical review by qualified reviewers. This repository is accessible to anyone; no access request is needed.
 
 ## Prohibited in External Materials
 
