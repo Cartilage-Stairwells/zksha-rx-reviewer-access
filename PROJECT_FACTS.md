@@ -12,10 +12,10 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-review-v0.1.6
+review-v0.1.15
 
 Frozen commit:
-review-v0.1.6 (current snapshot)
+review-v0.1.15 (current snapshot, released 2026-09-12; supersedes review-v0.1.6 of 2026-07-30, which remains available as a historical tag)
 
 ## Access Model
 
@@ -29,7 +29,7 @@ Reviewer access:
 > This repository is publicly accessible. No access request needed.
 
 Review target:
-> Reviewers should evaluate tag review-v0.1.6.
+> Reviewers should evaluate tag review-v0.1.15. (Historical: review-v0.1.6 was the frozen snapshot until 2026-09-12; tags review-v0.1.7 through review-v0.1.15 are the intervening reviewer releases.)
 
 Do not use:
 - "Open source project" — this is a frozen review snapshot, not a maintained open-source project
