@@ -28,4 +28,13 @@ The external reviewer's status transitioned from REVIEW BLOCKED — ACCESS to **
 
 ## Inspection addendum (2026-10-23)
 
-An external operator-relayed inspection (read-only) issued a qualified acceptance of the countersignature placement and raised three qualifications. All three are resolved in `AUDIT-INSPECTION-ADDENDUM-v0.1.21.md`: two were precision defects in the audit record's own procedures (hash-scope wording; parser position in the benchmark re-parse — the documented canonical values now reproduce exactly), one is an inherent boundary now stated explicitly (operator-relayed reviewer identity is operator-asserted until a signed attestation exists). No findings contradict the sealed artifact; lane-2 remains SUPPORTED-PARTIAL and the Zen 5 rerun remains parked.
+An external operator-relayed inspection (read-only) issued a qualified acceptance of the countersignature placement and raised three qualifications. Two of the three are resolved with corrective evidence in `AUDIT-INSPECTION-ADDENDUM-v0.1.21.md` (hash-scope wording; parser position in the benchmark re-parse — the documented canonical values now reproduce exactly); the third is not resolved but disclosed as a standing limitation (operator-relayed reviewer identity is operator-asserted until a signed attestation exists — documenting an authentication gap is not authentication). No findings contradict the sealed artifact; lane-2 remains SUPPORTED-PARTIAL and the Zen 5 rerun remains parked.
+
+
+## Final inspection record (2026-10-23, follow-up)
+
+The external inspector reviewed the additive correction at commit `d9c07f5` and issued an updated **qualified acceptance with narrower reservations**, distinguishing the two corrective resolutions from the disclosed limitation. Its closeout wording, recorded verbatim as received via operator relay:
+
+> Perplexity inspected the additive correction at commit `d9c07f5`. The addendum addresses the hash-scope ambiguity and supplies a documented benchmark-number reconciliation, including an explicit correction of the audit's earlier explanation. Reviewer identity remains operator-asserted and is now disclosed as a standing limitation. Perplexity has not independently recomputed the digests or re-parsed the benchmark logs.
+
+Scope of the follow-up inspection, as disclosed by the inspector: the corrected record was inspected; the digests were not independently recomputed, the benchmark logs were not independently re-parsed, and live branch/tag references were not re-verified in the follow-up. This record carries the same operator-relay provenance property as the attestation it describes.
