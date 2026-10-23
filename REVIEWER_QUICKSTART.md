@@ -40,7 +40,7 @@ Pick the scope that matches your expertise:
 
 ```bash
 # This repository is self-contained — clone THIS repo, not any other.
-# Review tag: review-v0.1.6
+# Review tag: review-v0.1.16
 
 # Build
 cargo build --release
@@ -79,3 +79,13 @@ Requires: Rust 1.97.1+, AVX-512 capable CPU (for benchmarks only).
 ## Contact
 
 Sean Christopher Southwick — schlagetorren@gmail.com
+
+## Benchmark Evidence Branch (Out-of-Tree)
+
+Raw benchmark evidence lives on a pinned branch, not the main tree:
+
+```bash
+git fetch origin evidence/experiment-a
+git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
+sha256sum -c evidence/experiment_a/SHA256SUMS
+```

@@ -4,15 +4,25 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.6` |
+| Tag | `review-v0.1.16` |
 | Commit | This tag's target |
-| Date | 2026-07-30 |
-| Status | Frozen — validated clean snapshot (supersedes local v0.1.5 tag drift) |
+| Date | 2026-10-23 |
+| Status | Frozen — release-identity re-seal (documentation alignment; no claim changes) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.15` | `ac90de5` | 2026-09-12 | docs(review-v0.1.15): theorem-count alignment to stated census + phant |
+| `review-v0.1.14` | `11c1690` | 2026-09-12 | Integrity re-seal for reviewer release review-v0.1.14: regenerate SHA2 |
+| `review-v0.1.13` | `01db486` | 2026-08-05 | review-v0.1.13: documentation corrections |
+| `review-v0.1.12` | `cbbc19d` | 2026-08-05 | review-v0.1.12: terminology clarification |
+| `review-v0.1.11` | `4789695` | 2026-08-05 | review-v0.1.11: verification repair |
+| `review-v0.1.10` | `116eef0` | 2026-08-05 | Add canonical AVX-512 benchmark methodology and results |
+| `review-v0.1.9` | `767a52a` | 2026-08-04 | release: review-v0.1.9 — evidence compounding layer |
+| `review-v0.1.8` | `5cbb669` | 2026-08-04 | release: review-v0.1.8 — researcher-consumable release |
+| `review-v0.1.7` | `fe19b1b` | 2026-08-04 | release: review-v0.1.7 — DIF verification snapshot |
+| `review-v0.1.6` | `7ff9825` | 2026-07-30 | release: review-v0.1.6 validated clean snapshot |
 | `review-v0.1.5` | `0ea4eff` | 2026-07-30 | Claims language normalization + CLAIM_LANGUAGE_POLICY.md |
 | `review-v0.1.4` | `bda165b` | 2026-07-30 | Stale checkout command fixed |
 | `review-v0.1.3` | `4e2d404` | 2026-07-30 | Identity alignment + validation gate |
@@ -150,3 +160,18 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 **Repair:** Commit `ae4e62bc` (2026-09-27) updated the single stale manifest entry to the current file hash. Bookkeeping only. No scientific or benchmark claim was changed by the repair. `b17b4127` is not altered; all prior tags remain immutable. Full manifest recomputation after repair: 98/98 entries match.
 
 **Adjudicated consequence (recorded, not yet implemented):** the same-commit re-seal invariant — a commit that modifies a manifest-covered file must update `SHA256SUMS` in the same commit set — is SUPPORTED by two observed instances of this failure class (v0.1.10–v0.1.13; b17b4127). Enforcement architecture is a separate design decision.
+
+
+## review-v0.1.16 (2026-10-23) — Release-identity re-seal: reviewer docs alignment + out-of-tree evidence discoverability
+
+**Tag:** review-v0.1.16
+**Purpose:** External audit (2026-10-23) found the reviewer entry documents inconsistent: README targeted `review-v0.1.15` while PROJECT_FACTS.md, its canonical external-reference list, and REVIEWER_QUICKSTART.md still identified `review-v0.1.6`; HISTORY.md's Current Release table was likewise stale. Intermediate fixes on main also touched sealed files without regenerating SHA256SUMS. This release re-seals the reviewer package.
+
+**Changes (bookkeeping only, no claim changes):**
+- Release identity advanced to `review-v0.1.16` across README.md, docs/EXTERNAL_REVIEWER_GUIDE.md, REVIEWER_QUICKSTART.md, PROJECT_FACTS.md, REVIEW_RELEASE.md, VERIFICATION_STATUS.md, HISTORY.md
+- Approved repository-access wording aligned with the file's own do-not-use policy ("publicly accessible" → "accessible to anyone")
+- REVIEW_RELEASE.md + REVIEWER_QUICKSTART.md: out-of-tree benchmark evidence branch (`evidence/experiment-a` @ `8df0c24`) verification commands added — the release gate validates main-tree files only
+- HISTORY.md snapshot table completed (review-v0.1.6 through review-v0.1.15 rows)
+- SHA256SUMS regenerated over all tracked files
+
+**Supersedes:** review-v0.1.15 for reviewer entry (all prior tags remain immutable).

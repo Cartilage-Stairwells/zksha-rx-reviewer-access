@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.15` |
+| Release tag | `review-v0.1.16` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.13` / `01db486` (historical) |
+| Previous snapshot | `review-v0.1.15` / `ac90de5` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Artifact Inventory
@@ -47,7 +47,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.15
+git checkout review-v0.1.16
 
 # Build
 cargo build --release
@@ -61,6 +61,25 @@ cargo bench --bench butterfly_bench
 # Verify evidence integrity
 sha256sum -c SHA256SUMS
 ```
+
+## Out-of-Tree Benchmark Evidence (Branch-Resident)
+
+The raw benchmark evidence artifacts are **not in the main tree**; they live
+on a separately pinned evidence branch and are verified with their own
+SHA256SUMS manifest. `sha256sum -c SHA256SUMS` above validates only the
+main-tree files; complete evidence verification also requires:
+
+```bash
+git fetch origin evidence/experiment-a
+git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
+sha256sum -c evidence/experiment_a/SHA256SUMS
+```
+
+- **Branch:** `evidence/experiment-a`
+- **Pinned commit:** `8df0c247cc503b751ee91245bb952b6994aaf2e6`
+- **Path:** `evidence/experiment_a/` — SHA256SUMS-pinned artifacts
+
+See `BENCHMARKS.md` and `CLAIM_MATRIX.md` for the claims this evidence supports.
 
 ## Relationship to Source Repository
 
