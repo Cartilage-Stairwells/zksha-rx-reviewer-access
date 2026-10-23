@@ -12,10 +12,10 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-review-v0.1.19
+review-v0.1.20
 
 Frozen commit:
-review-v0.1.19 (current snapshot, released 2026-10-23; supersedes review-v0.1.18 of 2026-10-23, which remains available as a historical tag)
+review-v0.1.20 (current snapshot, released 2026-10-23; supersedes review-v0.1.19 of 2026-10-23, which remains available as a historical tag)
 
 ## Access Model
 
@@ -29,7 +29,7 @@ Reviewer access:
 > This repository is accessible to anyone; no access request is needed.
 
 Review target:
-> Reviewers should evaluate tag review-v0.1.19. (Historical: review-v0.1.18 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.18 are historical reviewer releases.)
+> Reviewers should evaluate tag review-v0.1.20. (Historical: review-v0.1.19 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.19 are historical reviewer releases.)
 
 Do not use:
 - "Open source project" — this is a frozen review snapshot, not a maintained open-source project
@@ -50,7 +50,7 @@ Method:
 - outlier rejection
 
 Measured kernel results:
-- BabyBear DIF butterfly: measured 1.27× kernel speedup (geometric mean, canonical dual-run, Criterion on AMD Zen 5 with AVX-512, 50 samples, 0.9% variance)
+- BabyBear DIF butterfly: measured 1.27× kernel speedup (geometric mean, canonical dual-run, Criterion on AMD Zen 5 with AVX-512, 50 samples, 0.9% variance); baseline clarified 2026-10-23: the scalar-source lane compiles to auto-vectorized code under documented flags (disassembly-verified), so 1.27× = hand kernel vs compiler auto-vectorization on Zen 5 — vs true scalar ~7× (evidence/independent/2026-10-23-non-zen5/)
 - Raw i32 XOR butterfly: measured 4.58× kernel speedup (historical, Criterion 0.5.1)
 
 ## Verification Boundary
@@ -96,7 +96,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Current snapshot: review-v0.1.19 (this tag)
+- Current snapshot: review-v0.1.20 (this tag)
 - Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:

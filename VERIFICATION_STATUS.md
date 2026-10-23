@@ -4,7 +4,7 @@
 > partially verified, and what remains pending. It is maintained alongside
 > the evidence artifacts and updated whenever the verification state changes.
 >
-> **Last updated:** October 23, 2026 (review-v0.1.19)
+> **Last updated:** October 23, 2026 (review-v0.1.20)
 > **Reviewer:** Independent cold-read verification completed August 5, 2026
 
 ---
@@ -92,7 +92,7 @@ optimized scalar implementation.
 | Benchmark reproduction | ✅ Repaired (v0.1.11) | Benchmark compiles and runs from public repo; config updated to benchmark protocol (50 samples, 2s) |
 | SHA256SUMS manifest | ✅ Repaired (v0.1.11) | Regenerated to include all files at current commit |
 | Missing binary source | ✅ Repaired (v0.1.11) | `iep_runner` `[[bin]]` declaration removed from `Cargo.toml` |
-| 1.27x reproduction (optimized scalar baseline) | ⚠️ Cannot reproduce from public repo | Scalar baseline differs between public and private repos |
+| 1.27x reproduction (optimized scalar baseline) | ⚠️ Zen 5-specific ratio regime in the public bench (2026-10-23 update) | Scalar baseline differs between public and private repos. Disassembly-verified 2026-10-23: the public bench's scalar-source lane auto-vectorizes under documented flags, reproducing the ~1.27× regime where compiler auto-vectorization is highly effective (Zen 5); on non-Zen 5 AVX-512 hardware the same command yields the ~7× regime with the correctness gate still passing (evidence/independent/2026-10-23-non-zen5/) |
 | Phase 2.5 Plonky3 integration results | ⚠️ Internal | 39% DFT / 11% total proof speedup; evidence in private repo pending IP review |
 | tscp-anchor tag reference | ✅ Repaired (v0.1.11) | `formal/README.md` updated to remove non-existent tag reference |
 | Theorem count reference | ✅ Repaired (v0.1.11) | Updated from "33" to actual count (12 in Montgomery.lean) |

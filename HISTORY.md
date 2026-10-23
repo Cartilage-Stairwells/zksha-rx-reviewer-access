@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.19` |
+| Tag | `review-v0.1.20` |
 | Commit | This tag's target |
 | Date | 2026-10-23 |
-| Status | Frozen — reproducibility mapping (canonical benchmark command identified; staged-comparison count adjudicated) |
+| Status | Frozen — benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.19` | `612cd89` | 2026-10-23 | Reproducibility mapping: canonical benchmark command identified; staged-comparison count adjudicated |
 | `review-v0.1.18` | `9e7d3b1` | 2026-10-23 | Measured count-alignment: test counts aligned to independent run (139/139) |
 | `review-v0.1.17` | `df5eaac` | 2026-10-23 | Documentation disposition close: license note, formal-verification census wording, evidence-branch command |
 | `review-v0.1.16` | `904423b` | 2026-10-23 | Integrity re-seal: release identity aligned across reviewer docs; out-of-tree evidence commands added |
@@ -224,3 +225,18 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - SHA256SUMS regenerated over all tracked files except itself
 
 **Supersedes:** review-v0.1.18 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.20 (2026-10-23) — Benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence
+
+**Tag:** review-v0.1.20
+**Purpose:** An independent reproduction of `three_lane_bench` at review-v0.1.19 (2026-10-23, non-Zen 5 AVX-512 hardware, rustc 1.99.1, canonical protocol configuration) passed the correctness gate on all sizes 2^8–2^20 and measured a 6.99× geometric mean AVX-512 vs scalar — a different ratio regime from the canonical 1.265×–1.276× (Zen 5), which faithfully derives from the published canonical logs (independently re-parsed: 1.279×/1.269×, dual-run delta 0.78%). A disassembly probe of the benchmark's scalar-source lane (compiled verbatim under three flag configurations) verified the root cause: the lane AUTO-VECTORIZES to AVX-512/AVX2 machine code under both documented flag sets (canonical: 16 zmm + 29 ymm; quick-start: 23 zmm + 28 ymm); only a no-flags build is true scalar. The canonical 1.27× is therefore the hand-written kernel vs the compiler's auto-vectorization on Zen 5; the ~7×–9× regime is the kernel vs true scalar code. VERIFICATION_STATUS's recorded "cannot reproduce from public repo" note on the 1.27× is thereby reconciled: the public bench reproduces the ~1.27× regime where compiler auto-vectorization is highly effective (Zen 5), and the ~7× regime on other AVX-512 platforms.
+
+**Changes (baseline-definition wording, flag-set alignment, and new non-canonical evidence; no canonical measured value is modified):**
+- Baseline codegen clarification appended at every 1.27× claim site (README, PROJECT_FACTS, REVIEWER_QUICKSTART, BENCHMARKS, CANONICAL_RESULTS, CLAIM_MATRIX, external guide, VERIFICATION_STATUS)
+- BENCHMARKS.md quick-start flag set aligned to the canonical flag set (CANONICAL_BENCHMARK_METHODOLOGY.md §4) — previously features-only without target-cpu=native, the same doc-inconsistency class as the review-v0.1.19 bench-command fix
+- New non-canonical evidence package `evidence/independent/2026-10-23-non-zen5/`: raw Criterion log, parsed per-lane times, measurement record (with observation/hypothesis separation), and the disassembly probe record; CPU model disclosed as masked ("unknown") by the execution environment
+- docs/METRICS.md: 2026-10-23 dated row appended; historical rows preserved
+- Release identity advanced to review-v0.1.20 across the entry documents
+- SHA256SUMS regenerated over all tracked files except itself
+
+**Supersedes:** review-v0.1.19 for reviewer entry (all prior tags remain immutable).

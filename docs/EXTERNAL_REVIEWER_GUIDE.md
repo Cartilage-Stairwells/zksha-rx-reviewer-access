@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.19 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.20 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 ./validate_release.sh
 ```
@@ -36,7 +36,7 @@ This is a **reviewer snapshot** — a curated, immutable view of the zkSHA-Rx pr
 ### If you care about performance:
 - Read `BENCHMARKS.md` for the three-lane methodology
 - Read `evidence/avx512_bench_dif_fix_20260804_023129.txt` for raw output
-- Key finding: AVX-512 vs Scalar = 1.265×–1.276× geometric mean (historical 2.65× measurement superseded) (measured, not projected)
+- Key finding: AVX-512 vs Scalar = 1.265×–1.276× geometric mean (historical 2.65× measurement superseded) (measured, not projected); baseline = the compiler's auto-vectorization of the scalar-source lane on Zen 5 (disassembly-verified 2026-10-23) — vs true scalar the kernel measures ~7× (evidence/independent/2026-10-23-non-zen5/)
 
 ### If you care about correctness:
 - Read `evidence/correctness_receipt_dif_fix.json` for the correctness gate
@@ -75,7 +75,7 @@ This runs the three-lane benchmark with a correctness gate. All three lanes must
 ## Claims and Non-Claims
 
 ### What the evidence supports:
-- AVX-512 implementation provides measured kernel-level acceleration (1.265×–1.276× canonical, 2.65× historical) on tested workloads
+- AVX-512 implementation provides measured kernel-level acceleration (1.265×–1.276× vs the auto-vectorized baseline on Zen 5, canonical; ~7× vs true scalar code — evidence/independent/2026-10-23-non-zen5/) on tested workloads
 - `cargo test` at this tag: 139 tests run, 139 pass, 0 failures (102 integration + 37 unit; independently measured 2026-10-23, AVX-512 CPU, rustc 1.99.1, default profile)
 - Three-layer backend equivalence (reference ↔ scalar ↔ AVX-512)
 - Montgomery core (`Montgomery.lean`): 12 Lean theorems, 0 axioms, 0 sorries (compile-verified); formal corpus census: 88 theorem declarations across 12 Lean files (see `formal/README.md` for the proof/claim boundary)

@@ -1,0 +1,475 @@
+   Compiling proc-macro2 v1.0.106
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.46
+   Compiling libc v0.2.186
+   Compiling cfg-if v1.0.4
+   Compiling zerocopy v0.8.52
+   Compiling serde_core v1.0.228
+   Compiling autocfg v1.5.1
+   Compiling syn v2.0.118
+   Compiling num-traits v0.2.19
+   Compiling serde v1.0.228
+   Compiling either v1.16.0
+   Compiling getrandom v0.2.17
+   Compiling once_cell v1.21.4
+   Compiling rand_core v0.6.4
+   Compiling num-integer v0.1.46
+   Compiling itertools v0.12.1
+   Compiling num-bigint v0.4.7
+   Compiling version_check v0.9.5
+   Compiling generic-array v0.14.7
+   Compiling tracing-core v0.1.36
+   Compiling crossbeam-utils v0.8.21
+   Compiling pin-project-lite v0.2.17
+   Compiling getrandom v0.3.4
+   Compiling p3-maybe-rayon v0.1.0
+   Compiling typenum v1.20.1
+   Compiling zmij v1.0.21
+   Compiling rustix v1.1.4
+   Compiling serde_json v1.0.150
+   Compiling find-msvc-tools v0.1.9
+   Compiling zerocopy-derive v0.8.52
+   Compiling serde_derive v1.0.228
+   Compiling tracing-attributes v0.1.31
+   Compiling tracing v0.1.44
+   Compiling shlex v2.0.1
+   Compiling getrandom v0.4.3
+   Compiling cc v1.2.66
+   Compiling crossbeam-epoch v0.9.18
+   Compiling rand_core v0.9.5
+   Compiling regex-syntax v0.8.11
+   Compiling itoa v1.0.18
+   Compiling memchr v2.8.2
+   Compiling p3-util v0.1.0
+   Compiling linux-raw-sys v0.12.1
+   Compiling rayon-core v1.13.0
+   Compiling bitflags v2.13.0
+   Compiling ppv-lite86 v0.2.21
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.6
+   Compiling p3-field v0.1.0
+   Compiling p3-matrix v0.1.0
+   Compiling p3-symmetric v0.1.0
+   Compiling half v2.7.1
+   Compiling p3-dft v0.1.0
+   Compiling alloca v0.4.0
+   Compiling crossbeam-deque v0.8.6
+   Compiling p3-mds v0.1.0
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling ciborium-io v0.2.2
+   Compiling fastrand v2.4.1
+   Compiling plotters-backend v0.3.7
+   Compiling gcd v2.3.0
+   Compiling clap_lex v1.1.0
+   Compiling anstyle v1.0.14
+   Compiling plotters-svg v0.3.7
+   Compiling clap_builder v4.6.0
+   Compiling tempfile v3.27.0
+   Compiling p3-poseidon2 v0.1.0
+   Compiling ciborium-ll v0.2.2
+   Compiling digest v0.10.7
+   Compiling regex-automata v0.4.14
+   Compiling itertools v0.13.0
+   Compiling wait-timeout v0.2.1
+   Compiling same-file v1.0.6
+   Compiling quick-error v1.2.3
+   Compiling fnv v1.0.7
+   Compiling cast v0.3.0
+   Compiling cpufeatures v0.2.17
+   Compiling bit-vec v0.8.0
+   Compiling sha2 v0.10.9
+   Compiling bit-set v0.8.0
+   Compiling criterion-plot v0.8.2
+   Compiling rusty-fork v0.3.1
+   Compiling walkdir v2.5.0
+   Compiling regex v1.12.4
+   Compiling clap v4.6.1
+   Compiling rayon v1.12.0
+   Compiling ciborium v0.2.2
+   Compiling p3-baby-bear v0.1.0
+   Compiling plotters v0.3.7
+   Compiling rand_chacha v0.9.0
+   Compiling tinytemplate v1.2.1
+   Compiling rand v0.9.5
+   Compiling rand_xorshift v0.4.0
+   Compiling page_size v0.6.0
+   Compiling oorandom v11.1.5
+   Compiling unarray v0.1.4
+   Compiling anes v0.1.6
+   Compiling proptest v1.11.0
+   Compiling criterion v0.8.2
+   Compiling avx512_butterfly v0.1.0 (/app/conversations/6a6ae9a54bc0607c486b0d3b/verify-v19)
+warning: unused import: `p3_field::AbstractField`
+  --> src/lib.rs:20:5
+   |
+20 | use p3_field::AbstractField;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: `avx512_butterfly` (lib) generated 1 warning (run `cargo fix --lib -p avx512_butterfly` to apply 1 suggestion)
+    Finished `bench` profile [optimized] target(s) in 24.65s
+     Running benches/three_lane_bench.rs (target/release/deps/three_lane_bench-4b2fed26d41bb2c9)
+Gnuplot not found, using plotters backend
+Correctness gate: PASS (all three lanes agree on sizes 2^8 through 2^20)
+Benchmarking dif_butterfly_three_lane/scalar/2^8
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Collecting 50 samples in estimated 2.0003 s (1.4M iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^8: Analyzing
+dif_butterfly_three_lane/scalar/2^8
+                        time:   [332.44 ns 332.54 ns 332.64 ns]
+Found 8 outliers among 50 measurements (16.00%)
+  1 (2.00%) low severe
+  1 (2.00%) low mild
+  6 (12.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^8
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Collecting 50 samples in estimated 2.0005 s (1.5M iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^8: Analyzing
+dif_butterfly_three_lane/avx2/2^8
+                        time:   [330.36 ns 330.85 ns 331.56 ns]
+Found 10 outliers among 50 measurements (20.00%)
+  6 (12.00%) high mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^8
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Collecting 50 samples in estimated 2.0006 s (1.8M iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^8: Analyzing
+dif_butterfly_three_lane/avx512/2^8
+                        time:   [58.671 ns 59.052 ns 59.492 ns]
+Found 9 outliers among 50 measurements (18.00%)
+  1 (2.00%) low severe
+  3 (6.00%) low mild
+  2 (4.00%) high mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^9
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Collecting 50 samples in estimated 2.0005 s (731k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^9: Analyzing
+dif_butterfly_three_lane/scalar/2^9
+                        time:   [637.69 ns 640.42 ns 644.34 ns]
+Found 13 outliers among 50 measurements (26.00%)
+  3 (6.00%) low severe
+  4 (8.00%) low mild
+  6 (12.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^9
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Collecting 50 samples in estimated 2.0002 s (766k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^9: Analyzing
+dif_butterfly_three_lane/avx2/2^9
+                        time:   [638.58 ns 639.16 ns 640.08 ns]
+Found 7 outliers among 50 measurements (14.00%)
+  1 (2.00%) low severe
+  3 (6.00%) low mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^9
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Collecting 50 samples in estimated 2.0012 s (933k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^9: Analyzing
+dif_butterfly_three_lane/avx512/2^9
+                        time:   [100.53 ns 101.17 ns 101.89 ns]
+Found 10 outliers among 50 measurements (20.00%)
+  2 (4.00%) low severe
+  2 (4.00%) low mild
+  2 (4.00%) high mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^10
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Collecting 50 samples in estimated 2.0050 s (379k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^10: Analyzing
+dif_butterfly_three_lane/scalar/2^10
+                        time:   [1.2460 µs 1.2474 µs 1.2488 µs]
+Found 7 outliers among 50 measurements (14.00%)
+  4 (8.00%) low mild
+  2 (4.00%) high mild
+  1 (2.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^10
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Collecting 50 samples in estimated 2.0060 s (389k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^10: Analyzing
+dif_butterfly_three_lane/avx2/2^10
+                        time:   [1.2549 µs 1.2553 µs 1.2557 µs]
+Found 10 outliers among 50 measurements (20.00%)
+  1 (2.00%) low severe
+  3 (6.00%) low mild
+  2 (4.00%) high mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^10
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Collecting 50 samples in estimated 2.0011 s (477k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^10: Analyzing
+dif_butterfly_three_lane/avx512/2^10
+                        time:   [183.02 ns 183.43 ns 183.78 ns]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) low severe
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+Benchmarking dif_butterfly_three_lane/scalar/2^11
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Collecting 50 samples in estimated 2.0083 s (198k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^11: Analyzing
+dif_butterfly_three_lane/scalar/2^11
+                        time:   [2.4501 µs 2.4518 µs 2.4535 µs]
+Found 9 outliers among 50 measurements (18.00%)
+  3 (6.00%) low mild
+  3 (6.00%) high mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^11
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Collecting 50 samples in estimated 2.0106 s (195k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^11: Analyzing
+dif_butterfly_three_lane/avx2/2^11
+                        time:   [2.4735 µs 2.4742 µs 2.4750 µs]
+Found 9 outliers among 50 measurements (18.00%)
+  2 (4.00%) low severe
+  3 (6.00%) low mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^11
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Collecting 50 samples in estimated 2.0080 s (242k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^11: Analyzing
+dif_butterfly_three_lane/avx512/2^11
+                        time:   [336.84 ns 337.20 ns 337.59 ns]
+Found 6 outliers among 50 measurements (12.00%)
+  2 (4.00%) low severe
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+  2 (4.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^12
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Collecting 50 samples in estimated 2.0255 s (98k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^12: Analyzing
+dif_butterfly_three_lane/scalar/2^12
+                        time:   [4.8534 µs 4.8557 µs 4.8579 µs]
+Found 8 outliers among 50 measurements (16.00%)
+  1 (2.00%) low severe
+  2 (4.00%) low mild
+  1 (2.00%) high mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^12
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Collecting 50 samples in estimated 2.0154 s (98k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^12: Analyzing
+dif_butterfly_three_lane/avx2/2^12
+                        time:   [4.9118 µs 4.9173 µs 4.9250 µs]
+Found 7 outliers among 50 measurements (14.00%)
+  3 (6.00%) high mild
+  4 (8.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^12
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Collecting 50 samples in estimated 2.0144 s (121k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^12: Analyzing
+dif_butterfly_three_lane/avx512/2^12
+                        time:   [648.95 ns 651.12 ns 653.41 ns]
+Found 4 outliers among 50 measurements (8.00%)
+  1 (2.00%) low mild
+  2 (4.00%) high mild
+  1 (2.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^13
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Collecting 50 samples in estimated 2.0204 s (50k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^13: Analyzing
+dif_butterfly_three_lane/scalar/2^13
+                        time:   [9.6733 µs 9.6773 µs 9.6818 µs]
+Found 11 outliers among 50 measurements (22.00%)
+  1 (2.00%) low severe
+  3 (6.00%) low mild
+  2 (4.00%) high mild
+  5 (10.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^13
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Collecting 50 samples in estimated 2.0392 s (51k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^13: Analyzing
+dif_butterfly_three_lane/avx2/2^13
+                        time:   [9.7944 µs 9.7978 µs 9.8014 µs]
+Found 7 outliers among 50 measurements (14.00%)
+  1 (2.00%) low severe
+  2 (4.00%) low mild
+  1 (2.00%) high mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^13
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Collecting 50 samples in estimated 2.0190 s (61k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^13: Analyzing
+dif_butterfly_three_lane/avx512/2^13
+                        time:   [1.2574 µs 1.2598 µs 1.2623 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) low mild
+  1 (2.00%) high mild
+  1 (2.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^14
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Collecting 50 samples in estimated 2.0530 s (26k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^14: Analyzing
+dif_butterfly_three_lane/scalar/2^14
+                        time:   [19.338 µs 19.351 µs 19.371 µs]
+Found 3 outliers among 50 measurements (6.00%)
+  1 (2.00%) high mild
+  2 (4.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^14
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Collecting 50 samples in estimated 2.0627 s (26k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^14: Analyzing
+dif_butterfly_three_lane/avx2/2^14
+                        time:   [19.559 µs 19.571 µs 19.587 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  4 (8.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx512/2^14
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Collecting 50 samples in estimated 2.0223 s (32k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^14: Analyzing
+dif_butterfly_three_lane/avx512/2^14
+                        time:   [2.5104 µs 2.5156 µs 2.5215 µs]
+Found 8 outliers among 50 measurements (16.00%)
+  5 (10.00%) high mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^15
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Collecting 50 samples in estimated 2.0627 s (13k iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^15: Analyzing
+dif_butterfly_three_lane/scalar/2^15
+                        time:   [38.552 µs 38.584 µs 38.626 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) high mild
+  2 (4.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^15
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Collecting 50 samples in estimated 2.0483 s (13k iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^15: Analyzing
+dif_butterfly_three_lane/avx2/2^15
+                        time:   [39.059 µs 39.081 µs 39.107 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) high mild
+  2 (4.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^15
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Collecting 50 samples in estimated 2.0238 s (15k iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^15: Analyzing
+dif_butterfly_three_lane/avx512/2^15
+                        time:   [4.9508 µs 4.9608 µs 4.9742 µs]
+Found 3 outliers among 50 measurements (6.00%)
+  3 (6.00%) high mild
+Benchmarking dif_butterfly_three_lane/scalar/2^16
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Collecting 50 samples in estimated 2.0929 s (6375 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^16: Analyzing
+dif_butterfly_three_lane/scalar/2^16
+                        time:   [76.895 µs 76.986 µs 77.124 µs]
+Found 5 outliers among 50 measurements (10.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^16
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Collecting 50 samples in estimated 2.1009 s (6375 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^16: Analyzing
+dif_butterfly_three_lane/avx2/2^16
+                        time:   [77.888 µs 77.949 µs 78.010 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  1 (2.00%) low mild
+  3 (6.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx512/2^16
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Collecting 50 samples in estimated 2.0602 s (7650 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^16: Analyzing
+dif_butterfly_three_lane/avx512/2^16
+                        time:   [9.7909 µs 9.8061 µs 9.8249 µs]
+Found 4 outliers among 50 measurements (8.00%)
+  2 (4.00%) high mild
+  2 (4.00%) high severe
+Benchmarking dif_butterfly_three_lane/scalar/2^17
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Collecting 50 samples in estimated 2.5246 s (3825 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^17: Analyzing
+dif_butterfly_three_lane/scalar/2^17
+                        time:   [153.90 µs 154.02 µs 154.15 µs]
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx2/2^17
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Collecting 50 samples in estimated 2.5298 s (3825 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^17: Analyzing
+dif_butterfly_three_lane/avx2/2^17
+                        time:   [155.57 µs 155.72 µs 155.88 µs]
+Found 2 outliers among 50 measurements (4.00%)
+  1 (2.00%) low mild
+  1 (2.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx512/2^17
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Collecting 50 samples in estimated 2.6559 s (5100 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^17: Analyzing
+dif_butterfly_three_lane/avx512/2^17
+                        time:   [22.859 µs 24.570 µs 25.926 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^18
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Collecting 50 samples in estimated 3.3587 s (2550 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^18: Analyzing
+dif_butterfly_three_lane/scalar/2^18
+                        time:   [311.23 µs 312.56 µs 313.62 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^18
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Collecting 50 samples in estimated 3.2986 s (2550 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^18: Analyzing
+dif_butterfly_three_lane/avx2/2^18
+                        time:   [316.16 µs 317.63 µs 319.05 µs]
+Found 1 outliers among 50 measurements (2.00%)
+  1 (2.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx512/2^18
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Collecting 50 samples in estimated 2.6834 s (2550 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^18: Analyzing
+dif_butterfly_three_lane/avx512/2^18
+                        time:   [43.628 µs 45.472 µs 46.899 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^19
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Warming up for 500.00 ms
+
+Warning: Unable to complete 50 samples in 2.0s. You may wish to increase target time to 3.7s, enable flat sampling, or reduce sample count to 20.
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Collecting 50 samples in estimated 3.7314 s (1275 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^19: Analyzing
+dif_butterfly_three_lane/scalar/2^19
+                        time:   [630.50 µs 635.19 µs 638.89 µs]
+Benchmarking dif_butterfly_three_lane/avx2/2^19
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Warming up for 500.00 ms
+
+Warning: Unable to complete 50 samples in 2.0s. You may wish to increase target time to 3.7s, enable flat sampling, or reduce sample count to 20.
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Collecting 50 samples in estimated 3.7307 s (1275 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^19: Analyzing
+dif_butterfly_three_lane/avx2/2^19
+                        time:   [639.07 µs 642.30 µs 644.73 µs]
+Benchmarking dif_butterfly_three_lane/avx512/2^19
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Warming up for 500.00 ms
+
+Warning: Unable to complete 50 samples in 2.0s. You may wish to increase target time to 3.0s, enable flat sampling, or reduce sample count to 20.
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Collecting 50 samples in estimated 3.0093 s (1275 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^19: Analyzing
+dif_butterfly_three_lane/avx512/2^19
+                        time:   [100.85 µs 106.29 µs 111.13 µs]
+Benchmarking dif_butterfly_three_lane/scalar/2^20
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Collecting 50 samples in estimated 2.0197 s (450 iterations)
+Benchmarking dif_butterfly_three_lane/scalar/2^20: Analyzing
+dif_butterfly_three_lane/scalar/2^20
+                        time:   [1.2268 ms 1.2286 ms 1.2306 ms]
+Found 9 outliers among 50 measurements (18.00%)
+  4 (8.00%) high mild
+  5 (10.00%) high severe
+Benchmarking dif_butterfly_three_lane/avx2/2^20
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Collecting 50 samples in estimated 2.0538 s (450 iterations)
+Benchmarking dif_butterfly_three_lane/avx2/2^20: Analyzing
+dif_butterfly_three_lane/avx2/2^20
+                        time:   [1.2445 ms 1.2449 ms 1.2454 ms]
+Found 6 outliers among 50 measurements (12.00%)
+  1 (2.00%) low mild
+  5 (10.00%) high mild
+Benchmarking dif_butterfly_three_lane/avx512/2^20
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Warming up for 500.00 ms
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Collecting 50 samples in estimated 2.0489 s (550 iterations)
+Benchmarking dif_butterfly_three_lane/avx512/2^20: Analyzing
+dif_butterfly_three_lane/avx512/2^20
+                        time:   [187.57 µs 190.10 µs 193.02 µs]
+Found 3 outliers among 50 measurements (6.00%)
+  2 (4.00%) high mild
+  1 (2.00%) high severe
+

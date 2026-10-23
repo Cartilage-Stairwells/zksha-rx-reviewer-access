@@ -83,6 +83,8 @@ Per-size variance: <1% on most sizes. The 2^20 size shows 24% variance on AVX-51
 
 > Canonical three-lane benchmark on AMD Zen 5 with AVX-512 (virtualized sandbox, Criterion, 50 samples per size, 2s measurement, commit daf2a74): AVX-512 vs Scalar geometric mean speedup 1.276x (Run 1) and 1.265x (Run 2), range 1.265x-1.276x across dual runs. Per-size speedup ranges from 1.089x (2^19) to 1.551x (2^8). AVX2 auto-vectorization provides modest speedup: 1.062x-1.075x geometric mean. Correctness gate: PASS on both runs. Variance between runs: 0.9% (well within 15% threshold).
 
+**Baseline codegen clarification (2026-10-23, disassembly-verified):** the benchmark's scalar-source lane compiles to AVX-512/AVX2 vector machine code under both documented flag sets — the canonical 1.27× is therefore the hand-written kernel vs the compiler's auto-vectorization of the same operation on Zen 5. True scalar machine code arises only from a no-flags build; in that regime the kernel measures ~7×–9× (independent non-Zen 5 run 2026-10-23: 6.99× geometric mean, correctness gate PASS 2^8–2^20 — see `evidence/independent/2026-10-23-non-zen5/`). The speedup claim remains hardware-scoped (Zen 5); universal acceleration across AVX-512 microarchitectures remains a non-claim.
+
 ## Evidence Files
 
 | File | Description |

@@ -24,7 +24,7 @@
 
 | Claim | Reproducible from this snapshot? | Notes |
 |-------|----------------------------------|-------|
-| 1.27× DIF butterfly (canonical) | Yes — three-lane bench (`cargo bench --bench three_lane_bench`) | Canonical: 50 samples, 2s measurement, dual-run verified (0.9% variance). Measured with Criterion on AMD Zen 5 with AVX-512. DIF butterfly, matching Plonky3 DifButterfly. Historical 2.65× was a 10-sample run superseded by canonical protocol. |
+| 1.27× DIF butterfly (canonical) | Yes — three-lane bench (`cargo bench --bench three_lane_bench`) | Canonical: 50 samples, 2s measurement, dual-run verified (0.9% variance). Measured with Criterion on AMD Zen 5 with AVX-512. DIF butterfly, matching Plonky3 DifButterfly. Historical 2.65× was a 10-sample run superseded by canonical protocol. Baseline (clarified 2026-10-23, disassembly-verified): the scalar-source lane compiles to auto-vectorized AVX-512/AVX2 code under documented flags — the canonical ratio is hand kernel vs compiler auto-vectorization on Zen 5; vs true scalar the kernel measures ~7×–9× (evidence/independent/2026-10-23-non-zen5/). |
 | 4.58× XOR butterfly | Partially — bench harness exists (`cargo bench`) | Same as above. |
 | 3.94× full NTT sweep | No — perf_measure harness not in this snapshot | Historical result. Not reproducible from this checkout. |
 

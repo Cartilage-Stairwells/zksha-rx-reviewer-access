@@ -21,7 +21,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.19 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.20 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 make reproduce
 ```
@@ -31,7 +31,7 @@ For full review: see `docs/EXTERNAL_REVIEWER_GUIDE.md`
 ## Performance
 
 **Measured (AMD Zen 5 with AVX-512, three-lane benchmark, canonical dual-run):**
-- AVX-512 vs Scalar: **1.27× geometric mean** (range 1.265×–1.276× across dual runs, 50 samples each)
+- AVX-512 vs Scalar: **1.27× geometric mean** (range 1.265×–1.276× across dual runs, 50 samples each; baseline = compiler-auto-vectorized code on Zen 5, disassembly-verified 2026-10-23 — vs true scalar the kernel measures ~7×, see evidence/independent/2026-10-23-non-zen5/)
 - AVX2 auto-vectorization vs Scalar: **1.07×** (modest compiler speedup)
 - Correctness gate: **PASS** (all three lanes agree, 2^8 through 2^20)
 - Full details: `CANONICAL_RESULTS.md`
@@ -94,7 +94,7 @@ Full proposal: `docs/plonky3/VERIFIED_NTT_INTEGRATION_PROPOSAL.md`
 
 This project maintains strict separation between **measured** and **projected** claims. See `CLAIM_LANGUAGE_POLICY.md` and `CLAIM_MATRIX.md` for the full epistemic framework.
 
-**What we claim:** AVX-512 implementation produces 1.27× kernel-level speedup over scalar (canonical, dual-run verified). See CANONICAL_RESULTS.md for full methodology and evidence.
+**What we claim:** AVX-512 implementation produces 1.27× kernel-level speedup over the benchmark's scalar-source lane as compiled on Zen 5 (canonical, dual-run verified; the lane auto-vectorizes under documented flags — disassembly-verified 2026-10-23 — so vs true scalar code the kernel measures ~7×–9×). See CANONICAL_RESULTS.md for full methodology and evidence.
 
 **What we don't claim:** Universal acceleration across all AVX-512 microarchitectures or end-to-end proving speedup.
 
