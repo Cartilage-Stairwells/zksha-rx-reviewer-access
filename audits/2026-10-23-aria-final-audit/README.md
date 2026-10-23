@@ -7,7 +7,8 @@
 - `ARIA-FINAL-AUDIT-v0.1.21.md` — final audit report (read-only audit of review-v0.1.21; dispositions: benchmark provenance VERIFIED, lane-2 SIMD evidence SUPPORTED-PARTIAL, 139-test census VERIFIED, historical/tag integrity VERIFIED, seal reproductions VERIFIED; includes the documented-and-falsified 101/110 false alarm and the auditor-independence caveat)
 - `ARIA-COUNTERSIGNATURE-REQUEST-v0.1.21.md` — PI ratification of the audit disposition, the countersignature protocol, and the handoff to the external Aria seat
 - `ARIA-COUNTERSIGNATURE-v0.1.21.md` — the external reviewer's countersignature (2026-10-23), recorded verbatim with a custodian routing annotation; Final Review Status: COUNTERSIGNED WITH BOUNDS, lane-2 retained SUPPORTED-PARTIAL
-- `SHA256SUMS` — hashes of the three artifact files (seal is hash-last: this file was generated after the content files were placed)
+- `AUDIT-INSPECTION-ADDENDUM-v0.1.21.md` — resolutions of the three qualifications raised by an external read-only inspection (2026-10-23): hash-scope precision (attestation-section digest supplied: `06201c7e…`), benchmark-number reconciliation VERIFIED (the audit parser read Criterion's CI lower bound; point-estimate re-parse reproduces the documented 1.276×/1.265×/0.9% exactly), and the operator-relay identity limitation recorded explicitly with a parked upgrade path
+- `SHA256SUMS` — hashes of the four artifact files (seal is hash-last: this file was generated after the content files were placed)
 
 ## Countersignature boundary (per PI ratification)
 
@@ -23,3 +24,8 @@ The audit's reproductions were executed from a fresh clone of tag review-v0.1.21
 ## State transition (2026-10-23)
 
 The external reviewer's status transitioned from REVIEW BLOCKED — ACCESS to **COUNTERSIGNED WITH BOUNDS** after reviewing the artifact texts and repository-accessible copies. Per the countersignature: target tag SEALED / UNCHANGED; lane-2 SIMD finding retained SUPPORTED-PARTIAL (independent disasm probe re-execution still pending and remains the only path to promotion); overall disposition APPROVED / COUNTERSIGNED. The Zen 5 public-repo rerun remains parked as a separate cost/value decision.
+
+
+## Inspection addendum (2026-10-23)
+
+An external operator-relayed inspection (read-only) issued a qualified acceptance of the countersignature placement and raised three qualifications. All three are resolved in `AUDIT-INSPECTION-ADDENDUM-v0.1.21.md`: two were precision defects in the audit record's own procedures (hash-scope wording; parser position in the benchmark re-parse — the documented canonical values now reproduce exactly), one is an inherent boundary now stated explicitly (operator-relayed reviewer identity is operator-asserted until a signed attestation exists). No findings contradict the sealed artifact; lane-2 remains SUPPORTED-PARTIAL and the Zen 5 rerun remains parked.
