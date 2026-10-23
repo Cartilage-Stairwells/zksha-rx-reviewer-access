@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.16` |
+| Release tag | `review-v0.1.17` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.15` / `ac90de5` (historical) |
+| Previous snapshot | `review-v0.1.16` / `904423b` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Artifact Inventory
@@ -47,7 +47,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.16
+git checkout review-v0.1.17
 
 # Build
 cargo build --release
@@ -72,12 +72,13 @@ main-tree files; complete evidence verification also requires:
 ```bash
 git fetch origin evidence/experiment-a
 git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
-sha256sum -c evidence/experiment_a/SHA256SUMS
+cd evidence/experiment_a && sha256sum -c SHA256SUMS
 ```
 
 - **Branch:** `evidence/experiment-a`
 - **Pinned commit:** `8df0c247cc503b751ee91245bb952b6994aaf2e6`
 - **Path:** `evidence/experiment_a/` — SHA256SUMS-pinned artifacts
+- **Note:** the evidence manifest paths are relative to its own directory; the verification command must run from inside `evidence/experiment_a/` (as shown above)
 
 See `BENCHMARKS.md` and `CLAIM_MATRIX.md` for the claims this evidence supports.
 

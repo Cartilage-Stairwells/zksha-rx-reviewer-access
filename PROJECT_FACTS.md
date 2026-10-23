@@ -12,10 +12,10 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-review-v0.1.16
+review-v0.1.17
 
 Frozen commit:
-review-v0.1.16 (current snapshot, released 2026-10-23; supersedes review-v0.1.15 of 2026-09-12, which remains available as a historical tag)
+review-v0.1.17 (current snapshot, released 2026-10-23; supersedes review-v0.1.16 of 2026-10-23, which remains available as a historical tag)
 
 ## Access Model
 
@@ -29,7 +29,7 @@ Reviewer access:
 > This repository is accessible to anyone; no access request is needed.
 
 Review target:
-> Reviewers should evaluate tag review-v0.1.16. (Historical: review-v0.1.15 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.15 are historical reviewer releases.)
+> Reviewers should evaluate tag review-v0.1.17. (Historical: review-v0.1.16 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.16 are historical reviewer releases.)
 
 Do not use:
 - "Open source project" — this is a frozen review snapshot, not a maintained open-source project
@@ -37,7 +37,7 @@ Do not use:
 - "production-ready" or "drop-in" — no integration claims are made
 
 License note:
-This repository is available for technical review. It contains a license file. The snapshot is frozen — no ongoing development occurs here. Historical development artifacts may exist outside this tree.
+This repository is available for technical review. It does not carry a repository-wide license file; licensing is deferred pending file-level provenance (see PROVENANCE_AND_LICENSING.md). The snapshot is frozen — no ongoing development occurs here. Historical development artifacts may exist outside this tree.
 
 ## Measured Performance
 
@@ -72,7 +72,7 @@ Benchmark evidence location (deterministic pointer, EXC-017 remediation 2026-09-
 - Independent resolution (any clone):
   git fetch origin evidence/experiment-a
   git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
-  sha256sum -c evidence/experiment_a/SHA256SUMS
+  cd evidence/experiment_a && sha256sum -c SHA256SUMS
 
 ## Claim Boundary
 
@@ -96,7 +96,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Current snapshot: review-v0.1.16 (this tag)
+- Current snapshot: review-v0.1.17 (this tag)
 - Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:

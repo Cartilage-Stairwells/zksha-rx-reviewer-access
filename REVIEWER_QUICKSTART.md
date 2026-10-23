@@ -1,7 +1,7 @@
 # Reviewer Quickstart — zkSHA-Rx Fly v0.1.0
 
 > **This repository is the frozen review entry point.**
-> All artifacts referenced below are contained here.
+> All review-entry artifacts referenced below are contained here; raw benchmark evidence lives on a separately pinned branch (see "Benchmark Evidence Branch (Out-of-Tree)" at the end).
 > No private repository access is required.
 
 ## What This Is
@@ -39,8 +39,8 @@ Pick the scope that matches your expertise:
 ## How to Reproduce
 
 ```bash
-# This repository is self-contained — clone THIS repo, not any other.
-# Review tag: review-v0.1.16
+# Clone THIS repo as the review entry point, not any other.
+# Review tag: review-v0.1.17
 
 # Build
 cargo build --release
@@ -87,5 +87,5 @@ Raw benchmark evidence lives on a pinned branch, not the main tree:
 ```bash
 git fetch origin evidence/experiment-a
 git checkout 8df0c247cc503b751ee91245bb952b6994aaf2e6
-sha256sum -c evidence/experiment_a/SHA256SUMS
+cd evidence/experiment_a && sha256sum -c SHA256SUMS
 ```

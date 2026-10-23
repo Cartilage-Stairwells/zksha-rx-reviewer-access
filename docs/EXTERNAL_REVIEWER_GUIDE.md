@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.16 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.17 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 ./validate_release.sh
 ```
@@ -31,7 +31,7 @@ This is a **reviewer snapshot** — a curated, immutable view of the zkSHA-Rx pr
 ### If you care about formal verification:
 - Read `formal/README.md` for the proof structure
 - Read `docs/plonky3/proof-to-code-map.md` for theorem-to-code mapping
-- Check: 83 theorems, 0 axioms, 0 sorries — no unproven gaps
+- Check: `Montgomery.lean` — 12 theorems, 0 axioms, 0 sorries (compile-verified; see `formal/README.md`). Corpus census at `formal-corpus-v2026-09-11`: 88 theorem declarations across 12 Lean files; 3 documented sorries exist in example modules. Corpus-wide sorry-freedom is not claimed.
 
 ### If you care about performance:
 - Read `BENCHMARKS.md` for the three-lane methodology
@@ -78,7 +78,7 @@ This runs the three-lane benchmark with a correctness gate. All three lanes must
 - AVX-512 implementation provides measured kernel-level acceleration (1.265×–1.276× canonical, 2.65× historical) on tested workloads
 - 102 tests pass with 0 failures
 - Three-layer backend equivalence (reference ↔ scalar ↔ AVX-512)
-- 83 Lean theorems with 0 axioms and 0 sorries
+- Montgomery core (`Montgomery.lean`): 12 Lean theorems, 0 axioms, 0 sorries (compile-verified); formal corpus census: 88 theorem declarations across 12 Lean files (see `formal/README.md` for the proof/claim boundary)
 - The DIT→DIF fix was a real bug caught by verification
 
 ### What the evidence does NOT support:

@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.16` |
+| Tag | `review-v0.1.17` |
 | Commit | This tag's target |
 | Date | 2026-10-23 |
-| Status | Frozen — release-identity re-seal (documentation alignment; no claim changes) |
+| Status | Frozen — documentation disposition close (license note, census wording, evidence command; no measured values changed) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.16` | `904423b` | 2026-10-23 | Integrity re-seal: release identity aligned across reviewer docs; out-of-tree evidence commands added |
 | `review-v0.1.15` | `ac90de5` | 2026-09-12 | docs(review-v0.1.15): theorem-count alignment to stated census + phant |
 | `review-v0.1.14` | `11c1690` | 2026-09-12 | Integrity re-seal for reviewer release review-v0.1.14: regenerate SHA2 |
 | `review-v0.1.13` | `01db486` | 2026-08-05 | review-v0.1.13: documentation corrections |
@@ -175,3 +176,19 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - SHA256SUMS regenerated over all tracked files
 
 **Supersedes:** review-v0.1.15 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.17 (2026-10-23) — Documentation disposition close: license note, census wording, out-of-tree evidence command
+
+**Tag:** review-v0.1.17
+**Purpose:** External audit (2026-10-23) of review-v0.1.16 confirmed the release-identity correction but left two unresolved defects: PROJECT_FACTS.md claimed a license file absent from the tree and manifest, and docs/EXTERNAL_REVIEWER_GUIDE.md claimed "83 theorems, 0 axioms, 0 sorries — no unproven gaps," overstating the documented evidence. Mechanical pre-flight of the documented verification commands additionally found the out-of-tree evidence check fails as written (manifest paths are relative to the manifest's own directory) and the review-v0.1.16 release note was not covered by the SHA256SUMS it shipped with.
+
+**Changes (claim-scope and documentation corrections; no measured value, benchmark result, or proof content modified):**
+- PROJECT_FACTS.md license note aligned to the recorded licensing deferral (PROVENANCE_AND_LICENSING.md): no repository-wide license file is carried; licensing deferred pending file-level provenance
+- docs/EXTERNAL_REVIEWER_GUIDE.md: "83 theorems, 0 axioms, 0 sorries — no unproven gaps" replaced with evidence-scoped wording — Montgomery.lean core: 12 theorems, 0 axioms, 0 sorries (compile-verified); corpus census at formal-corpus-v2026-09-11: 88 theorem declarations across 12 Lean files (independently reproduced by theorem-declaration grep at this release); 3 documented sorries in example modules; corpus-wide sorry-freedom not claimed
+- REVIEWER_QUICKSTART.md: "self-contained" wording reconciled with the branch-resident evidence; review-tag reference advanced
+- REVIEW_RELEASE.md, PROJECT_FACTS.md, REVIEWER_QUICKSTART.md: out-of-tree evidence verification command corrected to run from the manifest directory (12/12 entries verify at pinned commit 8df0c247 — independently verified at this release)
+- REVIEW_V0.1.16_RELEASE_NOTE.md brought under SHA256SUMS coverage (recurrence of the missed-coverage class documented 2026-09-27; no prior tag altered)
+- Release identity advanced to review-v0.1.17 across README.md, docs/EXTERNAL_REVIEWER_GUIDE.md, REVIEWER_QUICKSTART.md, PROJECT_FACTS.md, REVIEW_RELEASE.md, VERIFICATION_STATUS.md, HISTORY.md
+- SHA256SUMS regenerated over all tracked files except itself
+
+**Supersedes:** review-v0.1.16 for reviewer entry (all prior tags remain immutable).
