@@ -110,11 +110,11 @@ This document maps the 83 Lean 4 theorems in zkSHA-Rx's formal verification stac
 
 | Property | Formalized? | Tested? | Evidence |
 |----------|-------------|---------|----------|
-| Montgomery multiplication correct | ✅ (Lean) | ✅ (102 tests) | Montgomery.lean |
+| Montgomery multiplication correct | ✅ (Lean) | ✅ (102 integration tests) | Montgomery.lean |
 | DIF butterfly correct | ✅ (Lean) | ✅ (three-lane) | Butterfly.lean |
 | NTT stage preserves validity | ✅ (Lean) | ✅ (stage tests) | NTTStage.lean |
 | Multi-stage composition | ✅ (Lean) | ✅ (full NTT) | NTTStage.lean (stage_concat) |
-| Backend equivalence | ❌ (not formalized) | ✅ (102 tests) | tests/ntt_equivalence.rs |
+| Backend equivalence | ❌ (not formalized) | ✅ (102 integration tests) | tests/ntt_equivalence.rs |
 | AVX-512 = scalar = reference | ❌ (not formalized) | ✅ (three-lane) | evidence/correctness_receipt_dif_fix.json |
 | DFT correctness | ❌ (not formalized) | ✅ (oracle test) | tests/ntt_equivalence.rs |
 

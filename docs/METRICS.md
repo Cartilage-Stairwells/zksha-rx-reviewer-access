@@ -22,6 +22,8 @@
 | Lean axioms | 0 | 2026-08-03 |
 | Lean sorries | 0 | 2026-08-03 |
 | Benchmark coverage | 13 sizes (2^8 to 2^20) | 2026-08-03 |
+| Tests passing | 139/139 (102 integration + 37 unit; independent run at review-v0.1.17) | 2026-10-23 |
+| Lean theorem declarations | 88 across 12 files (census formal-corpus-v2026-09-11; Montgomery.lean: 12) | 2026-10-23 |
 | Supported platforms | x86_64 (AVX-512 + AVX2 + scalar) | 2026-08-03 |
 | Backend equivalence | 3-layer (reference / scalar / AVX-512) | 2026-08-03 |
 

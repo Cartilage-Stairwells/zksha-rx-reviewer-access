@@ -40,12 +40,12 @@ Pick the scope that matches your expertise:
 
 ```bash
 # Clone THIS repo as the review entry point, not any other.
-# Review tag: review-v0.1.17
+# Review tag: review-v0.1.18
 
 # Build
 cargo build --release
 
-# Run tests (140 total)
+# Run tests (139 total: 102 integration + 37 unit)
 cargo test --release
 
 # Run benchmarks (requires AVX-512 CPU)

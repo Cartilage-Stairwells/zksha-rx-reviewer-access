@@ -110,11 +110,11 @@ From `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.2:
 ## 6. Summary Claims
 
 **Validated:**
-- BabyBear NTT correctness (140/140 tests, NTT == DFT oracle)
+- BabyBear NTT correctness (NTT == DFT oracle; suite-verified 139/139 tests run and passed at this tag, 2026-10-23)
 - Scalar/vector equivalence (135 staged pairwise comparisons, all pass)
 - AVX-512 implementation correctness (execution canary, spot-checks at 3 sizes)
 - Reported AVX-512 performance: 3.29x–4.38x (geometric mean 3.94x, historical measurement)
-- Formal invariants (33 Lean 4 theorems (12 in Montgomery.lean, 21 supporting), 0 sorry in Montgomery.lean (3 documented sorry in Examples), Bézout identity)
+- Formal invariants (corpus census: 88 theorem declarations across 12 Lean files at `formal-corpus-v2026-09-11`; Montgomery.lean: 12 theorems, 0 sorry (3 documented sorries in Examples), Bézout identity)
 
 **Claim scope:** AVX-512 acceleration of BabyBear-field NTT kernels under this
 benchmark configuration. NOT universal zk acceleration. Integration with

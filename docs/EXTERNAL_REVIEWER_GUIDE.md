@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.17 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.18 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 ./validate_release.sh
 ```
@@ -21,7 +21,7 @@ This is a **reviewer snapshot** — a curated, immutable view of the zkSHA-Rx pr
 
 1. **Source code** (`src/`) — the NTT implementation with three backends
 2. **Formal verification** (`formal/`) — Lean 4 proof descriptions
-3. **Tests** (`tests/`) — 102 tests covering backend equivalence, NTT correctness, and round-trip
+3. **Tests** (`tests/`) — 102 integration tests covering backend equivalence, NTT correctness, and round-trip; 37 additional unit tests live in `src/` (`cargo test` runs 139 total)
 4. **Benchmarks** (`benches/`) — three-lane benchmark (scalar / AVX2 / AVX-512)
 5. **Evidence** (`evidence/`) — benchmark output, CPU info, correctness receipts
 6. **Documentation** — claims matrix, measurement methodology, architecture
@@ -76,7 +76,7 @@ This runs the three-lane benchmark with a correctness gate. All three lanes must
 
 ### What the evidence supports:
 - AVX-512 implementation provides measured kernel-level acceleration (1.265×–1.276× canonical, 2.65× historical) on tested workloads
-- 102 tests pass with 0 failures
+- `cargo test` at this tag: 139 tests run, 139 pass, 0 failures (102 integration + 37 unit; independently measured 2026-10-23, AVX-512 CPU, rustc 1.99.1, default profile)
 - Three-layer backend equivalence (reference ↔ scalar ↔ AVX-512)
 - Montgomery core (`Montgomery.lean`): 12 Lean theorems, 0 axioms, 0 sorries (compile-verified); formal corpus census: 88 theorem declarations across 12 Lean files (see `formal/README.md` for the proof/claim boundary)
 - The DIT→DIF fix was a real bug caught by verification

@@ -49,7 +49,7 @@ The 83 Lean theorems prove properties of the **algorithm**, not the **execution 
 | Concern | Status | Why |
 |---------|--------|-----|
 | AVX-512 SIMD intrinsics | Tested, not proven | x86 execution is not modeled in Lean |
-| Backend equivalence (ref ↔ scalar ↔ AVX-512) | Tested (102 tests), not proven | Cross-backend equivalence is validated by differential testing |
+| Backend equivalence (ref ↔ scalar ↔ AVX-512) | Tested (102 integration tests), not proven | Cross-backend equivalence is validated by differential testing |
 | Rust compiler code generation | Trusted | The compiler is assumed correct (standard assumption) |
 | CPU hardware implementation | Trusted | The CPU is assumed to implement x86-64 correctly |
 | Memory safety | Handled by Rust | Rust's type system, not Lean |
@@ -72,7 +72,7 @@ The 83 Lean theorems prove properties of the **algorithm**, not the **execution 
 | Layer | Method | Coverage |
 |-------|--------|----------|
 | **Verified** (Lean 4) | Formal proof | Montgomery arithmetic, butterfly algebra, NTT stage composition, custody semantics — 83 theorems, 0 axioms, 0 sorries |
-| **Tested** (Rust) | Differential testing | 102 tests: three-backend equivalence, NTT correctness vs DFT oracle, round-trip, field operations |
+| **Tested** (Rust) | Differential testing | 102 integration tests: three-backend equivalence, NTT correctness vs DFT oracle, round-trip, field operations |
 | **Benchmarked** | Criterion measurement | Three-lane benchmark (scalar / AVX2 / AVX-512) with correctness gate, 13 transform sizes 2^8 through 2^20 |
 
 ## The Verification Boundary (Precise Statement)
@@ -89,7 +89,7 @@ The formal verification does **not** cover:
 
 The conformance gap between Lean and Rust is bridged by:
 1. The proof-to-code correspondence map (`docs/plonky3/proof-to-code-map.md`)
-2. 102 differential tests across three backends
+2. 102 integration tests across three backends
 3. The DIT→DIF fix (a real bug caught by this testing infrastructure)
 
 ## The DIT→DIF Fix as Evidence

@@ -37,7 +37,7 @@
 | Warmup | 3 seconds |
 | Outlier rejection | Enabled |
 | Full NTT framework | perf_measure (historical), 1000 iterations/size |
-| Test count | 141 total, all passing as recorded. **Counting basis (B-2/EXC-012, stated 2026-09-07):** mechanical census of `#[test]` attributes in the tree as of this commit — 104 in `tests/` (of which 6 live in the archived `tests/archive/legacy_montgomery_regression.rs`, leaving 98 in the live suite) + 37 unit tests in `src/` = 141 across the tree. The README's separate '102 tests' figure was verified against `tests/` at audit time (VT census); the current-tree census is recorded here so both counts carry stated bases. Zero `#[ignore]`. The prior "140 total" was an unstated-basis approximation. |
+| Test count | 139 tests run and passed at this tag (141 textual `#[test]` declarations). **Counting basis (B-2/EXC-012, stated 2026-09-07; corrected to measured values 2026-10-23):** mechanical census of `#[test]` attributes in the tree as of this commit — 104 in `tests/` (6 in the archived `tests/archive/legacy_montgomery_regression.rs`, which runs as its own test target; 2 occurrences are commented-out code, leaving 96 live + 6 archived = 102 compiled) + 37 unit tests in `src/` = 141 textual / 139 compiled and run across the tree. Independent run 2026-10-23 at review-v0.1.17 (AVX-512 CPU, rustc 1.99.1, default profile): 12 test targets, 139 tests run, 139 passed, 0 failed, 0 ignored. The README's '102 tests' figure is exact for the `tests/` integration suite (102/102 pass); the prior "140 total" was an unstated-basis approximation, corrected to the measured 139 at review-v0.1.18. Zero `#[ignore]`. |
 
 ## Important Distinctions
 

@@ -17,7 +17,7 @@ All implementations must produce identical outputs before timing begins.
 | AVX-512 vs Scalar DIF butterfly | 1.265x-1.276x geometric mean |
 | AVX2 vs Scalar | 1.07x |
 | Correctness gate | PASS |
-| Test coverage | 102 tests, 0 failures |
+| Test coverage | 139 tests (102 integration + 37 unit), 0 failures |
 
 ## Methodology
 

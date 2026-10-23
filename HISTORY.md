@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.17` |
+| Tag | `review-v0.1.18` |
 | Commit | This tag's target |
 | Date | 2026-10-23 |
-| Status | Frozen — documentation disposition close (license note, census wording, evidence command; no measured values changed) |
+| Status | Frozen — measured count-alignment (test counts aligned to independent run; no other claims changed) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.17` | `df5eaac` | 2026-10-23 | Documentation disposition close: license note, formal-verification census wording, evidence-branch command |
 | `review-v0.1.16` | `904423b` | 2026-10-23 | Integrity re-seal: release identity aligned across reviewer docs; out-of-tree evidence commands added |
 | `review-v0.1.15` | `ac90de5` | 2026-09-12 | docs(review-v0.1.15): theorem-count alignment to stated census + phant |
 | `review-v0.1.14` | `11c1690` | 2026-09-12 | Integrity re-seal for reviewer release review-v0.1.14: regenerate SHA2 |
@@ -192,3 +193,20 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - SHA256SUMS regenerated over all tracked files except itself
 
 **Supersedes:** review-v0.1.16 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.18 (2026-10-23) — Measured count-alignment: test counts aligned to independent run
+
+**Tag:** review-v0.1.18
+**Purpose:** An independent `cargo test` run at review-v0.1.17 (2026-10-23, AVX-512 CPU, rustc 1.99.1, default profile, clean clone) measured 12 test targets, 139 tests run, 139 passed, 0 failed, 0 ignored. The reviewer documents' counts did not match this measurement: README and the guide carried an unscoped "102 tests" (exact for the tests/ integration suite, but ambiguous against the 139 a reviewer actually runs), the quickstart said "140 total" (unstated-basis approximation), EVIDENCE_CHAIN's summary carried "140/140" and "33 Lean 4 theorems" (stale pre-census counts), and CLAIM_MATRIX's counting basis contained two arithmetic slips (live-suite count did not deduct commented-out occurrences).
+
+**Changes (count-wording alignment only; no measured value, benchmark result, or proof content modified):**
+- Test-count wording aligned to the measured run: 139 run / 139 pass, composition stated (102 integration + 37 unit; 6 archived tests run as their own target; 2 textual occurrences are commented-out code)
+- REVIEWER_QUICKSTART.md "140 total" corrected to 139; README evidence row restated with full breakdown
+- EVIDENCE_CHAIN.md summary counts aligned (139/139 suite measurement; formal census wording: 88 theorem declarations across 12 Lean files, Montgomery.lean 12)
+- CLAIM_MATRIX.md counting-basis cell corrected to the measured composition
+- docs/SECURITY_MODEL.md, docs/plonky3/*: "102 tests" scoped as "102 integration tests" where unscoped
+- docs/METRICS.md: 2026-10-23 dated rows appended (tests 139/139; Lean census 88); historical 2026-08-03 rows preserved unaltered
+- Release identity advanced to review-v0.1.18 across the entry documents
+- SHA256SUMS regenerated over all tracked files except itself
+
+**Supersedes:** review-v0.1.17 for reviewer entry (all prior tags remain immutable).
