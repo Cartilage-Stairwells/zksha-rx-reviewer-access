@@ -6,7 +6,8 @@
 
 - `ARIA-FINAL-AUDIT-v0.1.21.md` — final audit report (read-only audit of review-v0.1.21; dispositions: benchmark provenance VERIFIED, lane-2 SIMD evidence SUPPORTED-PARTIAL, 139-test census VERIFIED, historical/tag integrity VERIFIED, seal reproductions VERIFIED; includes the documented-and-falsified 101/110 false alarm and the auditor-independence caveat)
 - `ARIA-COUNTERSIGNATURE-REQUEST-v0.1.21.md` — PI ratification of the audit disposition, the countersignature protocol, and the handoff to the external Aria seat
-- `SHA256SUMS` — hashes of the two artifact files (seal is hash-last: this file was generated after both content files were placed)
+- `ARIA-COUNTERSIGNATURE-v0.1.21.md` — the external reviewer's countersignature (2026-10-23), recorded verbatim with a custodian routing annotation; Final Review Status: COUNTERSIGNED WITH BOUNDS, lane-2 retained SUPPORTED-PARTIAL
+- `SHA256SUMS` — hashes of the three artifact files (seal is hash-last: this file was generated after the content files were placed)
 
 ## Countersignature boundary (per PI ratification)
 
@@ -17,3 +18,8 @@
 ## Traceability
 
 The audit's reproductions were executed from a fresh clone of tag review-v0.1.21 on 2026-10-23. The executing seat also sealed the tag (independence limitation disclosed in the report).
+
+
+## State transition (2026-10-23)
+
+The external reviewer's status transitioned from REVIEW BLOCKED — ACCESS to **COUNTERSIGNED WITH BOUNDS** after reviewing the artifact texts and repository-accessible copies. Per the countersignature: target tag SEALED / UNCHANGED; lane-2 SIMD finding retained SUPPORTED-PARTIAL (independent disasm probe re-execution still pending and remains the only path to promotion); overall disposition APPROVED / COUNTERSIGNED. The Zen 5 public-repo rerun remains parked as a separate cost/value decision.
