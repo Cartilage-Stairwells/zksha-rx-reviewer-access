@@ -12,10 +12,10 @@ Repository:
 Cartilage-Stairwells/zksha-rx-reviewer-access (frozen reviewer snapshot)
 
 Frozen release:
-review-v0.1.20
+review-v0.1.21
 
 Frozen commit:
-review-v0.1.20 (current snapshot, released 2026-10-23; supersedes review-v0.1.19 of 2026-10-23, which remains available as a historical tag)
+review-v0.1.21 (current snapshot, released 2026-10-23; supersedes review-v0.1.20 of 2026-10-23, which remains available as a historical tag)
 
 ## Access Model
 
@@ -29,7 +29,7 @@ Reviewer access:
 > This repository is accessible to anyone; no access request is needed.
 
 Review target:
-> Reviewers should evaluate tag review-v0.1.20. (Historical: review-v0.1.19 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.19 are historical reviewer releases.)
+> Reviewers should evaluate tag review-v0.1.21. (Historical: review-v0.1.20 was the frozen snapshot until 2026-10-23; tags review-v0.1.6 through review-v0.1.20 are historical reviewer releases.)
 
 Do not use:
 - "Open source project" — this is a frozen review snapshot, not a maintained open-source project
@@ -96,7 +96,7 @@ All external references must use:
 - Project: zkSHA-Rx Fly
 - Repository: Cartilage-Stairwells/zksha-rx-reviewer-access
 - Release: v0.1.0-zksha-rx
-- Current snapshot: review-v0.1.20 (this tag)
+- Current snapshot: review-v0.1.21 (this tag)
 - Historical development: v0.1.0-zksha-rx / eb5533d (pre-review-v0.1.1, outside this tree)
 
 Do not use:

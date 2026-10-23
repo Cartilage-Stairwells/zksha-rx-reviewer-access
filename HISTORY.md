@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.20` |
+| Tag | `review-v0.1.21` |
 | Commit | This tag's target |
 | Date | 2026-10-23 |
-| Status | Frozen — benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
+| Status | Frozen — VERIFICATION_STATUS reconciliation (per-target test counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.20` | `84ebf64` | 2026-10-23 | Benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
 | `review-v0.1.19` | `612cd89` | 2026-10-23 | Reproducibility mapping: canonical benchmark command identified; staged-comparison count adjudicated |
 | `review-v0.1.18` | `9e7d3b1` | 2026-10-23 | Measured count-alignment: test counts aligned to independent run (139/139) |
 | `review-v0.1.17` | `df5eaac` | 2026-10-23 | Documentation disposition close: license note, formal-verification census wording, evidence-branch command |
@@ -240,3 +241,19 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - SHA256SUMS regenerated over all tracked files except itself
 
 **Supersedes:** review-v0.1.19 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.21 (2026-10-23) — VERIFICATION_STATUS reconciliation: per-target counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified
+
+**Tag:** review-v0.1.21
+**Purpose:** External audit of review-v0.1.20 (2026-10-23) accepted the baseline-clarification finding and identified four remaining inconsistencies in VERIFICATION_STATUS.md: (1) the Benchmark Results section still described the canonical 1.27× as "not reproducible from the public repository" without the new codegen evidence; (2) the Scope Corrections row retained the pre-clarification baseline description; (3) the Benchmark Baselines section still described the scalar lane as "no SIMD" and asserted the compiler does not auto-vectorize the AVX2 lane loop; (4) the Verified Claims table reported 136 total tests (rows summing to 128) with three misattributed per-target counts, against the measured census of 139.
+
+**Changes (documentation reconciliation only; no measured value, benchmark result, or proof content modified):**
+- Verified Claims table: per-target counts aligned to the independent measured run of 2026-10-23 (babybear_montgomery 37→10, backend_parity 10→14, iep_enforcement 14→11; unit-test row added for the lib target's 37 tests; total corrected 136→139 = 102 integration + 37 unit, doc-test target runs 0) with measurement provenance stated
+- Benchmark Results: canonical-runs section retitled and reconciled (raw logs published in-repo and independently re-parsed: run1 1.279×, run2 1.269×, delta 0.78%); reproduction status updated — the canonical runs have not been re-executed from the public repo on Zen 5; the non-Zen 5 independent run measured the true-scalar regime (6.99×, gate PASS); baseline table cells re-described per the disassembly evidence
+- Baseline Discrepancy: reconciliation note added (the 8.97×/1.27× distinction is a machine-code regime; v0.1.11 comparison table retained as historical)
+- Scope Corrections: the "1.27x acceleration" row extended with the 2026-10-23 machine-code clarification
+- Benchmark Baselines: scalar row restated (auto-vectorized codegen under documented flags; true scalar only from a no-flags build); the "compiler does not auto-vectorize this loop" note replaced after a NEW lane-2 disassembly probe (avx2_butterfly_pass: 16 zmm + 29 ymm under canonical flags; 26 ymm with no flags) — both lanes compile near-identically under documented flag sets, explaining the ~1.0× AVX2-vs-Scalar ratio; codegen claims scoped to exact source, flags, compiler (rustc 1.99.1), and platform
+- disasm-probe.md: lane-2 probe addendum published
+- Release identity advanced to review-v0.1.21 across the entry documents; SHA256SUMS regenerated over all tracked files except itself
+
+**Supersedes:** review-v0.1.20 for reviewer entry (all prior tags remain immutable).

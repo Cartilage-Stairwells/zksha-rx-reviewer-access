@@ -4,7 +4,7 @@
 > partially verified, and what remains pending. It is maintained alongside
 > the evidence artifacts and updated whenever the verification state changes.
 >
-> **Last updated:** October 23, 2026 (review-v0.1.20)
+> **Last updated:** October 23, 2026 (review-v0.1.21)
 > **Reviewer:** Independent cold-read verification completed August 5, 2026
 
 ---
@@ -19,24 +19,25 @@ repository on AVX-512-capable hardware.
 | AVX-512 execution path runs | ✅ Verified | `is_avx512_supported()` canary + benchmark execution |
 | Scalar / AVX2 / AVX-512 lane equivalence | ✅ Verified | Correctness gate in `three_lane_bench.rs` (PASS, 2^8–2^20) |
 | NTT stage equivalence (scalar vs AVX-512) | ✅ Verified | `tests/ntt_equivalence.rs` (4 tests, 0 failures) |
-| Montgomery arithmetic correctness | ✅ Verified | `tests/babybear_montgomery.rs` (37 tests, 0 failures) |
+| Unit tests (field/NTT internals, `src/`) | ✅ Verified | lib target (37 tests, 0 failures) |
+| Montgomery arithmetic correctness | ✅ Verified | `tests/babybear_montgomery.rs` (10 tests, 0 failures) |
 | Montgomery arithmetic formalization | ✅ Verified | `tscp-anchor` repo, Montgomery.lean (12 theorems, 0 sorry, 0 axioms) |
 | BabyBear field domain correctness | ✅ Verified | `tests/babybear_domain.rs` (12 tests, 0 failures) |
-| Backend parity (scalar vs reference) | ✅ Verified | `tests/backend_parity/` (10 tests, 0 failures) |
+| Backend parity (scalar vs reference) | ✅ Verified | `tests/backend_parity/` (14 tests, 0 failures) |
 | Representation audit (u32 Montgomery) | ✅ Verified | `tests/representation_audit.rs` (7 tests, 0 failures) |
 | Raw u32 audit (no implicit modular ops) | ✅ Verified | `tests/raw_u32_audit.rs` (6 tests, 0 failures) |
 | Gate enforcement (evidence contracts) | ✅ Verified | `tests/gate_enforcement.rs` (24 tests, 0 failures) |
 | Core domain blindness | ✅ Verified | `tests/core_domain_blindness.rs` (8 tests, 0 failures) |
 | Legacy Montgomery regression | ✅ Verified | `tests/archive/legacy_montgomery_regression.rs` (6 tests, 0 failures) |
-| IEP enforcement | ✅ Verified | `tests/iep_enforcement.rs` (14 tests, 0 failures) |
+| IEP enforcement | ✅ Verified | `tests/iep_enforcement.rs` (11 tests, 0 failures) |
 
-**Total: 136 tests, 0 failures, 0 ignored**
+**Total: 139 tests, 0 failures, 0 ignored** — 102 integration (`tests/`, including 6 archived regression tests) + 37 unit (`src/`, lib target); the doc-test target runs 0 tests. Per-target counts as measured in the independent run of 2026-10-23 (at review-v0.1.17, rustc 1.99.1, default profile, AVX-512 hardware).
 
 ---
 
 ## Benchmark Results
 
-### Independently Reproduced from Public Repo (v0.1.11)
+### Independently Reproduced from Public Repo (v0.1.11) — historical run, 2026-08
 
 The three-lane benchmark was run from the public repository using the benchmark
 protocol (50 samples, 2s measurement, Criterion 0.8.2).
@@ -48,17 +49,26 @@ protocol (50 samples, 2s measurement, Criterion 0.8.2).
 | Correctness gate | PASS | All three lanes agree, 2^8 through 2^20 |
 | Per-size AVX-512 speedup range | 7.21x to 10.13x | Against reference arithmetic |
 
-### Results — Optimized Scalar Baseline (from private development repo, not reproducible from public repo)
+### Results — Canonical Runs (executed in the private development repo; raw logs published in this repository)
 
 The following results were produced from the private development repository
-(commit daf2a74, crate version 0.2.0) and are included as evidence artifacts
-in `evidence/`. They CANNOT be reproduced from the public repository
-because the scalar baseline differs (see Baseline Discrepancy below).
+(commit daf2a74, crate version 0.2.0); the raw run logs are published as
+evidence artifacts in `evidence/canonical/` (independently re-parsed 2026-10-23:
+run1 geo 1.279×, run2 geo 1.269×, dual-run delta 0.78%). Provenance and
+reproduction status (updated 2026-10-23, review-v0.1.20/v0.1.21): the ~1.27×
+ratio arises in the codegen regime where the benchmark's scalar-source lane
+compiles to auto-vectorized machine code under the documented flag sets
+(disassembly-verified — `evidence/independent/2026-10-23-non-zen5/disasm-probe.md`),
+which the canonical Zen 5 environment exhibits. The canonical runs themselves
+have not been re-executed from the public repository on Zen 5; an independent
+run of the public repository's bench on non-Zen 5 AVX-512 hardware (2026-10-23)
+passed the correctness gate on 2^8–2^20 and measured the true-scalar regime
+(6.99× geometric mean) — `evidence/independent/2026-10-23-non-zen5/`.
 
 | Metric | Value | Baseline |
 |--------|-------|----------|
-| AVX-512 vs Scalar (geometric mean) | 1.265x–1.276x | Optimized scalar (private repo) |
-| AVX2 vs Scalar (geometric mean) | 1.062x–1.075x | Optimized scalar (private repo) |
+| AVX-512 vs Scalar (geometric mean) | 1.265x–1.276x | Scalar-source lane, auto-vectorized codegen on Zen 5 (disassembly-verified 2026-10-23) |
+| AVX2 vs Scalar (geometric mean) | 1.062x–1.075x | Same auto-vectorized codegen regime (both lanes compile near-identically) |
 | Dual-run variance | 0.9% | — |
 
 ### Baseline Discrepancy
@@ -78,9 +88,15 @@ kernel is being measured. The speedup ratio differs because the scalar
 baseline is ~2.7x slower in the public repo.
 
 **The 8.97x and 1.27x numbers are both valid measurements — they compare
-against different baselines and must not be conflated.** The 8.97x measures
-the kernel against a naive reference; the 1.27x measures it against an
-optimized scalar implementation.
+against different baselines and must not be conflated.** (Reconciled
+2026-10-23: the distinction is a machine-code regime, not only a
+source-level baseline difference — the benchmark's scalar-source lane
+compiles to auto-vectorized AVX-512/AVX2 code under the documented flag sets
+(disassembly-verified, `evidence/independent/2026-10-23-non-zen5/disasm-probe.md`);
+the ~1.27× ratio arises where that auto-vectorization is highly effective
+(Zen 5), and in the true-scalar regime the kernel measures ~7×–9×
+(v0.1.11 public run: 8.97×; independent non-Zen 5 run 2026-10-23: 6.99×).
+The comparison table above is retained as a historical v0.1.11-era record.)
 
 ---
 
@@ -107,7 +123,7 @@ Previous wording → corrected wording:
 | Previous | Corrected |
 |----------|-----------|
 | "The formal codebase contains zero axioms and zero sorries." | "The Montgomery arithmetic formalization contains zero axioms and zero sorry declarations." |
-| "AVX-512 gives 1.27x acceleration." | "Under the documented reference-arithmetic baseline, the AVX-512 implementation measured an 8.97x geometric mean improvement. Against an optimized scalar implementation (private repo), the speedup was 1.265x-1.276x. These compare against different baselines." |
+| "AVX-512 gives 1.27x acceleration." | "Under the documented reference-arithmetic baseline, the AVX-512 implementation measured an 8.97x geometric mean improvement. Against an optimized scalar implementation (private repo), the speedup was 1.265x-1.276x. These compare against different baselines." (2026-10-23 clarification: the two regimes are machine-code regimes — the benchmark's scalar-source lane auto-vectorizes under documented flags; 1.265×–1.276× = hand kernel vs compiler auto-vectorization on Zen 5, ~7×–9× = hand kernel vs true scalar code — see `evidence/independent/2026-10-23-non-zen5/`.) |
 | "Phase 2.5 frozen at commit 8a24a7c" | "Phase 2.5 frozen at signed Git tag `phase-2.5`, resolving to commit `cdfccf035850a08ee91d236bf1234035a772f739`." |
 | "The full source code is at commit 8a24a7c (tag phase-2.5)" | "The full source code is at commit `cdfccf035850a08ee91d236bf1234035a772f739` (tag `phase-2.5`)." |
 | "zero-risk for existing Plonky3 users" | "zero behavioral impact when disabled" |
@@ -122,15 +138,23 @@ The three-lane benchmark compares four execution paths:
 | Baseline | Purpose | Configuration |
 |----------|---------|---------------|
 | Reference arithmetic (`babybear_mul_reference`) | Correctness oracle — 64-bit modular multiply | Used in correctness gate and scalar/AVX2 lanes |
-| Scalar backend (no SIMD) | Practical CPU comparison — pure Rust, no vectorization | Lane 1 in three-lane benchmark |
-| AVX2 backend (compiler auto-vectorized) | SIMD comparison — compiler-generated with AVX2 target feature | Lane 2 (note: current code does not vectorize — see below) |
+| Scalar backend (scalar source) | Practical CPU comparison — scalar-source Rust loop | Lane 1; under the documented flag sets this source compiles to auto-vectorized AVX-512/AVX2 machine code (disassembly-verified 2026-10-23: 16 zmm + 29 ymm under canonical flags, rustc 1.99.1, probe platform) — true scalar machine code only from a no-flags build |
+| AVX2 backend (compiler-vectorized source) | SIMD comparison — same loop shape with `#[target_feature(enable = "avx2")]` hint | Lane 2; also auto-vectorizes under the documented flag sets (probe 2026-10-23: 16 zmm + 29 ymm under canonical flags); with no flags the hint yields AVX2 codegen (26 ymm, 0 zmm) |
 | AVX-512 backend (hand-written intrinsics) | Target implementation — explicit `__m512i` SIMD kernel | Lane 3 in three-lane benchmark |
 
-> **Note on AVX2 lane:** The current `avx2_butterfly_pass` function applies the
-> `#[target_feature(enable = "avx2")]` attribute but uses the same scalar code
-> as Lane 1. The compiler does not auto-vectorize this loop. This is why the
-> AVX2 vs Scalar ratio is ~1.0x. A future improvement would be to use
-> `std::arch::x86_64::_mm256_*` intrinsics for a true AVX2 comparison.
+> **Note on lanes 1 and 2 codegen (updated 2026-10-23, disassembly-verified):**
+> Lanes 1 and 2 use the same scalar-source loop shape (lane 2 adds the
+> `#[target_feature(enable = "avx2")]` hint). Under both documented flag sets,
+> rustc 1.99.1 auto-vectorizes BOTH loops — lane 1: 16 zmm + 29 ymm; lane 2:
+> 16 zmm + 29 ymm under canonical flags (probe platform; see
+> `evidence/independent/2026-10-23-non-zen5/disasm-probe.md`). This explains the
+> ~1.0× AVX2-vs-Scalar ratio in the canonical runs: both lanes compile to
+> near-identical auto-vectorized code. With no target-feature flags, lane 1 is
+> true scalar and lane 2 vectorizes to AVX2 (26 ymm). These codegen results are
+> tied to the exact probe source, flags, compiler (rustc 1.99.1), and platform
+> used; they do not assert that every scalar or AVX2 execution path elsewhere
+> in the codebase vectorizes. A future improvement would be to use
+> `std::arch::x86_64::_mm256_*` intrinsics for a hand-written AVX2 comparison.
 
 ---
 

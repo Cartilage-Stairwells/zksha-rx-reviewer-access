@@ -20,3 +20,15 @@ The function `scalar_butterfly_pass` was copied verbatim (with its `babybear_mul
 
 ## Boundary
 The probe establishes codegen on the probe platform and toolchain. Zen 5 codegen was not directly disassembled here; the canonical logs' scalar ≈ avx2 lane equality at every size (in several cases identical to the nanosecond) is consistent with the same auto-vectorization on Zen 5, and is recorded as corroborating observation, not independent verification of Zen 5 codegen.
+
+## Addendum — lane 2 (`avx2_butterfly_pass`) probe, same date
+
+The same probe method was applied to lane 2 (identical loop shape, with the `#[target_feature(enable = "avx2")]` hint):
+
+| Config | RUSTFLAGS | insn count | zmm | ymm | Codegen |
+|---|---|---|---|---|---|
+| A (canonical) | `-C target-cpu=native -C target-feature=+avx512f,+avx512dq,+avx2` | 602 | 16 | 29 | auto-vectorized (AVX-512 codegen) |
+| B (quick-start, pre-clarification) | `-C target-feature=+avx512f,+avx512dq` | 613 | 23 | 28 | auto-vectorized (AVX-512 codegen) |
+| C (no flags) | (none) | 345 | 0 | 26 | AVX2 codegen (from the target-feature hint alone) |
+
+Conclusion: lanes 1 and 2 compile to near-identical auto-vectorized machine code under both documented flag sets, which explains the ~1.0× AVX2-vs-Scalar ratio in the canonical runs. With no flags, lane 1 is true scalar and lane 2 is AVX2-vectorized. Both probes are tied to the exact probe source, flags, compiler (rustc 1.99.1), and platform; they do not assert anything about scalar or AVX2 execution paths elsewhere in the codebase.
