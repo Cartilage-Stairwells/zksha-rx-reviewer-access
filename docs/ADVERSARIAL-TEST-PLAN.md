@@ -59,7 +59,7 @@ is how a correction is demonstrated: the same suite, re-run, must stop producing
 | T-11 | Boundary | checker prints `RESULT: PASS` and exits 1 | accept (defect D1) | refuse |
 | T-12 | Boundary | checker replaced by a wrapper that prints PASS without reading | step 7 accepts, step 3 refuses | unchanged, defence is RC-04 |
 | T-13 | Boundary | checker file deleted | refuse | refuse |
-| T-14 | Boundary | step 3 fails while step 7 passes | overall exit non-zero | overall exit non-zero |
+| T-14 | Control | tampered README plus a prohibited custody declaration (control, cannot discriminate) | overall exit non-zero | overall exit non-zero |
 | T-15 | Integrity | one byte appended to a listed file | refuse | refuse |
 | T-16 | Integrity | one listed file deleted | refuse | refuse |
 | T-17 | Integrity | one unlisted file added | accept (defect D2) | refuse |
@@ -75,9 +75,9 @@ from the harness itself, so this section cannot drift from what is executed agai
 | Case | Group | Mutation | Pre-correction | Post-correction |
 |---|---|---|---|---|
 | T-21 | Closure | control: honest checker, exits 0 and prints PASS | accept | accept |
-| T-22 | Closure | D1 closed: prints PASS, exits 1 | refuse | refuse |
-| T-23 | Closure | D1 closed: exits 0, prints nothing | refuse | refuse |
-| T-24 | Closure | D1 closed: exits 0, prints REFUSED | refuse | refuse |
+| T-22 | Closure | D1 closed: prints PASS, exits 1 | accept | refuse |
+| T-23 | Control | D1 closed: exits 0, prints nothing (control, cannot discriminate) | refuse | refuse |
+| T-24 | Control | D1 closed: exits 0, prints REFUSED (control, cannot discriminate) | refuse | refuse |
 | T-25 | Closure | control: clean tree, nothing added | accept | accept |
 | T-26 | Closure | control: file added and correctly listed | accept | accept |
 | T-27 | Closure | D2 closed: unlisted file at root | refuse | refuse |

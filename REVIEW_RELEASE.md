@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.28` |
+| Release tag | `review-v0.1.29` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.27` / `cc05fa4` (historical) |
+| Previous snapshot | `review-v0.1.28` / `14032e1` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
@@ -24,6 +24,39 @@ deviation from the transition record's non-negotiable rather than compliance wit
 this snapshot the disclosure is enforced rather than described: `validate_release.sh` calls
 `gate-amendment/check_custody_disclosure.sh`, which refuses a record that omits the line,
 asserts independent control, or declares the mode more than once.
+
+## Change in this snapshot (review-v0.1.29)
+
+Documentary accuracy only. The validator, the gate, the custody disclosure and the signature path are
+unchanged, and `review-v0.1.28` remains immutable and keeps every defect corrected here.
+
+**D-01, a false claim of permanence.** `docs/D1-D2-CORRECTION-AND-CLOSURE.md` stated that the adversarial
+plan was "unchanged, because it was filed with a recorded digest and its bytes must stay those bytes".
+That is a universal claim, and it is false in any package published after `review-v0.1.27`, because this
+line of snapshots extended the plan to T-33. The sentence now names both digests and what each binds:
+`a965462a` for the bytes carried by `review-v0.1.27`, `b50b05b7` for the bytes carried by
+`review-v0.1.28` and later. The supersession is recorded in the private records at commit `ef98b76`.
+
+**D-02, a false description of a case.** Plan row T-14 described a fixture in which step 7 passes.
+Measured, the fixture appends a prohibited custody declaration, so step 7 refuses. Measured separately
+against the pre-correction validator with only the README tampered, step 7 passes while step 3 refuses,
+which is why the fixture cannot attribute its refusal to the custody step at all.
+
+**D-03, an unreachable verdict.** T-22 declared the pre-correction behaviour as refusal when it was
+acceptance, so the case could never report a correction even though it discriminates. Corrected.
+
+**D-04, controls presented as evidence.** T-14, T-23 and T-24 are refused by both the pre-correction and
+the corrected validator, so none of them can attribute a refusal to a correction. They were reported as
+PASS, which reads as closure evidence. The suite now carries a CONTROL verdict for exactly this situation
+and prints the count on its own line, so a passing control is never counted as a corrected defect.
+
+**D-05, an unscoped count.** The results document reported that a run "covers all 29 cases". That was
+true at the commit it records and is not true of this suite, which runs 33. The figure is now scoped to
+the commit that measured it.
+
+Nothing here changes what the validator does. Each correction makes a claim accurate, and the behavioural
+evidence for D1 to D4 continues to rest on the isolated probes run against `review-v0.1.27` and
+`review-v0.1.28`, not on a case count.
 
 ## Change in this snapshot (review-v0.1.28)
 
@@ -223,7 +256,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.28
+git checkout review-v0.1.29
 
 # Build
 cargo build --release

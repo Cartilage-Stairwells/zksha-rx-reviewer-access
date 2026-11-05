@@ -11,7 +11,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 REPO=$(cd "$HERE/../.." && pwd)
-TAG="${RELEASE_TAG:-review-v0.1.28}"
+TAG="${RELEASE_TAG:-review-v0.1.29}"
 STRICT=0; CAND=""; NOTRUN=0
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -79,9 +79,14 @@ broken_comm_state() {  # broken_comm_state <dir> -> pass|fail with a comm that c
     [ "$e" -eq 0 ] && echo pass || echo fail
 }
 
+CONTROLC=0
 record() {  # record <id> <mutation> <observed> <expected_now> <expected_fixed> <defect>
   local id=$1 mut=$2 obs=$3 now=$4 fix=$5 defect=${6:-no} verdict
   if   [ "$obs" = "$fix" ] && [ "$obs" != "$now" ]; then verdict=FIXED;        FIXEDC=$((FIXEDC+1))
+  elif [ "$obs" = "$now" ] && [ "$defect" = control ]; then
+       # A control passes because its behaviour did not change, which is not evidence that
+       # anything was closed. Counting it as PASS would credit it toward closure.
+       verdict=CONTROL; CONTROLC=$((CONTROLC+1))
   elif [ "$obs" = "$now" ]; then
        if [ "$defect" = yes ]; then verdict=KNOWN-DEFECT; KNOWN=$((KNOWN+1))
        else verdict=PASS; PASS=$((PASS+1)); fi
@@ -158,7 +163,7 @@ d=$(fixture 13); rm -f "$d/gate-amendment/check_custody_disclosure.sh"
                                                    record T-13 "checker file deleted"                        "$(step_state "$d" 7)" fail fail
 d=$(fixture 14); printf 'x' >> "$d/README.md"; printf '\nCUSTODY-DISCLOSURE: independent\n' >> "$d/REVIEW_RELEASE.md"
 e=$(validator_exit "$d"); [ "$e" -ne 0 ] && e=pass || e=fail
-                                                   record T-14 "tampered file plus prohibited declaration"    "$e" pass pass
+                                                   record T-14 "tampered file plus prohibited declaration"    "$e" pass pass control
 
 # ---------- Group C: package integrity ----------
 d=$(fixture 15); printf 'x' >> "$d/README.md"
@@ -200,19 +205,19 @@ echo "ok   custody mode 'joint' declared, deviation disclosed in words"
 echo "RESULT: PASS"
 exit 1
 EOF
-    record T-22 "D1 closed: prints PASS, exits 1"                     "$(step_state "$d" 7)" fail fail
+    record T-22 "D1 closed: prints PASS, exits 1"                     "$(step_state "$d" 7)" pass fail
     d=$(fixture 23); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
 #!/usr/bin/env bash
 exit 0
 EOF
-    record T-23 "D1 closed: exits 0, prints nothing"                  "$(step_state "$d" 7)" fail fail
+    record T-23 "D1 closed: exits 0, prints nothing"                  "$(step_state "$d" 7)" fail fail control
     d=$(fixture 24); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
 #!/usr/bin/env bash
 echo "FAIL custody mode declared without disclosure"
 echo "RESULT: REFUSED"
 exit 0
 EOF
-    record T-24 "D1 closed: exits 0, prints REFUSED"                  "$(step_state "$d" 7)" fail fail
+    record T-24 "D1 closed: exits 0, prints REFUSED"                  "$(step_state "$d" 7)" fail fail control
     d=$(fixture 25)
     record T-25 "control: clean tree, nothing added"                  "$(step_state "$d" 4b)" pass pass
     d=$(fixture 26); printf 'listed addition\n' > "$d/docs/ADDED-AND-LISTED.md"; h=$(sha256sum "$d/docs/ADDED-AND-LISTED.md" | cut -d' ' -f1); printf '%s  docs/ADDED-AND-LISTED.md\n' "$h" >> "$d/SHA256SUMS"
@@ -256,6 +261,7 @@ if [ "$STRICT" -eq 1 ] && [ "$KNOWN" -gt 0 ]; then
     echo "❌ STRICT: $KNOWN known defect(s) still reproduce; a correction has not landed"
     exit 1
 fi
+[ "$CONTROLC" -gt 0 ] && printf '  controls (unchanged on both implementations, cannot discriminate): %s\n' "$CONTROLC"
 if [ "$KNOWN" -eq 0 ] && [ "$FIXEDC" -gt 0 ]; then
     echo "✅ CORRECTION DEMONSTRATED: $FIXEDC documented defect(s) now refused, controls still pass"
 elif [ "$KNOWN" -eq 0 ]; then

@@ -173,6 +173,10 @@ gate.
 
 ## Note on the plan
 
-`docs/ADVERSARIAL-TEST-PLAN.md` covers T-01 to T-20 and is unchanged, because it was filed with a
-recorded digest and its bytes must stay those bytes. Cases T-21 to T-29 are documented here for
-that reason, not because they were overlooked.
+`docs/ADVERSARIAL-TEST-PLAN.md` covered T-01 to T-20 when this correction was made, filed with a
+recorded digest `a965462a` that binds exactly the bytes this snapshot carries. That is a statement
+about this snapshot and not about every later one. `review-v0.1.28` extended the plan to T-33 and
+its own manifest binds `b50b05b7`, so both digests remain verifiable, each against the release
+that carries it. The supersession is recorded in the private records at commit `ef98b76`. For
+published bytes the authoritative binding is the release manifest, because it is the only binding
+an independent reader can recompute from a clone.

@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.28` |
+| Tag | `review-v0.1.29` |
 | Commit | This tag's target |
 | Date | 2026-11-04 |
-| Status | Frozen: completeness comparison now fail-closed (D3), non-regular entries refused by name (D4), harness step parser no longer folds 4b into step 4, 33-case suite carrying six demonstrated corrections |
+| Status | Frozen: documentation accuracy only, five claims corrected (plan-binding permanence, T-14 description, T-22 unreachable verdict, controls presented as evidence, unscoped case count); validator behaviour unchanged from 0.1.28 |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.28` | `14032e1` | 2026-11-04 | D3 fail-closed completeness, D4 non-regular entries refused by name, step parser fix, four cases added, 33-case suite |
 | `review-v0.1.27` | `cc05fa4` | 2026-11-04 | Validator defects D1 and D2 corrected (exit status decides; completeness in both directions); first committed 29-case suite; release contract with four status axes |
 | `review-v0.1.26` | `5f8dffc` | 2026-11-04 | Custody disclosure enforced; Cargo license and authors declared; stale reproduction checkout corrected |
 | `review-v0.1.25` | `bbe9e98` | 2026-11-04 | Licence notice correction: copyright holder restored to the personal name; custody disclosure deferred to this snapshot |
