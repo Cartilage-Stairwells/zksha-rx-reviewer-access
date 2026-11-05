@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.27` |
+| Release tag | `review-v0.1.28` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.26` / `5f8dffc` (historical) |
+| Previous snapshot | `review-v0.1.27` / `cc05fa4` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
@@ -24,6 +24,38 @@ deviation from the transition record's non-negotiable rather than compliance wit
 this snapshot the disclosure is enforced rather than described: `validate_release.sh` calls
 `gate-amendment/check_custody_disclosure.sh`, which refuses a record that omits the line,
 asserts independent control, or declares the mode more than once.
+
+## Change in this snapshot (review-v0.1.28)
+
+Two further validator defects and one harness defect are corrected. All three were found by a
+third-party run against `review-v0.1.27`, and each was confirmed here by probe before anything was
+changed. `review-v0.1.27` is immutable and keeps them.
+
+**D3, the completeness comparison failed open.** Step 4b read
+
+    UNLISTED=$(comm -13 <(...) <(...) || true)
+
+so a `comm` that errored produced an empty unlisted set and a printed pass. Measured against
+`review-v0.1.27`: with a `comm` on PATH that exits 1 and prints nothing, the validator printed
+"Every present file is listed in SHA256SUMS" and exited 0. The comparison is now fail-closed, and a
+non-zero `comm` is a failed release that names the cause. This is the same silent-degradation class
+as D1, one line below the D1 correction.
+
+**D4, only regular files were enumerated.** `find . -type f` cannot see a symlink, fifo, socket or
+device, so an unlisted entry of those kinds rode along unlisted. Measured against `review-v0.1.27`:
+an unlisted symlink and an unlisted fifo each produced a pass. A digest manifest has no way to express
+them, so they are now refused by name rather than silently skipped. Empty directories are deliberately
+not enumerated, because git cannot carry one, so refusing them would fail a working copy over a state
+the artifact cannot express.
+
+**Harness: step 4b was folded into step 4.** `step_block` opened on `^<n>\.` and closed on
+`/^[0-9]+\. /`, so an alphanumeric identifier neither opened its own block nor closed its
+predecessor's. That is fixed. Case T-17 now measures the validator's own verdict rather than a
+single step's internals, because its earlier discrimination came from the fold rather than from the
+check it named.
+
+Not changed in this snapshot: the validator's other steps, the custody disclosure, the signature
+gate, and the published artifacts of every earlier tag.
 
 ## Change in this snapshot (review-v0.1.27)
 
@@ -191,7 +223,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.27
+git checkout review-v0.1.28
 
 # Build
 cargo build --release

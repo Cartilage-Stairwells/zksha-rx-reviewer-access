@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.27` |
+| Tag | `review-v0.1.28` |
 | Commit | This tag's target |
 | Date | 2026-11-04 |
-| Status | Frozen: validator defects D1 and D2 corrected (exit status now decides; manifest completeness now checked in both directions), first committed 29-case test suite, release contract recorded with four separate status axes |
+| Status | Frozen: completeness comparison now fail-closed (D3), non-regular entries refused by name (D4), harness step parser no longer folds 4b into step 4, 33-case suite carrying six demonstrated corrections |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.27` | `cc05fa4` | 2026-11-04 | Validator defects D1 and D2 corrected (exit status decides; completeness in both directions); first committed 29-case suite; release contract with four status axes |
 | `review-v0.1.26` | `5f8dffc` | 2026-11-04 | Custody disclosure enforced; Cargo license and authors declared; stale reproduction checkout corrected |
 | `review-v0.1.25` | `bbe9e98` | 2026-11-04 | Licence notice correction: copyright holder restored to the personal name; custody disclosure deferred to this snapshot |
 | `review-v0.1.24` | `98d1921` | 2026-11-04 | Custody erratum: joint custody by owner decision recorded as an accepted deviation; rotation plan withdrawn |

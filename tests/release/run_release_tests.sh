@@ -11,7 +11,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 REPO=$(cd "$HERE/../.." && pwd)
-TAG="${RELEASE_TAG:-review-v0.1.27}"
+TAG="${RELEASE_TAG:-review-v0.1.28}"
 STRICT=0; CAND=""; NOTRUN=0
 while [ $# -gt 0 ]; do
     case "$1" in
@@ -158,7 +158,7 @@ d=$(fixture 13); rm -f "$d/gate-amendment/check_custody_disclosure.sh"
                                                    record T-13 "checker file deleted"                        "$(step_state "$d" 7)" fail fail
 d=$(fixture 14); printf 'x' >> "$d/README.md"; printf '\nCUSTODY-DISCLOSURE: independent\n' >> "$d/REVIEW_RELEASE.md"
 e=$(validator_exit "$d"); [ "$e" -ne 0 ] && e=pass || e=fail
-                                                   record T-14 "step 3 fails, step 7 passes, later cannot override" "$e" pass pass
+                                                   record T-14 "tampered file plus prohibited declaration"    "$e" pass pass
 
 # ---------- Group C: package integrity ----------
 d=$(fixture 15); printf 'x' >> "$d/README.md"
