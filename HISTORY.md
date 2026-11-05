@@ -1,29 +1,19 @@
 # History
 
-## Pending Correction, Not Yet Released
-
-| Field | Value |
-|------|-------|
-| Status | Prepared. No tag created, nothing published, awaiting authorization. |
-| Change | `LICENSE` line 189: `Copyright [yyyy] [name of copyright owner]` replaced with `Copyright 2025-2026 Sean Christopher Southwick` |
-| Scope | One line. Licence terms sections 1 through 9 unmodified. |
-| Holder decision | Personal name, chosen by the owner 2026-11-04. |
-| Findings this records | Licence file absent at v0.1.16 through v0.1.21; typographical repair of the liability clause when it was restored; loss of the named copyright holder at restoration |
-| Deliberately not addressed | `Cargo.toml` declares no `license` field and no `authors` field. Recorded as a separate open finding, not bundled here. |
-
 ## Current Release
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.24` |
+| Tag | `review-v0.1.25` |
 | Commit | This tag's target |
 | Date | 2026-11-04 |
-| Status | Frozen — VERIFICATION_STATUS reconciliation (per-target test counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified) |
+| Status | Frozen: licence notice correction (copyright holder restored in LICENSE; one line; no test, source, or measured value changes) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.24` | `98d1921` | 2026-11-04 | Custody erratum: joint custody by owner decision recorded as an accepted deviation; rotation plan withdrawn |
 | `review-v0.1.23` | `bdaa60f` | 2026-11-04 | Release signature enforced: fail-closed gate, seat identity pinned, public half shipped for clean-clone verification |
 | `review-v0.1.22` | `7f342ee` | 2026-11-04 | Tag realignment to the branch tip + toolchain pin; releases now carry an enforced signature |
 | `review-v0.1.21` | `73bf100` | 2026-10-23 | VERIFICATION_STATUS reconciliation: per-target counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified |

@@ -8,20 +8,33 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.24` |
+| Release tag | `review-v0.1.25` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.23` / `bdaa60f` (historical) |
+| Previous snapshot | `review-v0.1.24` / `98d1921` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
-## Change in this snapshot (review-v0.1.24)
+## Change in this snapshot (review-v0.1.25)
 
-Erratum only. `review-v0.1.23` stated that custody was provisional and that rotating to an
-owner-held key was the follow-on step. That was accurate when it was written and is now
-superseded: the owner imported the secret half and chose to keep a backup rather than
-rotate, so custody is joint and the identity stays in service. The custody paragraph above
-is the corrected statement. Nothing else in the package changed, and every prior tag
-remains immutable, including the statements inside `review-v0.1.23` that this supersedes.
+Licence notice correction. The Apache-2.0 `LICENSE` shipped since `review-v0.1.22` carried
+the unfilled Apache template notice, so the package stated no copyright holder anywhere:
+`LICENSE` was the only file in the tree mentioning copyright, there was no `NOTICE` file, and
+the README pointed solely at `LICENSE`. The notice is restored to the form used from v0.1.0
+through v0.1.15:
+
+    Copyright 2025-2026 Sean Christopher Southwick
+
+Scope is that one line. The licence terms, sections 1 through 9, are unmodified, and no test,
+source file, or measured value changes. Three separate findings are recorded rather than one
+verdict: the licence file was absent from `review-v0.1.16` through `review-v0.1.21`
+(historical), the limitation-of-liability clause was repaired from "be Iiable" when the file
+returned at `review-v0.1.22` (historical), and the named holder was lost in that same
+restoration.
+
+`Cargo.toml` still declares no `license` and no `authors` field. That is a separate open
+finding, deliberately not bundled into this correction.
+
+The erratum text for `review-v0.1.24` remains inside that tag and is not reproduced here.
 
 ## Change in this snapshot (review-v0.1.23)
 
