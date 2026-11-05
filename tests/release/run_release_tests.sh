@@ -248,6 +248,35 @@ else
     done
 fi
 
+# ---------- Group G: the aggregation lens ----------
+# Every case above that touches the release record reads one step. Nothing asserted that a
+# LATE-step refusal reaches the aggregate verdict while the earlier checks stay clean, so a
+# validator that stopped propagating late failures would keep the suite green. This case holds
+# that line: the declaration is the only mutation, the manifest is re-cut so step 3 stays clean,
+# and the verdict is read through the aggregate lens rather than through step 7.
+d=$(fixture 34 tag)
+printf '\nCUSTODY-DISCLOSURE: independent\n' >> "$d/REVIEW_RELEASE.md"
+python3 - "$d" <<'RECUT'
+import hashlib, pathlib, sys
+d = pathlib.Path(sys.argv[1]); t = d / "SHA256SUMS"; target = "REVIEW_RELEASE.md"
+h = hashlib.sha256((d / target).read_bytes()).hexdigest()
+out = []; hit = False
+for line in t.read_text().splitlines():
+    path = line.partition("  ")[2]
+    if path == target:
+        out.append(h + "  " + path); hit = True
+    else:
+        out.append(line)
+assert hit, "REVIEW_RELEASE.md not in the fixture manifest"
+t.write_text("\n".join(out) + "\n")
+RECUT
+s3=$(step_state "$d" 3); s7=$(step_state "$d" 7)
+# The case is only meaningful in the state it names. If either guard is off, the row below
+# would be measuring some other refusal, which is the defect this case exists to catch.
+[ "$s3" = pass ] || printf '  T-34  MISMATCH: expected step 3 clean, observed %s\n' "$s3"
+[ "$s7" = fail ] || printf '  T-34  MISMATCH: expected step 7 refused, observed %s\n' "$s7"
+                                                   record T-34 "late-step refusal reaches the aggregate verdict" "$(overall "$d")" fail fail
+
 echo
 echo "=== Summary ==="
 echo "  PASS          $PASS"
