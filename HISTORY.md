@@ -1,5 +1,16 @@
 # History
 
+## Pending Correction, Not Yet Released
+
+| Field | Value |
+|------|-------|
+| Status | Prepared. No tag created, nothing published, awaiting authorization. |
+| Change | `LICENSE` line 189: `Copyright [yyyy] [name of copyright owner]` replaced with `Copyright 2025-2026 Sean Christopher Southwick` |
+| Scope | One line. Licence terms sections 1 through 9 unmodified. |
+| Holder decision | Personal name, chosen by the owner 2026-11-04. |
+| Findings this records | Licence file absent at v0.1.16 through v0.1.21; typographical repair of the liability clause when it was restored; loss of the named copyright holder at restoration |
+| Deliberately not addressed | `Cargo.toml` declares no `license` field and no `authors` field. Recorded as a separate open finding, not bundled here. |
+
 ## Current Release
 
 | Field | Value |
