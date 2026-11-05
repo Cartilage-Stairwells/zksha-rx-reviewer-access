@@ -72,9 +72,24 @@ echo ""
 echo "4b. Manifest completeness (present to listed)"
 if [ -f "SHA256SUMS" ]; then
     LISTED=$(awk '{print $2}' SHA256SUMS | sort -u)
+    # Non-regular entries are enumerated before the file list, because a digest manifest cannot
+    # represent a symlink, fifo, socket or device: no content digest means for those what a regular
+    # file's digest means. Enumerating and refusing them is the only honest option, and silently
+    # skipping them is what let an unlisted symlink pass this step.
+    NONREG=$(find . \( -type l -o -type p -o -type s -o -type b -o -type c \) -not -path './.git/*' | sed 's|^\./||' | sort -u)
+    if [ -n "$NONREG" ]; then
+        printf '%s\n' "$NONREG" | sed 's/^/     unsupported: /'
+        fail "$(printf '%s\n' "$NONREG" | wc -l) non-regular entr(ies) present; a release tree may hold regular files only"
+    fi
+    # Empty directories are deliberately not enumerated: git cannot carry one, so a tree taken from
+    # the repository cannot contain one, and refusing them would fail a working copy over a state
+    # the artifact cannot express.
     PRESENT=$(find . -type f -not -path './.git/*' | sed 's|^\./||' | grep -vx 'SHA256SUMS' | sort -u)
-    UNLISTED=$(comm -13 <(printf '%s\n' "$LISTED") <(printf '%s\n' "$PRESENT") || true)
-    if [ -z "$UNLISTED" ]; then
+    # Fail closed. This comparison used to carry "|| true", so a failing comm produced an empty
+    # unlisted set and a printed pass, which is the same silent-degradation class as defect D1.
+    if ! UNLISTED=$(comm -13 <(printf '%s\n' "$LISTED") <(printf '%s\n' "$PRESENT")); then
+        fail "completeness comparison failed (comm exited non-zero); completeness is NOT established"
+    elif [ -z "$UNLISTED" ]; then
         ok "Every present file is listed in SHA256SUMS"
     else
         printf '%s\n' "$UNLISTED" | sed 's/^/     unlisted: /'

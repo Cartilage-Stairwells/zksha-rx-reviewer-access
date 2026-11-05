@@ -67,27 +67,23 @@ is how a correction is demonstrated: the same suite, re-run, must stop producing
 | T-19 | Pipeline | digest tampered, then `make reproduce` | exit non-zero | exit non-zero |
 | T-20 | Pipeline | disclosure removed, then `make reproduce` | exit non-zero | exit non-zero |
 
-## The four properties that matter most
+### Cases T-21 to T-33
 
-T-11, T-12, T-14 and T-17 test the enforcement boundary rather than the checker's internals, and
-they are the reason this phase exists. Each is expected to expose something:
+The table above covers T-01 to T-20. The suite runs through T-33. The rows below are generated
+from the harness itself, so this section cannot drift from what is executed again.
 
-- **T-11, exit-status integrity.** The validator discards the checker's exit status and trusts
-  printed text, so a failing checker can pass by printing one string. This is defect D1.
-- **T-12, output authenticity.** A wrapper that prints the magic string satisfies step 7 whatever
-  it does. The only thing standing between that and a passing release is step 3: the checker is
-  in the manifest, so replacing it changes a digest. That defence belongs to RC-04 and should not
-  be mistaken for RC-07 working.
-- **T-14, no override.** A later step cannot erase an earlier failure, because the validator
-  counts failures rather than short-circuiting on success.
-- **T-17, file completeness.** An added file is invisible to step 4, which checks one direction
-  only. This is defect D2.
-
-## What this plan does not cover
-
-- Publication enforcement (RC-08). No automated path exists, so no test can demonstrate that a
-  bad release is blocked from being published. Tests here prove a script refuses, nothing more.
-- Independent execution (RC-09, the "Independently verified" column). Every result recorded here
-  was produced by the seat that built the release.
-- Whether the checks are the right checks. That is the contract's question, not the suite's.
-- Benchmark reproduction, which needs AVX-512 hardware and is out of scope for the gate.
+| Case | Group | Mutation | Pre-correction | Post-correction |
+|---|---|---|---|---|
+| T-21 | Closure | control: honest checker, exits 0 and prints PASS | accept | accept |
+| T-22 | Closure | D1 closed: prints PASS, exits 1 | refuse | refuse |
+| T-23 | Closure | D1 closed: exits 0, prints nothing | refuse | refuse |
+| T-24 | Closure | D1 closed: exits 0, prints REFUSED | refuse | refuse |
+| T-25 | Closure | control: clean tree, nothing added | accept | accept |
+| T-26 | Closure | control: file added and correctly listed | accept | accept |
+| T-27 | Closure | D2 closed: unlisted file at root | refuse | refuse |
+| T-28 | Closure | D2 closed: unlisted file in a subdirectory | refuse | refuse |
+| T-29 | Closure | no regression: listed file deleted still refused | refuse | refuse |
+| T-30 | Completeness | unlisted symlink (D4) | accept | refuse |
+| T-31 | Completeness | unlisted fifo (D4) | accept | refuse |
+| T-32 | Completeness | failing comm fails closed (D3) | accept | refuse |
+| T-33 | Completeness | parser keeps step 4b out of step 4 | step 4 absorbs 4b | 4b isolated from step 4 |

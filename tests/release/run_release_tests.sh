@@ -54,7 +54,7 @@ step_block() {  # step_block <dir> <stepnum> -> that step's output lines
   ( cd "$1" && bash validate_release.sh 2>&1 || true ) |
   awk -v n="$2" '
     $0 ~ "^" n "\\."      { b=1; next }
-    b && (/^[0-9]+\. / || /^=== Summary/) { b=0 }
+    b && (/^[0-9]+[a-z]?\. / || /^=== Summary/) { b=0 }
     b { print }'
 }
 step_state() {  # step_state <dir> <stepnum> -> pass|fail|absent
@@ -67,6 +67,17 @@ step_state() {  # step_state <dir> <stepnum> -> pass|fail|absent
 }
 validator_exit() { ( cd "$1" && bash validate_release.sh >/dev/null 2>&1 ); echo $?; }
 reproduce_exit() { ( cd "$1" && make reproduce >/dev/null 2>&1 ); echo $?; }
+overall() {  # overall <dir> -> pass|fail, the validator's own verdict rather than a step's
+    local e; e=$(validator_exit "$1"); [ "$e" -eq 0 ] && echo pass || echo fail
+}
+broken_comm_state() {  # broken_comm_state <dir> -> pass|fail with a comm that cannot work
+    # A completeness check that reports success when the comparison itself failed is worse than no
+    # check, so this proves the refusal rather than assuming it.
+    local bin="$WORK/brokenbin" e
+    mkdir -p "$bin"; printf '#!/bin/sh\nexit 1\n' > "$bin/comm"; chmod +x "$bin/comm"
+    ( cd "$1" && PATH="$bin:$PATH" bash validate_release.sh >/dev/null 2>&1 ); e=$?
+    [ "$e" -eq 0 ] && echo pass || echo fail
+}
 
 record() {  # record <id> <mutation> <observed> <expected_now> <expected_fixed> <defect>
   local id=$1 mut=$2 obs=$3 now=$4 fix=$5 defect=${6:-no} verdict
@@ -154,8 +165,8 @@ d=$(fixture 15); printf 'x' >> "$d/README.md"
                                                    record T-15 "one byte appended to a listed file"          "$(step_state "$d" 3)" fail fail
 d=$(fixture 16); rm -f "$d/LICENSE"
                                                    record T-16 "one listed file deleted"                     "$(step_state "$d" 4)" fail fail
-d=$(fixture 17); printf 'stray\n' > "$d/UNLISTED-ADDITION.txt"
-                                                   record T-17 "one unlisted file added"                     "$(step_state "$d" 4)" pass fail yes
+d=$(fixture 17 tag); printf 'stray\n' > "$d/UNLISTED-ADDITION.txt"
+                                                   record T-17 "one unlisted file added"                     "$(overall "$d")" pass fail yes
 
 # ---------- Group D: the full pipeline ----------
 d=$(fixture 18 tag); e=$(validator_exit "$d"); [ "$e" -eq 0 ] && e=pass || e=fail
@@ -212,6 +223,19 @@ EOF
     record T-28 "D2 closed: unlisted file in a subdirectory"          "$(step_state "$d" 4b)" fail fail
     d=$(fixture 29); rm -f "$d/LICENSE"
     record T-29 "no regression: listed file deleted still refused"    "$(step_state "$d" 4)" fail fail
+
+# ---------- Group F: completeness fail-closed (D3) and non-regular entries (D4) ----------
+# Both were found by a third-party run and confirmed by probe. They are the same failure class as
+# D1 and D2: a check that reports success without having established anything.
+d=$(fixture 30 tag); ln -s /etc/hostname "$d/UNLISTED-SYMLINK"
+                                                   record T-30 "unlisted symlink (D4)"                         "$(overall "$d")" pass fail yes
+d=$(fixture 31 tag); mkfifo "$d/UNLISTED-FIFO"
+                                                   record T-31 "unlisted fifo (D4)"                            "$(overall "$d")" pass fail yes
+d=$(fixture 32 tag)
+                                                   record T-32 "failing comm fails closed (D3)"                "$(broken_comm_state "$d")" pass fail yes
+d=$(fixture 33 tag); printf 'stray\n' > "$d/UNLISTED-PARSER.txt"
+if step_block "$d" 4 | grep -q '4b\. Manifest completeness'; then leak=fail; else leak=pass; fi
+                                                   record T-33 "parser keeps step 4b out of step 4"             "$leak" fail pass yes
 else
     for id in 21 22 23 24 25 26 27 28 29; do
         printf '  %-5s %-46s %s\n' "T-$id" "closure case" "NOT RUN: no --candidate supplied"

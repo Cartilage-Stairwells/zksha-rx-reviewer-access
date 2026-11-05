@@ -58,8 +58,10 @@ earlier figure omitted RC-09 entirely and mixed the two axes.
 
 ## Defects found, and their correction
 
-Both were live in `review-v0.1.26` and both are corrected on this branch at commit `532799a`. The
-published tag keeps them, because published tags are immutable, which is the point of the tag.
+> Both were live in `review-v0.1.26`. Both are corrected in this release: the validator requires
+> the custody checker's exit status 0 as well as its `RESULT: PASS` line, and it checks manifest
+> completeness in both directions. `review-v0.1.26` keeps both defects because published tags are
+> immutable, which is the point of a tag.
 
 **D1, exit status discarded at step 7.** The validator ran the custody checker with `|| true` and
 decided on whether stdout contained `RESULT: PASS`, so the checker's own verdict was never
