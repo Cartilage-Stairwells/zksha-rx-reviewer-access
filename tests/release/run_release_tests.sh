@@ -169,8 +169,13 @@ d=$(fixture 20 tag); sed -i '/^CUSTODY-DISCLOSURE: /d' "$d/REVIEW_RELEASE.md"; e
 # These run only against a candidate. They are the part that distinguishes "the original
 # reproduction stopped reproducing" from "the property now holds": each defect has a negative
 # control that the fix must still accept, so a validator that simply refuses everything fails here.
+# Closure cases run against a candidate, or against the installed gate once it carries step 4b,
+# so the same nine cases that proved the proposal now hold the installed implementation.
+if [ -z "$CAND" ] && grep -q '^# 4b\. Manifest completeness' "$REPO/validate_release.sh" 2>/dev/null; then
+    CAND="$REPO/validate_release.sh"
+fi
 if [ -n "$CAND" ]; then
-    printf '  %s\n' "--- closure against candidate: $CAND"
+    printf '  %s\n' "--- closure against: $CAND"
     d=$(fixture 21); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
 #!/usr/bin/env bash
 echo "ok   custody mode 'joint' declared, deviation disclosed in words"
@@ -227,8 +232,10 @@ if [ "$STRICT" -eq 1 ] && [ "$KNOWN" -gt 0 ]; then
     echo "❌ STRICT: $KNOWN known defect(s) still reproduce; a correction has not landed"
     exit 1
 fi
-if [ -n "$CAND" ]; then
+if [ "$KNOWN" -eq 0 ] && [ "$FIXEDC" -gt 0 ]; then
     echo "✅ CORRECTION DEMONSTRATED: $FIXEDC documented defect(s) now refused, controls still pass"
+elif [ "$KNOWN" -eq 0 ]; then
+    echo "✅ ALL CASES MATCH the required behaviour; nothing is recorded as a known defect"
 else
     echo "✅ BASELINE RECORDED: observed behaviour matches the documented state of $TAG"
 fi

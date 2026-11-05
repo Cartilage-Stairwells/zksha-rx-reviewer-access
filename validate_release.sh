@@ -67,6 +67,23 @@ if [ "$DEAD" -eq 0 ]; then
     ok "All SHA256SUMS paths exist"
 fi
 
+# 4b. Manifest completeness, present to listed
+echo ""
+echo "4b. Manifest completeness (present to listed)"
+if [ -f "SHA256SUMS" ]; then
+    LISTED=$(awk '{print $2}' SHA256SUMS | sort -u)
+    PRESENT=$(find . -type f -not -path './.git/*' | sed 's|^\./||' | grep -vx 'SHA256SUMS' | sort -u)
+    UNLISTED=$(comm -13 <(printf '%s\n' "$LISTED") <(printf '%s\n' "$PRESENT") || true)
+    if [ -z "$UNLISTED" ]; then
+        ok "Every present file is listed in SHA256SUMS"
+    else
+        printf '%s\n' "$UNLISTED" | sed 's/^/     unlisted: /'
+        fail "$(printf '%s\n' "$UNLISTED" | wc -l) present file(s) absent from SHA256SUMS"
+    fi
+else
+    fail "SHA256SUMS missing; completeness cannot be established"
+fi
+
 # 5. Historical labeling
 echo ""
 echo "5. Historical labeling"
@@ -97,12 +114,13 @@ fi
 echo ""
 echo "7. Custody disclosure"
 if [ -f "gate-amendment/check_custody_disclosure.sh" ]; then
-    CD_OUT=$(bash gate-amendment/check_custody_disclosure.sh REVIEW_RELEASE.md 2>&1 || true)
-    if echo "$CD_OUT" | grep -q 'RESULT: PASS'; then
+    CD_RC=0
+    CD_OUT=$(bash gate-amendment/check_custody_disclosure.sh REVIEW_RELEASE.md 2>&1) || CD_RC=$?
+    if [ "$CD_RC" -eq 0 ] && printf '%s\n' "$CD_OUT" | grep -q 'RESULT: PASS'; then
         ok "Custody disclosure declared and consistent with the frozen position"
     else
         echo "$CD_OUT" | sed 's/^/     /'
-        fail "Custody disclosure check refused this release (reasons above)"
+        fail "Custody disclosure check refused this release (exit status $CD_RC)"
     fi
 else
     fail "gate-amendment/check_custody_disclosure.sh missing; disclosure is unenforced"
