@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.21` |
-| Commit | This tag's target |
-| Date | 2026-10-23 |
+| Tag | `review-v0.1.22` |
+| Commit | `7f342ee` |
+| Date | 2026-11-04 |
 | Status | Frozen — VERIFICATION_STATUS reconciliation (per-target test counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified) |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.21` | `73bf100` | 2026-10-23 | VERIFICATION_STATUS reconciliation: per-target counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified |
 | `review-v0.1.20` | `84ebf64` | 2026-10-23 | Benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
 | `review-v0.1.19` | `612cd89` | 2026-10-23 | Reproducibility mapping: canonical benchmark command identified; staged-comparison count adjudicated |
 | `review-v0.1.18` | `9e7d3b1` | 2026-10-23 | Measured count-alignment: test counts aligned to independent run (139/139) |

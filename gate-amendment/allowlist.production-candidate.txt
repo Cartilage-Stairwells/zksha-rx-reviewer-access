@@ -1,0 +1,3 @@
+# Non-test, non-retired allowlist used to prove the allowlist discriminates.
+# The single entry is an UNASSIGNED PLACEHOLDER, not a real identity: no signature can match it.
+1111111111111111111111111111111111111111

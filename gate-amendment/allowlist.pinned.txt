@@ -1,0 +1,1 @@
+# Pinned release signing fingerprints, one per line. Empty on purpose: no seat identity exists yet.

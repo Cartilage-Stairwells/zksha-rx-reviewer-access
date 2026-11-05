@@ -1,0 +1,3 @@
+# TEST ONLY. This fingerprint belongs to a disposable fixture identity.
+# It must never appear in allowlist.pinned.txt, and never authorises a release.
+5D38FB8C4F0110B1B74B119F09F2C11E64773952

@@ -13,6 +13,22 @@
 | Previous snapshot | `review-v0.1.21` / `73bf100` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
+## Pending next snapshot: NOT RELEASED
+
+This tree carries a prepared, rehearsed replacement for the release signature check in
+`gate-amendment/`, together with the key transition record and the acceptance evidence.
+It is **not enforced**: `validate_release.sh` is unchanged, and this snapshot therefore
+sits exactly where `review-v0.1.22` was. Two reasons, both recorded rather than implied:
+
+1. Enforcing it requires an authorised signing identity, and no production identity
+   exists. The gate refuses an unsigned tag by design, so wiring it in today would make
+   the currently published snapshot fail its own validation.
+2. `review-v0.1.22`'s tag is itself unsigned, so the prepared gate reports it as
+   non-conforming. That is the honest reading of the tag, not a defect introduced here.
+
+Installing the gate and releasing a signed snapshot is a single later step, described in
+`KEY-TRANSITION-AND-IDENTITY-RETIREMENT-DRAFT.md`.
+
 ## Change in this snapshot (review-v0.1.22)
 
 `review-v0.1.21` was tagged at `73bf100`. The commit that followed it, `57568f3`

@@ -1,0 +1,2 @@
+# Placeholder foreign fingerprint used only to prove the allowlist comparison discriminates.
+0000000000000000000000000000000000000000
