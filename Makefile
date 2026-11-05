@@ -31,3 +31,11 @@ reproduce: validate verify
 	@echo "=== To run tests: make test ==="
 	@echo "=== To run benchmarks: make bench ==="
 	@echo "=== AVX-512 hardware required for full benchmark ==="
+
+# Additive assurance suite. Deliberately separate from `reproduce`, which reproduces the
+# validation gate and the manifest but does not re-run the test suite or the measurements.
+release-test:
+	bash tests/release/run_release_tests.sh
+
+release-test-strict:
+	bash tests/release/run_release_tests.sh --strict

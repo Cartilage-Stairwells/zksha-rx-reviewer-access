@@ -108,3 +108,18 @@ Feedback is welcome. Contact: schlagetorren@gmail.com
 ├── PROJECT_FACTS.md             ← Canonical source-of-truth
 └── validate_release.sh          ← Release validation gate
 ```
+
+## One canonical procedure
+
+Reproduction steps live in exactly one place: the *Reproduction Commands* section of
+`REVIEW_RELEASE.md`, which names the current release tag. If this file and that section ever
+disagree, that section is correct and this file is stale.
+
+Scope, stated so it is not overread: `make reproduce` is `validate verify`. It runs the release
+gate and the manifest check. It does not run the Rust test suite (`make test`) and does not
+reproduce the benchmark measurements (`make bench`, which needs AVX-512 hardware). A passing
+`make reproduce` establishes that the gate accepted the release and that the files match their
+digests. It establishes nothing about correctness, security, or measurement claims.
+
+The gate's own adversarial suite is `make release-test`, which is additive assurance work and not
+part of the release path.
