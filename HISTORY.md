@@ -278,6 +278,12 @@ tests across 12 binaries (37 unit + 102 integration), matching the README's clai
 - Release identity advanced to review-v0.1.22 across the entry documents (REVIEW_RELEASE.md tag row, previous-snapshot row, and the checkout command in the reviewer path)
 - SHA256SUMS regenerated over all tracked files except itself, which restores `LICENSE` to the manifest (added at `57568f3` without a manifest update)
 
+**Authorship:** the content commit for this entry was authored and pushed by the
+account identity. The custodian seat adopts that exact tree here as the release identity,
+because the branch disallows history rewriting, so the seat records adoption rather than
+replacing the original commit. Between the account-authored commit and this one, only
+this note and the manifest line it forces differ; every other file is byte-identical.
+
 **Known limitation, unchanged:** the tag is not GPG-signed, so the gate's signature step
 reports a warning rather than a pass, and the validator compares a tag name, not a
 signature. Signing the tag remains an open step for the owner.
