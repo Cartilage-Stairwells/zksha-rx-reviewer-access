@@ -12,7 +12,15 @@ set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 REPO=$(cd "$HERE/../.." && pwd)
 TAG="${RELEASE_TAG:-review-v0.1.26}"
-STRICT=0; [ "${1:-}" = "--strict" ] && STRICT=1
+STRICT=0; CAND=""; NOTRUN=0
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --strict)    STRICT=1 ;;
+        --candidate) shift; CAND="${1:-}"; [ -n "$CAND" ] || { echo "--candidate needs a path" >&2; exit 2; } ;;
+        *)           echo "unknown argument: $1" >&2; exit 2 ;;
+    esac
+    shift
+done
 WORK=$(mktemp -d); trap 'rm -rf "$WORK"' EXIT
 
 PASS=0; KNOWN=0; FIXEDC=0; FAILD=0; FAILED_IDS=""
@@ -21,6 +29,24 @@ fixture() {   # fixture <id> [tag]
   local d="$WORK/case-$1"
   git clone -q --no-hardlinks "$REPO" "$d" 2>/dev/null || { echo "fixture clone failed" >&2; exit 2; }
   [ "${2:-}" = tag ] && git -C "$d" checkout -q "$TAG" 2>/dev/null
+  # A candidate validator is dropped over the fixture's copy only. The repository's own
+  # validate_release.sh is never touched by this harness.
+  if [ -n "$CAND" ]; then
+      cp "$CAND" "$d/validate_release.sh"
+      # Keep the fixture internally consistent. validate_release.sh is itself in the manifest, so
+      # a candidate dropped in without updating its entry fails RC-04 before any case is measured,
+      # which is the mitigation T-12 predicted and here confirms.
+      python3 -c 'import hashlib,pathlib,sys
+d=pathlib.Path(sys.argv[1]); t=d/"SHA256SUMS"; v=d/"validate_release.sh"
+h=hashlib.sha256(v.read_bytes()).hexdigest()
+out=[]; hit=False
+for l in t.read_text().splitlines():
+    p=l.partition("  ")[2]
+    if p=="validate_release.sh": out.append(h+"  "+p); hit=True
+    else: out.append(l)
+assert hit, "validate_release.sh not in fixture manifest"
+t.write_text("\n".join(out)+"\n")' "$d"
+  fi
   printf '%s' "$d"
 }
 
@@ -139,17 +165,71 @@ d=$(fixture 19 tag); printf 'x' >> "$d/README.md"; e=$(reproduce_exit "$d"); [ "
 d=$(fixture 20 tag); sed -i '/^CUSTODY-DISCLOSURE: /d' "$d/REVIEW_RELEASE.md"; e=$(reproduce_exit "$d"); [ "$e" -ne 0 ] && e=pass || e=fail
                                                    record T-20 "disclosure removed, make reproduce"          "$e" pass pass
 
+# ---------- Group E: closure of D1 and D2 ----------
+# These run only against a candidate. They are the part that distinguishes "the original
+# reproduction stopped reproducing" from "the property now holds": each defect has a negative
+# control that the fix must still accept, so a validator that simply refuses everything fails here.
+if [ -n "$CAND" ]; then
+    printf '  %s\n' "--- closure against candidate: $CAND"
+    d=$(fixture 21); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
+#!/usr/bin/env bash
+echo "ok   custody mode 'joint' declared, deviation disclosed in words"
+echo "RESULT: PASS"
+exit 0
+EOF
+    record T-21 "control: honest checker, exits 0 and prints PASS"    "$(step_state "$d" 7)" pass pass
+    d=$(fixture 22); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
+#!/usr/bin/env bash
+echo "ok   custody mode 'joint' declared, deviation disclosed in words"
+echo "RESULT: PASS"
+exit 1
+EOF
+    record T-22 "D1 closed: prints PASS, exits 1"                     "$(step_state "$d" 7)" fail fail
+    d=$(fixture 23); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
+#!/usr/bin/env bash
+exit 0
+EOF
+    record T-23 "D1 closed: exits 0, prints nothing"                  "$(step_state "$d" 7)" fail fail
+    d=$(fixture 24); cat > "$d/gate-amendment/check_custody_disclosure.sh" <<'EOF'
+#!/usr/bin/env bash
+echo "FAIL custody mode declared without disclosure"
+echo "RESULT: REFUSED"
+exit 0
+EOF
+    record T-24 "D1 closed: exits 0, prints REFUSED"                  "$(step_state "$d" 7)" fail fail
+    d=$(fixture 25)
+    record T-25 "control: clean tree, nothing added"                  "$(step_state "$d" 4b)" pass pass
+    d=$(fixture 26); printf 'listed addition\n' > "$d/docs/ADDED-AND-LISTED.md"; h=$(sha256sum "$d/docs/ADDED-AND-LISTED.md" | cut -d' ' -f1); printf '%s  docs/ADDED-AND-LISTED.md\n' "$h" >> "$d/SHA256SUMS"
+    record T-26 "control: file added and correctly listed"            "$(step_state "$d" 4b)" pass pass
+    d=$(fixture 27); printf 'stray\n' > "$d/UNLISTED-AT-ROOT.txt"
+    record T-27 "D2 closed: unlisted file at root"                    "$(step_state "$d" 4b)" fail fail
+    d=$(fixture 28); mkdir -p "$d/docs/nested"; printf 'stray\n' > "$d/docs/nested/UNLISTED-NESTED.txt"
+    record T-28 "D2 closed: unlisted file in a subdirectory"          "$(step_state "$d" 4b)" fail fail
+    d=$(fixture 29); rm -f "$d/LICENSE"
+    record T-29 "no regression: listed file deleted still refused"    "$(step_state "$d" 4)" fail fail
+else
+    for id in 21 22 23 24 25 26 27 28 29; do
+        printf '  %-5s %-46s %s\n' "T-$id" "closure case" "NOT RUN: no --candidate supplied"
+        NOTRUN=$((NOTRUN+1))
+    done
+fi
+
 echo
 echo "=== Summary ==="
 echo "  PASS          $PASS"
 echo "  KNOWN-DEFECT  $KNOWN"
 echo "  FIXED         $FIXEDC"
 echo "  FAIL          $FAILD"
+echo "  NOT RUN       $NOTRUN"
 [ -n "$FAILED_IDS" ] && echo "  failed cases:$FAILED_IDS"
 if [ "$FAILD" -gt 0 ]; then echo "❌ BASELINE UNRELIABLE"; exit 1; fi
 if [ "$STRICT" -eq 1 ] && [ "$KNOWN" -gt 0 ]; then
     echo "❌ STRICT: $KNOWN known defect(s) still reproduce; a correction has not landed"
     exit 1
 fi
-echo "✅ BASELINE RECORDED: observed behaviour matches the documented state of $TAG"
+if [ -n "$CAND" ]; then
+    echo "✅ CORRECTION DEMONSTRATED: $FIXEDC documented defect(s) now refused, controls still pass"
+else
+    echo "✅ BASELINE RECORDED: observed behaviour matches the documented state of $TAG"
+fi
 exit 0
