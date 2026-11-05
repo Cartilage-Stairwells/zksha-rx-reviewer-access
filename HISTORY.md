@@ -4,15 +4,16 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.25` |
+| Tag | `review-v0.1.26` |
 | Commit | This tag's target |
 | Date | 2026-11-04 |
-| Status | Frozen: licence notice correction (copyright holder restored in LICENSE; one line; no test, source, or measured value changes) |
+| Status | Frozen: custody disclosure enforced in the validator, package metadata declares its licence and author, stale reproduction checkout corrected |
 
 ## Previous Reviewer Snapshots
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.25` | `bbe9e98` | 2026-11-04 | Licence notice correction: copyright holder restored to the personal name; custody disclosure deferred to this snapshot |
 | `review-v0.1.24` | `98d1921` | 2026-11-04 | Custody erratum: joint custody by owner decision recorded as an accepted deviation; rotation plan withdrawn |
 | `review-v0.1.23` | `bdaa60f` | 2026-11-04 | Release signature enforced: fail-closed gate, seat identity pinned, public half shipped for clean-clone verification |
 | `review-v0.1.22` | `7f342ee` | 2026-11-04 | Tag realignment to the branch tip + toolchain pin; releases now carry an enforced signature |

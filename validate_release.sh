@@ -93,6 +93,21 @@ else
     fi
 fi
 
+# 7. Custody disclosure
+echo ""
+echo "7. Custody disclosure"
+if [ -f "gate-amendment/check_custody_disclosure.sh" ]; then
+    CD_OUT=$(bash gate-amendment/check_custody_disclosure.sh REVIEW_RELEASE.md 2>&1 || true)
+    if echo "$CD_OUT" | grep -q 'RESULT: PASS'; then
+        ok "Custody disclosure declared and consistent with the frozen position"
+    else
+        echo "$CD_OUT" | sed 's/^/     /'
+        fail "Custody disclosure check refused this release (reasons above)"
+    fi
+else
+    fail "gate-amendment/check_custody_disclosure.sh missing; disclosure is unenforced"
+fi
+
 # Summary
 echo ""
 echo "=== Summary ==="

@@ -2,6 +2,8 @@
 name = "avx512_butterfly"
 version = "0.1.0"
 edition = "2021"
+authors = ["Sean Christopher Southwick"]
+license = "Apache-2.0"
 
 [dependencies]
 sha2 = "0.10"

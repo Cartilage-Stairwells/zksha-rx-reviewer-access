@@ -8,11 +8,47 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.25` |
+| Release tag | `review-v0.1.26` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.24` / `98d1921` (historical) |
+| Previous snapshot | `review-v0.1.25` / `bbe9e98` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
+
+## Custody Disclosure
+
+CUSTODY-DISCLOSURE: joint
+
+Machine-readable form of the disclosure recorded in full under "Change in this snapshot
+(review-v0.1.23)" below: custody is joint by owner decision on 2026-11-04, an accepted
+deviation from the transition record's non-negotiable rather than compliance with it. From
+this snapshot the disclosure is enforced rather than described: `validate_release.sh` calls
+`gate-amendment/check_custody_disclosure.sh`, which refuses a record that omits the line,
+asserts independent control, or declares the mode more than once.
+
+## Change in this snapshot (review-v0.1.26)
+
+Three corrections, none of which touches a test, a source file, or a measured value.
+
+**The custody disclosure is now enforced.** The frozen position of 2026-11-04 requires every
+release record to keep the joint-custody deviation visible, but until now that requirement was
+prose: `validate_release.sh` did not read for it, so a future record could have omitted the
+disclosure and still passed every check. The validator now calls
+`gate-amendment/check_custody_disclosure.sh`, and a refusal counts as a failed release. The
+check is ported from the reference implementation filed at `61c011b` in
+`tscp-workstream-records`, including its whitespace handling, with one addition: a duplicate
+declaration is refused. The reference took the first declaration and ignored later ones, so a
+record could carry `joint` and then `independent` and pass while asserting exactly what the
+check exists to prevent.
+
+**The package metadata now declares its licence and author.** `Cargo.toml` carried no
+`license` and no `authors` field, so the only statement of either was prose in `README.md`.
+It now declares `license = "Apache-2.0"` and `authors = ["Sean Christopher Southwick"]`,
+matching the copyright notice restored at `review-v0.1.25`. This closes the separate open
+finding recorded in that snapshot.
+
+**The reproduction command was stale.** The instructions told a reviewer to check out
+`review-v0.1.22`, three releases behind, so following them produced an older snapshot than
+the one being reviewed. It now checks out this tag.
 
 ## Change in this snapshot (review-v0.1.25)
 
@@ -116,7 +152,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.22
+git checkout review-v0.1.26
 
 # Build
 cargo build --release
