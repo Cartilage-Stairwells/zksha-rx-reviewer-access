@@ -4,7 +4,7 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.23` |
+| Tag | `review-v0.1.24` |
 | Commit | This tag's target |
 | Date | 2026-11-04 |
 | Status | Frozen — VERIFICATION_STATUS reconciliation (per-target test counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified) |
@@ -13,6 +13,7 @@
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.23` | `bdaa60f` | 2026-11-04 | Release signature enforced: fail-closed gate, seat identity pinned, public half shipped for clean-clone verification |
 | `review-v0.1.22` | `7f342ee` | 2026-11-04 | Tag realignment to the branch tip + toolchain pin; releases now carry an enforced signature |
 | `review-v0.1.21` | `73bf100` | 2026-10-23 | VERIFICATION_STATUS reconciliation: per-target counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified |
 | `review-v0.1.20` | `84ebf64` | 2026-10-23 | Benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
@@ -321,3 +322,26 @@ an authorised identity, not authorship by a person and not the correctness of wh
 
 Also corrected here: the current-release row above still named `review-v0.1.21` after 0.1.22
 shipped, and the previous-snapshot table had no 0.1.21 row.
+
+## review-v0.1.24 (2026-11-04) — Erratum: custody is joint, not provisional-pending-rotation
+
+**Tag:** review-v0.1.24
+**Supersedes:** review-v0.1.23 for reviewer entry (all prior tags remain immutable).
+
+`review-v0.1.23` recorded custody as provisional and named rotation to an owner-held key as
+the follow-on step. That was true of the state it described. It is no longer true of the
+identity: on 2026-11-04 the owner imported the secret half and elected to keep a backup for
+continuity, so the key is held jointly by the signing keyring and by the owner, and the
+identity remains in service rather than being rotated.
+
+Recorded plainly rather than quietly corrected: joint custody departs from the transition
+record's requirement that the private half is not held by whoever operates the release
+automation. It is an owner-decided deviation, accepted with its consequence, which is that
+release authority signed by this identity is not independently controlled.
+
+Also recorded in REVIEW_RELEASE.md: residual copies that cannot be withdrawn, namely two
+auto-commit entries in the platform workspace repository history and one private-storage
+object behind an expired link. Both are platform-side, not GitHub.
+
+No other content changed in this snapshot. The gate is unchanged and still enforces the
+signature; the manifest covers every present file.

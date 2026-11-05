@@ -8,11 +8,20 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.23` |
+| Release tag | `review-v0.1.24` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.22` / `7f342ee` (historical) |
+| Previous snapshot | `review-v0.1.23` / `bdaa60f` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
+
+## Change in this snapshot (review-v0.1.24)
+
+Erratum only. `review-v0.1.23` stated that custody was provisional and that rotating to an
+owner-held key was the follow-on step. That was accurate when it was written and is now
+superseded: the owner imported the secret half and chose to keep a backup rather than
+rotate, so custody is joint and the identity stays in service. The custody paragraph above
+is the corrected statement. Nothing else in the package changed, and every prior tag
+remains immutable, including the statements inside `review-v0.1.23` that this supersedes.
 
 ## Change in this snapshot (review-v0.1.23)
 
@@ -31,12 +40,15 @@ gate reports an identity appearing on both lists as a fatal contradiction.
 
 Two honest limitations, recorded rather than implied:
 
-1. **Custody is provisional.** The seat's secret half currently sits in the agent
-   sandbox that produced this snapshot, not in owner-controlled storage. A key held by
-   whoever operates the release automation is not independently controlled, which is what
-   the transition record requires. Rotating to an owner-held key is the follow-on step,
-   and the retirement protocol in `KEY-TRANSITION-AND-IDENTITY-RETIREMENT-DRAFT.md`
-   already covers how an identity is retired forward.
+1. **Custody is joint, by owner decision on 2026-11-04.** The seat's secret half sits in
+   two places: the agent keyring that signs releases, and a backup held by the owner, so
+   that losing the sandbox does not end the identity and either party can restore it. This
+   departs from the transition record's non-negotiable that the private half is not held by
+   whoever operates the release automation. The departure is recorded here as an accepted
+   deviation decided by the owner, not as compliance with that requirement. Residual copies
+   exist and cannot be withdrawn: two auto-commit entries in the platform's workspace
+   repository history, and one object in private file storage behind an expired link. Those
+   are platform-side rather than GitHub, and they are part of this key's history.
 2. **A signature attests continuity of an authorised identity.** It says nothing about
    authorship by a named person and nothing about the correctness of what it signs.
 
