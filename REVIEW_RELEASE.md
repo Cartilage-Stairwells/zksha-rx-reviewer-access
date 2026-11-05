@@ -33,7 +33,7 @@ unchanged, and `review-v0.1.28` remains immutable and keeps every defect correct
 **D-01, a false claim of permanence.** `docs/D1-D2-CORRECTION-AND-CLOSURE.md` stated that the adversarial
 plan was "unchanged, because it was filed with a recorded digest and its bytes must stay those bytes".
 That is a universal claim, and it is false in any package published after `review-v0.1.27`, because this
-line of snapshots extended the plan to T-33. The sentence now names both digests and what each binds:
+line of snapshots extended the plan to T-34. The sentence now names both digests and what each binds:
 `a965462a` for the bytes carried by `review-v0.1.27`, `b50b05b7` for the bytes carried by
 `review-v0.1.28` and later. The supersession is recorded in the private records at commit `ef98b76`.
 
@@ -51,7 +51,7 @@ PASS, which reads as closure evidence. The suite now carries a CONTROL verdict f
 and prints the count on its own line, so a passing control is never counted as a corrected defect.
 
 **D-05, an unscoped count.** The results document reported that a run "covers all 29 cases". That was
-true at the commit it records and is not true of this suite, which runs 33. The figure is now scoped to
+true at the commit it records and is not true of this suite, which runs 34. The figure is now scoped to
 the commit that measured it.
 
 Nothing here changes what the validator does. Each correction makes a claim accurate, and the behavioural

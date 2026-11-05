@@ -161,9 +161,17 @@ if [ "$s3" != fail ]; then printf '  T-12  MISMATCH: expected step 3 to catch th
                                                    record T-12 "checker replaced by a PASS-printing wrapper" "$s7" pass pass
 d=$(fixture 13); rm -f "$d/gate-amendment/check_custody_disclosure.sh"
                                                    record T-13 "checker file deleted"                        "$(step_state "$d" 7)" fail fail
-d=$(fixture 14); printf 'x' >> "$d/README.md"; printf '\nCUSTODY-DISCLOSURE: independent\n' >> "$d/REVIEW_RELEASE.md"
+# T-14 asserts the ordering claim itself: an EARLY failure must not be overridden by a LATER pass.
+# The fixture therefore carries the README tamper ONLY. An added prohibited declaration made step 7
+# fail too, so no step passed and the ordering was never exercised. Measured against two mutants, the
+# README tamper is also caught by other checks, so this remains a control: it now EXERCISES the named
+# ordering but cannot discriminate. T-34 is the discriminating aggregate case for a late refusal.
+d=$(fixture 14); printf 'x' >> "$d/README.md"
+s3=$(step_state "$d" 3); s7=$(step_state "$d" 7)
+[ "$s3" != fail ] && printf '  T-14  MISMATCH: expected step 3 to fail, observed %s\n' "$s3"
+[ "$s7" != pass ] && printf '  T-14  MISMATCH: expected step 7 to pass, observed %s\n' "$s7"
 e=$(validator_exit "$d"); [ "$e" -ne 0 ] && e=pass || e=fail
-                                                   record T-14 "tampered file plus prohibited declaration"    "$e" pass pass control
+                                                   record T-14 "early step fails, later step passes, still refused" "$e" pass pass control
 
 # ---------- Group C: package integrity ----------
 d=$(fixture 15); printf 'x' >> "$d/README.md"

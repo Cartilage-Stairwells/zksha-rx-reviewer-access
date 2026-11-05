@@ -70,8 +70,9 @@ manifest. That protection belongs to RC-04. It is not the custody check working.
 ## Addendum: after the correction was installed
 
 Recorded at commit `532799a`, where D1 and D2 are corrected in `validate_release.sh`. The nine
-closure cases attach to the installed validator automatically, so this run covers all 29 cases at that commit. The suite has since grown to 33 cases,
-with T-30 to T-33 added at review-v0.1.28, so 29 describes this run and not the current suite.
+closure cases attach to the installed validator automatically, so this run covers all 29 cases at that commit. The suite has since grown to 34 cases,
+with T-30 to T-33 added at review-v0.1.28 and T-34 added at `651217c`, so 29 describes this run and
+not the current suite.
 
 ```
   T-01  clean record, no mutation                      observed=pass PASS

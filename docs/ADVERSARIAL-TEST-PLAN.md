@@ -59,7 +59,7 @@ is how a correction is demonstrated: the same suite, re-run, must stop producing
 | T-11 | Boundary | checker prints `RESULT: PASS` and exits 1 | accept (defect D1) | refuse |
 | T-12 | Boundary | checker replaced by a wrapper that prints PASS without reading | step 7 accepts, step 3 refuses | unchanged, defence is RC-04 |
 | T-13 | Boundary | checker file deleted | refuse | refuse |
-| T-14 | Control | tampered README plus a prohibited custody declaration (control, cannot discriminate) | overall exit non-zero | overall exit non-zero |
+| T-14 | Ordering | tampered README only, so step 3 fails while step 7 passes (exercises the ordering; still a control, since the same mutation is caught independently) | overall exit non-zero | overall exit non-zero |
 | T-15 | Integrity | one byte appended to a listed file | refuse | refuse |
 | T-16 | Integrity | one listed file deleted | refuse | refuse |
 | T-17 | Integrity | one unlisted file added | accept (defect D2) | refuse |
@@ -67,9 +67,9 @@ is how a correction is demonstrated: the same suite, re-run, must stop producing
 | T-19 | Pipeline | digest tampered, then `make reproduce` | exit non-zero | exit non-zero |
 | T-20 | Pipeline | disclosure removed, then `make reproduce` | exit non-zero | exit non-zero |
 
-### Cases T-21 to T-33
+### Cases T-21 to T-34
 
-The table above covers T-01 to T-20. The suite runs through T-33. The rows below are generated
+The table above covers T-01 to T-20. The suite runs through T-34. The rows below are generated
 from the harness itself, so this section cannot drift from what is executed again.
 
 | Case | Group | Mutation | Pre-correction | Post-correction |
@@ -87,3 +87,4 @@ from the harness itself, so this section cannot drift from what is executed agai
 | T-31 | Completeness | unlisted fifo (D4) | accept | refuse |
 | T-32 | Completeness | failing comm fails closed (D3) | accept | refuse |
 | T-33 | Completeness | parser keeps step 4b out of step 4 | step 4 absorbs 4b | 4b isolated from step 4 |
+| T-34 | Aggregation | prohibited declaration appended, manifest re-cut so step 3 stays clean | not present | overall refuses, step 3 clean |
