@@ -5,10 +5,15 @@ This document holds the proposed correction and the evidence that it closes them
 
 ## Status boundary, stated first
 
-The correction is **not installed**. `validate_release.sh` is byte-identical to tag
-`review-v0.1.26`, verified with `git diff review-v0.1.26 -- validate_release.sh` returning nothing.
-No tag was created and nothing was pushed. The correction lives at
-`tests/release/candidates/validate_release.proposed.sh` and is exercised only by the harness.
+The correction is **installed on branch `assurance-baseline` at commit `532799a`**, on explicit
+owner authorisation, and it is **not published**. The published tag `review-v0.1.26` and `main`
+above it still carry both defects, because tags are immutable and nothing has been pushed. A
+reviewer who clones the public repository today receives the defective validator; a reviewer given
+this branch receives the corrected one.
+
+The proposal file `tests/release/candidates/validate_release.proposed.sh` was retired once the
+correction entered `validate_release.sh`, so there is one implementation rather than two that can
+drift apart. Its content at the moment of installation is the content now in the release path.
 
 The closure evidence below was produced by the same harness that produced the baseline. It shows
 that the correction changes the observed behaviour in the specified directions. It does **not**
@@ -38,7 +43,7 @@ UNLISTED=$(comm -13 <(printf '%s\n' "$LISTED") <(printf '%s\n' "$PRESENT") || tr
 
 ## Evidence
 
-### Against the shipped gate, unchanged
+### Before installation, against the validator that `review-v0.1.26` carries
 
 ```
   T-01  clean record, no mutation                      observed=pass PASS
@@ -80,9 +85,9 @@ UNLISTED=$(comm -13 <(printf '%s\n' "$LISTED") <(printf '%s\n' "$PRESENT") || tr
   NOT RUN       9
 ```
 
-Strict mode against the shipped gate exits 1: `❌ STRICT: 2 known defect(s) still reproduce; a correction has not landed`
+Strict mode against the published validator exits 1: `❌ STRICT: 2 known defect(s) still reproduce; a correction has not landed`
 
-### Against the proposed correction
+### After installation, against the release path
 
 ```
   T-01  clean record, no mutation                      observed=pass PASS
@@ -124,7 +129,7 @@ Strict mode against the shipped gate exits 1: `❌ STRICT: 2 known defect(s) sti
   NOT RUN       0
 ```
 
-Strict mode against the candidate exits 0, which is the claim being made: no documented defect
+Strict mode against the installed correction exits 0, which is the claim being made: no documented defect
 still reproduces.
 
 ## Why the negative controls matter
@@ -157,9 +162,13 @@ gate.
 - That the correction is the right correction. It closes the two defects as described; whether
   step 7 and step 4b are the correct checks remains a review question.
 - That no other bypass exists. Twenty-nine cases, not complete coverage.
-- That the correction may be installed. That needs explicit authorisation, then its own snapshot
-  and signature.
+- That the correction is published. It is installed on an unpublished branch only, so no reviewer
+  of the public repository sees it yet, and `review-v0.1.26` remains the artifact that carries the
+  defects.
 - Any independent result: every run here was produced by the seat that wrote the code.
+- That installation is the end of the work. It changes the gate on a branch, which is why the
+  suite was re-run from the commit rather than from the working tree: a suite split across two
+  states of one file is not evidence.
 
 ## Note on the plan
 

@@ -67,6 +67,55 @@ T-12 records a mitigation worth not confusing with a defence: when the checker i
 wholesale, step 7 accepts it, but step 3 refuses the release because the checker is in the
 manifest. That protection belongs to RC-04. It is not the custody check working.
 
+## Addendum: after the correction was installed
+
+Recorded at commit `532799a`, where D1 and D2 are corrected in `validate_release.sh`. The nine
+closure cases attach to the installed validator automatically, so this run covers all 29 cases.
+
+```
+  T-01  clean record, no mutation                      observed=pass PASS
+  T-02  declaration line removed                       observed=fail PASS
+  T-03  value changed to independent                   observed=fail PASS
+  T-04  second declaration appended                    observed=fail PASS
+  T-05  accepted-deviation wording removed             observed=fail PASS
+  T-06  declaration indented off line start            observed=fail PASS
+  T-07  value changed to joint-ish                     observed=fail PASS
+  T-08  record rewritten with CRLF endings             observed=pass PASS
+  T-09  tab inside the required wording                observed=pass PASS
+  T-10  declaration moved to another file              observed=fail PASS
+  T-11  checker prints PASS and exits 1                observed=fail FIXED
+  T-12  checker replaced by a PASS-printing wrapper    observed=pass PASS
+  T-13  checker file deleted                           observed=fail PASS
+  T-14  step 3 fails, step 7 passes, later cannot override observed=pass PASS
+  T-15  one byte appended to a listed file             observed=fail PASS
+  T-16  one listed file deleted                        observed=fail PASS
+  T-17  one unlisted file added                        observed=fail FIXED
+  T-18  tagged clone, no mutation                      observed=pass PASS
+  T-19  digest tampered, make reproduce                observed=pass PASS
+  T-20  disclosure removed, make reproduce             observed=pass PASS
+  T-21  control: honest checker, exits 0 and prints PASS observed=pass PASS
+  T-22  D1 closed: prints PASS, exits 1                observed=fail PASS
+  T-23  D1 closed: exits 0, prints nothing             observed=fail PASS
+  T-24  D1 closed: exits 0, prints REFUSED             observed=fail PASS
+  T-25  control: clean tree, nothing added             observed=pass PASS
+  T-26  control: file added and correctly listed       observed=pass PASS
+  T-27  D2 closed: unlisted file at root               observed=fail PASS
+  T-28  D2 closed: unlisted file in a subdirectory     observed=fail PASS
+  T-29  no regression: listed file deleted still refused observed=fail PASS
+```
+
+```
+  PASS          27
+  KNOWN-DEFECT  0
+  FIXED         2
+  FAIL          0
+  NOT RUN       0
+```
+
+Strict mode exits 0 here. The earlier baseline, which recorded 2 KNOWN-DEFECT and failed strict
+mode, remains the accurate description of `review-v0.1.26` and is not superseded by this addendum:
+it describes the published tag, and this describes the branch.
+
 ## Limitations, stated rather than implied
 
 - **No publication enforcement was tested, because none exists.** RC-08 has no automated path, so
