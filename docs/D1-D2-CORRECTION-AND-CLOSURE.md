@@ -5,19 +5,19 @@ This document holds the proposed correction and the evidence that it closes them
 
 ## Status boundary, stated first
 
-The correction is **installed on branch `assurance-baseline` at commit `532799a`**, on explicit
-owner authorisation, and it is **not published**. The published tag `review-v0.1.26` and `main`
-above it still carry both defects, because tags are immutable and nothing has been pushed. A
-reviewer who clones the public repository today receives the defective validator; a reviewer given
-this branch receives the corrected one.
+The correction is **installed and published in `review-v0.1.27`**, on explicit owner authorisation
+to edit the validator and to release. It was not in `review-v0.1.26`, which is immutable and still
+carries both defects, so a reviewer of that earlier tag receives the defective validator while a
+reviewer of `review-v0.1.27` receives the corrected one.
 
-The proposal file `tests/release/candidates/validate_release.proposed.sh` was retired once the
+The proposal file `tests/release/candidates/validate_release.proposed.sh` was retired when the
 correction entered `validate_release.sh`, so there is one implementation rather than two that can
-drift apart. Its content at the moment of installation is the content now in the release path.
+drift apart.
 
-The closure evidence below was produced by the same harness that produced the baseline. It shows
-that the correction changes the observed behaviour in the specified directions. It does **not**
-constitute independent verification, and this document does not claim it does.
+The closure evidence below was produced by the same harness that produced the baseline, by the seat
+that wrote the code. It shows that the correction changes the observed behaviour in the specified
+directions. It does **not** constitute independent verification, and this document does not claim
+it does.
 
 ## The two changes
 
@@ -162,7 +162,8 @@ gate.
 - That the correction is the right correction. It closes the two defects as described; whether
   step 7 and step 4b are the correct checks remains a review question.
 - That no other bypass exists. Twenty-nine cases, not complete coverage.
-- That the correction is published. It is installed on an unpublished branch only, so no reviewer
+- That the correction is independent of its author. It is published, and publishing does not
+  convert a seat-run suite into an outside result.
   of the public repository sees it yet, and `review-v0.1.26` remains the artifact that carries the
   defects.
 - Any independent result: every run here was produced by the seat that wrote the code.

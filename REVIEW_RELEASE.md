@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.26` |
+| Release tag | `review-v0.1.27` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.25` / `bbe9e98` (historical) |
+| Previous snapshot | `review-v0.1.26` / `5f8dffc` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
@@ -24,6 +24,45 @@ deviation from the transition record's non-negotiable rather than compliance wit
 this snapshot the disclosure is enforced rather than described: `validate_release.sh` calls
 `gate-amendment/check_custody_disclosure.sh`, which refuses a record that omits the line,
 asserts independent control, or declares the mode more than once.
+
+## Change in this snapshot (review-v0.1.27)
+
+Two defects in the release validator are corrected, and the gate now has its first committed test
+suite. Both defects were live in `review-v0.1.26`, which is immutable and keeps them.
+
+**D1, the custody check's verdict was ignored.** Step 7 ran the checker with `|| true` and passed
+the release if the checker's output merely *contained* the string `RESULT: PASS`, so a checker that
+printed that string and exited non-zero was accepted. Step 7 now requires exit status 0 **and** the
+line. A checker that prints nothing useful, or prints `RESULT: REFUSED`, is refused too.
+
+**D2, completeness was checked in one direction.** Step 4 verified that every path in
+`SHA256SUMS` exists; nothing verified that every present file is listed, so a file could be added
+to the package without the manifest changing its verdict. New step 4b closes that direction, with
+the manifest's own self-exclusion preserved.
+
+Neither correction was made because it seemed better. Each was demonstrated failing first, by a
+committed test that reproduced it against this package's previous validator, and each is now
+demonstrated refused, with negative controls so that a validator which refused everything would
+fail the suite rather than pass it.
+
+**The gate now has tests.** `tests/release/run_release_tests.sh` runs 29 cases, each beginning
+from a fresh fixture and changing exactly one property, and `make release-test` runs it. It records
+what the validator does, not what it ought to do: a case whose behaviour matches the documented
+state is PASS, one that matches a documented defect is KNOWN-DEFECT, and `--strict` refuses while
+any known defect reproduces. On this snapshot: 27 PASS, 2 FIXED, 0 KNOWN-DEFECT, 0 FAIL.
+
+**The contract is written down.** `docs/RELEASE-CONTRACT.md` states what must be true of a release
+and separates four things that are routinely confused: a check existing, the validation path
+refusing violations, publication being blocked without validation, and an outside party having
+reproduced the result. On this snapshot the first two are substantially met and the last two are
+not met at all: **0 of 10 properties are release-blocking and 0 of 10 are independently verified.**
+Nothing in this repository prevents a tag from being pushed without validation ever running. That
+is recorded as RC-08 and it is not fixed by this release.
+
+`docs/D1-D2-CORRECTION-AND-CLOSURE.md` holds the correction and the evidence for it, and
+`docs/ADVERSARIAL-TEST-PLAN.md` holds the case list. No test, source file, or measured value
+changes, and `make reproduce` keeps its existing meaning: the gate and the manifest, not the Rust
+suite and not the benchmarks.
 
 ## Change in this snapshot (review-v0.1.26)
 
@@ -152,7 +191,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.26
+git checkout review-v0.1.27
 
 # Build
 cargo build --release

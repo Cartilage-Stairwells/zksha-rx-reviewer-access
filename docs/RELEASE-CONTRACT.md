@@ -1,10 +1,9 @@
 # Release Contract
 
 What a release of this package must be true of, what the repository currently does about it,
-and what it does not do. Written against branch `assurance-baseline`, where defects D1 and D2 are corrected at commit
-`532799a`. The published tag `review-v0.1.26` still carries both, because published tags are
-immutable, so the statuses below describe the branch and not the artifact a reviewer of that tag
-receives. Intended to be true of the repository, not of any claim made about it.
+and what it does not do. Written against the published tag `review-v0.1.27`, where defects D1 and D2 are corrected.
+`review-v0.1.26` still carries both, because published tags are immutable. Intended to be true of
+the repository, not of any claim made about it.
 
 ## Status vocabulary
 

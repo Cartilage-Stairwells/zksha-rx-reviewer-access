@@ -11,7 +11,7 @@
 set -uo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 REPO=$(cd "$HERE/../.." && pwd)
-TAG="${RELEASE_TAG:-review-v0.1.26}"
+TAG="${RELEASE_TAG:-review-v0.1.27}"
 STRICT=0; CAND=""; NOTRUN=0
 while [ $# -gt 0 ]; do
     case "$1" in
