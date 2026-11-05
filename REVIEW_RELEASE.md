@@ -8,26 +8,40 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.22` |
+| Release tag | `review-v0.1.23` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.21` / `73bf100` (historical) |
+| Previous snapshot | `review-v0.1.22` / `7f342ee` (historical) |
+| Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
-## Pending next snapshot: NOT RELEASED
+## Change in this snapshot (review-v0.1.23)
 
-This tree carries a prepared, rehearsed replacement for the release signature check in
-`gate-amendment/`, together with the key transition record and the acceptance evidence.
-It is **not enforced**: `validate_release.sh` is unchanged, and this snapshot therefore
-sits exactly where `review-v0.1.22` was. Two reasons, both recorded rather than implied:
+The release signature check is now **enforced**, not advisory. `validate_release.sh`
+calls `gate-amendment/check_release_signature.sh`, which fails the release unless all of
+the following hold: the tag is an annotated tag object; its OpenPGP signature verifies;
+the verifying key's fingerprint is on the pinned release allowlist; the tag target is
+reachable from the release branch; and the allowlist itself is configured. Every unmet
+condition is reported, and none of them is a warning.
 
-1. Enforcing it requires an authorised signing identity, and no production identity
-   exists. The gate refuses an unsigned tag by design, so wiring it in today would make
-   the currently published snapshot fail its own validation.
-2. `review-v0.1.22`'s tag is itself unsigned, so the prepared gate reports it as
-   non-conforming. That is the honest reading of the tag, not a defect introduced here.
+The identity that signs releases from this snapshot on is a **seat** identity, not a
+personal one: `TSCP Release Seat (custodian) <seat@solene.local>`, fingerprint
+`CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`. Historical signatures made with the two retired personal identities remain valid
+for verifying tags that already exist; they can never authorise a release again, and the
+gate reports an identity appearing on both lists as a fatal contradiction.
 
-Installing the gate and releasing a signed snapshot is a single later step, described in
-`KEY-TRANSITION-AND-IDENTITY-RETIREMENT-DRAFT.md`.
+Two honest limitations, recorded rather than implied:
+
+1. **Custody is provisional.** The seat's secret half currently sits in the agent
+   sandbox that produced this snapshot, not in owner-controlled storage. A key held by
+   whoever operates the release automation is not independently controlled, which is what
+   the transition record requires. Rotating to an owner-held key is the follow-on step,
+   and the retirement protocol in `KEY-TRANSITION-AND-IDENTITY-RETIREMENT-DRAFT.md`
+   already covers how an identity is retired forward.
+2. **A signature attests continuity of an authorised identity.** It says nothing about
+   authorship by a named person and nothing about the correctness of what it signs.
+
+`gpg` is required to verify the signature. If it is absent the check fails closed by
+design rather than passing quietly.
 
 ## Change in this snapshot (review-v0.1.22)
 

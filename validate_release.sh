@@ -77,20 +77,20 @@ else
     warn "No historical labels found"
 fi
 
-# 6. Signature verification (additional trust layer)
+# 6. Release signature (fail-closed; see gate-amendment/README.md)
 echo ""
-echo "6. Signature verification (additional trust layer)"
-if [ "$CURRENT_TAG" != "unknown" ]; then
-    TAG_SIG=$(git tag -v "$CURRENT_TAG" 2>&1 || true)
-    if echo "$TAG_SIG" | grep -q "good signature"; then
-        ok "Tag has valid GPG signature"
-    elif echo "$TAG_SIG" | grep -q "no signature"; then
-        warn "Tag is not signed — additional trust layer, not required for review"
-    else
-        warn "Tag signature inconclusive"
-    fi
+echo "6. Release signature (fail-closed)"
+GATE="./gate-amendment/check_release_signature.sh"
+ALLOWLIST="./gate-amendment/allowlist.pinned.txt"
+if [ ! -x "$GATE" ]; then
+    fail "signature gate missing or not executable at $GATE"
 else
-    warn "Cannot verify tag signature (no tag)"
+    if GATE_OUT=$("$GATE" . "$CURRENT_TAG" HEAD "$ALLOWLIST" 2>&1); then
+        ok "Signature gate passed: tag signed by the pinned release identity"
+    else
+        echo "$GATE_OUT" | sed 's/^/     /'
+        fail "Signature gate refused this release (reasons above)"
+    fi
 fi
 
 # Summary

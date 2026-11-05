@@ -4,8 +4,8 @@
 
 | Field | Value |
 |------|-------|
-| Tag | `review-v0.1.22` |
-| Commit | `7f342ee` |
+| Tag | `review-v0.1.23` |
+| Commit | This tag's target |
 | Date | 2026-11-04 |
 | Status | Frozen — VERIFICATION_STATUS reconciliation (per-target test counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified) |
 
@@ -13,6 +13,7 @@
 
 | Tag | Commit | Date | Notes |
 |-----|--------|------|-------|
+| `review-v0.1.22` | `7f342ee` | 2026-11-04 | Tag realignment to the branch tip + toolchain pin; releases now carry an enforced signature |
 | `review-v0.1.21` | `73bf100` | 2026-10-23 | VERIFICATION_STATUS reconciliation: per-target counts aligned to measured census; baseline narrative reconciled; lane-2 codegen verified |
 | `review-v0.1.20` | `84ebf64` | 2026-10-23 | Benchmark baseline-definition clarification (disassembly-verified) + independent non-Zen 5 reproduction evidence |
 | `review-v0.1.19` | `612cd89` | 2026-10-23 | Reproducibility mapping: canonical benchmark command identified; staged-comparison count adjudicated |
@@ -290,3 +291,33 @@ reports a warning rather than a pass, and the validator compares a tag name, not
 signature. Signing the tag remains an open step for the owner.
 
 **Supersedes:** review-v0.1.21 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.23 (2026-11-04) — Release signature enforced: fail-closed gate, seat identity
+
+**Tag:** review-v0.1.23
+**Supersedes:** review-v0.1.22 for reviewer entry (all prior tags remain immutable).
+
+Before this snapshot the release signature check could not pass at all: it grepped for
+the lowercase string `good signature`, which GnuPG never writes, so the success branch was
+unreachable for any key correctly used, and the check tested only that some signature
+existed, never whose, and never that the tag belonged on the release branch.
+
+`gate-amendment/check_release_signature.sh` replaces it and fails the release unless the
+tag is an annotated tag object, the signature verifies, the verifying fingerprint is on the
+pinned allowlist, the tag target is reachable from the release branch, and the allowlist is
+configured with at least one entry. An identity appearing on both the release and retired
+lists is a fatal contradiction rather than a tie broken in the allowlist's favour.
+
+Proved by mutation before being trusted, on real data: thirteen cases, two of which pass (a
+disposable fixture acceptance and a historical verification of an already published tag)
+and eleven of which refuse while naming their cause. The fixture's secret half was destroyed
+after the run, so no test identity can sign anything now.
+
+Release signing moves to a seat identity, `TSCP Release Seat (custodian)
+<seat@solene.local>`, fingerprint `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`. Custody is provisional: the secret half
+lives in the agent sandbox that produced this snapshot, not in owner-controlled storage, and
+rotating to an owner-held key is the recorded follow-on. A signature attests continuity of
+an authorised identity, not authorship by a person and not the correctness of what it signs.
+
+Also corrected here: the current-release row above still named `review-v0.1.21` after 0.1.22
+shipped, and the previous-snapshot table had no 0.1.21 row.

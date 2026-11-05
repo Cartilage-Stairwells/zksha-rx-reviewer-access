@@ -64,6 +64,20 @@ else
   bad "target $(echo "$COMMIT"|cut -c1-10) is NOT reachable from $BRANCH"
 fi
 
+# A reviewer does not necessarily hold the release identity's public half, so any public
+# halves shipped beside this gate are imported into a throwaway keyring inside the
+# repository's git directory. Importing grants no trust; it only makes the signature
+# checkable from a clean clone.
+KEYDIR="$(dirname "$0")/keys"
+if ls "$KEYDIR"/*.asc >/dev/null 2>&1; then
+  KEYRING="$(g rev-parse --absolute-git-dir)/gate-keyring"
+  mkdir -p "$KEYRING"; find "$KEYRING" -mindepth 1 -delete 2>/dev/null || true; chmod 700 "$KEYRING"
+  export GNUPGHOME="$KEYRING"
+  for k in "$KEYDIR"/*.asc; do gpg --batch --quiet --import "$k" >/dev/null 2>&1 || true; done
+  trap 'find "$KEYRING" -mindepth 1 -delete 2>/dev/null || true' EXIT
+  ok "shipped public halves imported into a throwaway keyring ($(ls "$KEYDIR"/*.asc | wc -l) file(s))"
+fi
+
 # 2 and 3. signature must verify, and by a pinned fingerprint
 RAW=$(g verify-tag --raw "refs/tags/$TAG" 2>&1)
 HUMAN=$(g verify-tag "refs/tags/$TAG" 2>&1)
