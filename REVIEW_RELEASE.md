@@ -8,10 +8,24 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.21` |
+| Release tag | `review-v0.1.22` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.20` / `84ebf64` (historical) |
+| Previous snapshot | `review-v0.1.21` / `73bf100` (historical) |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
+
+## Change in this snapshot (review-v0.1.22)
+
+`review-v0.1.21` was tagged at `73bf100`. The commit that followed it, `57568f3`
+(Apache-2.0 LICENSE), moved the default branch tip past the tag, and the release gate
+requires the checked-out commit to be exactly at a tag. A reviewer who cloned and ran
+`make reproduce` without first checking out the tag therefore saw `RELEASE VALIDATION
+FAILED` on an otherwise intact package. This snapshot tags the tip, so a fresh clone
+validates, and pins the toolchain to `rustc 1.99.1`, the compiler the recorded
+measurements and the 139-test census were produced with. No source, test, benchmark
+result, proof, or measured value is changed.
+
+`SHA256SUMS` is regenerated over all tracked files except itself, which also restores
+`LICENSE` to the manifest: it was added at `57568f3` without a manifest update.
 
 ## Artifact Inventory
 
@@ -47,7 +61,7 @@ The Lean 4 formalization is in a separate repository:
 # Clone this repository
 git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
-git checkout review-v0.1.21
+git checkout review-v0.1.22
 
 # Build
 cargo build --release

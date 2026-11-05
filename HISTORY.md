@@ -257,3 +257,29 @@ v0.1.8 is the artifact. v0.1.9 is the evaluation infrastructure. Together they c
 - Release identity advanced to review-v0.1.21 across the entry documents; SHA256SUMS regenerated over all tracked files except itself
 
 **Supersedes:** review-v0.1.20 for reviewer entry (all prior tags remain immutable).
+
+## review-v0.1.22 (2026-11-04) — Tag realignment to the branch tip + toolchain pin
+
+**Tag:** review-v0.1.22
+**Purpose:** A read-only rehearsal of the reviewer path from zero (anonymous clone, no
+credentials) reproduced a first-command failure. `review-v0.1.21` is tagged at `73bf100`,
+but the default branch tip was `57568f3` ("Add Apache-2.0 LICENSE…"), one commit past
+the tag. `validate_release.sh` requires the checked-out commit to sit exactly on a tag
+(`git describe --tags --exact-match`), so a reviewer who cloned and ran `make reproduce`
+— the command the Makefile advertises in its own header — saw `RELEASE VALIDATION
+FAILED — 1 issue(s)` on a package whose substance was intact: `git checkout
+review-v0.1.21` then `make reproduce` passed 7/7, SHA256SUMS verified 110 files,
+`cargo check --all-targets` succeeded on stable 1.99.1, and `cargo test` passed 139
+tests across 12 binaries (37 unit + 102 integration), matching the README's claim.
+
+**Changes (release identity and manifest only; no measured value, benchmark result, test, or proof content modified):**
+- `review-v0.1.22` tagged at the branch tip, so a fresh clone validates without first checking out a tag
+- `rust-toolchain.toml` added, pinning `rustc 1.99.1` — the compiler the recorded measurements and the 139-test census were produced with; previously a reviewer inherited their own stable
+- Release identity advanced to review-v0.1.22 across the entry documents (REVIEW_RELEASE.md tag row, previous-snapshot row, and the checkout command in the reviewer path)
+- SHA256SUMS regenerated over all tracked files except itself, which restores `LICENSE` to the manifest (added at `57568f3` without a manifest update)
+
+**Known limitation, unchanged:** the tag is not GPG-signed, so the gate's signature step
+reports a warning rather than a pass, and the validator compares a tag name, not a
+signature. Signing the tag remains an open step for the owner.
+
+**Supersedes:** review-v0.1.21 for reviewer entry (all prior tags remain immutable).

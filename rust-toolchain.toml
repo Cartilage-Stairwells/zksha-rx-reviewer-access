@@ -1,0 +1,7 @@
+[toolchain]
+# Pinned to the compiler the recorded measurements and test census were produced with
+# (rustc 1.99.1, stated in HISTORY.md under review-v0.1.20 and review-v0.1.21).
+# Without this pin a reviewer inherits whatever stable their machine happens to have,
+# so a future toolchain change could alter or break the build with no commit behind it.
+channel = "1.99.1"
+profile = "minimal"
