@@ -16,7 +16,7 @@ zkSHA-Rx Fly accelerates the Number Theoretic Transform (NTT) — the single mos
 
 **Canonical speedup: 1.265×–1.276×** geometric mean (AVX-512 vs scalar), measured across 13 transform sizes from 2^8 to 2^20 on AMD Zen 5 with AVX-512 (virtualized sandbox environment) using a three-lane benchmark (scalar vs AVX2 auto-vectorization vs hand-written AVX-512). Dual-run verified (0.9% variance). See CANONICAL_RESULTS.md for full details.
 
-**Baseline codegen clarification (2026-10-23, disassembly-verified):** the benchmark's scalar-source lane compiles to AVX-512/AVX2 vector machine code under both documented flag sets — the canonical 1.27× is therefore the hand-written kernel vs the compiler's auto-vectorization of the same operation on Zen 5. True scalar machine code arises only from a no-flags build; in that regime the kernel measures ~7×–9× (independent non-Zen 5 run 2026-10-23: 6.99× geometric mean, correctness gate PASS 2^8–2^20 — see `evidence/independent/2026-10-23-non-zen5/`). The speedup claim remains hardware-scoped (Zen 5); universal acceleration across AVX-512 microarchitectures remains a non-claim.
+**Fair benchmark (2026-09-07):** a controlled scalar-vs-SIMD measurement against the project's optimized scalar CIOS baseline (not the u128 oracle) establishes **~3x** for the AVX-512 kernel (2.92-2.98x across three runs, 1.9% spread) and 1.12x over the compiler's own AVX-512 auto-vectorization. Oracle-relative ratios are decomposed and retired as performance claims. See FAIR_BENCHMARK.md.
 
 This does not claim universal zk acceleration. It demonstrates that commodity CPU SIMD can match or exceed the NTT throughput of specialized hardware for the BabyBear field.
 ---
@@ -149,7 +149,7 @@ This means the benchmark cannot produce speedup numbers without also confirming 
 
 **Reproduction:** Run on any AVX-512 host (avx512f + avx512dq required):
 ```bash
-export RUSTFLAGS="-C target-cpu=native -C target-feature=+avx512f,+avx512dq,+avx2"  # canonical flag set (CANONICAL_BENCHMARK_METHODOLOGY.md §4)
+export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
 # perf_measure: not in this snapshot (historical)
 ```
 
@@ -160,7 +160,7 @@ All three backends produce identical output:
 - Scalar (Montgomery form, BabyBear field)
 - AVX-512 (vectorized Montgomery, 512-bit SIMD)
 
-135 staged pairwise comparisons confirm element-wise agreement after every butterfly stage — not just the final output. Counting basis (independently verified 2026-10-23): 135 staged comparisons: 3 backends × 45 butterfly stages (log_n 5–10, stages per size = log_n); 90 asserted directly in tests/ntt_equivalence.rs, 45 by transitivity; executed and passed on AVX-512 hardware in the independent run 2026-10-23.
+135 staged pairwise comparisons confirm element-wise agreement after every butterfly stage — not just the final output.
 
 ### Correctness: NTT = DFT
 
@@ -256,13 +256,11 @@ git clone https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access.git
 cd zksha-rx-reviewer-access
 
 # Run the performance measurement (scalar vs AVX-512)
-export RUSTFLAGS="-C target-cpu=native -C target-feature=+avx512f,+avx512dq,+avx2"  # canonical flag set (CANONICAL_BENCHMARK_METHODOLOGY.md §4)
+export RUSTFLAGS="-C target-feature=+avx512f,+avx512dq"
 # perf_measure: not in this snapshot (historical)
 
 # Run the Criterion benchmarks (detailed statistical analysis)
-# Canonical three-lane benchmark (reproduces the 1.27x claim; see CANONICAL_BENCHMARK_METHODOLOGY.md)
-cargo bench --bench three_lane_bench
-# (butterfly_bench measures the scalar reference butterfly only)
+cargo bench --bench butterfly_bench
 
 # Run the full test suite (correctness verification)
 cargo test --release

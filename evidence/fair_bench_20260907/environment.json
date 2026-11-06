@@ -1,0 +1,32 @@
+{
+  "toolchain": {
+    "rustc_version": "1.97.1",
+    "criterion_sample_size": 50,
+    "criterion_warmup": "500ms",
+    "criterion_measurement_time": "2s"
+  },
+  "platform": {
+    "os": "Linux (gvisor sandbox)",
+    "arch": "x86_64",
+    "cpu": "unknown",
+    "cpu_family": "175",
+    "cpu_model": "17"
+  },
+  "features": {
+    "avx512f": "true",
+    "avx512dq": "true"
+  },
+  "git": {
+    "commit_sha": "ea049975f4a157d9c86962fc7b4f5e609351869d",
+    "note": "fair_bench files added on top of this commit in this branch"
+  },
+  "bench_harness": {
+    "fair_lane_bench": "4 lanes: u128 oracle / scalar CIOS / AVX2 / AVX-512, baseline build (no target-cpu=native) for true-scalar comparison",
+    "kernel_ab_bench": "orig kernel vs vpermd-interleave vs unrollx2 experiment kernels, bit-exact gated"
+  },
+  "runs": {
+    "fair_bench": 3,
+    "kernel_ab": 2
+  },
+  "generated_at": "2026-09-07T15:45:00Z"
+}
