@@ -32,7 +32,10 @@ A benchmark missing any anchor is a claim, not evidence.
 
 ## The Firebird baseline
 
-The first sealed performance specimen for this project is `firebird_74c6e5f`.
+The first performance specimen for this project is `firebird_74c6e5f`. It is
+**not sealed**: the bundle that would carry the seal (`benchmark_reports/`) is not
+in this snapshot, and no signature, digest manifest or timestamp receipt over it
+has been published.
 
 **Source commit:** `74c6e5f841d1c509b4b7166258ee3bb712535aae`
 **Artifact directory:** `benchmark_reports/` (not in this snapshot)

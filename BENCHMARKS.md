@@ -215,11 +215,11 @@ Benchmark command:
 
 ### Prior Measurement Environment
 
-The 3.3x–4.4x speedup (historical, commit 9473af6 in development repo) was captured on AVX-512 hardware. Full environment disclosure was captured in the sealed benchmark bundle. When reproducing, include the above block with your local environment.
+The 3.3x–4.4x speedup (historical, commit 9473af6 in development repo) was captured on AVX-512 hardware. Full environment disclosure was captured in a benchmark bundle that is not published in this snapshot, so the disclosure cannot be checked here. When reproducing, include the above block with your local environment.
 
 ### Why This Matters
 
-A 4x speedup on one CPU does not imply 4x on all AVX-512 CPUs. Clock speed, cache hierarchy, memory bandwidth, and LLVM code generation all affect results. The sealed bundle captures the full environment so a reviewer can assess whether the numbers transfer to their hardware.
+A 4x speedup on one CPU does not imply 4x on all AVX-512 CPUs. Clock speed, cache hierarchy, memory bandwidth, and LLVM code generation all affect results. Such a bundle is documented to capture the full environment so a reviewer can assess whether the numbers transfer to their hardware; the bundle itself is not published in this snapshot.
 
 ---
 
@@ -275,9 +275,10 @@ grep avx512 /proc/cpuinfo | head -1
 # Must contain: avx512f avx512dq
 ```
 
-### Sealed Benchmark Bundle
+### Benchmark Bundle (seal not published)
 
-The repository includes a provenance-sealed benchmark system:
+The repository documents a provenance-sealing benchmark system. The sealed bundle
+itself is not in this snapshot, and no seal artifact for it has been published:
 
 ```bash
 # Capture provenance + run benchmark
@@ -286,12 +287,12 @@ The repository includes a provenance-sealed benchmark system:
 # Seal the results (verifies AVX-512 execution, generates SHA256SUMS)
 # Benchmark runner: not in this snapshot (historical) --seal benchmark_reports/firebird_74c6e5f
 
-# Verify the sealed bundle
+# Verify the bundle (seal not published)
 # benchmark_reports/ not in this snapshot (historical)
 sha256sum -c SHA256SUMS
 ```
 
-Each sealed bundle contains:
+Each bundle is documented to contain:
 - Git commit hash (what code ran)
 - CPU model and vendor (what hardware)
 - Compiler versions (rustc, cargo, LLVM)
@@ -353,7 +354,7 @@ AVX-512 Backend (vectorized, parity-tested)
     ↓
 Benchmark Receipt (speedup measured, correctness embedded)
     ↓
-Sealed Bundle (SHA256SUMS, provenance captured)
+Bundle (SHA256SUMS, provenance captured; seal not published)
 ```
 
 Each layer provides evidence for the next. No layer makes claims it cannot support. The AVX-512 speedup is not trusted on its own — it is checked against the reference, which is checked against the DFT.
