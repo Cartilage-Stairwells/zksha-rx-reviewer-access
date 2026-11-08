@@ -1,3 +1,4 @@
-# Pinned release signer intentionally EMPTY pending private-key protection.
-# The gate requires a non-empty allowlist, so it refuses every release until a
-# protected identity is pinned here deliberately.
+# Pinned release signer, activated 2026-11-08 after passphrase protection and
+# a tested recovery from the encrypted export. The former seat is revoked and
+# remains on the retired list for historical verification only.
+D6581E111DA3F1C69759D6F50C4C0A104AD7B940
