@@ -247,7 +247,7 @@ The Lean 4 formalization is in a separate repository:
 - **Tag:** `formal-corpus-v2026-09-11` (previous reference `v0.1.0-zksha-rx` does not exist in tscp-anchor; repaired 2026-09-11 — see HISTORY)
 - **Lean version:** 4.32.1
 - **Build command:** `lake build`
-- **Theorem count:** 88 theorem declarations across 12 Lean files (census at tag `formal-corpus-v2026-09-11`, 2026-09-11; method: theorem-declaration grep)
+- **Theorem count:** 87 theorem declarations across 12 Lean files (census at tag `formal-corpus-v2026-09-11`, 2026-09-11; method: theorem-declaration grep: 83 build roots plus 4 scaffold declarations outside them). The earlier 88 counted one line of block-comment prose in `Core.lean` as a declaration and is withdrawn.
 - **See:** `formal/README.md` in this repo for details
 
 ## Reproduction Commands

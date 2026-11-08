@@ -58,7 +58,7 @@ Measured kernel results:
 Lean 4 formalization:
 - Montgomery arithmetic foundation
 - Related arithmetic invariants
-- 88 theorem declarations across 12 Lean files in the public tscp-anchor corpus (census at tag formal-corpus-v2026-09-11; method: theorem-declaration grep); Montgomery.lean (12) compile-verified, 0 axioms, 0 sorries
+- 87 theorem declarations across 12 Lean files in the public tscp-anchor corpus (census at tag formal-corpus-v2026-09-11; method: theorem-declaration grep: 83 in the build roots plus 4 scaffold declarations outside them; the earlier 88 counted one line of block-comment prose); Montgomery.lean (12) compile-verified, 0 axioms, 0 sorries
 
 Implementation validation:
 - Independent mathematical oracle
