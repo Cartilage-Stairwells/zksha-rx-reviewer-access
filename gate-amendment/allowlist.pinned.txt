@@ -1,4 +1,3 @@
-# Production release authority: the seat identity, one per line.
-# Pinned 2026-11-04. Historical identities live in allowlist.retired-only.txt and
-# may never appear here: the gate treats an overlap as a fatal contradiction.
-CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD
+# Pinned release signer intentionally EMPTY pending private-key protection.
+# The gate requires a non-empty allowlist, so it refuses every release until a
+# protected identity is pinned here deliberately.
