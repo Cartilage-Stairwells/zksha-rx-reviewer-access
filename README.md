@@ -12,7 +12,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 
 | Layer | Evidence |
 |-------|----------|
-| Formal verification | 88 Lean theorem declarations in the public tscp-anchor corpus (tag `formal-corpus-v2026-09-11`); Montgomery.lean: 12 theorems, compile-verified, 0 axioms, 0 sorries |
+| Formal verification | 87 Lean theorem declarations at tag `formal-corpus-v2026-09-11` (83 in the build roots + 4 scaffold declarations outside them); Montgomery.lean: 12 theorems, compile-verified, 0 axioms, 0 sorries. Release A counts 101 at `70e614f3`: the build-root count rises by 18 (83 to 101), and the four scaffolds are counted in the September total but not in the 101. The composition is under "Corpus counts across tags" in tscp-anchor's CLAIMS_STATEMENT.md |
 | Rust tests | 139 tests, 0 failures (102 integration + 37 unit; independently measured at this tag, 2026-10-23) |
 | SIMD | AVX2 + AVX-512 backends with correctness gate |
 | Benchmark | measured AVX-512 kernel speedup (three-lane benchmark, see BENCHMARKS.md for range) |
@@ -21,7 +21,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.21 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.30 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 make reproduce
 ```
@@ -40,7 +40,7 @@ For full review: see `docs/EXTERNAL_REVIEWER_GUIDE.md`
 
 ## Formal Verification
 
-Theorem-declaration census at tscp-anchor tag `formal-corpus-v2026-09-11` (2026-09-11): 88 declarations across 12 Lean files. Core layers (62):
+Theorem-declaration census at tscp-anchor tag `formal-corpus-v2026-09-11` (2026-09-11): 87 declarations across 12 Lean files (83 in the build roots plus 4 scaffold declarations outside them; an earlier figure of 88 counted one line of block-comment prose as a declaration). Core layers (62):
 
 ```
 Layer 0: TCP Semantics — ReviewerSemantics.lean (15 theorems) — custody/authority plane separation

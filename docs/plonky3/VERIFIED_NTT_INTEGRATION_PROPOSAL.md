@@ -6,7 +6,7 @@ This document proposes an integration path for incorporating zkSHA-Rx's formally
 
 zkSHA-Rx provides:
 - A DIF radix-2 NTT with three execution paths (reference, scalar, AVX-512 SIMD)
-- Formal verification in Lean 4 (83 theorems, 0 axioms, 0 sorries)
+- Formal verification in Lean 4 (101 theorem declarations under `TSCP/Formal` at Release A commit `70e614f3`; that corpus contains no `axiom` declaration and no `sorry`. The scaffold layer outside it — `TraceCoreProver/Kernel.lean` and `BabyBear/` — holds 4 theorems, 1 `axiom` and 12 `sorry` placeholders, and is excluded from the 101.)
 - A custody/provenance framework (TSCP) for verification evidence
 - Three-lane benchmark with correctness gate
 
@@ -75,7 +75,7 @@ The differentiator is not kernel speed — Plonky3 already has a performant AVX-
 ## References
 
 - Plonky3 repository: https://github.com/Plonky3/Plonky3
-- zkSHA-Rx reviewer snapshot: `git clone --branch review-v0.1.7 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access`
+- zkSHA-Rx reviewer snapshot: `git clone --branch review-v0.1.30 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access`
 - Proof-to-code correspondence: `docs/plonky3/proof-to-code-map.md`
 - Benchmark evidence: `evidence/avx512_bench_dif_fix_20260804_023129.txt`
 - Correctness receipt: `evidence/correctness_receipt_dif_fix.json`

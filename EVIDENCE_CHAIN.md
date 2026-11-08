@@ -114,7 +114,7 @@ From `AVX512_REFINEMENT_RECEIPT (historical, not in this snapshot)` §5.2:
 - Scalar/vector equivalence (135 staged pairwise comparisons, all pass: 3 backends × 45 butterfly stages, log_n 5–10; independently re-run and passed 2026-10-23 on AVX-512 hardware — 45/45 stage logs captured)
 - AVX-512 implementation correctness (execution canary, spot-checks at 3 sizes)
 - Reported AVX-512 performance: 3.29x–4.38x (geometric mean 3.94x, historical measurement)
-- Formal invariants (corpus census: 88 theorem declarations across 12 Lean files at `formal-corpus-v2026-09-11`; Montgomery.lean: 12 theorems, 0 sorry (3 documented sorries in Examples), Bézout identity)
+- Formal invariants (corpus census: 87 theorem declarations across 12 Lean files at `formal-corpus-v2026-09-11` — 83 build roots plus 4 scaffolds; the earlier 88 counted one line of block-comment prose; Montgomery.lean: 12 theorems, 0 sorry; 3 `sorry` placeholders in `Examples/NormalizationBridge.lean` at that tag, all resolved at Release A; Bézout identity)
 
 **Claim scope:** AVX-512 acceleration of BabyBear-field NTT kernels under this
 benchmark configuration. NOT universal zk acceleration. Integration with

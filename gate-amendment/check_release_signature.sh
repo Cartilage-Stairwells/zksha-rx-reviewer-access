@@ -29,7 +29,11 @@ echo "gate: $TAG in $REPO (branch $BRANCH)"
 # 5. configuration must be usable, else nothing below can be trusted
 ENTRIES=$(grep -ve '^[[:space:]]*#' "$ALLOW" 2>/dev/null | grep -cve '^[[:space:]]*$')
 if [ ! -s "$ALLOW" ] || [ "${ENTRIES:-0}" -eq 0 ]; then
-  bad "allowlist '$ALLOW' has no fingerprint entries (comments only, or missing): refusing to pass anything"
+  if [ "$MODE" = historical ]; then
+    ok "pinned release allowlist is empty or absent; historical mode does not require one, a retired signer can still be verified"
+  else
+    bad "allowlist '$ALLOW' has no fingerprint entries (comments only, or missing): refusing to pass anything"
+  fi
 else
   ok "allowlist present ($ENTRIES fingerprints)"
   # an identity may not be simultaneously authorised and retired: that is a contradiction,
@@ -81,15 +85,24 @@ fi
 # 2 and 3. signature must verify, and by a pinned fingerprint
 RAW=$(g verify-tag --raw "refs/tags/$TAG" 2>&1)
 HUMAN=$(g verify-tag "refs/tags/$TAG" 2>&1)
-if g verify-tag "refs/tags/$TAG" >/dev/null 2>&1; then
-  ok "signature verifies"
+HAS_BAD=$(printf '%s' "$RAW" | grep -cE '^\[GNUPG:\] (BADSIG|ERRSIG)')
+HAS_REV=$(printf '%s' "$RAW" | grep -cE '^\[GNUPG:\] REVKEYSIG')
+HAS_VALID=$(printf '%s' "$RAW" | grep -cE '^\[GNUPG:\] VALIDSIG')
+if [ "${HAS_VALID:-0}" -gt 0 ] && [ "${HAS_BAD:-0}" -eq 0 ]; then
+  if [ "${HAS_REV:-0}" -gt 0 ]; then
+    ok "signature is cryptographically valid, signed by a REVOKED identity (VALIDSIG present, REVKEYSIG present, no BADSIG or ERRSIG)"
+  else
+    ok "signature is cryptographically valid (VALIDSIG present, no BADSIG or ERRSIG)"
+  fi
 else
   if echo "$HUMAN" | grep -q "No public key"; then
-    bad "signature cannot be verified: the signer's public half is not present (fail closed, not a warning)"
+    bad "signature cannot be verified: the signer public half is not present (fail closed, not a warning)"
   elif echo "$HUMAN" | grep -qi "no signature"; then
     bad "tag carries no signature"
+  elif [ "${HAS_BAD:-0}" -gt 0 ]; then
+    bad "signature is INVALID: BADSIG or ERRSIG present in the status records"
   else
-    bad "signature does not verify"
+    bad "signature does not verify: no VALIDSIG record, so the status output is malformed or absent (fail closed)"
   fi
 fi
 FPR=$(echo "$RAW" | awk '/VALIDSIG/{print $3}' | head -1)
@@ -98,13 +111,23 @@ if [ -n "$FPR" ]; then
   IN_RETIRED=no; [ -s "$RETIRED" ] && grep -qiF "$FPR" "$RETIRED" 2>/dev/null && IN_RETIRED=yes
   if [ "$MODE" = historical ]; then
     if [ "$IN_ALLOW" = yes ] || [ "$IN_RETIRED" = yes ]; then
-      ok "historical verification: signer $FPR is known (retired=$IN_RETIRED release=$IN_ALLOW)"
+      if [ "$IN_RETIRED" = yes ] || [ "${HAS_REV:-0}" -gt 0 ]; then
+
+        ok "historical verification: signature verified, signer $FPR is RETIRED. Historical evidence for this tag only; it restores no release authority and confers no new trust in a retired key"
+
+      else
+
+        ok "historical verification: signature verified by an active pinned signer $FPR"
+
+      fi
       echo "  note this result verifies a published tag; it does not authorise anything new"
     else
       bad "signer fingerprint $FPR is on neither list"
     fi
   else
-    if [ "$IN_ALLOW" = yes ]; then
+    if [ "${HAS_REV:-0}" -gt 0 ]; then
+      bad "signer $FPR is REVOKED (REVKEYSIG): never authorised for a new release, whatever the allowlist says"
+    elif [ "$IN_ALLOW" = yes ]; then
       ok "signer fingerprint $FPR is pinned for release"
     elif [ "$IN_RETIRED" = yes ]; then
       bad "signer $FPR is RETIRED: authorised for historical verification only, never for release"

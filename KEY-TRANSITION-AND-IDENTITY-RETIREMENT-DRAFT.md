@@ -1,7 +1,8 @@
-# Key transition and identity retirement — DRAFT, NOT EXECUTED
+# Key transition and identity retirement — DRAFT, PARTIALLY EXECUTED 2026-11-08
 
-Status: **prepared only.** No key generated, nothing signed, nothing committed, nothing
-pushed, no tag created or moved. The two decisions below are recorded as *recommended by
+Status: **partially executed, updated 2026-11-08.** The former seat key `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD` is revoked and its revocation-bearing public half is the shipped copy; it stays on the retired list for historical verification only. An intermediate replacement, `7FD1A718D855DD4D481E9FDBE70FE87308B04A22`, was generated and ships as a candidate; it was never pinned and is superseded. The pinned release signer is now `D6581E111DA3F1C69759D6F50C4C0A104AD7B940`, whose public half ships as `gate-amendment/keys/seat-2026-11-08-public.asc`; its secret key is passphrase protected and was restored and used to sign from its encrypted export, so protection and recovery are demonstrated. ACTIVATION IS NOT DEMONSTRATED: no tag signed by this identity has been accepted by the gate, so release mode has not been seen to pass on a genuine git-signed tag. Historical signatures made by the retired identities have NOT been independently re-verified against the retired key. Nothing has been merged, no tag created or moved, and no release published. Earlier text below is preserved as written at drafting time; the drafting-time sentence "No key generated, nothing signed, nothing committed, nothing pushed, no tag created or moved" was true of that draft and is superseded by this status.
+
+The two decisions below are recorded as *recommended by
 the owner in the conversation* and marked unratified, because the same message that made
 the recommendations said they were not his to ratify. Execution waits on an explicit
 statement of decision.
