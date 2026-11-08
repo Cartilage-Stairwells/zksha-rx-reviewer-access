@@ -6,7 +6,7 @@ This document proposes an integration path for incorporating zkSHA-Rx's formally
 
 zkSHA-Rx provides:
 - A DIF radix-2 NTT with three execution paths (reference, scalar, AVX-512 SIMD)
-- Formal verification in Lean 4 (101 theorem declarations at Release A commit `70e614f3`; 0 project axioms, 0 `sorry`)
+- Formal verification in Lean 4 (101 theorem declarations under `TSCP/Formal` at Release A commit `70e614f3`; that corpus contains no `axiom` declaration and no `sorry`. The scaffold layer outside it — `TraceCoreProver/Kernel.lean` and `BabyBear/` — holds 4 theorems, 1 `axiom` and 12 `sorry` placeholders, and is excluded from the 101.)
 - A custody/provenance framework (TSCP) for verification evidence
 - Three-lane benchmark with correctness gate
 
