@@ -1,4 +1,7 @@
-# Pinned release signer, activated 2026-11-08 after passphrase protection and
-# a tested recovery from the encrypted export. The former seat is revoked and
-# remains on the retired list for historical verification only.
+# Pinned release signer as of 2026-11-08. The key behind this fingerprint is passphrase
+# protected and was restored and used to sign from its encrypted export, so protection and
+# recovery are demonstrated. ACTIVATION IS NOT YET DEMONSTRATED: no tag has been signed by
+# this identity and accepted by the gate, so release mode has not been seen to pass on a
+# genuine git-signed tag. The former seat is revoked and stays on the retired list for
+# historical verification only.
 D6581E111DA3F1C69759D6F50C4C0A104AD7B940
