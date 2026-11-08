@@ -8,9 +8,9 @@
 
 | Field | Value |
 |-------|-------|
-| Release tag | `review-v0.1.29` |
+| Release tag | `review-v0.1.30` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
-| Previous snapshot | `review-v0.1.28` / `14032e1` (historical) |
+| Previous snapshot | `review-v0.1.29` / `431e457d36` (historical) |
 | Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
@@ -24,6 +24,34 @@ deviation from the transition record's non-negotiable rather than compliance wit
 this snapshot the disclosure is enforced rather than described: `validate_release.sh` calls
 `gate-amendment/check_custody_disclosure.sh`, which refuses a record that omits the line,
 asserts independent control, or declares the mode more than once.
+
+## Change in this snapshot (review-v0.1.30)
+
+Documentary accuracy only. No validator, test, source file, or measured value changes.
+
+**The September census is corrected from 88 to 87.** The figure carried by earlier snapshots
+counted 84 build-root declarations plus 4 scaffolds. The build-root census at the pinned tag
+returns 83, so the total is 87: 83 declarations in the Lean files under `TSCP/Formal`, plus 4 in
+scaffold files outside every build root (`TraceCoreProver/Kernel.lean` 3,
+`BabyBear/Element.lean` 1). The extra declaration was a line of prose inside a block comment in
+`TSCP/Formal/Core.lean` — `theorem proof_valid — same statement, proved by rfl.` — read as a
+declaration by a census that did not strip block comments. This is a counting defect rather than
+a change of scope, and the earlier number is withdrawn, not re-scoped.
+
+**The two counts are now scoped separately.** Release A counts 101 build-root declarations at
+`70e614f3`. The build-root count rises by 18 from the September tag: one added in `Core.lean`,
+eleven in `NTTFull.lean`, six in `NormalizationBridge`. The reported totals differ by 14, because
+the four scaffolds sit in one figure and not the other. The authoritative reconciliation, with
+composition, is under "Corpus counts across tags" in `tscp-anchor`'s `CLAIMS_STATEMENT.md`.
+
+**A declaration census is not a verification result.** A count establishes what is declared at a
+commit. Compilation, axiom and `sorry` status are recorded separately at that commit, and the
+count does not establish any of them.
+
+**The reproduction command caught up with this snapshot.** It named `review-v0.1.21` while the
+current release was `review-v0.1.29`, the same staleness corrected at `review-v0.1.26` and which
+had drifted again. It now names this tag. Where the command and this record disagree, this record
+governs.
 
 ## Change in this snapshot (review-v0.1.29)
 
