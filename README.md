@@ -12,7 +12,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 
 | Layer | Evidence |
 |-------|----------|
-| Formal verification | 88 Lean theorem declarations in the public tscp-anchor corpus (tag `formal-corpus-v2026-09-11`); Montgomery.lean: 12 theorems, compile-verified, 0 axioms, 0 sorries |
+| Formal verification | 88 Lean theorem declarations in the public tscp-anchor corpus (tag `formal-corpus-v2026-09-11`); Montgomery.lean: 12 theorems, compile-verified, 0 axioms, 0 sorries. Release A in tscp-anchor counts 101 at commit `70e614f3`; neither figure revises the other and the reconciled delta (17) is under "Corpus counts across tags" in tscp-anchor's CLAIMS_STATEMENT.md |
 | Rust tests | 139 tests, 0 failures (102 integration + 37 unit; independently measured at this tag, 2026-10-23) |
 | SIMD | AVX2 + AVX-512 backends with correctness gate |
 | Benchmark | measured AVX-512 kernel speedup (three-lane benchmark, see BENCHMARKS.md for range) |
@@ -21,7 +21,7 @@ zkSHA-Rx explores a path toward **verified acceleration primitives**: NTT implem
 ## Quick Start
 
 ```bash
-git clone --branch review-v0.1.21 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
+git clone --branch review-v0.1.29 https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access
 cd zksha-rx-reviewer-access
 make reproduce
 ```
