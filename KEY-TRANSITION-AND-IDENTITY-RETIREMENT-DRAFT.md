@@ -1,6 +1,6 @@
-# Key transition and identity retirement — DRAFT, NOT EXECUTED
+# Key transition and identity retirement — DRAFT, PARTIALLY EXECUTED 2026-11-08
 
-Status: **prepared only.** No key generated, nothing signed, nothing committed, nothing
+Status: **partially executed 2026-11-08.** The former seat key is revoked and its revocation-bearing public half is the shipped copy; replacement `7FD1A718D855DD4D481E9FDBE70FE87308B04A22` was generated and ships as a candidate only. Release signing remains BLOCKED because the replacement secret key has no passphrase and its recovery path is untested. Historical signatures have NOT been independently re-verified against the retired key. Earlier text below is preserved as written at drafting time. No key generated, nothing signed, nothing committed, nothing
 pushed, no tag created or moved. The two decisions below are recorded as *recommended by
 the owner in the conversation* and marked unratified, because the same message that made
 the recommendations said they were not his to ratify. Execution waits on an explicit

@@ -1,7 +1,7 @@
 # Fail-closed release signature gate — prepared, not yet installed
 
 Status: **rehearsed against real repository data, including the acceptance path. Not
-committed, not pushed, not installed in any release repository.** No production identity
+committed to the docs/quickstart-release-and-count-pointer branch of the reviewer repository and not merged to main, with the pinned allowlist intentionally empty so the gate refuses every release.** No production identity
 exists. One disposable fixture identity was generated under explicit approval, signed one
 test tag, and had its signing capability destroyed; see below.
 

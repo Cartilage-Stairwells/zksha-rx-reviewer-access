@@ -11,7 +11,7 @@
 | Release tag | `review-v0.1.30` |
 | Source commit | The commit this tag resolves to — verify with `git rev-parse HEAD` |
 | Previous snapshot | `review-v0.1.29` / `431e457d36` (historical) |
-| Release signature | Seat identity `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD`, pinned in `gate-amendment/allowlist.pinned.txt` |
+| Release signature | BLOCKED. No active release identity is pinned. The former seat `CAF6A411CD9AD65E2557E3DA7C65D2F3BA9969AD` is revoked and its revocation-bearing public half is the shipped copy; the replacement `7FD1A718D855DD4D481E9FDBE70FE87308B04A22` ships as `gate-amendment/keys/candidate-seat-public-key.asc` and is deliberately NOT pinned. `allowlist.pinned.txt` is intentionally empty, so the gate refuses every release until a protected identity is pinned deliberately. |
 | Repository | https://github.com/Cartilage-Stairwells/zksha-rx-reviewer-access |
 
 ## Custody Disclosure
